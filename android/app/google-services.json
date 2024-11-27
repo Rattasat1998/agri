@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "276285060905",
+    "project_id": "agri-notification",
+    "storage_bucket": "agri-notification.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:276285060905:android:1617bf6e1075776f2ca938",
+        "android_client_info": {
+          "package_name": "com.agri.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDr-iar4IF4UpkQ6GkDXTctSZVGc_Oyseg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

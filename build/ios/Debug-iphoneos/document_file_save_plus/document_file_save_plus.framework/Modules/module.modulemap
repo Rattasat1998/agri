@@ -1,0 +1,11 @@
+framework module document_file_save_plus {
+  umbrella header "document_file_save_plus-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module document_file_save_plus.Swift {
+  header "document_file_save_plus-Swift.h"
+  requires objc
+}
