@@ -202,10 +202,11 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
           isAcceptTerms: event.isAcceptTerms,
         );
         if (response['result']) {
-          EasyLoading.show(status: response['message'] ?? '');
+          EasyLoading.showSuccess(response['message'] ?? '');
           emit(state.copyWith(isLoading: false, result: response));
           if (state.result['result']) {
             try {
+              EasyLoading.dismiss();
               state.result = {};
               emit(state.copyWith(result: state.result));
               // await Future.delayed(const Duration(seconds: 2));
@@ -216,6 +217,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
 
               //Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const AgriApp()), (route) => false);
             } catch (e) {
+              EasyLoading.dismiss();
               print(e);
             }
           }
@@ -223,10 +225,13 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
         } else {
           EasyLoading.show(status: response['message'] ?? '');
           emit(state.copyWith(isLoading: false));
+          EasyLoading.dismiss();
         }
         emit(state.copyWith(isLoading: false));
+        EasyLoading.dismiss();
       } catch (e) {
         print(e);
+        EasyLoading.dismiss();
         emit(state.copyWith(isLoading: false));
       }
     }
