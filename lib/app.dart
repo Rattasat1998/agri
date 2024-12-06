@@ -23,6 +23,7 @@ import 'screens/home/pages/training_schedule/bloc/training_bloc.dart';
 import 'screens/login/bloc/login_bloc.dart';
 import 'screens/machinery_map/bloc/machinery_map_bloc.dart';
 import 'screens/notification/bloc/notification_bloc.dart';
+import 'screens/profile/pages/conclusion/bloc/conclusion_bloc.dart';
 import 'screens/register/bloc/register_bloc.dart';
 import 'screens/request_machine/bloc/request_machine_bloc.dart';
 import 'utils/app_routers.dart';
@@ -70,6 +71,8 @@ class _AgriAppState extends State<AgriApp> {
         BlocProvider(create: (context) => AgriculturalInformationBloc()),
         BlocProvider(lazy: false,create: (context) => DashboardBloc()..add(DashboardInitialEvent(apiEndPoint: ApiEndPoint.getDashboard))),
         BlocProvider(lazy: false,create: (context) => AuthBloc()..add(AuthLoginEvent())),
+
+        BlocProvider(create: (context) => ConclusionBloc()),
       ],
       child: GetMaterialApp(
         title: 'agri',
@@ -95,7 +98,6 @@ class _AgriAppState extends State<AgriApp> {
           listener: (context, state) {
             if (state.isLoggedIn) {
               context.read<HomeBloc>().add(HomeInitialEvent());
-              print('Hererere');
               Navigator.pushNamedAndRemoveUntil(context, AppRoutes.homeScreen, (route) => false);
 
             } else {

@@ -118,4 +118,8 @@ class ApiEndPoint {
   static const String getMachineryMapList = "/machine/get-all-machine-in-maps";
 
 
+  static const String infoIntro = "/summary/information-intro";
+  static const String infoInSystemRice = "/summary/information";
+
+
 }

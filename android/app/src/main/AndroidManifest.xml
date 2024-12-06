@@ -41,7 +41,7 @@
     <application
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon"
-        android:label="Agri"
+        android:label="THAITRACTORBOOKING"
         android:requestLegacyExternalStorage="true"
         android:usesCleartextTraffic="true">
         <activity

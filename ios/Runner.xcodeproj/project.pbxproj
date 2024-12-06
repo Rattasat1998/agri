@@ -619,7 +619,8 @@
 				DEVELOPMENT_TEAM = Y96VL9V4NH;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Runner/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Agri;
+				INFOPLIST_KEY_CFBundleDisplayName = THAITRACTORBOOKING;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -959,7 +960,8 @@
 				DEVELOPMENT_TEAM = Y96VL9V4NH;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Runner/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Agri;
+				INFOPLIST_KEY_CFBundleDisplayName = THAITRACTORBOOKING;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -995,7 +997,8 @@
 				DEVELOPMENT_TEAM = Y96VL9V4NH;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Runner/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Agri;
+				INFOPLIST_KEY_CFBundleDisplayName = THAITRACTORBOOKING;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

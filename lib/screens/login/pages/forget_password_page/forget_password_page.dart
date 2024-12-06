@@ -81,7 +81,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                           EasyLoading.dismiss();
                           print(value);
                           if (value['result'] == true) {
-                            EasyLoading.show(status: value['message'] ?? '');
+                            EasyLoading.showSuccess(value['message'] ?? '');
                             Navigator.pushNamed(context, AppRoutes.forgetPasswordVerifyOTPPage, arguments: phoneNumber.text);
                           } else {
                             CustomDialog.showCustomDialog(

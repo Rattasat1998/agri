@@ -30,6 +30,9 @@ import 'package:agri/screens/profile/pages/agri_information/models/staff_info_da
 import 'package:agri/screens/profile/pages/agri_information/pages/section_1_page.dart';
 import 'package:agri/screens/profile/pages/agri_information/pages/section_2/section_2_page.dart';
 import 'package:agri/screens/profile/pages/agri_information/pages/section_3/section_3_page.dart';
+import 'package:agri/screens/profile/pages/conclusion/conclusion_page.dart';
+import 'package:agri/screens/profile/pages/conclusion/pages/family_info_page.dart';
+import 'package:agri/screens/profile/pages/conclusion/pages/system_rice_info_page.dart';
 import 'package:agri/screens/profile/pages/edit_profile_page.dart';
 import 'package:agri/screens/profile/profile_screen.dart';
 import 'package:agri/screens/register/pages/otp_verify_page.dart';
@@ -60,6 +63,7 @@ class AppRoutes {
   static const String dashboardScreen = '/dashboard';
   static const String main = '/main';
   static const String profileScreen = '/profile-screen';
+  static const String conclusionPage = '/conclusion-page';
   static const String agriInformationScreen = '/agri-information-page';
   static const String machineryMaoScreen = '/machinery-map-screen';
   static const String editProfileScreen = '/edit-profile-page';
@@ -111,6 +115,10 @@ class AppRoutes {
   static const String section2Page = '/section-2-page';
   static const String section3Page = '/section-3-page';
   static const String section2RiceFieldPage = '/section-2-rice-filed-page';
+
+
+  static const String familyInfoPage = '/familyInfo-page';
+  static const String systemRiceInfoPage = '/systemRice-page';
 }
 
 class AppRouteGenerator {
@@ -130,6 +138,12 @@ class AppRouteGenerator {
 
       case AppRoutes.section1Page:
         return CupertinoPageRoute(builder: (_) => const Section1Page());
+
+      case AppRoutes.familyInfoPage:
+        return CupertinoPageRoute(builder: (_) => const FamilyInfoPage());
+
+      case AppRoutes.systemRiceInfoPage:
+        return CupertinoPageRoute(builder: (_) => const SystemRiceInfoPage());
 
       case AppRoutes.section2Page:
         return CupertinoPageRoute(builder: (_) => const Section2Page());
@@ -154,6 +168,9 @@ class AppRouteGenerator {
 
       case AppRoutes.settingScreen:
         return CupertinoPageRoute(builder: (_) => const SettingScreen());
+
+      case AppRoutes.conclusionPage:
+        return CupertinoPageRoute(builder: (_) => const ConclusionPage());
 
       case AppRoutes.loginScreen:
         return MaterialPageRoute(builder: (_) => const LoginScreen());

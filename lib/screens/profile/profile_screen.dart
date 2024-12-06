@@ -67,6 +67,15 @@ class ProfileScreen extends StatelessWidget {
                       ),
                       _buildMenuButtonWidget(
                         leadIcon: CupertinoIcons.doc_text,
+                        title: 'สรุปข้อมูลด้านเกษตรของผู้ใช้',
+                        onTap: () {
+                           Navigator.pushNamed(context, AppRoutes.conclusionPage);
+                        },
+                        borderRadius: null,
+                        subText: null,
+                      ),
+                      _buildMenuButtonWidget(
+                        leadIcon: CupertinoIcons.doc_text,
                         title: 'ข้อกำหนดและเงื่อนไข',
                         onTap: () {
                           Navigator.push(context, CupertinoPageRoute(builder: (context) =>  const PolicyPage(isAccepted: false,)));

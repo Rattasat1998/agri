@@ -60,7 +60,7 @@ class _ForgetOtpVerifyPageState extends State<ForgetOtpVerifyPage> {
 
       if (value['result'] == true) {
         EasyLoading.dismiss();
-        EasyLoading.show(status: value['message'] ?? '');
+        EasyLoading.showSuccess(value['message'] ?? '');
          Navigator.pushNamed(context, AppRoutes.forgetChangeNewPasswordPage, arguments: widget.phoneNumber);
       } else {
         EasyLoading.dismiss();

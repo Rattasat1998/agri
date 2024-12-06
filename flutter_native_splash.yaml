@@ -1,13 +1,34 @@
 flutter_native_splash:
+  image: assets/logo/FullLogo.png
   color: "#deecf4"
-  image: assets/logo/iconlogo.png
+  #fullscreen: true
+  #fill: true
+  image_dark: assets/logo/FullLogo.png
   color_dark: "#deecf4"
-  image_dark: assets/logo/iconlogo.png
+  #background_image_ios: assets/prepost_logo/splash-screen-new.jpg
+  #background_image_dark_ios: assets/prepost_logo/splash-screen-new.jpg
 
   android_12:
-    image: assets/logo/iconlogo.png
+    image: assets/logo/FullLogo.png
     icon_background_color: "#deecf4"
-    image_dark: assets/logo/iconlogo.png
+    image_dark: assets/logo/FullLogo.png
     icon_background_color_dark: "##deecf4"
+  ios: true
 
   web: false
+
+#flutter_native_splash:
+#  color: "#deecf4"
+#  image: assets/logo/FullLogo.png
+#  color_dark: "#deecf4"
+#  image_dark: assets/logo/FullLogo.png
+#
+#  android_12:
+#    image: assets/logo/FullLogo.png
+#    icon_background_color: "#deecf4"
+#    image_dark: assets/logo/FullLogo.png
+#    icon_background_color_dark: "##deecf4"
+#
+#  web: false
+#
+

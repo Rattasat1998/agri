@@ -1,3 +1,4 @@
+import 'package:agri/screens/dashboard/dashboard_screen.dart';
 import 'package:agri/screens/login/repository/login_repository.dart';
 import 'package:agri/utils/app_routers.dart';
 import 'package:agri/utils/image_provider.dart';
@@ -176,7 +177,7 @@ class _ForgetChangeNewPasswordPageState extends State<ForgetChangeNewPasswordPag
                                     context: context,
                                     title: '',
                                     onPressed: () async {
-                                     await Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => AgriApp()), (route) => false);
+                                     await Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const DashBoardScreen()), (route) => false);
                                      // await Navigator.pushNamed(context, AppRoutes.loginScreen);
                                     },
                                     description: value['message'] ?? '',
@@ -191,7 +192,7 @@ class _ForgetChangeNewPasswordPageState extends State<ForgetChangeNewPasswordPag
                                       Get.back();
                                     },
                                     description: value['message'] ?? '',
-                                    icon: SizedBox(),
+                                    icon: const SizedBox(),
                                   );
                                 }
                               });
