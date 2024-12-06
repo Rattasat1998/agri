@@ -6,6 +6,7 @@ class ImageProviders {
   static String stack = 'assets/icons/stack.png';
   static String ic01 = 'assets/icons/ic-0.png';
   static String block = 'assets/icons/block.png';
+  static String incorrect = 'assets/icons/incorrect.png';
   static String history = 'assets/icons/history.png';
   static String waitConfirm = 'assets/icons/wait-confirm.png';
   static String photo = 'assets/icons/photo.png';

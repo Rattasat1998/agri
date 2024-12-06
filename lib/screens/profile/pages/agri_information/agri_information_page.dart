@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:agri/screens/profile/pages/agri_information/models/section_2_data_model.dart';
 import 'package:agri/screens/profile/pages/agri_information/repositories/agri_info_repository.dart';
 import 'package:agri/utils/app_routers.dart';
@@ -512,7 +514,7 @@ class _AgriInformationPageState extends State<AgriInformationPage> {
                   EasyLoading.show(status: 'กำลังบันทึกข้อมูล');
 
                   try {
-                    await AgriInfoRepository().addQuestion(mapData.toJson()).whenComplete(() {
+                    await AgriInfoRepository().addQuestionNew(mapData.toJson()).whenComplete(() {
                       EasyLoading.dismiss();
                       showDialog(
                         barrierDismissible: false,
@@ -560,7 +562,7 @@ class _AgriInformationPageState extends State<AgriInformationPage> {
                     print(e);
                   }
 
-                  print(mapData.toJson());
+                  print(jsonEncode(mapData.toJson()));
                 },
                 child: const CustomText(
                   text: 'ส่งข้อมูล',

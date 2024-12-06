@@ -18,6 +18,20 @@ class ConclusionRepository implements BaseConclusionRepository {
     return {'Accept': 'application/json', 'Authorization': 'Bearer $token'};
   }
 
+  Future checkIsSummary() async {
+
+    var request = http.Request('GET', Uri.parse('https://agri-app.extremesofts.com/api/summary/check'));
+
+    request.headers.addAll(await _header());
+
+    http.StreamedResponse response = await request.send();
+
+      final json = jsonDecode(await response.stream.bytesToString());
+      return json;
+
+
+  }
+
   @override
   Future<SystemRiceInfoModel> getInfoConclusion() async {
     final url = baseUrl + ApiEndPoint.infoInSystemRice;

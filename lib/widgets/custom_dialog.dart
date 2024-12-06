@@ -21,6 +21,7 @@ class CustomDialog {
             mainAxisSize: MainAxisSize.min,
             children: [
               icon ?? const SizedBox(),
+              SizedBox(height: icon == null ? 0 : 20),
               CustomText(
                 text: description,
                 fontSize: 16,
