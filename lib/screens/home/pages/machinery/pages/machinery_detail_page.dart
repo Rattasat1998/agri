@@ -159,10 +159,8 @@ class MachineryDetailPage extends StatelessWidget {
                                       _buildHistoryHeaderWidget(context, state),
                                       const SizedBox(height: 10),
                                       CustomMachineryHistoryListWidget(
-                                        historyList: state.machineryDetailModel!.data!.history
-                                            .take(3)
-                                            .toList(),
-                                        objectives: state.objectiveList!.data!.objectives,
+                                        historyList: state.machineryDetailModel?.data?.history ?? [],
+                                        objectives: state.objectiveList?.data?.objectives ?? [],
                                         physics: const NeverScrollableScrollPhysics(),
                                       ),
                                     ],
@@ -184,8 +182,8 @@ class MachineryDetailPage extends StatelessWidget {
   }
 
   Widget _buildHistoryHeaderWidget(BuildContext context, MachineryLoaded state) {
-    final historyList = state.machineryDetailModel!.data!.history;
-    final objectives = state.objectiveList!.data!.objectives;
+    final historyList = state.machineryDetailModel?.data?.history ?? [];
+    final objectives = state.objectiveList?.data?.objectives ?? [];
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [

@@ -6,6 +6,7 @@ import 'package:agri/screens/request_machine/repository/base_request_machine_rep
 import 'package:agri/utils/api_end_point.dart';
 import 'package:agri/utils/local_storage.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:http/http.dart' as http;
 
 class RequestMachineRepository implements BaseRequestMachineRepository {
@@ -16,20 +17,25 @@ class RequestMachineRepository implements BaseRequestMachineRepository {
   Future approveBorrowInGroup(int borrowId) async {
     final token = await LocalStorage.getToken();
     var headers = {'Accept': 'application/json', 'Authorization': 'Bearer $token'};
-    var request = http.Request('PUT', Uri.parse(baseUrl + ApiEndPoint.approveRequestInGroup.replaceAll('{id}', borrowId.toString())));
-    print(request.url);
-    print(token);
-    request.headers.addAll(headers);
+    try {
+      var request = http.Request('PUT', Uri.parse(baseUrl + ApiEndPoint.approveRequestInGroup.replaceAll('{id}', borrowId.toString())));
+      print(request.url);
+      print(token);
+      request.headers.addAll(headers);
 
-    http.StreamedResponse response = await request.send();
-
-    if (response.statusCode == 200) {
-      final json = jsonDecode(await response.stream.bytesToString());
-      return json;
-    }
-    else {
-      print(response.reasonPhrase);
-      throw Exception('Failed to load data!');
+      http.StreamedResponse response = await request.send();
+      print(response.statusCode);
+      if (response.statusCode == 200) {
+            final json = jsonDecode(await response.stream.bytesToString());
+            return json;
+          }
+          else {
+            print(response.reasonPhrase);
+            throw Exception(response.reasonPhrase);
+          }
+    } catch (e) {
+      EasyLoading.showError('catch : เกิดข้อผิดพลาด ${e.toString()}');
+      print(e);
     }
 
     throw UnimplementedError();

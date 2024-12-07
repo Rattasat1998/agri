@@ -73,7 +73,8 @@ class MachineryBloc extends Bloc<MachineryEvent, MachineryState> {
   }
 
   String findObjectiveNameById(int id, List<Objective> historyList) {
-
+    print('id: $id');
+    print('historyList: $historyList');
       final objective = historyList.firstWhere(
         (element) => element.objectiveId == id,
       );

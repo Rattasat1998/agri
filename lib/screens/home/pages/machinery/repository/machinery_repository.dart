@@ -23,27 +23,37 @@ class MachineryRepository implements BaseMachineryRepository {
     required String description,
   })async {
     final token = await LocalStorage.getToken();
-    var headers = {'Accept': 'application/json', 'Authorization': 'Bearer $token'};
-    var request = http.Request('POST', Uri.parse(baseUrl + ApiEndPoint.createBorrowMachinery));
+    try {
+      var headers = {'Accept': 'application/json', 'Authorization': 'Bearer $token'};
+      var request = http.Request('POST', Uri.parse(baseUrl + ApiEndPoint.createBorrowMachinery));
 
-    request.bodyFields = {
-      'machine_id': machineryId,
-      'objective_id': objectiveId,
-      'start_date': startDate,
-      'end_date': endDate,
-      'number_fields': numberOfFields,
-      'description': description,
-    };
-    request.headers.addAll(headers);
+      request.bodyFields = {
+            'machine_id': machineryId,
+            'objective_id': objectiveId,
+            'start_date': startDate,
+            'end_date': endDate,
+            'number_fields': numberOfFields,
+            'description': description,
+          };
+      request.headers.addAll(headers);
 
-    http.StreamedResponse response = await request.send();
+      print(jsonEncode(request.bodyFields));
+      print(request.url);
+      print(request.headers);
 
-    if (response.statusCode == 201) {
+      http.StreamedResponse response = await request.send();
+      print(response.statusCode);
 
-      return jsonDecode(await response.stream.bytesToString());
-    }
-    else {
-    print(response.reasonPhrase);
+      if (response.statusCode == 201) {
+
+            return jsonDecode(await response.stream.bytesToString());
+          }
+          else {
+          print(response.reasonPhrase);
+          }
+    } catch (e,t) {
+      print(e);
+      print(t);
     }
   }
 

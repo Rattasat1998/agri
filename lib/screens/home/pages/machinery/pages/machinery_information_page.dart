@@ -26,6 +26,7 @@ class MachineryInformationPage extends StatelessWidget {
               body: CustomScrollView(
               slivers: [
                 SliverAppBar(
+                  pinned: true,
                   leading: const BackButtonWidget(),
                   expandedHeight: 300,
                   backgroundColor: Colors.white,
@@ -39,48 +40,47 @@ class MachineryInformationPage extends StatelessWidget {
                 SliverList(
                   delegate: SliverChildListDelegate(
                     [
-                      Row(
-                        children: [
-                          Expanded(
-                              flex: 2,
+                      Container(
+                        padding: const EdgeInsets.all(10),
+                        //height: 70,
+                        color: const Color(0xff496C39),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  CustomText(
+                                    text: machineState.machineryInfoModel!.data!
+                                        .machineInformation!.machineName!,
+                                    color: Colors.white,
+                                    fontSize: 13,
+                                  ),
+                                  CustomText(
+                                    text: machineState
+                                        .machineryInfoModel!.data!.machineInformation!.groupName!,
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                    textAlign: TextAlign.left,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                _makePhoneCall(machineState
+                                    .machineryInfoModel!.data!.machineInformation!.tel!);
+                              },
                               child: Container(
-                                padding: const EdgeInsets.all(10),
-                                height: 70,
-                                color: const Color(0xff496C39),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    CustomText(
-                                      text: machineState.machineryInfoModel!.data!
-                                          .machineInformation!.machineName!,
-                                      color: Colors.white,
-                                      fontSize: 13,
-                                    ),
-                                    CustomText(
-                                      text: machineState
-                                          .machineryInfoModel!.data!.machineInformation!.groupName!,
-                                      color: Colors.white,
-                                      fontSize: 18,
-                                    ),
-                                  ],
-                                ),
-                              )),
-                          Expanded(
-                              flex: 1,
-                              child: GestureDetector(
-                                onTap: () {
-                                  _makePhoneCall(machineState
-                                      .machineryInfoModel!.data!.machineInformation!.tel!);
-                                },
-                                child: Container(
-                                  height: 70,
-                                  padding: const EdgeInsets.all(10),
-                                  color: const Color(0xff29411F),
-                                  child: Image.asset(ImageProviders.phone),
-                                ),
-                              )),
-                        ],
+                                // height: 70,
+                                padding: const EdgeInsets.all(16),
+                                color: const Color(0xff29411F),
+                                child: Image.asset(ImageProviders.phone, height: 50, width: 50),
+                              ),
+                            )
+                          ],
+                        ),
                       ),
 
                       Container(

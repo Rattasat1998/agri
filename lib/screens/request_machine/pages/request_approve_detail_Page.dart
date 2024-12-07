@@ -387,7 +387,7 @@ class RequestApproveDetailPage extends StatelessWidget {
                                       ),
                                       onPressed: () {
                                         print('Here');
-                                        // Get.back();
+                                         Get.back();
                                         context.read<RequestMachineBloc>().add(
                                               RequestMachineApproveInGroupEvent(
                                                 state.approveRequestDetailModel!.borrowId,
@@ -456,7 +456,7 @@ class RequestApproveDetailPage extends StatelessWidget {
                 Visibility(
                   visible:
                       isFromHistory && state.approveRequestDetailModel!.status >= 2 && inGroup == 0,
-                  child: state.approveRequestDetailModel!.status == 6
+                  child: state.approveRequestDetailModel?.status == 6
                       ? _buildCardStatusWidget(
                           message: state.approveRequestDetailModel!.message,
                           status: state.approveRequestDetailModel!.status,
@@ -478,7 +478,7 @@ class RequestApproveDetailPage extends StatelessWidget {
                   visible: isFromHistory &&
                       (state.approveRequestDetailModel!.status >= 3) &&
                       inGroup == 1,
-                  child: state.approveRequestDetailModel!.status == 6
+                  child: state.approveRequestDetailModel?.status == 6
                       ? _buildCardStatusWidget(
                           message: state.approveRequestDetailModel!.message,
                           status: state.approveRequestDetailModel!.status,
@@ -498,7 +498,7 @@ class RequestApproveDetailPage extends StatelessWidget {
                 ),
 
                 ///
-                !isFromHistory
+               /* !isFromHistory
                     ? const SizedBox()
                     : Visibility(
                         visible: state.approveRequestDetailModel?.status == 1 ||
@@ -532,8 +532,7 @@ class RequestApproveDetailPage extends StatelessWidget {
                                       ),
                                       onPressed: () {
                                         Get.back();
-                                        print(
-                                            'Here 2 : ${state.approveRequestDetailModel!.borrowId}');
+                                        print('Here 2 : ${state.approveRequestDetailModel!.borrowId}');
                                         state.currentTab = inGroup;
                                         context.read<RequestMachineBloc>().add(
                                               RequestMachineApproveInGroupEvent(
@@ -591,10 +590,11 @@ class RequestApproveDetailPage extends StatelessWidget {
                             ),
                           ],
                         ),
-                      ),
+                      ),*/
               ],
             ),
           ),
+          SizedBox(height: 16),
         ],
       );
     }

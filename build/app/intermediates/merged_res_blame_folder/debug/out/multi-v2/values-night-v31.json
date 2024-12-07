@@ -4,7 +4,31 @@
             "outputFile": "com.agri.app-mergeDebugResources-41:/values-night-v31/values-night-v31.xml",
             "map": [
                 {
-                    "source": "/Users/developer/Workspace/kunchai/agri/android/app/src/main/res/values-night-v31/styles.xml",
+                    "source": "/Users/developer/Workspace/imove-project/kun/agri/android/app/src/main/res/values-night-v31/styles.xml",
+                    "from": {
+                        "startLines": "3,-1",
+                        "startColumns": "4,-1",
+                        "startOffsets": "173,-1",
+                        "endLines": "11,-1",
+                        "endColumns": "12,-1",
+                        "endOffsets": "776,-1"
+                    },
+                    "to": {
+                        "startLines": "2,11",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,663",
+                        "endLines": "10,13",
+                        "endColumns": "12,12",
+                        "endOffsets": "658,827"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/developer/.gradle/daemon/7.5/com.agri.app-mergeDebugResources-41:/values-night-v31/values-night-v31.xml",
+            "map": [
+                {
+                    "source": "/Users/developer/Workspace/imove-project/kun/agri/android/app/src/main/res/values-night-v31/styles.xml",
                     "from": {
                         "startLines": "3,18",
                         "startColumns": "4,4",

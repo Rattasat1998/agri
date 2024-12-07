@@ -97,10 +97,14 @@ class _StatisticsHistoryDetailPageState extends State<StatisticsHistoryDetailPag
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  CustomText(
-                      text: borrowDetail.machineName.toString(),
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold),
+                  Expanded(
+                    child: CustomText(
+                        text: borrowDetail.machineName.toString(),
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      textAlign: TextAlign.left,
+                    ),
+                  ),
                   GestureDetector(
                     onTap: () {
                       context.read<MachineryBloc>().add(

@@ -62,6 +62,8 @@
 		<key>com.apple.developer.siri</key>
 		<true/>
 		<key>UIStatusBarHidden</key>
+		<true/>
+		<key>UIViewControllerBasedStatusBarAppearance</key>
 		<false/>
 	</dict>
 </plist>

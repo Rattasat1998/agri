@@ -4,6 +4,7 @@ import 'package:agri/screens/home/bloc/home_bloc.dart';
 import 'package:agri/screens/home/home_admin_screen.dart';
 import 'package:agri/screens/home/home_manager_screen.dart';
 import 'package:agri/screens/home/home_user_screen.dart';
+import 'package:agri/screens/login/repository/login_repository.dart';
 import 'package:agri/screens/request_machine/bloc/request_machine_bloc.dart';
 import 'package:agri/services/notification_service.dart';
 import 'package:agri/utils/custom_role_widget.dart';
@@ -45,7 +46,9 @@ class _HomeScreenState extends State<HomeScreen> {
     await Permission.notification.request();
     await [Permission.location, Permission.locationWhenInUse, Permission.locationAlways].request();
     FirebaseMessaging messaging = FirebaseMessaging.instance;
-    print('FCM = ${await messaging.getToken()}');
+    final _fcmToken = await messaging.getToken();
+    print('FCM = $_fcmToken');
+    await LoginRepository().storeFcmToken(_fcmToken ?? '');
   }
 
   void _configureSelectNotificationSubject() {

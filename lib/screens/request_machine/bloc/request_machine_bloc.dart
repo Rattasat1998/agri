@@ -95,8 +95,10 @@ class RequestMachineBloc extends Bloc<RequestMachineEvent, RequestMachineState> 
       try {
         print('state.currentTab ${state.currentTab}');
         if (state.currentTab == 0) {
+          print('in group');
           response = await _requestMachineRepository.approveBorrowInGroup(event.borrowId);
         } else {
+          print('out group');
           response = await _requestMachineRepository.approveBorrowOutGroup(event.borrowId);
         }
         if (response['result']) {
@@ -109,6 +111,7 @@ class RequestMachineBloc extends Bloc<RequestMachineEvent, RequestMachineState> 
             onPressed: () {
               Get.back();
               Get.back();
+             // Get.back();
              // Get.back();
               // add(RequestMachineInitialEvent());
             },

@@ -1,0 +1,1 @@
+ /Users/developer/Workspace/imove-project/kun/agri/.dart_tool/flutter_build/1653a699600ce6ae50c71cdc96509f0a/native_assets.yaml: 

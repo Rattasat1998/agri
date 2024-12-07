@@ -1,18 +1,16 @@
 flutter_native_splash:
   image: assets/logo/FullLogo.png
-  color: "#deecf4"
+  color: "#ffffff"
   #fullscreen: true
-  #fill: true
+  fullscreen: true
   image_dark: assets/logo/FullLogo.png
-  color_dark: "#deecf4"
   #background_image_ios: assets/prepost_logo/splash-screen-new.jpg
   #background_image_dark_ios: assets/prepost_logo/splash-screen-new.jpg
 
   android_12:
-    image: assets/logo/FullLogo.png
-    icon_background_color: "#deecf4"
-    image_dark: assets/logo/FullLogo.png
-    icon_background_color_dark: "##deecf4"
+    image: assets/logo/one150.png
+    image_dark: assets/logo/one150.png
+    icon_background_color: "#ffffff"
   ios: true
 
   web: false

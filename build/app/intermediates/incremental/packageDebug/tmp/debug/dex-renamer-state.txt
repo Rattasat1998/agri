@@ -1,11 +1,11 @@
-#Wed Nov 27 23:28:57 ICT 2024
-base.0=/Users/developer/Workspace/kunchai/agri/build/app/intermediates/dex/debug/mergeExtDexDebug/classes.dex
-base.1=/Users/developer/Workspace/kunchai/agri/build/app/intermediates/dex/debug/mergeLibDexDebug/0/classes.dex
-base.2=/Users/developer/Workspace/kunchai/agri/build/app/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
-base.3=/Users/developer/Workspace/kunchai/agri/build/app/intermediates/dex/debug/mergeProjectDexDebug/1/classes.dex
-base.4=/Users/developer/Workspace/kunchai/agri/build/app/intermediates/dex/debug/mergeProjectDexDebug/13/classes.dex
-base.5=/Users/developer/Workspace/kunchai/agri/build/app/intermediates/dex/debug/mergeProjectDexDebug/4/classes.dex
-base.6=/Users/developer/Workspace/kunchai/agri/build/app/intermediates/dex/debug/mergeExtDexDebug/classes2.dex
+#Sat Dec 07 15:37:48 ICT 2024
+base.0=/Users/developer/Workspace/imove-project/kun/agri/build/app/intermediates/dex/debug/mergeExtDexDebug/classes.dex
+base.1=/Users/developer/Workspace/imove-project/kun/agri/build/app/intermediates/dex/debug/mergeLibDexDebug/0/classes.dex
+base.2=/Users/developer/Workspace/imove-project/kun/agri/build/app/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
+base.3=/Users/developer/Workspace/imove-project/kun/agri/build/app/intermediates/dex/debug/mergeProjectDexDebug/1/classes.dex
+base.4=/Users/developer/Workspace/imove-project/kun/agri/build/app/intermediates/dex/debug/mergeProjectDexDebug/13/classes.dex
+base.5=/Users/developer/Workspace/imove-project/kun/agri/build/app/intermediates/dex/debug/mergeProjectDexDebug/4/classes.dex
+base.6=/Users/developer/Workspace/imove-project/kun/agri/build/app/intermediates/dex/debug/mergeExtDexDebug/classes2.dex
 path.0=classes.dex
 path.1=0/classes.dex
 path.2=0/classes.dex
