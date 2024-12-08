@@ -1,6 +1,4 @@
 PODS:
-  - document_file_save_plus (0.0.1):
-    - Flutter
   - Firebase/CoreOnly (11.4.0):
     - FirebaseCore (= 11.4.0)
   - Firebase/Messaging (11.4.0):
@@ -111,7 +109,6 @@ PODS:
     - Flutter
 
 DEPENDENCIES:
-  - document_file_save_plus (from `.symlinks/plugins/document_file_save_plus/ios`)
   - Firebase/Messaging
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - firebase_messaging (from `.symlinks/plugins/firebase_messaging/ios`)
@@ -149,8 +146,6 @@ SPEC REPOS:
     - TOCropViewController
 
 EXTERNAL SOURCES:
-  document_file_save_plus:
-    :path: ".symlinks/plugins/document_file_save_plus/ios"
   firebase_core:
     :path: ".symlinks/plugins/firebase_core/ios"
   firebase_messaging:
@@ -187,7 +182,6 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/webview_flutter_wkwebview/ios"
 
 SPEC CHECKSUMS:
-  document_file_save_plus: 913d440d8b611ae19add4522ed578e3ed1483a2f
   Firebase: cf1b19f21410b029b6786a54e9764a0cacad3c99
   firebase_core: 9efc3ecf689cdbc90f13f4dc58108c83ea46b266
   firebase_messaging: 6bf60adb4b33a848d135e16bc363fb4924f98fba

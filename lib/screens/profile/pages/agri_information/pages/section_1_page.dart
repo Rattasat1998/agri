@@ -2074,7 +2074,7 @@ class _Section1PageState extends State<Section1Page> {
       children: [
         _buildCheckRowTextWidget(
           value: tractorHead.value,
-          text: 'เครื่องหยอดเมล็ดข้าว',
+          text: 'เครื่องอัดฟาง',
           onChanged: (value) {
             setState(() {
               tractorHead.value = value!;
@@ -2641,7 +2641,7 @@ class _Section1PageState extends State<Section1Page> {
                 keyboardType: TextInputType.number,
                 validator:  isAllTrue ? null : (value) => 'กรุณาระบุ',
                 onChanged: (value) {
-                  _formKeyA3.currentState!.validate();
+                  _formKeyA3.currentState?.validate();
                   setState(() {});
                 },
               ),

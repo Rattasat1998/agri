@@ -19,7 +19,7 @@ class _SystemRiceInfoPageState extends State<SystemRiceInfoPage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    context.read<ConclusionBloc>().add(ConclusionInitialSystemRiceEvent());
+
   }
 
   @override
@@ -61,7 +61,7 @@ class _SystemRiceInfoPageState extends State<SystemRiceInfoPage> {
               ),
             );
           }  else {
-            final questions = state.systemRiceModel!.data!.questions;
+            final questions = state.systemRiceModel?.data?.questions;
             print('questions: $questions');
 
             return SingleChildScrollView(
@@ -87,7 +87,7 @@ class _SystemRiceInfoPageState extends State<SystemRiceInfoPage> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          ...questions.entries.map((e) {
+                          ...questions!.entries.map((e) {
                             return Container(
                               padding: const EdgeInsets.all(16),
                               margin: const EdgeInsets.only(bottom: 8),

@@ -1070,7 +1070,7 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                     if (s24511values1[1].value) {
                                       if (s24511All2) {
                                         Fluttertoast.showToast(
-                                          msg: 'กรุณากรอกข้อมูลในข้อ',
+                                          msg: 'กรุณากรอกข้อมูลในข้อ ',
                                           toastLength: Toast.LENGTH_SHORT,
                                           gravity: ToastGravity.CENTER,
                                           timeInSecForIosWeb: 3,
@@ -4342,7 +4342,7 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                 setState(() {});
                               },
                             ),
-                            const SizedBox(height: 10),
+                            /*const SizedBox(height: 10),
                             const CustomText(
                               text: 'วิธีการการให้น้ำ',
                               fontSize: 16,
@@ -4363,7 +4363,7 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                 _keyCaseOfApplyingFertilizers.currentState?.validate();
                                 setState(() {});
                               },
-                            ),
+                            ),*/
                             const SizedBox(height: 10),
                             const CustomText(
                               text: 'ชนิดของปุ๋ย',

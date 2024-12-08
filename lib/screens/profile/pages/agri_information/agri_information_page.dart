@@ -67,8 +67,6 @@ class _AgriInformationPageState extends State<AgriInformationPage> {
           bool isSection3 = !state.isSection3Pending;
 
 
-
-
           return Column(
             children: [
               Container(
@@ -532,7 +530,7 @@ class _AgriInformationPageState extends State<AgriInformationPage> {
                                   color: Colors.green,
                                 ),
                                 onPressed: () {
-                                  state.selectedRiceField = null;
+                                 /* state.selectedRiceField = null;
                                   state.staffData = null;
                                   _clearSection1();
                                   _clearSection2();
@@ -547,7 +545,7 @@ class _AgriInformationPageState extends State<AgriInformationPage> {
                                     TextEditingController(),
                                     TextEditingController(),
                                   ];
-                                  RiceFieldModel.riceFields.clear();
+                                  RiceFieldModel.riceFields.clear();*/
                                   setState(() {});
                                   Navigator.pop(context);
                                   Navigator.pop(context);
@@ -562,7 +560,7 @@ class _AgriInformationPageState extends State<AgriInformationPage> {
                     print(e);
                   }
 
-                  print(jsonEncode(mapData.toJson()));
+                  //print(jsonEncode(mapData.toJson()));
                 },
                 child: const CustomText(
                   text: 'ส่งข้อมูล',

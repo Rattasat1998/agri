@@ -112,6 +112,7 @@ class GroupCardWidget extends StatelessWidget {
                                         text: allMember.toString(),
                                         fontSize: 16,
                                         fontWeight: FontWeight.bold,
+                                        color: Colors.black,
                                         overflow: TextOverflow.visible)),
                                 const CustomText(text: '  คน'),
                               ],
@@ -148,11 +149,12 @@ class GroupCardWidget extends StatelessWidget {
                                     children: [
                                       const CustomText(text: 'ที่นารวม', textAlign: TextAlign.left),
                                       CustomText(
-                                        text: totalRiceFields.toStringAsFixed(2),
+                                        text: totalRiceFields.toStringAsFixed(0),
                                         fontSize: 16,
                                         fontWeight: FontWeight.bold,
                                         overflow: TextOverflow.ellipsis,
                                         textAlign: TextAlign.left,
+                                        color: Colors.black,
                                       ),
                                     ],
                                   ),
@@ -190,6 +192,7 @@ class GroupCardWidget extends StatelessWidget {
                       textAlign: TextAlign.left,
                       overflow: TextOverflow.visible,
                       fontWeight: FontWeight.bold,
+                      color: Colors.black,
                       fontSize: 18,
                     ),
                     const CustomText(

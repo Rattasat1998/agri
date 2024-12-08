@@ -17,7 +17,7 @@ class _FamilyInfoPageState extends State<FamilyInfoPage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    context.read<ConclusionBloc>().add(ConclusionInitialFamilyEvent());
+
   }
 
   @override
