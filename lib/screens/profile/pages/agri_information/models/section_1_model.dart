@@ -16,6 +16,13 @@ class Section1Point1 {
     };
   }
 
+  factory Section1Point1.fromJson(Map<String, dynamic> json) {
+    return Section1Point1(
+      question: json['question'],
+      model: List<Section1Point1Model>.from(json['model'].map((x) => Section1Point1Model.fromJson(x))),
+    );
+  }
+
   static  Section1Point1 section1Point1 = Section1Point1(
     question: '1. รายได้หลักของท่านมาจากอาชีพอะไร',
     model: [
@@ -663,6 +670,14 @@ class Section1Point1Model {
       'controller': controller?.text,
     };
   }
+
+  factory Section1Point1Model.fromJson(Map<String, dynamic> json) {
+    return Section1Point1Model(
+      question: json['question'],
+      value: json['value'],
+      controller: TextEditingController(text: json['controller']),
+    );
+  }
 }
 
 class Section1Point3 {
@@ -683,6 +698,15 @@ class Section1Point3 {
       'suffix': suffix,
     };
   }
+
+  factory Section1Point3.fromJson(Map<String, dynamic> json) {
+    return Section1Point3(
+      question: json['question'],
+      controller: TextEditingController(text: json['controller']),
+      suffix: json['suffix'],
+    );
+  }
+
 }
 
 class Section1Point4 {
@@ -702,6 +726,14 @@ class Section1Point4 {
       'wasList': wasList.map((e) => e.toJson()).toList(),
       'wasListModel': wasListModel.map((e) => e.toJson()).toList(),
     };
+  }
+
+  factory Section1Point4.fromJson(Map<String, dynamic> json) {
+    return Section1Point4(
+      question: json['question'],
+      wasList: List<Section1Point4Model>.from(json['wasList'].map((x) => Section1Point4Model.fromJson(x))),
+      wasListModel: List<Section1Point4WasListModel>.from(json['wasListModel'].map((x) => Section1Point4WasListModel.fromJson(x))),
+    );
   }
 }
 
@@ -726,6 +758,17 @@ class Section1Point4WasListModel {
       'remark': remark?.text,
     };
   }
+
+  factory Section1Point4WasListModel.fromJson(Map<String, dynamic> json) {
+    return Section1Point4WasListModel(
+      dty: json['dty'],
+      group: json['group'],
+      role: json['role'],
+      remark: json['remark'],
+    );
+  }
+
+
 }
 
 class Section1Point4Model {
@@ -742,6 +785,15 @@ class Section1Point4Model {
       'text': text,
       'value': value,
     };
+
+
+  }
+
+  factory Section1Point4Model.fromJson(Map<String, dynamic> json) {
+    return Section1Point4Model(
+      text: json['text'],
+      value: json['value'],
+    );
   }
 }
 
@@ -759,6 +811,13 @@ class Section1Point5 {
       'question': question,
       'wasListModel': wasListModel.map((e) => e.toJson()).toList(),
     };
+  }
+
+  factory Section1Point5.fromJson(Map<String, dynamic> json) {
+    return Section1Point5(
+      question: json['question'],
+      wasListModel: List<Section1Point5ListModel>.from(json['wasListModel'].map((x) => Section1Point5ListModel.fromJson(x))),
+    );
   }
 }
 
@@ -795,6 +854,19 @@ class Section1Point5ListModel {
       'landTypeList': landTypeList?.toJson(),
     };
   }
+
+  factory Section1Point5ListModel.fromJson(Map<String, dynamic> json) {
+    return Section1Point5ListModel(
+      landName: json['landName'],
+      landZCount: json['landZCount'],
+      landArea: json['landArea'],
+      landHolding: json['landHolding'],
+      landForUse: json['landForUse'],
+      landType: json['landType'],
+      landRemark: json['landRemark'],
+      landTypeList: LandType.fromJson(json['landTypeList']),
+    );
+  }
 }
 
 class LandType {
@@ -811,6 +883,13 @@ class LandType {
       'value': value,
       'name': name,
     };
+  }
+
+  factory LandType.fromJson(Map<String, dynamic> json) {
+    return LandType(
+      name: json['name'],
+      value: json['value'],
+    );
   }
 
   static final List<LandType> landTypeList = [
@@ -837,6 +916,15 @@ class Section1PointAdOnModelList {
       'value': value,
     };
   }
+
+  factory Section1PointAdOnModelList.fromJson(Map<String, dynamic> json) {
+    return Section1PointAdOnModelList(
+      id: json['id'],
+      question: json['question'],
+      value: json['value'],
+    );
+  }
+
 }
 
 class Section1PointAdOn1 {
@@ -857,6 +945,16 @@ class Section1PointAdOn1 {
       'adOn1': adOn1.toJson(),
     };
   }
+
+  factory Section1PointAdOn1.fromJson(Map<String, dynamic> json) {
+    return Section1PointAdOn1(
+      question: json['question'],
+      tractorModel:  Section1PointAdOnModelList.fromJson(json['tractorModel']),
+      adOn1: AdOn1.fromJson(json['adOn1']),
+    );
+  }
+
+
 }
 
 class AdOn1ForUse2 {
@@ -874,6 +972,14 @@ class AdOn1ForUse2 {
       'forWorkList': forWorkList.map((e) => e.toJson()).toList(),
     };
   }
+
+  factory AdOn1ForUse2.fromJson(Map<String, dynamic> json) {
+    return AdOn1ForUse2(
+      forWork: Section1PointAdOnModelList.fromJson(json['forWork']),
+      forWorkList: List<Section1PointAdOnModelList>.from(json['forWorkList'].map((x) => Section1PointAdOnModelList.fromJson(x))),
+    );
+  }
+
 }
 
 class AdOn1ForUse {
@@ -891,6 +997,14 @@ class AdOn1ForUse {
       'forWorks': forWorks.toJson(),
     };
   }
+
+  factory AdOn1ForUse.fromJson(Map<String, dynamic> json) {
+    return AdOn1ForUse(
+      inHome: Section1PointAdOnModelList.fromJson(json['inHome']),
+      forWorks: AdOn1ForUse2.fromJson(json['forWorks']),
+    );
+  }
+
 }
 
 class AdOn1ForUse3 {
@@ -911,6 +1025,15 @@ class AdOn1ForUse3 {
       'count': count?.text,
     };
   }
+
+  factory AdOn1ForUse3.fromJson(Map<String, dynamic> json) {
+    return AdOn1ForUse3(
+      text: json['text'],
+      value: json['value'],
+      count: TextEditingController(text: json['count']),
+    );
+  }
+
 }
 
 class AdOn1 {
@@ -957,6 +1080,25 @@ class AdOn1 {
       'rotaree': rotaree.toJson(),
     };
   }
+
+
+  factory AdOn1.fromJson(Map<String, dynamic> json) {
+    return AdOn1(
+      tractorHourse: TextEditingController(text: json['tractorHourse']),
+      tractorCount: TextEditingController(text: json['tractorCount']),
+      tractorYear: TextEditingController(text: json['tractorYear']),
+      tractorStatus: List<Section1PointAdOnModelList>.from(json['tractorStatus'].map((x) => Section1PointAdOnModelList.fromJson(x))),
+      forUse: AdOn1ForUse.fromJson(json['forUse']),
+      week: TextEditingController(text: json['week']),
+      month: TextEditingController(text: json['month']),
+      year: TextEditingController(text: json['year']),
+      adOn1ForUse3: List<AdOn1ForUse3>.from(json['adOn1ForUse3'].map((x) => AdOn1ForUse3.fromJson(x))),
+      landExpotion: AdOn1ForUse3.fromJson(json['landExpotion']),
+      rotaree: AdOn1ForUse3.fromJson(json['rotaree']),
+    );
+  }
+
+
 }
 
 class Section1PointAdOn2 {
@@ -976,6 +1118,14 @@ class Section1PointAdOn2 {
       'tractorModel': tractorModel.toJson(),
       'adOn1': adOn2.toJson(),
     };
+  }
+
+  factory Section1PointAdOn2.fromJson(Map<String, dynamic> json) {
+    return Section1PointAdOn2(
+      question: json['question'],
+      tractorModel: Section1PointAdOnModelList.fromJson(json['tractorModel']),
+      adOn2: AdOn2.fromJson(json['adOn1']),
+    );
   }
 }
 
@@ -1013,6 +1163,20 @@ class AdOn2 {
       'year': year?.text ?? '0',
     };
   }
+
+  factory AdOn2.fromJson(Map<String, dynamic> json) {
+    return AdOn2(
+      rowCount: TextEditingController(text: json['rowCount']),
+      tractorCount: TextEditingController(text: json['tractorCount']),
+      tractorYear: TextEditingController(text: json['tractorYear']),
+      tractorStatus: List<Section1PointAdOnModelList>.from(json['tractorStatus'].map((x) => Section1PointAdOnModelList.fromJson(x))),
+      forUse: AdOn1ForUse.fromJson(json['forUse']),
+      week: TextEditingController(text: json['week']),
+      month: TextEditingController(text: json['month']),
+      year: TextEditingController(text: json['year']),
+    );
+  }
+
 }
 
 class Section1PointAdOn3 {
@@ -1033,6 +1197,15 @@ class Section1PointAdOn3 {
       'adOn1': adOn3.toJson(),
     };
   }
+
+  factory Section1PointAdOn3.fromJson(Map<String, dynamic> json) {
+    return Section1PointAdOn3(
+      question: json['question'],
+      tractorModel: Section1PointAdOnModelList.fromJson(json['tractorModel']),
+      adOn3: AdOn3.fromJson(json['adOn1']),
+    );
+  }
+
 }
 
 
@@ -1068,6 +1241,18 @@ class AdOn3 {
       'month': month?.text,
       'year': year?.text,
     };
+  }
+
+  factory AdOn3.fromJson(Map<String, dynamic> json) {
+    return AdOn3(
+      tractorCount: TextEditingController(text: json['tractorCount']),
+      tractorYear: TextEditingController(text: json['tractorYear']),
+      tractorStatus: List<Section1PointAdOnModelList>.from(json['tractorStatus'].map((x) => Section1PointAdOnModelList.fromJson(x))),
+      forUse: AdOn1ForUse.fromJson(json['forUse']),
+      week: TextEditingController(text: json['week']),
+      month: TextEditingController(text: json['month']),
+      year: TextEditingController(text: json['year']),
+    );
   }
 
 }

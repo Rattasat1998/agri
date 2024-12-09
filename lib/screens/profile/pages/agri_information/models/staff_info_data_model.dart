@@ -54,5 +54,37 @@ class StaffInfoDataModel {
   }
 
 
+  factory StaffInfoDataModel.fromJson(Map<String, dynamic> json) {
+    return StaffInfoDataModel(
+      selectedStaff: json['selectedStaff'] != null ? Interviewer.fromJson(json['selectedStaff']) : null,
+      staffName: json['staffName'] ?? '',
+      staffAddress: json['staffAddress'] ?? '',
+      staffTambon: json['staffTambon'] ?? '',
+      staffAmphur: json['staffAmphur'] ?? '',
+      staffProvince: json['staffProvince'] ?? '',
+      staffZipcode: json['staffZipcode'] ?? '',
+      staffPhone: json['staffPhone'] ?? '',
+      interviewDate: json['interviewDate'] != null ? DateTime.parse(json['interviewDate']) : null,
+      isStaffPending: json['isStaffPending'] ?? false,
+    );
+  }
+
+  toJson() {
+    return {
+      'selectedStaff': selectedStaff?.toJson(),
+      'staffName': staffName,
+      'staffAddress': staffAddress,
+      'staffTambon': staffTambon,
+      'staffAmphur': staffAmphur,
+      'staffProvince': staffProvince,
+      'staffZipcode': staffZipcode,
+      'staffPhone': staffPhone,
+      'interviewDate': interviewDate?.toIso8601String(),
+      'isStaffPending': isStaffPending,
+    };
+  }
+
+
+
 
 }

@@ -10,7 +10,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import '../../../../../../widgets/custom_text.dart';
-import '../../info_image.dart';
 import '../../models/rice_field_model.dart';
 import '../../models/section_2_model.dart';
 
@@ -1070,7 +1069,7 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                     if (s24511values1[1].value) {
                                       if (s24511All2) {
                                         Fluttertoast.showToast(
-                                          msg: 'กรุณากรอกข้อมูลในข้อ ',
+                                          msg: 'กรุณากรอกข้อมูลในข้อ 2.4.5.1.1',
                                           toastLength: Toast.LENGTH_SHORT,
                                           gravity: ToastGravity.CENTER,
                                           timeInSecForIosWeb: 3,
@@ -1086,7 +1085,7 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                         if (item.value!) {
                                           if (item.controller?.text == '') {
                                             Fluttertoast.showToast(
-                                              msg: 'กรุณากรอกข้อมูลในข้อ',
+                                              msg: 'กรุณากรอกข้อมูลในข้อ 2.4.5.1.1',
                                               toastLength: Toast.LENGTH_SHORT,
                                               gravity: ToastGravity.CENTER,
                                               timeInSecForIosWeb: 3,
@@ -1157,7 +1156,7 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                     if (s24512values[1].value!) {
                                       if (s24512values[1].controller?.text == '') {
                                         Fluttertoast.showToast(
-                                          msg: 'กรุณากรอกข้อมูลในข้อ',
+                                          msg: 'กรุณากรอกข้อมูลในข้อ 2.4.5.2.1',
                                           toastLength: Toast.LENGTH_SHORT,
                                           gravity: ToastGravity.CENTER,
                                           timeInSecForIosWeb: 3,
@@ -1219,7 +1218,7 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                     if (s24531values[1].value!) {
                                       if (s24531values[1].controller?.text == '') {
                                         Fluttertoast.showToast(
-                                          msg: 'กรุณากรอกข้อมูลในข้อ',
+                                          msg: 'กรุณากรอกข้อมูลในข้อ 2.4.5.3.1',
                                           toastLength: Toast.LENGTH_SHORT,
                                           gravity: ToastGravity.CENTER,
                                           timeInSecForIosWeb: 3,
@@ -1275,7 +1274,7 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                     if (values254[0].value!) {
                                       if (values254[0].controller?.text == '') {
                                         Fluttertoast.showToast(
-                                          msg: 'กรุณากรอกข้อมูลในข้อ',
+                                          msg: 'กรุณาเลือกข้อมูลในข้อ 2.5.3.2',
                                           toastLength: Toast.LENGTH_SHORT,
                                           gravity: ToastGravity.CENTER,
                                           timeInSecForIosWeb: 3,
@@ -1294,7 +1293,7 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                     if (values254[1].value!) {
                                       if (values254[1].controller?.text == '') {
                                         Fluttertoast.showToast(
-                                          msg: 'กรุณากรอกข้อมูลในข้อ',
+                                          msg: 'กรุณาเลือกข้อมูลในข้อ 2.5.3.2',
                                           toastLength: Toast.LENGTH_SHORT,
                                           gravity: ToastGravity.CENTER,
                                           timeInSecForIosWeb: 3,
@@ -1311,7 +1310,7 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                       for (var item in v1) {
                                         if (item.controller1.text == '' || item.controller2.text == '') {
                                           Fluttertoast.showToast(
-                                            msg: 'กรุณากรอกข้อมูลในข้อ',
+                                            msg: 'กรุณาเลือกข้อมูลในข้อ 2.5.3.2',
                                             toastLength: Toast.LENGTH_SHORT,
                                             gravity: ToastGravity.CENTER,
                                             timeInSecForIosWeb: 3,
@@ -1364,7 +1363,7 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
 
                                       if (s224541All2) {
                                         Fluttertoast.showToast(
-                                          msg: 'กรุณากรอกข้อมูลในข้อ',
+                                          msg: 'กรุณากรอกข้อมูลในข้อ 2.4.5.4.1',
                                           toastLength: Toast.LENGTH_SHORT,
                                           gravity: ToastGravity.CENTER,
                                           timeInSecForIosWeb: 3,
@@ -1377,7 +1376,7 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
 
                                       if (s224541values2.last.controller?.text == '') {
                                         Fluttertoast.showToast(
-                                          msg: 'กรุณากรอกข้อมูลในข้อ',
+                                          msg: 'กรุณากรอกข้อมูลในข้อ 2.4.5.4.1',
                                           toastLength: Toast.LENGTH_SHORT,
                                           gravity: ToastGravity.CENTER,
                                           timeInSecForIosWeb: 3,
@@ -1441,7 +1440,7 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
 
                                       if (d) {
                                         Fluttertoast.showToast(
-                                          msg: 'กรุณากรอกข้อมูลในข้อ',
+                                          msg: 'กรุณากรอกข้อมูลในข้อ 2.4.5.4.2',
                                           toastLength: Toast.LENGTH_SHORT,
                                           gravity: ToastGravity.CENTER,
                                           timeInSecForIosWeb: 3,
@@ -1454,7 +1453,7 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
 
                                       if (s224542values2.last.controller?.text == '') {
                                         Fluttertoast.showToast(
-                                          msg: 'กรุณากรอกข้อมูลในข้อ',
+                                          msg: 'กรุณากรอกข้อมูลในข้อ 2.4.5.4.2',
                                           toastLength: Toast.LENGTH_SHORT,
                                           gravity: ToastGravity.CENTER,
                                           timeInSecForIosWeb: 3,

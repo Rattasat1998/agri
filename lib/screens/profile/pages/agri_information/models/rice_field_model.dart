@@ -99,6 +99,25 @@ class RiceFieldModel {
     this.s61E= '',
   });
 
+  Map<String, dynamic> toJson() {
+    return {
+      'land_number': riceFieldNumber,
+      'land_name': riceFieldName,
+      'number_of_arear': riceFieldArea,
+    };
+  }
+
+  factory RiceFieldModel.fromJson(Map<String, dynamic> json) {
+    return RiceFieldModel(
+      riceFieldNumber: json['land_number'],
+      riceFieldName: json['land_name'],
+      riceFieldArea: json['number_of_arear'],
+    );
+  }
+
+
+
+
   Map<String, dynamic> part24522ToJson() {
     return {
       'question_part_2_4_5_2_2': s522,
@@ -128,8 +147,6 @@ class RiceFieldModel {
       'question_part_2_3_2_1': s321,
     };
   }
-
-
 
   Map<String, dynamic> part2ToJson() {
     return {
@@ -190,5 +207,7 @@ class RiceFieldModel {
     };
   }
 
-  static final List<RiceFieldModel> riceFields = [];
+
+
+  static  List<RiceFieldModel> riceFields = [];
 }

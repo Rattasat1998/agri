@@ -81,6 +81,7 @@ dependencies:
   syncfusion_flutter_datagrid: ^25.2.7
   win32: ^5.8.0
   archive: ^3.6.1
+  isar: ^3.1.0+1
 
 dependency_overrides:
   url_launcher_ios: ^6.3.1

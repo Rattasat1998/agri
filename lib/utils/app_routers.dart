@@ -135,7 +135,6 @@ class AppRouteGenerator {
 
 
         return CupertinoPageRoute(builder: (_) => InterviewStaffPage(staffs: staffs, staffData: staffData));
-
       case AppRoutes.section1Page:
         return CupertinoPageRoute(builder: (_) => const Section1Page());
 

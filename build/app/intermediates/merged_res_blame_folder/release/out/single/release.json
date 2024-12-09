@@ -376,10 +376,6 @@
         "source": "com.agri.app-appcompat-1.6.1-23:/color/abc_tint_spinner.xml"
     },
     {
-        "merged": "com.agri.app-merged_res-43:/drawable-night-v21_background.png.flat",
-        "source": "com.agri.app-main-35:/drawable-night-v21/background.png"
-    },
-    {
         "merged": "com.agri.app-merged_res-43:/drawable-v21_notification_action_background.xml.flat",
         "source": "com.agri.app-core-1.13.1-24:/drawable-v21/notification_action_background.xml"
     },
@@ -489,7 +485,7 @@
     },
     {
         "merged": "com.agri.app-merged_res-43:/drawable_corner.xml.flat",
-        "source": "com.agri.app-packaged_res-51:/drawable/corner.xml"
+        "source": "com.agri.app-packaged_res-49:/drawable/corner.xml"
     },
     {
         "merged": "com.agri.app-merged_res-43:/drawable-xxhdpi-v4_googleg_standard_color_18.png.flat",
@@ -1085,7 +1081,7 @@
     },
     {
         "merged": "com.agri.app-merged_res-43:/drawable_toast_bg.xml.flat",
-        "source": "com.agri.app-packaged_res-51:/drawable/toast_bg.xml"
+        "source": "com.agri.app-packaged_res-49:/drawable/toast_bg.xml"
     },
     {
         "merged": "com.agri.app-merged_res-43:/drawable-ldrtl-xhdpi-v17_abc_spinner_mtrl_am_alpha.9.png.flat",
@@ -1113,7 +1109,7 @@
     },
     {
         "merged": "com.agri.app-merged_res-43:/xml_flutter_image_picker_file_paths.xml.flat",
-        "source": "com.agri.app-packaged_res-56:/xml/flutter_image_picker_file_paths.xml"
+        "source": "com.agri.app-packaged_res-54:/xml/flutter_image_picker_file_paths.xml"
     },
     {
         "merged": "com.agri.app-merged_res-43:/mipmap-xxhdpi_ic_launcher.png.flat",
@@ -1165,7 +1161,7 @@
     },
     {
         "merged": "com.agri.app-merged_res-43:/layout_toast_custom.xml.flat",
-        "source": "com.agri.app-packaged_res-51:/layout/toast_custom.xml"
+        "source": "com.agri.app-packaged_res-49:/layout/toast_custom.xml"
     },
     {
         "merged": "com.agri.app-merged_res-43:/drawable-xhdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",
@@ -1985,7 +1981,7 @@
     },
     {
         "merged": "com.agri.app-merged_res-43:/xml_filepaths.xml.flat",
-        "source": "com.agri.app-packaged_res-57:/xml/filepaths.xml"
+        "source": "com.agri.app-packaged_res-55:/xml/filepaths.xml"
     },
     {
         "merged": "com.agri.app-merged_res-43:/drawable-mdpi_splash.png.flat",

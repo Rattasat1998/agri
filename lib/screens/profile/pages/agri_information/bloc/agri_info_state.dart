@@ -1,6 +1,5 @@
 part of 'agri_info_bloc.dart';
 
-@immutable
 class AgriInfoState {
 
   List<bool> statusPending;
@@ -125,5 +124,32 @@ class AgriInfoState {
       selectedRiceField: selectedRiceField ?? this.selectedRiceField,
     );
   }
+
+  toJson() {
+    return {
+      //'statusPending': statusPending,
+      //'staffData': staffData?.toJson(),
+      //'interviewers': interviewers.map((e) => e.toJson()).toList(),
+     // 'isStaffPending': isStaffPending,
+     // 'isSection1Pending': isSection1Pending,
+      'selectedPoint1': selectedPoint1?.toJson(),
+      'selectedPoint2': selectedPoint2?.toJson(),
+      'selectedPoint3': selectedPoint3?.toJson(),
+      'selectedPoint4': selectedPoint4?.toJson(),
+      'selectedPoint5': selectedPoint5?.toJson(),
+      'selectedPointAdOn1': selectedPointAdOn1?.toJson(),
+      'selectedPointAdOn2': selectedPointAdOn2?.toJson(),
+      'selectedPointAdOn3': selectedPointAdOn3?.toJson(),
+      'selectedPointAdOn4': selectedPointAdOn4?.toJson(),
+      'selectedPointAdOn5': selectedPointAdOn5?.toJson(),
+      'selectedPointAdOn6': selectedPointAdOn6?.toJson(),
+      'selectedPointAdOn7': selectedPointAdOn7?.toJson(),
+      'selectedPointAdOn8': selectedPointAdOn8?.toJson(),
+      'selectedPointAdOn9': selectedPointAdOn9?.toJson(),
+      //'section1Data': section1Data?.toJson(),
+      //'selectedRiceField': selectedRiceField?.toJson(),
+    };
+  }
+
 
 }

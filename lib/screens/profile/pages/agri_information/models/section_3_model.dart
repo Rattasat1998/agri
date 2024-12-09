@@ -23,6 +23,17 @@ class Section3Model {
 
   });
 
+  factory Section3Model.fromJson(Map<String, dynamic> map) {
+    return Section3Model(
+      process: map['process'],
+      typeMachine: map['type_machine'],
+      prossessor: map['prossessor'],
+      prossessor1: map['prossessor1'],
+      serviceFee: map['service_fee'],
+      dicisionReason: map['decision_reusons'],
+    );
+  }
+
 
   static  List<TextEditingController> part4 = [
     TextEditingController(),
@@ -43,7 +54,7 @@ class Section3Model {
     ];
   }
 
-  Map<String, dynamic> toMap() {
+  Map<String, dynamic> toJson() {
     return {
       'process': process,
       'type_machine': typeMachine,

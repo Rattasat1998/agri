@@ -358,7 +358,7 @@ class Section2Model {
     values: [],
   );
   static S254532 s254532 = S254532(
-    question: '2.5.3.2 ท่านได้มีการตัดใบข้าว หรือไม',
+    question: '2.4.5.3.2 ท่านได้มีการตัดใบข้าว หรือไม่',
     values: [
       Section2CheckVSModel2(
         value: false,
@@ -701,6 +701,14 @@ class S211 {
       'values': values.map((e) => e.toJson()).toList(),
     };
   }
+
+  factory S211.fromJson(Map<String, dynamic> json) {
+    return S211(
+      question: json['question'],
+      values: List<Section2ValueTextModel>.from(json['values'].map((x) => Section2ValueTextModel.fromJson(x))),
+    );
+  }
+
 }
 
 class Section2ValueTextModel {
@@ -718,6 +726,15 @@ class Section2ValueTextModel {
       'value': value,
     };
   }
+
+  factory Section2ValueTextModel.fromJson(Map<String, dynamic> json) {
+    return Section2ValueTextModel(
+      text: json['text'],
+      value: json['value'],
+    );
+  }
+
+
 }
 
 class S212 {
@@ -735,6 +752,14 @@ class S212 {
       'values': values.map((e) => e.toJson()).toList(),
     };
   }
+
+  factory S212.fromJson(Map<String, dynamic> json) {
+    return S212(
+      question: json['question'],
+      values: List<Section2PVSModel>.from(json['values'].map((x) => Section2PVSModel.fromJson(x))),
+    );
+  }
+
 }
 
 class Section2PVSModel {
@@ -755,6 +780,15 @@ class Section2PVSModel {
       'suffix': suffix,
     };
   }
+
+  factory Section2PVSModel.fromJson(Map<String, dynamic> json) {
+    return Section2PVSModel(
+      prefix: json['prefix'],
+      controller: TextEditingController(text: json['controller']),
+      suffix: json['suffix'],
+    );
+  }
+
 }
 
 class Section2CheckVSModel {
@@ -778,6 +812,17 @@ class Section2CheckVSModel {
       'suffix': suffix,
     };
   }
+
+
+  factory Section2CheckVSModel.fromJson(Map<String, dynamic> json) {
+    return Section2CheckVSModel(
+      text: json['text'],
+      value: json['value'],
+      controller: TextEditingController(text: json['controller']),
+      suffix: json['suffix'],
+    );
+  }
+
 }
 
 class S213 {
@@ -795,6 +840,15 @@ class S213 {
       'values': values.toJson(),
     };
   }
+
+  factory S213.fromJson(Map<String, dynamic> json) {
+    return S213(
+      question: json['question'],
+      values: S213Model.fromJson(json['values']),
+    );
+  }
+
+
 }
 
 class S213Model {
@@ -812,6 +866,15 @@ class S213Model {
       'value2': value2!.toJson(),
     };
   }
+
+  factory S213Model.fromJson(Map<String, dynamic> json) {
+    return S213Model(
+      value1: Section2ValueTextModel.fromJson(json['value1']),
+      value2: Section2CheckVSModel.fromJson(json['value2']),
+    );
+  }
+
+
 }
 
 class S214 {
@@ -829,6 +892,15 @@ class S214 {
       'values': values.map((e) => e.toJson()).toList(),
     };
   }
+
+  factory S214.fromJson(Map<String, dynamic> json) {
+    return S214(
+      question: json['question'],
+      values: List<Section2ValueTextModel>.from(json['values'].map((x) => Section2ValueTextModel.fromJson(x))),
+    );
+  }
+
+
 }
 
 class S215 {
@@ -846,6 +918,14 @@ class S215 {
       'values': values.toJson(),
     };
   }
+
+  factory S215.fromJson(Map<String, dynamic> json) {
+    return S215(
+      question: json['question'],
+      values: S213Model.fromJson(json['values']),
+    );
+  }
+
 }
 
 class S221 {
@@ -863,6 +943,14 @@ class S221 {
       'values': values.map((e) => e.toJson()).toList(),
     };
   }
+
+  factory S221.fromJson(Map<String, dynamic> json) {
+    return S221(
+      question: json['question'],
+      values: List<Section2CheckVSModel>.from(json['values'].map((x) => Section2CheckVSModel.fromJson(x))),
+    );
+  }
+
 }
 
 class S222 {
@@ -883,6 +971,15 @@ class S222 {
       'values2': values2.map((e) => e.toJson()).toList(),
     };
   }
+
+  factory S222.fromJson(Map<String, dynamic> json) {
+    return S222(
+      question: json['question'],
+      values1: List<Section2ValueTextModel>.from(json['values1'].map((x) => Section2ValueTextModel.fromJson(x))),
+      values2: List<Section2CheckVSModel>.from(json['values2'].map((x) => Section2CheckVSModel.fromJson(x))),
+    );
+  }
+
 }
 
 class S223 {
@@ -903,6 +1000,15 @@ class S223 {
       'values2': values2.map((e) => e.toJson()).toList(),
     };
   }
+
+  factory S223.fromJson(Map<String, dynamic> json) {
+    return S223(
+      question: json['question'],
+      values1: List<Section2ValueTextModel>.from(json['values1'].map((x) => Section2ValueTextModel.fromJson(x))),
+      values2: List<Section2CheckVSModel>.from(json['values2'].map((x) => Section2CheckVSModel.fromJson(x))),
+    );
+  }
+
 }
 
 class S224 {
@@ -920,6 +1026,14 @@ class S224 {
       'values': values.map((e) => e.toJson()).toList(),
     };
   }
+
+  factory S224.fromJson(Map<String, dynamic> json) {
+    return S224(
+      question: json['question'],
+      values: List<Section2CheckVSModel>.from(json['values'].map((x) => Section2CheckVSModel.fromJson(x))),
+    );
+  }
+
 }
 
 class S225 {
@@ -937,6 +1051,14 @@ class S225 {
       'values': values.map((e) => e.toJson()).toList(),
     };
   }
+
+  factory S225.fromJson(Map<String, dynamic> json) {
+    return S225(
+      question: json['question'],
+      values: List<Section2PVSModel>.from(json['values'].map((x) => Section2PVSModel.fromJson(x))),
+    );
+  }
+
 }
 
 class S226 {
@@ -960,6 +1082,16 @@ class S226 {
       'values2': values2.map((e) => e.toJson()).toList(),
     };
   }
+
+  factory S226.fromJson(Map<String, dynamic> json) {
+    return S226(
+      question: json['question'],
+      values1: List<Section2ValueTextModel>.from(json['values1'].map((x) => Section2ValueTextModel.fromJson(x))),
+      question2: json['question2'],
+      values2: List<Section2CheckVSModel>.from(json['values2'].map((x) => Section2CheckVSModel.fromJson(x))),
+    );
+  }
+
 }
 
 class S231 {
@@ -983,6 +1115,16 @@ class S231 {
       'detailController': detailController?.text ?? '',
     };
   }
+
+  factory S231.fromJson(Map<String, dynamic> json) {
+    return S231(
+      question: json['question'],
+      values: json['values'] != null ? List<Section2ValueTextModel>.from(json['values'].map((x) => Section2ValueTextModel.fromJson(x))) : [],
+      yearController: TextEditingController(text: json['yearController']),
+      detailController: TextEditingController(text: json['detailController']),
+    );
+  }
+
 }
 
 class S232 {
@@ -1003,6 +1145,15 @@ class S232 {
       'monthController': monthController?.text ?? '',
     };
   }
+
+  factory S232.fromJson(Map<String, dynamic> json) {
+    return S232(
+      question: json['question'],
+      startMonthController: TextEditingController(text: json['startMonthController']),
+      monthController: TextEditingController(text: json['monthController']),
+    );
+  }
+
 }
 
 class S23SoilPreparationSteps {
@@ -1017,6 +1168,13 @@ class S23SoilPreparationSteps {
       'values': values.map((e) => e.toJson()).toList(),
     };
   }
+
+  factory S23SoilPreparationSteps.fromJson(Map<String, dynamic> json) {
+    return S23SoilPreparationSteps(
+      values: List<SoilPreparationStepsModel>.from(json['values'].map((x) => SoilPreparationStepsModel.fromJson(x))),
+    );
+  }
+
 }
 
 class SoilPreparationStepsModel {
@@ -1049,6 +1207,19 @@ class SoilPreparationStepsModel {
       'service_fee': servicePriceController,
     };
   }
+
+  factory SoilPreparationStepsModel.fromJson(Map<String, dynamic> json) {
+    return SoilPreparationStepsModel(
+      wayController: json['how_to'],
+      timeRangeController: json['range'],
+      monthController: json['month'],
+      countController: json['number_of_times'],
+      machineController: json['machine'],
+      fromWhereController: json['source'],
+      servicePriceController: json['service_fee'],
+    );
+  }
+
 }
 
 class HS23owToPlantInTheLastProductionYears {
@@ -1063,6 +1234,13 @@ class HS23owToPlantInTheLastProductionYears {
       'values': values.map((e) => e.toJson()).toList(),
     };
   }
+
+  factory HS23owToPlantInTheLastProductionYears.fromJson(Map<String, dynamic> json) {
+    return HS23owToPlantInTheLastProductionYears(
+      values: List<HowToPlantInTheLastProductionYearsModel>.from(json['values'].map((x) => HowToPlantInTheLastProductionYearsModel.fromJson(x))),
+    );
+  }
+
 }
 
 class HowToPlantInTheLastProductionYearsModel {
@@ -1092,6 +1270,18 @@ class HowToPlantInTheLastProductionYearsModel {
       'problem': problemAndObstacle,
     };
   }
+
+  factory HowToPlantInTheLastProductionYearsModel.fromJson(Map<String, dynamic> json) {
+    return HowToPlantInTheLastProductionYearsModel(
+      howTo: json['how_to'],
+      timeRange: json['range'],
+      month: json['month'],
+      cause: json['causa'],
+      machine: json['source'],
+      problemAndObstacle: json['problem'],
+    );
+  }
+
 }
 
 class S241 {
@@ -1118,6 +1308,17 @@ class S241 {
       'controlWeedController': controlWeedController?.text ?? '',
     };
   }
+
+  factory S241.fromJson(Map<String, dynamic> json) {
+    return S241(
+      question: json['question'],
+      values: List<Section2ValueTextModel>.from(json['values'].map((x) => Section2ValueTextModel.fromJson(x))),
+      weedController: TextEditingController(text: json['weedController']),
+      percentController: TextEditingController(text: json['percentController']),
+      controlWeedController: TextEditingController(text: json['controlWeedController']),
+    );
+  }
+
 }
 
 class S242 {
@@ -1141,6 +1342,16 @@ class S242 {
       'percentController': percentController?.text ?? '',
     };
   }
+
+  factory S242.fromJson(Map<String, dynamic> json) {
+    return S242(
+      question: json['question'],
+      values: List<Section2ValueTextModel>.from(json['values'].map((x) => Section2ValueTextModel.fromJson(x))),
+      weedController: TextEditingController(text: json['weedController']),
+      percentController: TextEditingController(text: json['percentController']),
+    );
+  }
+
 }
 
 class S243 {
@@ -1161,6 +1372,15 @@ class S243 {
       'weedController': controller?.text ?? '',
     };
   }
+
+  factory S243.fromJson(Map<String, dynamic> json) {
+    return S243(
+      question: json['question'],
+      values: List<Section2ValueTextModel>.from(json['values'].map((x) => Section2ValueTextModel.fromJson(x))),
+      controller: TextEditingController(text: json['weedController']),
+    );
+  }
+
 }
 
 class S244 {
@@ -1178,6 +1398,14 @@ class S244 {
       'values': values.map((e) => e.toJson()).toList(),
     };
   }
+
+  factory S244.fromJson(Map<String, dynamic> json) {
+    return S244(
+      question: json['question'],
+      values: List<Section2CheckVSModel>.from(json['values'].map((x) => Section2CheckVSModel.fromJson(x))),
+    );
+  }
+
 }
 
 class S245 {
@@ -1195,6 +1423,14 @@ class S245 {
       's2451': s2451.toJson(),
     };
   }
+
+  factory S245.fromJson(Map<String, dynamic> json) {
+    return S245(
+      question: json['question'],
+      s2451: S2451.fromJson(json['s2451']),
+    );
+  }
+
 }
 
 class S2451 {
@@ -1218,6 +1454,16 @@ class S2451 {
       's22453': s22453.toJson(),
     };
   }
+
+  factory S2451.fromJson(Map<String, dynamic> json) {
+    return S2451(
+      question: json['question'],
+      s24511: S24511.fromJson(json['s24511']),
+      s24512: S24512.fromJson(json['s24512']),
+      s22453: S22453.fromJson(json['s22453']),
+    );
+  }
+
 }
 
 class S24511 {
@@ -1238,6 +1484,15 @@ class S24511 {
       'values2': values2.map((e) => e.toJson()).toList(),
     };
   }
+
+  factory S24511.fromJson(Map<String, dynamic> json) {
+    return S24511(
+      question: json['question'],
+      values1: List<Section2ValueTextModel>.from(json['values1'].map((x) => Section2ValueTextModel.fromJson(x))),
+      values2: List<Section2CheckVSModel>.from(json['values2'].map((x) => Section2CheckVSModel.fromJson(x))),
+    );
+  }
+
 }
 
 class CaseOfGivingWaters {
@@ -1255,6 +1510,14 @@ class CaseOfGivingWaters {
       'values': values.map((e) => e.toJson()).toList(),
     };
   }
+
+  factory CaseOfGivingWaters.fromJson(Map<String, dynamic> json) {
+    return CaseOfGivingWaters(
+      question: json['question'],
+      values: List<CaseOfGivingWatersModel>.from(json['values'].map((x) => CaseOfGivingWatersModel.fromJson(x))),
+    );
+  }
+
 }
 
 class CaseOfGivingWatersModel {
@@ -1287,6 +1550,19 @@ class CaseOfGivingWatersModel {
       'enough': totalWater,
     };
   }
+
+  factory CaseOfGivingWatersModel.fromJson(Map<String, dynamic> json) {
+    return CaseOfGivingWatersModel(
+      dmy: json['date_range'],
+      decisionStart: json['decision'],
+      waterSource: json['water_source'],
+      howToGiveWater: json['how_to_give_water'],
+      waterAmount: json['amount'],
+      decisionStop: json['decision_stop'],
+      totalWater: json['enough'],
+    );
+  }
+
 }
 
 class S24512 {
@@ -1304,6 +1580,14 @@ class S24512 {
       's24521': s24521.toJson(),
     };
   }
+
+  factory S24512.fromJson(Map<String, dynamic> json) {
+    return S24512(
+      question: json['question'],
+      s24521: S24521.fromJson(json['s24521']),
+    );
+  }
+
 }
 
 class S24521 {
@@ -1321,6 +1605,14 @@ class S24521 {
       'values': values.map((e) => e.toJson()).toList(),
     };
   }
+
+  factory S24521.fromJson(Map<String, dynamic> json) {
+    return S24521(
+      question: json['question'],
+      values: List<Section2CheckVSModel>.from(json['values'].map((x) => Section2CheckVSModel.fromJson(x))),
+    );
+  }
+
 }
 
 class CaseOfApplyingFertilizers {
@@ -1338,6 +1630,14 @@ class CaseOfApplyingFertilizers {
       'values': values.map((e) => e.toJson()).toList(),
     };
   }
+
+  factory CaseOfApplyingFertilizers.fromJson(Map<String, dynamic> json) {
+    return CaseOfApplyingFertilizers(
+      question: json['question'],
+      values: List<CaseOfApplyingFertilizersModel>.from(json['values'].map((x) => CaseOfApplyingFertilizersModel.fromJson(x))),
+    );
+  }
+
 }
 
 class CaseOfApplyingFertilizersModel {
@@ -1373,6 +1673,20 @@ class CaseOfApplyingFertilizersModel {
       'fertilizer_source': fertilizerSource,
     };
   }
+
+  factory CaseOfApplyingFertilizersModel.fromJson(Map<String, dynamic> json) {
+    return CaseOfApplyingFertilizersModel(
+      timeToApply: json['date_range'],
+      decision: json['factor'],
+      riceAge: json['age_rice'],
+      fertilizerType: json['fertilizer_type'],
+      formula: json['fertilizer_formula'],
+      amountToApply: json['amouht'],
+      howToUseFertilizer: json['how_to'],
+      fertilizerSource: json['fertilizer_source'],
+    );
+  }
+
 }
 
 class HowToUseFertilizer {
@@ -1389,6 +1703,13 @@ class HowToUseFertilizer {
       'title': title,
       'value': value,
     };
+  }
+
+  factory HowToUseFertilizer.fromJson(Map<String, dynamic> json) {
+    return HowToUseFertilizer(
+      title: json['title'],
+      value: json['value'],
+    );
   }
 
   static final datas = [
@@ -1414,6 +1735,13 @@ class Fertilizer {
     };
   }
 
+  factory Fertilizer.fromJson(Map<String, dynamic> json) {
+    return Fertilizer(
+      title: json['title'],
+      value: json['value'],
+    );
+  }
+
   static final datas = [
     Fertilizer(title: 'แรงงานคน', value: false),
     Fertilizer(title: 'เครื่องจักร', value: false),
@@ -1435,6 +1763,13 @@ class S22453 {
       'values': values,
     };
   }
+
+  factory S22453.fromJson(Map<String, dynamic> json) {
+    return S22453(
+      question: json['question'],
+      values: S224531.fromJson(json['values']),
+    );
+  }
 }
 
 class S224531 {
@@ -1452,6 +1787,12 @@ class S224531 {
       'values': values.map((e) => e.toJson()).toList(),
     };
   }
+  factory S224531.fromJson(Map<String, dynamic> json) {
+    return S224531(
+      question: json['question'],
+      values: List<Section2CheckVSModel>.from(json['values'].map((x) => Section2CheckVSModel.fromJson(x))),
+    );
+  }
 }
 
 class CaseKillWeeds {
@@ -1468,6 +1809,12 @@ class CaseKillWeeds {
       'question': question,
       'values': values.map((e) => e.toJson()).toList(),
     };
+  }
+  factory CaseKillWeeds.fromJson(Map<String, dynamic> json) {
+    return CaseKillWeeds(
+      question: json['question'],
+      values: List<CaseKillWeedsModel>.from(json['values'].map((x) => CaseKillWeedsModel.fromJson(x))),
+    );
   }
 }
 
@@ -1495,6 +1842,15 @@ class CaseKillWeedsModel {
       'brand': chemicalName,
     };
   }
+  factory CaseKillWeedsModel.fromJson(Map<String, dynamic> json) {
+    return CaseKillWeedsModel(
+      reasonDecision: json['reason'],
+      objective: json['objective'],
+      solution: json['how_to'],
+      toolSource: json['tool_source'],
+      chemicalName: json['brand'],
+    );
+  }
 }
 
 class S254532 {
@@ -1511,6 +1867,12 @@ class S254532 {
       'question': question,
       'values': values.map((e) => e.toJson()).toList(),
     };
+  }
+  factory S254532.fromJson(Map<String, dynamic> json) {
+    return S254532(
+      question: json['question'],
+      values: List<Section2CheckVSModel2>.from(json['values'].map((x) => Section2CheckVSModel2.fromJson(x))),
+    );
   }
 }
 
@@ -1538,6 +1900,15 @@ class Section2CheckVSModel2 {
       'values': values?.map((e) => e.toJson()).toList(),
     };
   }
+  factory Section2CheckVSModel2.fromJson(Map<String, dynamic> json) {
+    return Section2CheckVSModel2(
+      text: json['text'],
+      value: json['value'],
+      controller: TextEditingController(text: json['controller']),
+      suffix: json['suffix'],
+      values: json['values'] != null ? List<S2TVTVModel>.from(json['values'].map((x) => S2TVTVModel.fromJson(x))) : [],
+    );
+  }
 }
 
 class S2TVTVModel {
@@ -1561,6 +1932,14 @@ class S2TVTVModel {
       'controller2': controller2.text,
     };
   }
+  factory S2TVTVModel.fromJson(Map<String, dynamic> json) {
+    return S2TVTVModel(
+      title: json['title'],
+      controller1: TextEditingController(text: json['controller1']),
+      suffix1: json['suffix1'],
+      controller2: TextEditingController(text: json['controller2']),
+    );
+  }
 }
 
 class S224541 {
@@ -1582,6 +1961,13 @@ class S224541 {
       'values2': values2.map((e) => e.toJson()).toList(),
     };
   }
+  factory S224541.fromJson(Map<String, dynamic> json) {
+    return S224541(
+      question: json['question'],
+      values1: List<Section2CheckVSModel>.from(json['values1'].map((x) => Section2CheckVSModel.fromJson(x))),
+      values2: List<Section2CheckVSModel>.from(json['values2'].map((x) => Section2CheckVSModel.fromJson(x))),
+    );
+  }
 }
 class S224542 {
   String question;
@@ -1602,6 +1988,13 @@ class S224542 {
       'values2': values2.map((e) => e.toJson()).toList(),
     };
   }
+  factory S224542.fromJson(Map<String, dynamic> json) {
+    return S224542(
+      question: json['question'],
+      values1: List<Section2CheckVSModel>.from(json['values1'].map((x) => Section2CheckVSModel.fromJson(x))),
+      values2: List<Section2CheckVSModel>.from(json['values2'].map((x) => Section2CheckVSModel.fromJson(x))),
+    );
+  }
 }
 
 class S251 {
@@ -1618,6 +2011,12 @@ class S251 {
       'question': question,
       'values': values.map((e) => e.toJson()).toList(),
     };
+  }
+  factory S251.fromJson(Map<String, dynamic> json) {
+    return S251(
+      question: json['question'],
+      values: List<Section2CheckVSModel>.from(json['values'].map((x) => Section2CheckVSModel.fromJson(x))),
+    );
   }
 }
 
@@ -1646,6 +2045,15 @@ class S252 {
       'values4': values4.map((e) => e.toJson()).toList(),
     };
   }
+  factory S252.fromJson(Map<String, dynamic> json) {
+    return S252(
+      question: json['question'],
+      values1: List<Section2CheckVSModel>.from(json['values1'].map((x) => Section2CheckVSModel.fromJson(x))),
+      values2: List<Section2CheckVSModel>.from(json['values2'].map((x) => Section2CheckVSModel.fromJson(x))),
+      values3: List<Section2CheckVSModel>.from(json['values3'].map((x) => Section2CheckVSModel.fromJson(x))),
+      values4: List<Section2CheckVSModel>.from(json['values4'].map((x) => Section2CheckVSModel.fromJson(x))),
+    );
+  }
 }
 
 class S253 {
@@ -1663,6 +2071,12 @@ class S253 {
       'values': values.map((e) => e.toJson()).toList(),
     };
   }
+  factory S253.fromJson(Map<String, dynamic> json) {
+    return S253(
+      question: json['question'],
+      values: List<Section2CheckVSModel>.from(json['values'].map((x) => Section2CheckVSModel.fromJson(x))),
+    );
+  }
 }
 class S254 {
   String question;
@@ -1678,6 +2092,12 @@ class S254 {
       'question': question,
       'values': values.map((e) => e.toJson()).toList(),
     };
+  }
+  factory S254.fromJson(Map<String, dynamic> json) {
+    return S254(
+      question: json['question'],
+      values: List<Section2CheckVSModel>.from(json['values'].map((x) => Section2CheckVSModel.fromJson(x))),
+    );
   }
 }
 
@@ -1705,6 +2125,15 @@ class S255 {
       'other': other?.text ?? '',
     };
   }
+  factory S255.fromJson(Map<String, dynamic> json) {
+    return S255(
+      question: json['question'],
+      values: List<Section2CheckVSModel>.from(json['values'].map((x) => Section2CheckVSModel.fromJson(x))),
+      sunForDay: TextEditingController(text: json['sunForDay']),
+      sunForCount: TextEditingController(text: json['sunForCount']),
+      other: TextEditingController(text: json['other']),
+    );
+  }
 }
 
 class S256 {
@@ -1728,6 +2157,14 @@ class S256 {
       'values3': values3.map((e) => e.toJson()).toList(),
     };
   }
+  factory S256.fromJson(Map<String, dynamic> json) {
+    return S256(
+      question: json['question'],
+      values1: List<Section2ValueTextModel>.from(json['values1'].map((x) => Section2ValueTextModel.fromJson(x))),
+      values2: List<Section2ValueTextModel>.from(json['values2'].map((x) => Section2ValueTextModel.fromJson(x))),
+      values3: List<Section2ValueTextModel>.from(json['values3'].map((x) => Section2ValueTextModel.fromJson(x))),
+    );
+  }
 }
 class S260 {
   String question;
@@ -1749,5 +2186,13 @@ class S260 {
       'values1s': values1s.map((e) => e.toJson()).toList(),
       'values2': values2.toJson(),
     };
+  }
+  factory S260.fromJson(Map<String, dynamic> json) {
+    return S260(
+      question: json['question'],
+      values1: Section2ValueTextModel.fromJson(json['values1']),
+      values1s: List<Section2ValueTextModel>.from(json['values1s'].map((x) => Section2ValueTextModel.fromJson(x))),
+      values2: Section2CheckVSModel.fromJson(json['values2']),
+    );
   }
 }

@@ -59,8 +59,11 @@ class _InterviewStaffPageState extends State<InterviewStaffPage> {
       _staffZipcodeController.text = widget.staffData!.staffZipcode;
       _staffPhoneController.text = widget.staffData!.staffPhone;
       _interviewDate = widget.staffData!.interviewDate;
-      _selectedStaff = widget.staffData!.selectedStaff;
+      _selectedStaff = widget.staffs.firstWhere(
+        (element) => element.interviewerId == widget.staffData!.selectedStaff!.interviewerId,
+      );
     }
+
   }
 
 
