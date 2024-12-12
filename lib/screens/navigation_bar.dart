@@ -8,6 +8,7 @@ import 'package:agri/utils/app_routers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 import 'home/home_screen.dart';
 import 'home/pages/machinery/bloc/machinery_bloc.dart';
@@ -34,6 +35,29 @@ class _NavigationBarState extends State<CustomNavigationBar> {
   ];
 
   List<dynamic> menu = [];
+
+  void _setLoadingStyle(){
+    EasyLoading.instance
+      ..indicatorType = EasyLoadingIndicatorType.cubeGrid
+      ..loadingStyle = EasyLoadingStyle.custom
+      ..indicatorSize = 45.0
+      ..radius = 4.0
+      ..progressColor = Colors.white
+      ..backgroundColor = Colors.black.withOpacity(0.8)
+      ..indicatorColor = Colors.white
+      ..textColor = Colors.white
+      ..maskColor = Colors.black.withOpacity(0.8)
+      ..userInteractions = false
+      ..dismissOnTap = false;
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _setLoadingStyle();
+  }
+
 
   @override
   Widget build(BuildContext context) {

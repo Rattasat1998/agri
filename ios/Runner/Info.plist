@@ -32,11 +32,11 @@
 		<key>LSRequiresIPhoneOS</key>
 		<true/>
 		<key>NSCameraUsageDescription</key>
-		<string>To upload photos, please allow permission to access your camera.</string>
+		<string>อนุญาติให้ THAITRACTORBOOKING เข้าถึงกล้องถ่ายรูปของคุณเพื่อถ่ายรูปเพื่อนำไปใช้เป็นภาพโปรไฟล์</string>
 		<key>NSLocationWhenInUseUsageDescription</key>
-		<string>This app needs access to location when open.</string>
+		<string>อนุญาติให้ THAITRACTORBOOKING เข้าถึงตำแหน่งปัจจุบันของคุณ</string>
 		<key>NSPhotoLibraryUsageDescription</key>
-		<string>To upload photos, please allow permission to access your photo library.</string>
+		<string>อนุญาติให้ THAITRACTORBOOKING เข้าถึงรูปภาพของคุณเพื่อนำไปใช้เป็นภาพโปรไฟล์</string>
 		<key>UIApplicationSupportsIndirectInputEvents</key>
 		<true/>
 		<key>UIBackgroundModes</key>

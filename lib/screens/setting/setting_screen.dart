@@ -91,6 +91,53 @@ class _SettingScreenState extends State<SettingScreen> {
             icon: const Icon(CupertinoIcons.doc_text_fill, color: Color(0xff206200)),
           ),
           _buildRowButtonWidget(
+            title: 'คำขอลบบัญชีผู้ใช้',
+            //icon: const Icon(Icons.lock, color: Colors.black),
+            onTap: () {
+              //vNavigator.pushNamed(context, AppRoutes.changePasswordPage);
+              showDialog(context: context, builder: (context) {
+                return AlertDialog(
+                  title: const Text('คำขอลบบัญชีผู้ใช้'),
+                  content: const Text('คุณต้องการลบบัญชีผู้ใช้หรือไม่?'),
+                  actions: [
+                    TextButton(
+                        onPressed: () {
+                          Get.back();
+                        },
+                        child: const CustomText(
+                          text: 'ยกเลิก',
+                          color: Colors.grey,
+                        )),
+                    CupertinoButton(
+                        color: Colors.green,
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        onPressed: () async {
+                          EasyLoading.show(status: 'กำลังส่งคำขอลบบัญชีผู้ใช้...');
+                          await Future.delayed(const Duration(seconds: 3));
+
+                          EasyLoading.dismiss();
+                          /*final response = await ApiEndPoint.deleteUser();
+                          if (response.statusCode == 200) {
+                            EasyLoading.dismiss();
+                            await LocalStorage.removeToken();
+                            Get.offAllNamed(AppRoutes.dashboardScreen);
+                          } else {
+                            EasyLoading.dismiss();
+                            EasyLoading.showError('ไม่สามารถลบบัญชีผู้ใช้ได้');
+                          }*/
+                        },
+                        child: const CustomText(
+                          text: 'ลบบัญชีผู้ใช้',
+                          color: Colors.white,
+                        )),
+                  ],
+                );
+              });
+            },
+            color: Colors.black,
+            icon: const Icon(CupertinoIcons.delete, color: Color(0xff206200)),
+          ),
+          _buildRowButtonWidget(
             title: 'ออกจากระบบ',
             icon: const Icon(Icons.login, color: Color(0xffBF1D1D)),
             onTap: () {
