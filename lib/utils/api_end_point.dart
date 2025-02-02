@@ -122,4 +122,8 @@ class ApiEndPoint {
   static const String infoInSystemRice = "/summary/information";
 
 
+  static const String closeAccount = "/profile/close-account";
+  static const String restoreAccount = "/user-account/restore/{restore_token}";
+
+
 }

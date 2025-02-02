@@ -1,5 +1,6 @@
 import 'package:agri/app.dart';
 import 'package:agri/models/news_model.dart';
+import 'package:agri/screens/close_account/pages/close_account_page.dart';
 import 'package:agri/screens/dashboard/dashboard_screen.dart';
 import 'package:agri/screens/home/pages/admin/admin_page.dart';
 import 'package:agri/screens/home/pages/agricultural_information/head/head_add_edit_machinery_page.dart';
@@ -105,6 +106,7 @@ class AppRoutes {
   // notification
   static const String notificationScreen = '/notification-screen';
   static const String changePasswordPage = '/change-password-page';
+  static const String closeAccount = '/close-account';
   static const String forgetPasswordPage = '/forget-password-page';
   static const String forgetPasswordVerifyOTPPage = '/forget-password-verify-page';
   static const String forgetChangeNewPasswordPage = '/forget-change-password-page';
@@ -143,6 +145,9 @@ class AppRouteGenerator {
 
       case AppRoutes.systemRiceInfoPage:
         return CupertinoPageRoute(builder: (_) => const SystemRiceInfoPage());
+
+      case AppRoutes.closeAccount:
+        return CupertinoPageRoute(builder: (_) => const CloseAccountPage());
 
       case AppRoutes.section2Page:
         return CupertinoPageRoute(builder: (_) => const Section2Page());

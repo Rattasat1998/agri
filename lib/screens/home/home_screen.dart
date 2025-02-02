@@ -27,20 +27,9 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    // context.read<FcmBloc>().add(FcmInitEvent());
-    // context.read<FcmBloc>().add(FcmInitEvent());
     _configureSelectNotificationSubject();
     _fcmToken();
-    /* FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      _handleForegroundMessage(message);
-
-    });*/
   }
-
-  /*void _handleForegroundMessage(RemoteMessage message) {
-    // Handle the message directly here when the app is in the foreground
-    NotificationService().showBigPictureNotification(message);
-  }*/
 
   _fcmToken() async {
     await Permission.notification.request();
@@ -62,7 +51,6 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _handleNavigation(BuildContext context, RemoteMessage message) {
-    print('message.data: ');
     context.read<NotificationBloc>().add(NotificationStarted());
     context.read<RequestMachineBloc>().add(RequestMachineInitialEvent());
   }
@@ -80,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: BlocBuilder<HomeBloc, HomeState>(
         builder: (context, state) {
           if (state is HomeLoading) {
-            return const CircularProgressIndicator.adaptive();
+            return  const Center(child: CircularProgressIndicator());
           }
           if (state is HomeLoaded) {
             final role = RoleStatus().getRole(context);
@@ -92,7 +80,18 @@ class _HomeScreenState extends State<HomeScreen> {
               managerWidget: const HomeUserScreen(),
             );
           } else {
-            return SizedBox();
+            return const Scaffold(
+              body: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('ไม่สามารถโหลดข้อมูลได้'),
+                    SizedBox(height: 20),
+                    CircularProgressIndicator(),
+                  ],
+                ),
+              ),
+            );
           }
         },
       ),
