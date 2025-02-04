@@ -45,7 +45,6 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
             color: Color(0xff194902),
           ),
           leading: const BackButtonWidget(),
-
         ),
         body: BlocBuilder<AgriInfoBloc, AgriInfoState>(
           builder: (context, state) {
@@ -83,7 +82,7 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                               _buildBgThemeWidget(
                                 context: context,
                                 title: Section2Model.s212.question,
-                                child: _build212(),
+                                child: _build212(riceField),
                               ),
                               const SizedBox(height: 10),
                               _buildBgThemeWidget(
@@ -97,12 +96,12 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                 title: Section2Model.s214.question,
                                 child: _build214(),
                               ),
-                              const SizedBox(height: 10),
+                              /* const SizedBox(height: 10),
                               _buildBgThemeWidget(
                                 context: context,
                                 title: Section2Model.s215.question,
                                 child: _build215(),
-                              ),
+                              ),*/
                               const SizedBox(height: 30),
                               CustomText(
                                 text: Section2Model.s22H,
@@ -134,17 +133,17 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                 title: Section2Model.s224.question,
                                 child: _build224(),
                               ),
-                              const SizedBox(height: 10),
+                              /*const SizedBox(height: 10),
                               _buildBgThemeWidget(
                                 context: context,
                                 title: Section2Model.s225.question,
                                 child: _build225(),
-                              ),
+                              ),*/
                               const SizedBox(height: 10),
                               _buildBgThemeWidget(
                                 context: context,
                                 title: Section2Model.s226.question,
-                                child: _build226(),
+                                child: _build225(),
                               ),
                               const SizedBox(height: 30),
                               CustomText(
@@ -162,6 +161,14 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                               const SizedBox(height: 10),
                               _buildBgThemeWidget(
                                 context: context,
+                                title: Section2Model.s232True.question,
+                                child: _build232True(),
+
+                                /// S232 true
+                              ),
+                              const SizedBox(height: 10),
+                              _buildBgThemeWidget(
+                                context: context,
                                 title: Section2Model.s232.question,
                                 child: _build232(),
                               ),
@@ -175,7 +182,7 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                               _buildBgThemeWidget(
                                 context: context,
                                 title:
-                                    '2.3.3 วิธีการปลูกในปีการผลิตที่ผ่านมาท่านทำการปลูกข้าวกี่ครั้ง',
+                                    '2.3.4 วิธีการปลูกในปีการผลิตที่ผ่านมาท่านทำการปลูกข้าวกี่ครั้ง',
                                 child: _buildHS23owToPlantInTheLastProductionYearsWidget(context),
                               ),
                               const SizedBox(height: 30),
@@ -194,19 +201,25 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                               const SizedBox(height: 10),
                               _buildBgThemeWidget(
                                 context: context,
-                                title: Section2Model.s242.question,
+                                title: '2.4.2 การกำจัดวัชพืช',
+                                child: _build24531(),
+                              ),
+                              const SizedBox(height: 10),
+                              _buildBgThemeWidget(
+                                context: context,
+                                title: '2.4.3 ในแปลงท่านพบพันธุ์ข้าวปนหรือไม่่',
                                 child: _build242(),
                               ),
                               const SizedBox(height: 10),
                               _buildBgThemeWidget(
                                 context: context,
-                                title: Section2Model.s243.question,
+                                title: '2.4.4 ท่านได้กำจัดพันธุ์ปนในแปลงท่านพบพันธุ์ข้าวหรือไม่',
                                 child: _build243(),
                               ),
                               const SizedBox(height: 10),
                               _buildBgThemeWidget(
                                 context: context,
-                                title: Section2Model.s244.question,
+                                title: '2.4.5 ข้าวมีการเจริญเติบโตเต็มแปลงหรือไม่',
                                 child: _build244(),
                               ),
                               const SizedBox(height: 10),
@@ -233,12 +246,7 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                 title: Section2Model.caseOfApplyingFertilizers.question,
                                 child: _buildCaseOfApplyingFertilizersWidget(context),
                               ),
-                              const SizedBox(height: 10),
-                              _buildBgThemeWidget(
-                                context: context,
-                                title: Section2Model.s245.s2451.s22453.question,
-                                child: _build24531(),
-                              ),
+
                               const SizedBox(height: 10),
                               _buildBgThemeWidget(
                                 context: context,
@@ -338,7 +346,9 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                     }
                                     RiceFieldModel riceField = state.selectedRiceField!;
 
-                                    bool s211 = Section2Model.s211.values.where((e) => e.value == true).isEmpty;
+                                    bool s211 = Section2Model.s211.values
+                                        .where((e) => e.value == true)
+                                        .isEmpty;
 
                                     if (s211) {
                                       Fluttertoast.showToast(
@@ -353,11 +363,14 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                       return;
                                     }
 
-                                    riceField.s11 =
-                                        Section2Model.s211.values.where((e) => e.value == true).first.text;
+                                    riceField.s11 = Section2Model.s211.values
+                                        .where((e) => e.value == true)
+                                        .first
+                                        .text;
                                     print('s11: ${riceField.s11}');
 
-                                    bool s212 = Section2Model.s212.values.any((e) => e.controller!.text.isEmpty);
+                                    bool s212 = Section2Model.s212.values
+                                        .any((e) => e.controller!.text.isEmpty);
                                     if (s212) {
                                       Fluttertoast.showToast(
                                         msg: 'กรุณาเลือกข้อมูลในข้อ 2.1.2',
@@ -395,7 +408,8 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                       return;
                                     }
                                     if (s213v2) {
-                                      if (Section2Model.s213.values.value2!.controller!.text.isEmpty) {
+                                      if (Section2Model
+                                          .s213.values.value2!.controller!.text.isEmpty) {
                                         Fluttertoast.showToast(
                                           msg: 'กรุณากรอกข้อมูลในข้อ 2.1.3',
                                           toastLength: Toast.LENGTH_SHORT,
@@ -409,7 +423,7 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                         return;
                                       }
                                       riceField.s13 =
-                                      '${Section2Model.s213.values.value2!.controller!.text} ${Section2Model.s213.values.value2!.suffix}';
+                                          '${Section2Model.s213.values.value2!.controller!.text} ${Section2Model.s213.values.value2!.suffix}';
                                     }
                                     if (s213v1) {
                                       riceField.s13 = Section2Model.s213.values.value1!.text;
@@ -418,7 +432,9 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                     print('s13: ${riceField.s13}');
 
                                     /// 2.1.4
-                                    bool s214 = Section2Model.s214.values.where((e) => e.value == true).isEmpty;
+                                    bool s214 = Section2Model.s214.values
+                                        .where((e) => e.value == true)
+                                        .isEmpty;
                                     if (s214) {
                                       Fluttertoast.showToast(
                                         msg: 'กรุณาเลือกข้อมูลในข้อ 2.1.4',
@@ -432,14 +448,16 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                       return;
                                     }
 
-                                    final s214d = Section2Model.s214.values.where((e) => e.value == true).first;
+                                    final s214d = Section2Model.s214.values
+                                        .where((e) => e.value == true)
+                                        .first;
 
                                     riceField.s14 = s214d.text;
 
                                     print('s14: ${riceField.s14}');
 
                                     /// 2.1.5
-                                    bool s215v1 = Section2Model.s215.values.value1!.value;
+                                    /* bool s215v1 = Section2Model.s215.values.value1!.value;
                                     bool s215v2 = Section2Model.s215.values.value2!.value!;
 
                                     bool s215 = s215v1 || s215v2;
@@ -477,10 +495,11 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                       riceField.s15 = Section2Model.s215.values.value1!.text;
                                     }
 
-                                    print('s15: ${riceField.s15}'); // 2.1.5
+                                    print('s15: ${riceField.s15}'); */
 
                                     /// 2.2.1
-                                    bool s221AllTrue = Section2Model.s221.values.any((e) => e.value == true);
+                                    bool s221AllTrue =
+                                        Section2Model.s221.datas.any((e) => e.value == true);
 
                                     if (!s221AllTrue) {
                                       print('s221AllTrue');
@@ -496,11 +515,12 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                       return;
                                     } else {
                                       try {
-                                        List<Section2CheckVSModel> result = [];
-                                        List<Section2CheckVSModel> s21 =
-                                        Section2Model.s221.values.where((e) => e.value == true).toList();
+                                        List<S221Model> result = [];
+                                        List<S221Model> s21 = Section2Model.s221.datas
+                                            .where((e) => e.value == true)
+                                            .toList();
                                         for (var item in s21) {
-                                          if (item.value! && item.controller!.text.isNotEmpty) {
+                                          if (item.value && item.controller!.text.isNotEmpty) {
                                             result.add(item);
                                           } else {
                                             Fluttertoast.showToast(
@@ -515,8 +535,10 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                             return;
                                           }
                                         }
-                                        riceField.s21 =
-                                            result.map((e) => '${e.text} ${e.controller!.text}').toList().join(' ');
+                                        riceField.s21 = result
+                                            .map((e) => '${e.text} ${e.controller!.text}')
+                                            .toList()
+                                            .join(' ');
                                       } catch (e) {
                                         print(e);
                                       }
@@ -525,11 +547,16 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
 
                                     /// 2.2.2
                                     String s222 = '';
-                                    List<Section2ValueTextModel> values = Section2Model.s222.values1;
+                                    List<Section2ValueTextModel> values =
+                                        Section2Model.s222.values1;
                                     List<Section2CheckVSModel> values2 = Section2Model.s222.values2;
 
-                                    bool s222AllTrue = values.where((e) => e.value == true).isEmpty &&
-                                        values2.where((e) => e.value! && e.controller!.text.isNotEmpty).isEmpty;
+                                    bool s222AllTrue = values
+                                            .where((e) => e.value == true)
+                                            .isEmpty &&
+                                        values2
+                                            .where((e) => e.value! && e.controller!.text.isNotEmpty)
+                                            .isEmpty;
 
                                     if (s222AllTrue) {
                                       Fluttertoast.showToast(
@@ -563,12 +590,18 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
 
                                     /// 2.2.3
 
-                                    List<Section2ValueTextModel> values223 = Section2Model.s223.values1;
-                                    List<Section2CheckVSModel> values2223 = Section2Model.s223.values2;
+                                    List<Section2ValueTextModel> values223 =
+                                        Section2Model.s223.values1;
+                                    List<Section2CheckVSModel> values2223 =
+                                        Section2Model.s223.values2;
 
                                     List<String> s223 = [];
-                                    bool values223All = values223.where((e) => e.value == true).isEmpty &&
-                                        values2223.where((e) => e.value! && e.controller!.text.isNotEmpty).isEmpty;
+                                    bool values223All = values223
+                                            .where((e) => e.value == true)
+                                            .isEmpty &&
+                                        values2223
+                                            .where((e) => e.value! && e.controller!.text.isNotEmpty)
+                                            .isEmpty;
                                     if (values223All) {
                                       Fluttertoast.showToast(
                                         msg: 'กรุณาเลือกข้อมูลในข้อ 2.2.3',
@@ -611,7 +644,8 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
 
                                     /// 2.2.4
                                     List<String> s224 = [];
-                                    List<Section2CheckVSModel> values224 = Section2Model.s224.values;
+                                    List<Section2CheckVSModel> values224 =
+                                        Section2Model.s224.values;
                                     bool s224All = values224.where((e) => e.value == true).isEmpty;
 
                                     if (s224All) {
@@ -627,8 +661,10 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                       return;
                                     }
 
-                                    List<Section2CheckVSModel> values224v =
-                                    Section2Model.s224.values.where((e) => e.value == true).toList();
+                                    List<Section2CheckVSModel> values224v = Section2Model
+                                        .s224.values
+                                        .where((e) => e.value == true)
+                                        .toList();
 
                                     for (var item in values224v) {
                                       if (item.value! && item.controller!.text.isNotEmpty) {
@@ -650,7 +686,7 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                     riceField.s24 = s224.join('');
                                     print('s24: ${riceField.s24}'); // 2.2.4
 
-                                    String s225 = '';
+                                    /*String s225 = '';
                                     List<Section2PVSModel> values225 = Section2Model.s225.values;
 
                                     bool s225All = values225.where((e) => e.controller!.text.isNotEmpty).isEmpty;
@@ -676,11 +712,13 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                     }
 
                                     riceField.s25 = s225;
-                                    print('s25: $s225'); // 2.2.5
+                                    print('s25: $s225'); // 2.2.5*/
 
                                     /// 2.2.6
-                                    List<Section2ValueTextModel> values226 = Section2Model.s226.values1;
-                                    List<Section2CheckVSModel> values2226 = Section2Model.s226.values2;
+                                    List<Section2ValueTextModel> values226 =
+                                        Section2Model.s226.values1;
+                                    List<Section2CheckVSModel> values2226 =
+                                        Section2Model.s226.values2;
 
                                     String s226 = '';
                                     List<String> s2261 = [];
@@ -700,16 +738,21 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                       return;
                                     }
 
-                                    List<Section2ValueTextModel> values226v =
-                                    Section2Model.s226.values1.where((e) => e.value == true).toList();
-                                    List<Section2CheckVSModel> values2226v =
-                                    Section2Model.s226.values2.where((e) => e.value == true).toList();
+                                    List<Section2ValueTextModel> values226v = Section2Model
+                                        .s226.values1
+                                        .where((e) => e.value == true)
+                                        .toList();
+                                    List<Section2CheckVSModel> values2226v = Section2Model
+                                        .s226.values2
+                                        .where((e) => e.value == true)
+                                        .toList();
 
                                     s226 = values226v.first.text;
 
                                     for (var item in values2226v) {
                                       if (item.value!) {
-                                        if (item.controller != null && item.controller!.text.isEmpty) {
+                                        if (item.controller != null &&
+                                            item.controller!.text.isEmpty) {
                                           Fluttertoast.showToast(
                                             msg: 'กรุณากรอกข้อมูลในข้อ 2.2.6',
                                             toastLength: Toast.LENGTH_SHORT,
@@ -723,7 +766,8 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                         } else {
                                           if (values226[1].value || values226[2].value) {
                                             for (var item in values2226v) {
-                                              s2261.add('${item.text} ${item.controller?.text ?? ''}');
+                                              s2261.add(
+                                                  '${item.text} ${item.controller?.text ?? ''}');
                                             }
                                           }
                                         }
@@ -740,7 +784,7 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                     /// 2.3.1
                                     String s231 = '';
                                     String? s2311;
-                                    List<Section2ValueTextModel> values231 = Section2Model.s231.values;
+                                    List<S221Model> values231 = Section2Model.s231.values;
                                     bool s231All = values231.where((e) => e.value == true).isEmpty;
 
                                     if (s231All) {
@@ -761,25 +805,11 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                       s2311 = null;
                                     }
                                     if (values231[1].value) {
-                                      if (Section2Model.s231.yearController!.text.isEmpty ||
-                                          Section2Model.s231.detailController!.text.isEmpty) {
-                                        Fluttertoast.showToast(
-                                          msg: 'กรุณากรอกข้อมูลในข้อ 2.3.1',
-                                          toastLength: Toast.LENGTH_SHORT,
-                                          gravity: ToastGravity.CENTER,
-                                          timeInSecForIosWeb: 3,
-                                          backgroundColor: Colors.red,
-                                          textColor: Colors.white,
-                                          fontSize: 16.0,
-                                        );
-                                        return;
-                                      }
                                       s231 = values231[1].text;
-                                      s2311 = '- ระยะเวลาที่ท่านต้องบำรุงดิน ${Section2Model.s231.yearController!.text} ปี \n- ท่านมีการบำรุงดินด้วยวิธีใด และทำอย่างไร(ไถกลบตอซัง/ปุ๋ยคอก/พืชบำรุงดิน)\n${Section2Model.s231.detailController!.text}';
                                     }
 
                                     riceField.s31 = s231;
-                                    riceField.s311 = s2311 ;
+                                    riceField.s311 = s2311;
                                     print('s31: $s231'); // 2.3.1 ขั้นตอนการเตรียมดิน
                                     print('s311: $s2311'); // 2.3.1 ขั้นตอนการเตรียมดิน
 
@@ -804,7 +834,8 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                     if (values231[0].value) {
                                       riceField.s321 = [];
                                     } else {
-                                      riceField.s321 = s23SoilPreparationSteps.map((e) => e.toJson()).toList();
+                                      riceField.s321 =
+                                          s23SoilPreparationSteps.map((e) => e.toJson()).toList();
                                     }
 
                                     print(
@@ -814,7 +845,9 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                     S232 value232 = Section2Model.s232;
                                     String s232 = '';
 
-                                    if (value232.startMonthController!.text.isNotEmpty &&
+                                    // TODO 2.3.3 ยังไม่มีคำตอบ
+
+                                    /*if (value232.startMonthController!.text.isNotEmpty &&
                                         value232.monthController!.text.isNotEmpty) {
                                       s232 =
                                       '${value232.startMonthController!.text} เดือน ${value232.monthController!.text}';
@@ -829,20 +862,20 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                         fontSize: 16.0,
                                       );
                                       return;
-                                    }
+                                    }*/
 
                                     riceField.s32 = s232;
                                     print(
                                         's32: $s232'); // 2.3.2 วิธีการปลูกในปีการผลิตที่ผ่านมาท่านทำการปลูกข้าวกี่ครั้ง
 
                                     List<HowToPlantInTheLastProductionYearsModel>
-                                    hS23owToPlantInTheLastProductionYears =
+                                        hS23owToPlantInTheLastProductionYears =
                                         Section2Model.hS23owToPlantInTheLastProductionYears.values;
 
                                     if (hS23owToPlantInTheLastProductionYears.isEmpty) {
                                       Fluttertoast.showToast(
                                         msg:
-                                        '2.3.3 กรุณาเพิ่มขวิธีการปลูกในปีการผลิตที่ผ่านมาท่านทำการปลูกข้าวกี่ครั้ง',
+                                            '2.3.3 กรุณาเพิ่มขวิธีการปลูกในปีการผลิตที่ผ่านมาท่านทำการปลูกข้าวกี่ครั้ง',
                                         toastLength: Toast.LENGTH_SHORT,
                                         gravity: ToastGravity.CENTER,
                                         timeInSecForIosWeb: 3,
@@ -853,12 +886,16 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                       return;
                                     }
 
-                                    riceField.s33 =
-                                        hS23owToPlantInTheLastProductionYears.map((e) => e.toJson()).toList();
+                                    riceField.s33 = hS23owToPlantInTheLastProductionYears
+                                        .map((e) => e.toJson())
+                                        .toList();
                                     print('s33: ${riceField.s33}');
 
                                     /// 2.4.1
-                                    List<Section2ValueTextModel> values241 = Section2Model.s241.values;
+
+                                    // TODO 241 ยังไม่มีคำตอบ
+                                    List<Section2ValueTextModel> values241 =
+                                        Section2Model.s241.values;
                                     String s241Text = '';
                                     String? s2411Text;
                                     final s241 = Section2Model.s241;
@@ -882,7 +919,7 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                       s2411Text = null;
                                     }
 
-                                    if (values241[1].value) {
+                                    /*if (values241[1].value) {
                                       if (s241.weedController?.text == '' ||
                                           s241.percentController?.text == '' ||
                                           s241.controlWeedController?.text == '') {
@@ -899,8 +936,8 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                       }
                                       s241Text = values241[1].text;
                                       s2411Text =
-                                      'คือ ${s241.weedController!.text} \nคิดเป็นร้อยละ ${s241.percentController!.text} ของพื้นที่ \nและท่านกำจัดวัชพืชหรือไม่อย่างไร ${s241.controlWeedController!.text}';
-                                    }
+                                          'คือ ${s241.weedController!.text} \nคิดเป็นร้อยละ ${s241.percentController!.text} ของพื้นที่ \nและท่านกำจัดวัชพืชหรือไม่อย่างไร ${s241.controlWeedController!.text}';
+                                    }*/
 
                                     riceField.s41 = s241Text;
                                     riceField.s411 = s2411Text;
@@ -908,7 +945,8 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                     print('s411: ${riceField.s411}'); // 2.4.1
 
                                     /// 2.4.2
-                                    List<Section2ValueTextModel> values242 = Section2Model.s242.values;
+                                    List<Section2ValueTextModel> values242 =
+                                        Section2Model.s242.values;
                                     String s242Text = '';
                                     String? s2421Text;
                                     final s242 = Section2Model.s242;
@@ -932,7 +970,8 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                       s2421Text = null;
                                     }
                                     if (values242[1].value) {
-                                      if (s242.weedController?.text == '' || s242.percentController?.text == '') {
+                                      if (s242.weedController?.text == '' ||
+                                          s242.percentController?.text == '') {
                                         Fluttertoast.showToast(
                                           msg: 'กรุณากรอกข้อมูลในข้อ 2.4.2',
                                           toastLength: Toast.LENGTH_SHORT,
@@ -946,7 +985,7 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                       }
                                       s242Text = values242[1].text;
                                       s2421Text =
-                                      'คือ ${s242.weedController!.text} \nคิดเป็นร้อยละ ${s242.percentController!.text} ของพื้นที่';
+                                          'คือ ${s242.weedController!.text} \nคิดเป็นร้อยละ ${s242.percentController!.text} ของพื้นที่';
                                     }
 
                                     riceField.s42 = s242Text;
@@ -955,7 +994,11 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                     print('s421: ${riceField.s421}'); // 2.4.1
 
                                     /// 2.4.3
-                                    List<Section2ValueTextModel> values243 = Section2Model.s243.values;
+
+                                    // TODO 243 ยังไม่มีคำตอบ
+
+                                   /* List<Section2ValueTextModel> values243 =
+                                        Section2Model.s243.values;
                                     String s243Text = '';
                                     final s243 = Section2Model.s243;
                                     bool s243All = values243.where((e) => e.value == true).isEmpty;
@@ -991,13 +1034,15 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                       }
 
                                       s243Text = '${values243[1].text} ${s243.controller!.text}';
-                                    }
+                                    }*/
 
-                                    riceField.s43 = s243Text;
+                                    // riceField.s43 = s243Text;
                                     print('s43: ${riceField.s43}');
                                     // print('s43: ${riceField.s43}');
 
-                                    List<Section2CheckVSModel> values44 = Section2Model.s244.values;
+
+                                    // TODO 244 ยังไม่มีคำตอบ
+                                   /* List<Section2CheckVSModel> values44 = Section2Model.s244.values;
                                     String s244Text = '';
                                     bool s244All = values44.where((e) => e.value == true).isEmpty;
 
@@ -1014,7 +1059,8 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                       return;
                                     }
 
-                                    final currentValues = values44.where((e) => e.value == true).first;
+                                    final currentValues =
+                                        values44.where((e) => e.value == true).first;
 
                                     if (currentValues.controller!.text.isEmpty) {
                                       Fluttertoast.showToast(
@@ -1029,8 +1075,9 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                       return;
                                     }
 
-                                    s244Text = '${currentValues.text} ${currentValues.controller!.text}';
-                                    riceField.s44 = s244Text;
+                                    s244Text =
+                                        '${currentValues.text} ${currentValues.controller!.text}';
+                                    riceField.s44 = s244Text;*/
                                     print('s44: ${riceField.s44}'); // 2.4.4
 
                                     /// 2.4.5.1
@@ -1041,9 +1088,11 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                     String s24511Text = '';
                                     String? s24512Text;
 
-                                    bool s24511All = s24511values1.where((e) => e.value == true).isEmpty;
+                                    bool s24511All =
+                                        s24511values1.where((e) => e.value == true).isEmpty;
 
-                                    bool s24511All2 = s24511values2.where((e) => e.value! == true).isEmpty;
+                                    bool s24511All2 =
+                                        s24511values2.where((e) => e.value! == true).isEmpty;
 
                                     if (s24511All) {
                                       Fluttertoast.showToast(
@@ -1096,7 +1145,8 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                             return;
                                           }
 
-                                          s24512Texts.add('${item.text} ${item.controller?.text ?? ''}');
+                                          s24512Texts
+                                              .add('${item.text} ${item.controller?.text ?? ''}');
                                         }
                                       }
                                       s24512Text = s24512Texts.join('');
@@ -1126,7 +1176,8 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                       riceField.s513 = null;
                                     }
 
-                                    riceField.s513 = caseOfGivingWaters.map((e) => e.toJson()).toList();
+                                    riceField.s513 =
+                                        caseOfGivingWaters.map((e) => e.toJson()).toList();
                                     print('s4513: ${riceField.s513}'); //
 
                                     ///
@@ -1135,7 +1186,8 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                     List<Section2CheckVSModel> s24512values = s245112.s24521.values;
                                     String s24521Text = '';
 
-                                    bool s24512All = s24512values.where((e) => e.value == true).isEmpty;
+                                    bool s24512All =
+                                        s24512values.where((e) => e.value == true).isEmpty;
 
                                     if (s24512All) {
                                       Fluttertoast.showToast(
@@ -1168,7 +1220,7 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                       }
 
                                       s24521Text =
-                                      '${s24512values[1].text} ${s24512values[1].controller?.text ?? ''}';
+                                          '${s24512values[1].text} ${s24512values[1].controller?.text ?? ''}';
                                     }
                                     riceField.s4521 = s24521Text;
                                     print('ss4521: $s24521Text'); //
@@ -1189,7 +1241,8 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                       return;
                                     }
 
-                                    riceField.s522 = caseOfApplyingFertilizers.map((e) => e.toJson()).toList();
+                                    riceField.s522 =
+                                        caseOfApplyingFertilizers.map((e) => e.toJson()).toList();
                                     print('s4522: ${riceField.s522}'); //
 
                                     S245 values4531 = Section2Model.s245;
@@ -1197,7 +1250,8 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                     List<Section2CheckVSModel> s24531values = s245311.values.values;
                                     String s24531Text = '';
 
-                                    bool s24531All = s24531values.where((e) => e.value == true).isEmpty;
+                                    bool s24531All =
+                                        s24531values.where((e) => e.value == true).isEmpty;
 
                                     if (s24531All) {
                                       Fluttertoast.showToast(
@@ -1230,13 +1284,14 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                       }
 
                                       s24531Text =
-                                      '${s24531values[1].text} ${s24531values[1].controller?.text ?? ''}';
+                                          '${s24531values[1].text} ${s24531values[1].controller?.text ?? ''}';
                                     }
                                     riceField.s4531 = s24531Text;
                                     print('s4531: ${riceField.s4531}'); //
 
                                     bool isCaseKillWeeds = s24531values[0].value!;
-                                    List<CaseKillWeedsModel> caseKillWeeds = Section2Model.caseKillWeeds.values;
+                                    List<CaseKillWeedsModel> caseKillWeeds =
+                                        Section2Model.caseKillWeeds.values;
                                     if (isCaseKillWeeds && caseKillWeeds.isEmpty) {
                                       Fluttertoast.showToast(
                                         msg: 'กรุณาเพิ่มกรณีกำจัดวัชพืช',
@@ -1250,12 +1305,14 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                       return;
                                     }
 
-                                    riceField.s45311 = caseKillWeeds.map((e) => e.toJson()).toList();
+                                    riceField.s45311 =
+                                        caseKillWeeds.map((e) => e.toJson()).toList();
                                     print('s45311: ${riceField.s45311}'); //
 
-                                    //
-                                    final values254 = Section2Model.s254532.values;
-                                    final s254532All = values254.where((e) => e.value == true).isEmpty;
+                                    // TODO 4532 ยังไม่มีคำตอบ
+                                   /* final values254 = Section2Model.s254532.values;
+                                    final s254532All =
+                                        values254.where((e) => e.value == true).isEmpty;
                                     if (s254532All) {
                                       Fluttertoast.showToast(
                                         msg: 'กรุณาเลือกข้อมูลในข้อ 2.5.3.2',
@@ -1285,7 +1342,8 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                         return;
                                       }
 
-                                      s4532 = '${values254[0].text} ${values254[0].controller?.text ?? ''}';
+                                      s4532 =
+                                      '${values254[0].text} ${values254[0].controller?.text ?? ''}';
                                     }
 
                                     List<String> s4532s = [];
@@ -1304,11 +1362,12 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                         return;
                                       }
 
-                                      s4532s
-                                          .add('${values254[1].text} ${values254[1].controller?.text ?? ''} ครั้ง');
+                                      s4532s.add(
+                                          '${values254[1].text} ${values254[1].controller?.text ?? ''} ครั้ง');
 
                                       for (var item in v1) {
-                                        if (item.controller1.text == '' || item.controller2.text == '') {
+                                        if (item.controller1.text == '' ||
+                                            item.controller2.text == '') {
                                           Fluttertoast.showToast(
                                             msg: 'กรุณาเลือกข้อมูลในข้อ 2.5.3.2',
                                             toastLength: Toast.LENGTH_SHORT,
@@ -1328,7 +1387,7 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                     }
 
                                     riceField.s4532 = s4532;
-                                    print('s4532: $s4532'); //
+                                    print('s4532: $s4532'); */
 
                                     final data = Section2Model.s224541;
                                     final s224541values1 = data.values1;
@@ -1337,7 +1396,8 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                     String s224541Text = '';
                                     String? s2245411Text;
 
-                                    final s224541All = s224541values1.where((e) => e.value == true).isEmpty;
+                                    final s224541All =
+                                        s224541values1.where((e) => e.value == true).isEmpty;
                                     if (s224541All) {
                                       Fluttertoast.showToast(
                                         msg: 'กรุณากรอกข้อมูลในข้อ 2.4.5.4.1',
@@ -1359,7 +1419,8 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                     List<String> s224541Texts = [];
 
                                     if (s224541values1[1].value!) {
-                                      bool s224541All2 = s224541values2.where((e) => e.value! == true).isEmpty;
+                                      bool s224541All2 =
+                                          s224541values2.where((e) => e.value! == true).isEmpty;
 
                                       if (s224541All2) {
                                         Fluttertoast.showToast(
@@ -1396,7 +1457,8 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                         }
                                       }
                                       final vLast = s224541values2.last;
-                                      s224541Texts.add('${vLast.text} ${vLast.controller?.text ?? ''}');
+                                      s224541Texts
+                                          .add('${vLast.text} ${vLast.controller?.text ?? ''}');
                                       // s224541Text = '${s224541values1[1].text} ${item.text} ${item.controller?.text ?? ''}';
 
                                       s2245411Text = s224541Texts.join('\n');
@@ -1414,7 +1476,8 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                     String s224542Text = '';
                                     String? s2245421Text;
 
-                                    final s224542All = s224542values1.where((e) => e.value == true).isEmpty;
+                                    final s224542All =
+                                        s224542values1.where((e) => e.value == true).isEmpty;
                                     if (s224542All) {
                                       Fluttertoast.showToast(
                                         msg: 'กรุณากรอกข้อมูลในข้อ 2.4.5.4.2',
@@ -1436,7 +1499,8 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                     List<String> s224542Texts = [];
 
                                     if (s224542values1[1].value!) {
-                                      bool d = s224542values2.where((e) => e.value! == true).isEmpty;
+                                      bool d =
+                                          s224542values2.where((e) => e.value! == true).isEmpty;
 
                                       if (d) {
                                         Fluttertoast.showToast(
@@ -1473,7 +1537,8 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                         }
                                       }
                                       final vLast = s224542values2.last;
-                                      s224542Texts.add('${vLast.text} ${vLast.controller?.text ?? ''}');
+                                      s224542Texts
+                                          .add('${vLast.text} ${vLast.controller?.text ?? ''}');
 
                                       s2245421Text = s224542Texts.join('\n');
                                     }
@@ -1512,17 +1577,19 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
 
                                     final y = Section2Model.s252;
                                     List<Section2CheckVSModel> s252values1 = y.values1;
-                                    bool s252AAll = s252values1.where((e) => e.value == true).isEmpty;
+                                    bool s252AAll =
+                                        s252values1.where((e) => e.value == true).isEmpty;
 
                                     List<Section2CheckVSModel> s252values2 = y.values2;
-                                    bool s252BAll = s252values2.where((e) => e.value == true).isEmpty;
+                                    bool s252BAll =
+                                        s252values2.where((e) => e.value == true).isEmpty;
 
                                     List<Section2CheckVSModel> s252values3 = y.values3;
                                     bool s252CAll = s252values3.first.controller?.text == '';
 
                                     List<Section2CheckVSModel> s252values4 = y.values4;
-                                    bool s252DAll = s252values4.where((e) => e.value == true).isEmpty;
-
+                                    bool s252DAll =
+                                        s252values4.where((e) => e.value == true).isEmpty;
 
                                     if (s252AAll) {
                                       Fluttertoast.showToast(
@@ -1537,12 +1604,17 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                       return;
                                     }
 
-                                    Section2CheckVSModel a = s252values1.where((e) => e.value == true).first;
+                                    Section2CheckVSModel a =
+                                        s252values1.where((e) => e.value == true).first;
                                     riceField.s52A = a.text ?? '';
                                     riceField.s521A = null;
                                     List<String> a1 = [];
                                     print('sdsfs');
-                                    if(s252values1[4].value! && s252AAll && s252BAll && s252CAll && s252DAll){
+                                    if (s252values1[4].value! &&
+                                        s252AAll &&
+                                        s252BAll &&
+                                        s252CAll &&
+                                        s252DAll) {
                                       Fluttertoast.showToast(
                                         msg: 'กรุณากรอกข้อมูลในข้อ 2.5.2',
                                         toastLength: Toast.LENGTH_SHORT,
@@ -1555,27 +1627,24 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                       return;
                                     }
 
-
                                     riceField.s52A = s252values1[4].text!;
                                     riceField.s521A = ' แหล่งที่มาของเครื่องจักร';
 
-                                    for(var item in s252values2){
-                                      if(item.value!){
+                                    for (var item in s252values2) {
+                                      if (item.value!) {
                                         a1.add('${item.text} ${item.controller?.text ?? ''}');
                                       }
                                     }
 
-
-
-                                    for(var item in s252values3){
-                                      a1.add('${item.text} ${item.controller?.text ?? ''} ${item.suffix}');
-
+                                    for (var item in s252values3) {
+                                      a1.add(
+                                          '${item.text} ${item.controller?.text ?? ''} ${item.suffix}');
                                     }
 
                                     a1.add('การชำระค่าบริการ');
 
-                                    for(var item in s252values4){
-                                      if(item.value!){
+                                    for (var item in s252values4) {
+                                      if (item.value!) {
                                         a1.add('${item.text} ${item.controller?.text ?? ''}');
                                       }
                                     }
@@ -1585,16 +1654,15 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                     print('s52A: ${riceField.s52A}');
                                     print('s521A: ${riceField.s521A}');
 
-
-
                                     final s53 = Section2Model.s253;
 
                                     String s253Text = '';
 
                                     final s253values1 = s53.values;
-                                    bool s253All = s253values1.where((e) => e.value == true).isEmpty;
+                                    bool s253All =
+                                        s253values1.where((e) => e.value == true).isEmpty;
 
-                                    if(s253All){
+                                    if (s253All) {
                                       Fluttertoast.showToast(
                                         msg: 'กรุณาเลือกข้อมูลในข้อ 2.5.3',
                                         toastLength: Toast.LENGTH_SHORT,
@@ -1607,12 +1675,12 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                       return;
                                     }
 
-
-                                    final currentValues53 = s253values1.where((e) => e.value == true).first;
+                                    final currentValues53 =
+                                        s253values1.where((e) => e.value == true).first;
                                     final index = s253values1.indexOf(currentValues53);
 
-                                    if(index == 4){
-                                      if(currentValues53.controller?.text == ''){
+                                    if (index == 4) {
+                                      if (currentValues53.controller?.text == '') {
                                         Fluttertoast.showToast(
                                           msg: 'กรุณากรอกข้อมูลในข้อ 2.5.3',
                                           toastLength: Toast.LENGTH_SHORT,
@@ -1626,19 +1694,17 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                       }
                                     }
 
-
-                                    riceField.s53B = '${currentValues53.text} ${currentValues53.controller?.text ?? ''}';
+                                    riceField.s53B =
+                                        '${currentValues53.text} ${currentValues53.controller?.text ?? ''}';
                                     print('s53B: ${riceField.s53B}');
-
-
-
 
                                     final s54 = Section2Model.s254;
 
                                     final s254values1 = s54.values;
-                                    bool s254All = s254values1.where((e) => e.value == true).isEmpty;
+                                    bool s254All =
+                                        s254values1.where((e) => e.value == true).isEmpty;
 
-                                    if(s254All){
+                                    if (s254All) {
                                       Fluttertoast.showToast(
                                         msg: 'กรุณาเลือกข้อมูลในข้อ 2.5.4',
                                         toastLength: Toast.LENGTH_SHORT,
@@ -1651,11 +1717,12 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                       return;
                                     }
 
-                                    final currentValues54 = s254values1.where((e) => e.value == true).first;
+                                    final currentValues54 =
+                                        s254values1.where((e) => e.value == true).first;
                                     final index54 = s254values1.indexOf(currentValues54);
 
-                                    if(index54 == 1){
-                                      if(currentValues54.controller?.text == ''){
+                                    if (index54 == 1) {
+                                      if (currentValues54.controller?.text == '') {
                                         Fluttertoast.showToast(
                                           msg: 'กรุณากรอกข้อมูลในข้อ 2.5.4',
                                           toastLength: Toast.LENGTH_SHORT,
@@ -1669,16 +1736,16 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                       }
                                     }
 
-                                    riceField.s54C = '${currentValues54.text} ${currentValues54.controller?.text ?? ''}';
+                                    riceField.s54C =
+                                        '${currentValues54.text} ${currentValues54.controller?.text ?? ''}';
                                     print('s54C: ${riceField.s54C}');
-
-
 
                                     final s55 = Section2Model.s255;
                                     final s255values1 = s55.values;
-                                    bool s255All = s255values1.where((e) => e.value == true).isEmpty;
+                                    bool s255All =
+                                        s255values1.where((e) => e.value == true).isEmpty;
 
-                                    if(s255All){
+                                    if (s255All) {
                                       Fluttertoast.showToast(
                                         msg: 'กรุณาเลือกข้อมูลในข้อ 2.5.5',
                                         toastLength: Toast.LENGTH_SHORT,
@@ -1691,12 +1758,15 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                       return;
                                     }
 
-                                    final currentValues55 = s255values1.where((e) => e.value == true).first;
+                                    final currentValues55 =
+                                        s255values1.where((e) => e.value == true).first;
                                     final index55 = s255values1.indexOf(currentValues55);
                                     riceField.s55D = currentValues55.text!;
                                     riceField.s551D = null;
-                                    if(index55 == 1){
-                                      if(s55.sunForCount?.text == '' || s55.sunForDay?.text == '' || s55.other?.text == ''){
+                                    if (index55 == 1) {
+                                      if (s55.sunForCount?.text == '' ||
+                                          s55.sunForDay?.text == '' ||
+                                          s55.other?.text == '') {
                                         Fluttertoast.showToast(
                                           msg: 'กรุณากรอกข้อมูลในข้อ 2.5.5',
                                           toastLength: Toast.LENGTH_SHORT,
@@ -1709,25 +1779,21 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                         return;
                                       }
                                       riceField.s55D = currentValues55.text!;
-                                      riceField.s551D = '- ตากแดด กลับกองข้าววันละ ${s55.sunForDay?.text} ครั้ง\nตากแดดจำนวน ${s55.sunForCount?.text ?? ''} วัน\n- อื่นๆ ${s55.sunForDay?.text ?? ''} ${s55.other?.text ?? ''}';
+                                      riceField.s551D =
+                                          '- ตากแดด กลับกองข้าววันละ ${s55.sunForDay?.text} ครั้ง\nตากแดดจำนวน ${s55.sunForCount?.text ?? ''} วัน\n- อื่นๆ ${s55.sunForDay?.text ?? ''} ${s55.other?.text ?? ''}';
                                     }
 
                                     print('s55D: ${riceField.s55D}');
                                     print('s551D: ${riceField.s551D}');
-
-
-
 
                                     final s56 = Section2Model.s256;
                                     final sv1 = s56.values1;
                                     final sv2 = s56.values2;
                                     final sv3 = s56.values3;
 
-
-
                                     bool s56All = sv1.where((e) => e.value == true).isEmpty;
 
-                                    if(s56All){
+                                    if (s56All) {
                                       Fluttertoast.showToast(
                                         msg: 'กรุณาเลือกข้อมูลในข้อ 2.5.6',
                                         toastLength: Toast.LENGTH_SHORT,
@@ -1744,9 +1810,9 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                     final index56 = sv1.indexOf(currentValues56);
                                     riceField.s56E = currentValues56.text;
 
-                                    if(index56 == 0){
+                                    if (index56 == 0) {
                                       bool s56All2 = sv2.where((e) => e.value == true).isEmpty;
-                                      if(s56All2){
+                                      if (s56All2) {
                                         Fluttertoast.showToast(
                                           msg: 'กรุณาเลือกข้อมูลในข้อ 2.5.6',
                                           toastLength: Toast.LENGTH_SHORT,
@@ -1761,19 +1827,18 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
 
                                       List<String> s56E = [];
 
-                                      for(var item in sv2){
-                                        if(item.value){
+                                      for (var item in sv2) {
+                                        if (item.value) {
                                           s56E.add('- กรณีขายทั้งหมด ${item.text}');
                                         }
                                       }
 
-
                                       riceField.s561E = currentValues56.text;
                                       riceField.s561E = s56E.join('\n');
                                     }
-                                    if(index56 == 1){
+                                    if (index56 == 1) {
                                       bool s56All3 = sv3.where((e) => e.value == true).isEmpty;
-                                      if( s56All3){
+                                      if (s56All3) {
                                         Fluttertoast.showToast(
                                           msg: 'กรุณาเลือกข้อมูลในข้อ 2.5.6',
                                           toastLength: Toast.LENGTH_SHORT,
@@ -1788,8 +1853,8 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
 
                                       List<String> s56E = [];
 
-                                      for(var item in sv3){
-                                        if(item.value){
+                                      for (var item in sv3) {
+                                        if (item.value) {
                                           s56E.add('- กรณีเก็บทั้งหมด ${item.text}');
                                         }
                                       }
@@ -1798,10 +1863,10 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                       riceField.s561E = s56E.join('\n');
                                     }
 
-                                    if(index56 == 2){
+                                    if (index56 == 2) {
                                       bool s56All2 = sv2.where((e) => e.value == true).isEmpty;
                                       bool s56All3 = sv3.where((e) => e.value == true).isEmpty;
-                                      if(s56All2 || s56All3){
+                                      if (s56All2 || s56All3) {
                                         Fluttertoast.showToast(
                                           msg: 'กรุณาเลือกข้อมูลในข้อ 2.5.6',
                                           toastLength: Toast.LENGTH_SHORT,
@@ -1816,14 +1881,14 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
 
                                       List<String> s56E = [];
 
-                                      for(var item in sv2){
-                                        if(item.value){
+                                      for (var item in sv2) {
+                                        if (item.value) {
                                           s56E.add('- กรณีขายทั้งหมด ${item.text}');
                                         }
                                       }
 
-                                      for(var item in sv3){
-                                        if(item.value){
+                                      for (var item in sv3) {
+                                        if (item.value) {
                                           s56E.add('- กรณีเก็บทั้งหมด ${item.text}');
                                         }
                                       }
@@ -1835,15 +1900,12 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                     print('s56E: ${riceField.s56E}');
                                     print('s561E: ${riceField.s561E}');
 
-
-
-
                                     final s561 = Section2Model.s260;
                                     final vS561 = s561.values1;
                                     final vS561s = s561.values1s;
                                     final vS562 = s561.values2;
 
-                                    if(!vS561.value && !vS562.value!){
+                                    if (!vS561.value && !vS562.value!) {
                                       Fluttertoast.showToast(
                                         msg: 'กรุณาเลือกข้อมูลในข้อ 2.6',
                                         toastLength: Toast.LENGTH_SHORT,
@@ -1854,11 +1916,10 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                         fontSize: 16.0,
                                       );
                                       return;
-
                                     }
 
-                                    if(vS562.value!){
-                                      if(vS562.controller?.text == ''){
+                                    if (vS562.value!) {
+                                      if (vS562.controller?.text == '') {
                                         Fluttertoast.showToast(
                                           msg: 'กรุณากรอกข้อมูลในข้อ 2.6.1',
                                           toastLength: Toast.LENGTH_SHORT,
@@ -1871,18 +1932,16 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                         return;
                                       }
                                       riceField.s61E = vS562.text ?? '';
-                                      riceField.s61E = '${riceField.s61E} ${vS562.controller?.text ?? ''}';
-
+                                      riceField.s61E =
+                                          '${riceField.s61E} ${vS562.controller?.text ?? ''}';
                                     }
 
                                     bool s561All = vS561s.where((e) => e.value == true).isNotEmpty;
 
                                     print('vS561.value: ${vS561.value}');
                                     print('s561All: $s561All');
-                                    if(vS561.value){
-
-
-                                      if(!s561All){
+                                    if (vS561.value) {
+                                      if (!s561All) {
                                         Fluttertoast.showToast(
                                           msg: 'กรุณาเลือกข้อมูลในข้อ 2.6.1',
                                           toastLength: Toast.LENGTH_SHORT,
@@ -1895,30 +1954,21 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                         return;
                                       }
 
-
-
                                       List<String> s561Text = [];
-                                      for(var item in vS561s){
-                                        if(item.value){
+                                      for (var item in vS561s) {
+                                        if (item.value) {
                                           s561Text.add(item.text);
                                         }
-
                                       }
-                                      riceField.s61E =  '${riceField.s61E} ${s561Text.join('\n')}';
-
+                                      riceField.s61E = '${riceField.s61E} ${s561Text.join('\n')}';
                                     }
 
                                     print('s61E: ${riceField.s61E}');
-
-
 
                                     Section2DataModel.datas.add(riceField);
                                     state.isSection2Pending = true;
                                     setState(() {});
                                     Navigator.pop(context, true);
-
-
-
                                   },
                                   child: const CustomText(
                                     text: 'บันทึกข้อมูล',
@@ -2150,14 +2200,16 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                               borderRadius: BorderRadius.circular(16),
                             ),
                             value: e.value,
-                            onChanged: data.values1[1].value ? null : (v) {
-                              setState(() {
-                                data.values2.forEach((element) {
-                                  element.value = false;
-                                });
-                                e.value = v!;
-                              });
-                            },
+                            onChanged: data.values1[1].value
+                                ? null
+                                : (v) {
+                                    setState(() {
+                                      data.values2.forEach((element) {
+                                        element.value = false;
+                                      });
+                                      e.value = v!;
+                                    });
+                                  },
                           ),
                           CustomText(
                             text: e.text ?? '',
@@ -2203,14 +2255,16 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                               borderRadius: BorderRadius.circular(16),
                             ),
                             value: e.value,
-                            onChanged:data.values1[0].value ? null :  (v) {
-                              setState(() {
-                                data.values3.forEach((element) {
-                                  element.value = false;
-                                });
-                                e.value = v!;
-                              });
-                            },
+                            onChanged: data.values1[0].value
+                                ? null
+                                : (v) {
+                                    setState(() {
+                                      data.values3.forEach((element) {
+                                        element.value = false;
+                                      });
+                                      e.value = v!;
+                                    });
+                                  },
                           ),
                           CustomText(
                             text: e.text ?? '',
@@ -3101,71 +3155,42 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
       ],
     );
   }
-
   Widget _build2254() {
     final values = Section2Model.s254532.values;
     return Column(
       children: [
         ...values.map(
           (e) {
-            final subValues = e.values ?? [];
             return Column(
               children: [
                 Row(
                   children: [
-                    Checkbox(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                      value: e.value,
-                      onChanged: (v) {
-                        setState(() {
-                          subValues.clear();
-                          values.forEach((element) {
-                            element.value = false;
-                            element.controller?.clear();
-                          });
-                          e.values?.clear();
-                          e.controller?.clear();
-
-                          e.value = v!;
-                        });
-                      },
+                    CustomText(
+                      text: e.text ?? '',
+                      fontSize: 14,
+                      fontWeight: FontWeight.normal,
+                      color: Colors.black,
+                      textAlign: TextAlign.start,
+                      overflow: TextOverflow.visible,
                     ),
-                    Expanded(
-                      child: CustomText(
-                        text: e.text ?? '',
-                        fontSize: 14,
-                        fontWeight: FontWeight.normal,
-                        color: Colors.black,
-                        textAlign: TextAlign.start,
-                        overflow: TextOverflow.visible,
-                      ),
-                    ),
+                    SizedBox(width: 10),
                     Expanded(
                       child: _buildTextFieldWidget(
                         controller: e.controller,
-                        enabled: e.value!,
-                        textAlign: values[1].value! ? TextAlign.center : TextAlign.start,
-                        keyboardType: values[1].value! ? TextInputType.number : TextInputType.text,
+                        //enabled: e.value!,
+                        textAlign:  TextAlign.center,
+                        keyboardType: TextInputType.number,
                         onChanged: (value) {
-                          if (values[1].value! && value!.isNotEmpty) {
-                            int count = int.parse(value);
 
-                            for (var i = 0; i < count; i++) {
-                              subValues.add(
-                                S2TVTVModel(
-                                  title: 'ครั้งที่ ${i + 1} ตัดช่วง',
-                                  controller1: TextEditingController(),
-                                  suffix1: 'เพราะ',
-                                  controller2: TextEditingController(),
-                                ),
-                              );
+                          setState(() {
+
+                            if(e.controller!.text.isEmpty){
+                              e.values.forEach((element) {
+                                element.value = false;
+                              });
                             }
-                          } else {
-                            subValues.clear();
-                          }
-                          setState(() {});
+
+                          });
                         },
                       ),
                     ),
@@ -3180,63 +3205,52 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                     ),
                   ],
                 ),
-                Visibility(
-                  visible: subValues.isNotEmpty,
+                Padding(
+                  padding: const EdgeInsets.only(left: 30),
                   child: Column(
                     children: [
-                      ...subValues
-                          .map(
-                            (sub) => Row(
-                              children: [
-                                Expanded(
-                                  child: CustomText(
-                                    text: sub.title ?? '',
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.normal,
-                                    color: Colors.black,
-                                    textAlign: TextAlign.start,
-                                    overflow: TextOverflow.visible,
-                                  ),
+                      ...e.values.map(
+                        (em) {
+                          return Row(
+                            children: [
+                              Checkbox(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(16),
                                 ),
-                                Expanded(
+                                value: em.value,
+                                onChanged: e.controller!.text.isEmpty ? null : (v) {
+                                  setState(() {
+                                    em.value = v!;
+                                  });
+                                },
+                              ),
+                              CustomText(
+                                text: em.text ?? '',
+                                fontSize: 14,
+                                fontWeight: FontWeight.normal,
+                                color: Colors.black,
+                                textAlign: TextAlign.start,
+                                overflow: TextOverflow.visible,
+                              ),
+                              const SizedBox(width: 10),
+                              Expanded(
+                                child: Visibility(
+                                  visible: em.controller != null,
                                   child: _buildTextFieldWidget(
-                                    controller: sub.controller1,
-                                    enabled: values[1].value,
+                                    controller: em.controller,
+                                    enabled: em.value! && e.controller!.text.isNotEmpty,
                                     textAlign: TextAlign.start,
                                     keyboardType: TextInputType.text,
-                                    onChanged: (value) {
-                                      setState(() {});
-                                    },
                                   ),
                                 ),
-                                const SizedBox(width: 10),
-                                CustomText(
-                                  text: sub.suffix1 ?? '',
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.normal,
-                                  color: Colors.black,
-                                  textAlign: TextAlign.start,
-                                  overflow: TextOverflow.visible,
-                                ),
-                                const SizedBox(width: 10),
-                                Expanded(
-                                  child: _buildTextFieldWidget(
-                                    controller: sub.controller2,
-                                    textAlign: TextAlign.start,
-                                    enabled: values[1].value,
-                                    keyboardType: TextInputType.text,
-                                    onChanged: (value) {
-                                      setState(() {});
-                                    },
-                                  ),
-                                ),
-                              ],
-                            ),
-                          )
-                          .toList(),
+                              ),
+                            ],
+                          );
+                        },
+                      ).toList(),
                     ],
                   ),
-                ),
+                )
               ],
             );
           },
@@ -3673,7 +3687,6 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
 
                       columns: const [
                         DataColumn(
-                          
                           label: Text(''),
                         ),
                         DataColumn(
@@ -4040,7 +4053,11 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
   TextEditingController decision = TextEditingController();
   TextEditingController riceAge = TextEditingController();
   String fertilizerType = '';
-  TextEditingController formula = TextEditingController();
+  String timeToFertilizer = '';
+  String decisionToFertilizer = '';
+  TextEditingController formula1 = TextEditingController();
+  TextEditingController formula2 = TextEditingController();
+  TextEditingController formula3 = TextEditingController();
   TextEditingController amountToApply = TextEditingController();
   String howToUseFertilizer = '';
   TextEditingController fertilizerSource = TextEditingController();
@@ -4066,15 +4083,23 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                 ),
                 onPressed: () {
                   setState(() {
-                    timeToApply.clear();
-                    decision.clear();
+                    timeToFertilizer = '';
+                    decisionToFertilizer = '';
                     riceAge.clear();
                     fertilizerType = '';
-                    formula.clear();
+                    formula1.clear();
+                    formula2.clear();
+                    formula3.clear();
                     amountToApply.clear();
                     howToUseFertilizer = '';
                     fertilizerSource.clear();
                     howToGiveWater.clear();
+                    TimeToFertilizer.datas.forEach((element) {
+                      element.value = false;
+                    });
+                    DecisionToApplyFertilizer.datas.forEach((element) {
+                      element.value = false;
+                  });
                   });
 
                   _addCaseOfApplyingFertilizersModal(context: context);
@@ -4107,17 +4132,16 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
 
                       columns: const [
                         DataColumn(
-                          
                           label: Text(''),
                         ),
                         DataColumn(
                           label: Text('ครั้งที่'),
                         ),
                         DataColumn(
-                          label: Text('ช่วงเวลาที่ใส่ปุ๋ย (ต้น,กลาง,ปลายเดือน)'),
+                          label: Text('ช่วงเวลาที่ใส่ปุ๋ย'),
                         ),
                         DataColumn(
-                          label: Text('ปัจจัยต่อการตัดสินใจใส่ปุ๋ย (น้ำ,ความชื้น,ฝน)'),
+                          label: Text('ปัจจัยต่อการตัดสินใจใส่ปุ๋ย'),
                         ),
                         DataColumn(
                           label: Text('อายุข้าว (เดือน)'),
@@ -4135,7 +4159,7 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                           label: Text('วิธีการใส่ปุ๋ย'),
                         ),
                         DataColumn(
-                          label: Text('แหล่งปุ๋ยที่มาของปุ๋ย (ธกส.,เขต,ซื้อเอง)'),
+                          label: Text('แหล่งปุ๋ยที่มาของปุ๋ย'),
                         ),
                       ],
                       rows: List.generate(
@@ -4277,48 +4301,82 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                             ),
                             const SizedBox(height: 10),
                             const CustomText(
-                              text: 'ช่วงเวลาที่ใส่ปุ๋ย (ต้น, กลาง, ปลาย เดือน)',
+                              text: 'ช่วงเวลาที่ใส่ปุ๋ย',
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
                               color: Colors.black,
                             ),
-                            _buildTextFieldWidget(
-                              controller: timeToApply,
-                              textAlign: TextAlign.start,
-                              validator: (value) {
-                                if (value!.isEmpty) {
-                                  return 'กรุณากรอกข้อมูล';
-                                }
-                                return null;
-                              },
-                              keyboardType: TextInputType.text,
-                              onChanged: (value) {
-                                _keyCaseOfApplyingFertilizers.currentState?.validate();
-                                setState(() {});
-                              },
-                            ),
+                            ...TimeToFertilizer.datas.map((e) {
+                              return Row(
+                                children: [
+                                  Checkbox(
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(16),
+                                    ),
+                                    value: e.value,
+                                    onChanged: (v) {
+                                      setState(() {
+                                        TimeToFertilizer.datas.forEach((element) {
+                                          element.value = false;
+                                        });
+                                        e.value = v!;
+                                        timeToFertilizer = e.title;
+                                      });
+                                      s(() {});
+                                    },
+                                  ),
+                                  Expanded(
+                                    child: CustomText(
+                                      text: e.title ?? '',
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.normal,
+                                      color: Colors.black,
+                                      textAlign: TextAlign.start,
+                                      overflow: TextOverflow.visible,
+                                    ),
+                                  ),
+                                ],
+                              );
+                            }).toList(),
                             const SizedBox(height: 10),
                             const CustomText(
-                              text: 'ปัจจัยต่อการตัดสินใจใส่ปุ๋ย (น้ำ, ความชื้น ,ฝน)',
+                              text: 'ปัจจัยต่อการตัดสินใจใส่ปุ๋ย',
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
                               color: Colors.black,
                             ),
-                            _buildTextFieldWidget(
-                              textAlign: TextAlign.start,
-                              controller: decision,
-                              validator: (value) {
-                                if (value!.isEmpty) {
-                                  return 'กรุณากรอกข้อมูล';
-                                }
-                                return null;
-                              },
-                              keyboardType: TextInputType.text,
-                              onChanged: (value) {
-                                _keyCaseOfApplyingFertilizers.currentState?.validate();
-                                setState(() {});
-                              },
-                            ),
+                            ...DecisionToApplyFertilizer.datas.map((e) {
+                              return Row(
+                                children: [
+                                  Checkbox(
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(16),
+                                    ),
+                                    value: e.value,
+                                    onChanged: (v) {
+                                      setState(() {
+                                        DecisionToApplyFertilizer.datas.forEach((element) {
+                                          element.value = false;
+                                        });
+                                        e.value = v!;
+                                        decisionToFertilizer = e.title;
+                                      });
+                                      s(() {});
+                                    },
+                                  ),
+                                  Expanded(
+                                    child: CustomText(
+                                      text: e.title ?? '',
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.normal,
+                                      color: Colors.black,
+                                      textAlign: TextAlign.start,
+                                      overflow: TextOverflow.visible,
+                                    ),
+                                  ),
+                                ],
+                              );
+                            }).toList(),
                             const SizedBox(height: 10),
                             const CustomText(
                               text: 'อายุข้าว (เดือน)',
@@ -4412,20 +4470,74 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                             ),
 
                             const SizedBox(height: 10),
-                            _buildTextFieldWidget(
-                              textAlign: TextAlign.start,
-                              controller: formula,
-                              validator: (value) {
-                                if (value!.isEmpty) {
-                                  return 'กรุณากรอกข้อมูล';
-                                }
-                                return null;
-                              },
-                              keyboardType: TextInputType.text,
-                              onChanged: (value) {
-                                _keyCaseOfApplyingFertilizers.currentState?.validate();
-                                setState(() {});
-                              },
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: _buildTextFieldWidget(
+                                    textAlign: TextAlign.start,
+                                    controller: formula1,
+                                    validator: (value) {
+                                      if (value!.isEmpty) {
+                                        return 'กรุณากรอกข้อมูล';
+                                      }
+                                      return null;
+                                    },
+                                    keyboardType: TextInputType.text,
+                                    onChanged: (value) {
+                                      _keyCaseOfApplyingFertilizers.currentState?.validate();
+                                      setState(() {});
+                                    },
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    '-',
+                                    style: TextStyle(fontSize: 16, color: Colors.black),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: _buildTextFieldWidget(
+                                    textAlign: TextAlign.start,
+                                    controller: formula2,
+                                    validator: (value) {
+                                      if (value!.isEmpty) {
+                                        return 'กรุณากรอกข้อมูล';
+                                      }
+                                      return null;
+                                    },
+                                    keyboardType: TextInputType.text,
+                                    onChanged: (value) {
+                                      _keyCaseOfApplyingFertilizers.currentState?.validate();
+                                      setState(() {});
+                                    },
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    '-',
+                                    style: TextStyle(fontSize: 16, color: Colors.black),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: _buildTextFieldWidget(
+                                    textAlign: TextAlign.start,
+                                    controller: formula3,
+                                    validator: (value) {
+                                      if (value!.isEmpty) {
+                                        return 'กรุณากรอกข้อมูล';
+                                      }
+                                      return null;
+                                    },
+                                    keyboardType: TextInputType.text,
+                                    onChanged: (value) {
+                                      _keyCaseOfApplyingFertilizers.currentState?.validate();
+                                      setState(() {});
+                                    },
+                                  ),
+                                ),
+                              ],
                             ),
                             const SizedBox(height: 10),
                             const CustomText(
@@ -4524,14 +4636,15 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                     onPressed: () {
                                       if (_keyCaseOfApplyingFertilizers.currentState!.validate() &&
                                           fertilizerType.isNotEmpty &&
-                                          howToUseFertilizer.isNotEmpty) {
+                                          howToUseFertilizer.isNotEmpty && timeToFertilizer.isNotEmpty && decisionToFertilizer.isNotEmpty && formula1.text.isNotEmpty && formula2.text.isNotEmpty && formula3.text.isNotEmpty
+                                      ) {
                                         Section2Model.caseOfApplyingFertilizers.values.add(
                                           CaseOfApplyingFertilizersModel(
-                                            timeToApply: timeToApply.text,
-                                            decision: decision.text,
+                                            timeToApply: timeToFertilizer,
+                                            decision: decisionToFertilizer,
                                             riceAge: riceAge.text,
                                             fertilizerType: fertilizerType,
-                                            formula: formula.text,
+                                            formula: '${formula1.text}-${formula2.text}-${formula3.text}',
                                             amountToApply: amountToApply.text,
                                             howToUseFertilizer: howToUseFertilizer,
                                             fertilizerSource: fertilizerSource.text,
@@ -4652,7 +4765,10 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                                     borderRadius: BorderRadius.circular(16),
                                   ),
                                   value: e.value,
-                                  onChanged: (v) {
+                                  onChanged:  s24511.values1[0].value ? null :
+
+
+                                      (v) {
                                     setState(() {
                                       e.value = v!;
                                     });
@@ -4700,21 +4816,20 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
       ],
     );
   }
-
   Widget _build24531() {
     S245 values = Section2Model.s245;
     S22453 s24511 = values.s2451.s22453;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        CustomText(
+        /*CustomText(
           text: s24511.values.question,
           fontSize: 16,
           fontWeight: FontWeight.normal,
           color: Colors.black,
           overflow: TextOverflow.visible,
           textAlign: TextAlign.start,
-        ),
+        ),*/
         Column(
           children: [
             ...s24511.values.values
@@ -4907,7 +5022,6 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
 
                       columns: const [
                         DataColumn(
-                          
                           label: Text(''),
                         ),
                         DataColumn(
@@ -5226,73 +5340,14 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
   }
 
   Widget _build244() {
-    List<Section2CheckVSModel> values = Section2Model.s244.values;
-
+    List<S221Model> values = Section2Model.s244.datas;
     return Column(
       children: [
         ...values
             .map(
-              (e) => Row(
-                children: [
-                  Expanded(
-                    child: Row(
-                      children: [
-                        Checkbox(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(16),
-                          ),
-                          value: e.value,
-                          onChanged: (v) {
-                            setState(() {
-                              values.forEach((element) {
-                                element.value = false;
-                                element.controller?.clear();
-                              });
-                              e.value = v!;
-                              e.controller?.clear();
-                            });
-                          },
-                        ),
-                        Expanded(
-                          child: CustomText(
-                            text: e.text ?? '',
-                            fontSize: 14,
-                            fontWeight: FontWeight.normal,
-                            color: Colors.black,
-                            textAlign: TextAlign.start,
-                            overflow: TextOverflow.visible,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Expanded(
-                    child: _buildTextFieldWidget(
-                      minLines: 1,
-                      textAlign: TextAlign.start,
-                      enabled: e.value,
-                      controller: e.controller,
-                      keyboardType: TextInputType.text,
-                    ),
-                  ),
-                ],
-              ),
-            )
-            .toList(),
-      ],
-    );
-  }
-
-  Widget _build243() {
-    List<Section2ValueTextModel> values = Section2Model.s243.values;
-    final s241 = Section2Model.s243;
-
-    bool isSelected = values[1].value;
-    return Column(
-      children: [
-        ...values
-            .map(
-              (e) => Row(
+              (e) => Column(
+            children: [
+              Row(
                 children: [
                   Checkbox(
                     shape: RoundedRectangleBorder(
@@ -5303,9 +5358,10 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                       setState(() {
                         values.forEach((element) {
                           element.value = false;
+                          element.values.forEach((element) {
+                            element.value = false;
+                          });
                         });
-                        s241.controller?.clear();
-
                         e.value = v!;
                       });
                     },
@@ -5322,22 +5378,130 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                   ),
                 ],
               ),
-            )
-            .toList(),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Column(
-            children: [
-              _buildTextFieldWidget(
-                minLines: 1,
-                textAlign: TextAlign.start,
-                enabled: isSelected,
-                controller: s241.controller,
-                keyboardType: TextInputType.text,
-              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 30),
+                child: Column(
+                  children: [
+                    ...e.values
+                        .map(
+                          (em) => Row(
+                        children: [
+                          Checkbox(
+                            value: em.value,
+                            onChanged: !e.value ? null :
+
+
+                                (v) {
+                              setState(() {
+                                em.value = v!;
+                              });
+                            },
+                          ),
+                          Expanded(
+                            child: CustomText(
+                              text: em.text ?? '',
+                              fontSize: 14,
+                              fontWeight: FontWeight.normal,
+                              color: Colors.black,
+                              textAlign: TextAlign.start,
+                              overflow: TextOverflow.visible,
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                        .toList(),
+                  ],
+                ),
+              )
             ],
           ),
-        ),
+        )
+            .toList(),
+      ],
+    );
+  }
+
+  Widget _build243() {
+    List<S221Model> values = Section2Model.s243.datas;
+
+    return Column(
+      children: [
+        ...values
+            .map(
+              (e) => Column(
+                children: [
+                  Row(
+                    children: [
+                      Checkbox(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        value: e.value,
+                        onChanged: (v) {
+                          setState(() {
+                            values.forEach((element) {
+                              element.value = false;
+                              element.values.forEach((element) {
+                                element.value = false;
+                              });
+                            });
+                            e.value = v!;
+                          });
+                        },
+                      ),
+                      Expanded(
+                        child: CustomText(
+                          text: e.text ?? '',
+                          fontSize: 14,
+                          fontWeight: FontWeight.normal,
+                          color: Colors.black,
+                          textAlign: TextAlign.start,
+                          overflow: TextOverflow.visible,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 30),
+                    child: Column(
+                      children: [
+                        ...e.values
+                            .map(
+                              (em) => Row(
+                                children: [
+                                  Checkbox(
+                                    value: em.value,
+                                    onChanged: !e.value ? null :
+
+
+                                        (v) {
+                                      setState(() {
+                                        em.value = v!;
+                                      });
+                                    },
+                                  ),
+                                  Expanded(
+                                    child: CustomText(
+                                      text: em.text ?? '',
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.normal,
+                                      color: Colors.black,
+                                      textAlign: TextAlign.start,
+                                      overflow: TextOverflow.visible,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            )
+                            .toList(),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            )
+            .toList(),
       ],
     );
   }
@@ -5468,9 +5632,6 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                             values.forEach((element) {
                               element.value = false;
                             });
-                            s241.weedController?.clear();
-                            s241.percentController?.clear();
-                            s241.controlWeedController?.clear();
                             e.value = v!;
                           });
                         },
@@ -5487,87 +5648,6 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
               ),
             )
             .toList(),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  const Expanded(
-                    child: CustomText(
-                      text: 'คือ',
-                      fontSize: 14,
-                      fontWeight: FontWeight.normal,
-                      color: Colors.black,
-                      textAlign: TextAlign.start,
-                    ),
-                  ),
-                  const SizedBox(width: 10),
-                  Expanded(
-                    flex: 3,
-                    child: _buildTextFieldWidget(
-                      textAlign: TextAlign.start,
-                      enabled: isSelected,
-                      controller: s241.weedController,
-                      keyboardType: TextInputType.text,
-                    ),
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  const CustomText(
-                    text: 'คิดเป็นร้อยละ',
-                    fontSize: 14,
-                    fontWeight: FontWeight.normal,
-                    color: Colors.black,
-                    textAlign: TextAlign.start,
-                  ),
-                  const SizedBox(width: 10),
-                  Expanded(
-                    child: _buildTextFieldWidget(
-                      textAlign: TextAlign.start,
-                      enabled: isSelected,
-                      controller: s241.percentController,
-                      keyboardType: TextInputType.text,
-                    ),
-                  ),
-                  const SizedBox(width: 10),
-                  const CustomText(
-                    text: 'ของพื้นที่',
-                    fontSize: 14,
-                    fontWeight: FontWeight.normal,
-                    color: Colors.black,
-                    textAlign: TextAlign.start,
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  const Expanded(
-                    child: CustomText(
-                      text: 'และท่านกำจัดวัชพืชหรือไม่อย่างไร',
-                      fontSize: 14,
-                      fontWeight: FontWeight.normal,
-                      color: Colors.black,
-                      textAlign: TextAlign.start,
-                      overflow: TextOverflow.visible,
-                    ),
-                  ),
-                  const SizedBox(width: 10),
-                  Expanded(
-                    child: _buildTextFieldWidget(
-                      textAlign: TextAlign.start,
-                      enabled: isSelected,
-                      controller: s241.controlWeedController,
-                      keyboardType: TextInputType.text,
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
       ],
     );
   }
@@ -5638,7 +5718,6 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
 
                       columns: const [
                         DataColumn(
-                          
                           label: Text(''),
                         ),
                         DataColumn(
@@ -6026,57 +6105,69 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
     );
   }
 
-  Widget _build212() {
+  Widget _build212(RiceFieldModel? selectedRiceField) {
     List<Section2PVSModel> values = Section2Model.s212.values;
     return Column(
-      children: values
-          .map(
-            (e) => Container(
-              margin: const EdgeInsets.only(top: 10),
-              child: Row(
-                children: [
-                  Expanded(
-                    flex: 2,
-                    child: CustomText(
-                      text: e.prefix ?? '',
-                      fontSize: 14,
-                      fontWeight: FontWeight.normal,
-                      color: Colors.black,
-                      textAlign: TextAlign.start,
-                    ),
+      children: values.map(
+        (e) {
+          final index = values.indexOf(e);
+
+          return Container(
+            margin: const EdgeInsets.only(top: 10),
+            child: Row(
+              children: [
+                Expanded(
+                  flex: 2,
+                  child: CustomText(
+                    text: e.prefix ?? '',
+                    fontSize: 14,
+                    fontWeight: FontWeight.normal,
+                    color: Colors.black,
+                    textAlign: TextAlign.start,
                   ),
-                  const SizedBox(width: 10),
-                  Expanded(
-                    flex: 2,
-                    child: _buildTextFieldWidget(
-                      controller: e.controller,
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'กรุณากรอกข้อมูล';
+                ),
+                const SizedBox(width: 10),
+                Expanded(
+                  flex: 2,
+                  child: _buildTextFieldWidget(
+                    controller: e.controller,
+                    enabled: index != 2,
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'กรุณากรอกข้อมูล';
+                      }
+                      return null;
+                    },
+                    keyboardType: TextInputType.number,
+                    onChanged: (value) {
+                      if (index == 1) {
+                        if (e.controller!.text.isNotEmpty) {
+                          values[2].controller!.text = (double.parse(e.controller!.text) *
+                                  double.parse(selectedRiceField?.riceFieldArea.toString() ?? '0'))
+                              .toString();
+                        } else {
+                          values[2].controller!.clear();
                         }
-                        return null;
-                      },
-                      keyboardType: TextInputType.number,
-                      onChanged: (value) {
-                        setState(() {});
-                      },
-                    ),
+                      }
+                      setState(() {});
+                    },
                   ),
-                  const SizedBox(width: 10),
-                  Expanded(
-                    child: CustomText(
-                      text: e.suffix ?? '',
-                      fontSize: 14,
-                      fontWeight: FontWeight.normal,
-                      color: Colors.black,
-                      textAlign: TextAlign.start,
-                    ),
+                ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: CustomText(
+                    text: e.suffix ?? '',
+                    fontSize: 14,
+                    fontWeight: FontWeight.normal,
+                    color: Colors.black,
+                    textAlign: TextAlign.start,
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          )
-          .toList(),
+          );
+        },
+      ).toList(),
     );
   }
 
@@ -6199,7 +6290,43 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
     );
   }
 
-  Widget _build215() {
+  Widget _build232True() {
+    List<Section2ValueTextModel> values = Section2Model.s232True.values;
+    return Column(
+      children: values
+          .map(
+            (e) => Row(
+              children: [
+                Checkbox(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  value: e.value,
+                  onChanged: (v) {
+                    setState(() {
+                      e.value = v!;
+                      values.forEach((element) {
+                        if (element.text != e.text) {
+                          element.value = false;
+                        }
+                      });
+                    });
+                  },
+                ),
+                CustomText(
+                  text: e.text,
+                  fontSize: 14,
+                  fontWeight: FontWeight.normal,
+                  color: Colors.black,
+                ),
+              ],
+            ),
+          )
+          .toList(),
+    );
+  }
+
+  /* Widget _build215() {
     Section2ValueTextModel? value1 = Section2Model.s215.values.value1;
     Section2CheckVSModel? value2 = Section2Model.s215.values.value2;
     return Column(
@@ -6275,62 +6402,84 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
       ],
     );
   }
-
+*/
   Widget _build221() {
-    List<Section2CheckVSModel> values = Section2Model.s221.values;
+    List<S221Model> values = Section2Model.s221.datas;
     return Column(
       children: values
           .map(
             (e) => Container(
               margin: const EdgeInsets.only(top: 10),
-              child: Row(
+              child: Column(
                 children: [
-                  Expanded(
-                    child: Row(
-                      children: [
-                        Checkbox(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(16),
-                          ),
-                          value: e.value,
-                          onChanged: (v) {
-                            setState(() {
-                              values.forEach((element) {
-                                element.value = false;
-                                element.controller?.clear();
-                              });
-                              e.value = !e.value!;
+                  Row(
+                    children: [
+                      Checkbox(
+                        value: e.value,
+                        onChanged: (v) {
+                          setState(() {
+                            e.value = !e.value;
 
-                              e.controller?.clear();
-                            });
-                          },
+                            if (!e.value) {
+                              e.values.forEach((element) {
+                                element.value = false;
+                              });
+                            }
+                          });
+                        },
+                      ),
+                      CustomText(
+                        text: e.text ?? '',
+                        fontSize: 14,
+                        fontWeight: FontWeight.normal,
+                        color: Colors.black,
+                      ),
+                      SizedBox(width: 10),
+                      Expanded(
+                        child: Visibility(
+                          visible: e.controller != null,
+                          child: _buildTextFieldWidget(
+                            controller: e.controller,
+                            enabled: e.value,
+                            keyboardType: TextInputType.text,
+                            onChanged: (value) {
+                              setState(() {});
+                            },
+                          ),
                         ),
-                        CustomText(
-                          text: e.text ?? '',
-                          fontSize: 14,
-                          fontWeight: FontWeight.normal,
-                          color: Colors.black,
-                        ),
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 30.0),
+                    child: Column(
+                      children: [
+                        ...e.values
+                            .map(
+                              (em) => Row(
+                                children: [
+                                  Checkbox(
+                                    value: em.value,
+                                    onChanged: !e.value
+                                        ? null
+                                        : (v) {
+                                            setState(() {
+                                              em.value = !em.value;
+                                            });
+                                          },
+                                  ),
+                                  CustomText(
+                                    text: em.text ?? '',
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.normal,
+                                    color: Colors.black,
+                                  ),
+                                ],
+                              ),
+                            )
+                            .toList(),
                       ],
                     ),
-                  ),
-                  const SizedBox(width: 10),
-                  Expanded(
-                    child: _buildTextFieldWidget(
-                      controller: e.controller,
-                      enabled: e.value,
-                      keyboardType: TextInputType.text,
-                      onChanged: (value) {
-                        setState(() {});
-                      },
-                    ),
-                  ),
-                  const SizedBox(width: 10),
-                  CustomText(
-                    text: e.suffix ?? '',
-                    fontSize: 14,
-                    fontWeight: FontWeight.normal,
-                    color: Colors.black,
                   ),
                 ],
               ),
@@ -6612,6 +6761,7 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
     );
   }
 
+/*
   Widget _build225() {
     List<Section2PVSModel> values = Section2Model.s225.values;
     return Column(
@@ -6645,8 +6795,9 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
           .toList(),
     );
   }
+*/
 
-  Widget _build226() {
+  Widget _build225() {
     List<Section2ValueTextModel> values = Section2Model.s226.values1;
     List<Section2CheckVSModel> values2 = Section2Model.s226.values2;
     final q2 = Section2Model.s226.question2;
@@ -6737,7 +6888,21 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                       ),
                       const SizedBox(width: 10),
                       const SizedBox(width: 10),
-                      Visibility(
+                      SizedBox(width: 10),
+                      Expanded(
+                        child: Visibility(
+                          visible: e.controller != null,
+                          child: _buildTextFieldWidget(
+                            controller: e.controller,
+                            enabled: e.value,
+                            keyboardType: TextInputType.text,
+                            onChanged: (value) {
+                              setState(() {});
+                            },
+                          ),
+                        ),
+                      ),
+                      /*Visibility(
                         visible: values2.last == e,
                         child: Expanded(
                           child: _buildTextFieldWidget(
@@ -6755,7 +6920,7 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
                             },
                           ),
                         ),
-                      ),
+                      ),*/
                       const SizedBox(width: 10),
                       CustomText(
                         text: e.suffix ?? '',
@@ -6774,159 +6939,170 @@ class _Section2RiceFieldPageState extends State<Section2RiceFieldPage> {
   }
 
   Widget _build231() {
-    List<Section2ValueTextModel> values = Section2Model.s231.values;
+    List<S221Model> values = Section2Model.s231.values;
     return Column(
       children: [
-        Column(
-          children: values
-              .map(
-                (e) => Container(
-                  margin: const EdgeInsets.only(top: 10),
-                  child: Row(
-                    children: [
-                      Checkbox(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                        value: e.value,
-                        onChanged: (v) {
-                          setState(() {
-                            Section2Model.s231.yearController?.clear();
-                            Section2Model.s231.detailController?.clear();
-                            values.forEach((element) {
-                              element.value = false;
+        ...values
+            .map(
+              (e) => Container(
+                margin: const EdgeInsets.only(top: 10),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Checkbox(
+                          value: e.value,
+                          onChanged: (v) {
+                            setState(() {
+                              values.forEach((element) {
+                                element.value = false;
+                                element.values.forEach((element) {
+                                  element.value = false;
+                                });
+                              });
+
+                              e.value = v!;
                             });
-                            e.value = v!;
-                          });
-                        },
-                      ),
-                      Expanded(
-                        child: CustomText(
-                          text: e.text ?? '',
-                          fontSize: 14,
-                          fontWeight: FontWeight.normal,
-                          color: Colors.black,
-                          overflow: TextOverflow.visible,
-                          textAlign: TextAlign.start,
+                          },
                         ),
-                      ),
-                    ],
-                  ),
-                ),
-              )
-              .toList(),
-        ),
-        Container(
-          margin: const EdgeInsets.symmetric(horizontal: 30),
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  const CustomText(
-                    text: '- ระยะเวลาที่ท่านต้องบำรุงดิน',
-                    fontSize: 14,
-                    fontWeight: FontWeight.normal,
-                    color: Colors.black,
-                  ),
-                  const SizedBox(width: 10),
-                  Expanded(
-                    child: _buildTextFieldWidget(
-                      enabled: values[1].value,
-                      controller: Section2Model.s231.yearController,
-                      validator: (value) {
-                        if (values[1].value && value!.isEmpty) {
-                          return 'กรุณากรอกข้อมูล';
-                        }
-                        return null;
-                      },
-                      keyboardType: TextInputType.number,
-                      onChanged: (value) {
-                        setState(() {});
-                      },
+                        Expanded(
+                          child: CustomText(
+                            text: e.text ?? '',
+                            fontSize: 14,
+                            fontWeight: FontWeight.normal,
+                            color: Colors.black,
+                            overflow: TextOverflow.visible,
+                            textAlign: TextAlign.start,
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                  const SizedBox(width: 10),
-                  const CustomText(
-                    text: 'ปี',
-                    fontSize: 14,
-                    fontWeight: FontWeight.normal,
-                    color: Colors.black,
-                  ),
-                ],
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                      padding: const EdgeInsets.only(left: 30.0),
+                      child: Column(
+                        children: [
+                          ...e.values
+                              .map(
+                                (em) => Row(
+                                  children: [
+                                    Checkbox(
+                                      value: em.value,
+                                      onChanged: !e.value
+                                          ? null
+                                          : (v) {
+                                              setState(() {
+                                                em.value = !em.value;
+                                              });
+                                            },
+                                    ),
+                                    CustomText(
+                                      text: em.text ?? '',
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.normal,
+                                      color: Colors.black,
+                                    ),
+                                  ],
+                                ),
+                              )
+                              .toList(),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
-              const CustomText(
-                text: '- ท่านมีการบำรุงดินด้วยวิธีใด และทำอย่างไร(ไถกลบตอซัง/ปุ๋ยคอก/พืชบำรุงดิน)',
-                fontSize: 14,
-                fontWeight: FontWeight.normal,
-                color: Colors.black,
-                overflow: TextOverflow.visible,
-                textAlign: TextAlign.start,
-              ),
-              const SizedBox(width: 10),
-              _buildTextFieldWidget(
-                textAlign: TextAlign.start,
-                enabled: values[1].value,
-                controller: Section2Model.s231.detailController,
-                /*validator: (value) {
-                  if (values[1].value && value!.isEmpty) {
-                    return 'กรุณากรอกข้อมูล';
-                  }
-                  return null;
-                },*/
-                keyboardType: TextInputType.text,
-                onChanged: (value) {
-                  setState(() {});
-                },
-              ),
-            ],
-          ),
-        )
+            )
+            .toList(),
       ],
     );
   }
 
   Widget _build232() {
     S232 value = Section2Model.s232;
-    return Row(
+
+    List<String> monthsThai = [
+      "มกราคม",
+      "กุมภาพันธ์",
+      "มีนาคม",
+      "เมษายน",
+      "พฤษภาคม",
+      "มิถุนายน",
+      "กรกฎาคม",
+      "สิงหาคม",
+      "กันยายน",
+      "ตุลาคม",
+      "พฤศจิกายน",
+      "ธันวาคม"
+    ];
+
+    return Column(
       children: [
-        Expanded(
-          child: _buildTextFieldWidget(
-            controller: value.startMonthController,
-            validator: (value) {
-              if (value!.isEmpty) {
-                return 'กรุณากรอกข้อมูล';
-              }
-              return null;
-            },
-            keyboardType: TextInputType.text,
-            onChanged: (value) {
-              setState(() {});
-            },
-          ),
-        ),
-        const SizedBox(width: 10),
-        const CustomText(
-          text: '(ต้น,กลาง,ปลาย) เดือน',
-          fontSize: 14,
-          fontWeight: FontWeight.normal,
-          color: Colors.black,
-        ),
-        const SizedBox(width: 10),
-        Expanded(
-          child: _buildTextFieldWidget(
-            controller: value.monthController,
-            validator: (value) {
-              if (value!.isEmpty) {
-                return 'กรุณากรอกข้อมูล';
-              }
-              return null;
-            },
-            keyboardType: TextInputType.text,
-            onChanged: (value) {
-              setState(() {});
-            },
-          ),
-        ),
+        ...value.begins
+            .map(
+              (e) => Container(
+                //margin: const EdgeInsets.only(top: 10),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Checkbox(
+                          value: e.value,
+                          onChanged: (v) {
+                            setState(() {
+                              value.begins.forEach((element) {
+                                element.value = false;
+                              });
+
+                              e.value = v!;
+                            });
+                          },
+                        ),
+                        Expanded(
+                          child: CustomText(
+                            text: e.text ?? '',
+                            fontSize: 14,
+                            fontWeight: FontWeight.normal,
+                            color: Colors.black,
+                            overflow: TextOverflow.visible,
+                            textAlign: TextAlign.start,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            )
+            .toList(),
+        DropdownButton2(
+          isExpanded: true,
+            hint: const Text("เลือกเดือน"),
+            buttonStyleData: ButtonStyleData(
+             // width: MediaQuery.of(context).size.width / 1.5,
+              padding: const EdgeInsets.only(left: 10, right: 10),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(14),
+                 border: Border.all(color: Colors.grey[500]!.withOpacity(.3)),
+              ),
+            ),
+
+            underline: Container(),
+            items: monthsThai
+                .map((e) => DropdownMenuItem(child: Text(e), value: e))
+                .toList(),
+            value: value.month,
+            onChanged: (v) {
+              setState(() {
+                value.month = v!;
+              });
+            }),
       ],
     );
   }

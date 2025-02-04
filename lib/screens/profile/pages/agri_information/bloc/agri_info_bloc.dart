@@ -149,6 +149,9 @@ class AgriInfoBloc extends Bloc<AgriInfoEvent, AgriInfoState> {
   void _addSection1DataEvent(AddSection1DataEvent event, Emitter<AgriInfoState> emit) async {
     List<bool> statusPending = List.from(state.statusPending);
     statusPending[1] = true;
+
+    print(event.section1.toJson());
+
     try {
       emit(state.copyWith(
         section1Data: event.section1,

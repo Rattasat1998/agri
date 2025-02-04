@@ -5,9 +5,8 @@ class Section2Model {
   static S211 s211 = S211(
     question: '2.1.1 ประเภทการปลูกข้าว',
     values: [
-      Section2ValueTextModel(text: '1. นาอินทรีย', value: false),
+      Section2ValueTextModel(text: '1. นาอินทรีย์', value: false),
       Section2ValueTextModel(text: '2. นาสารเคมี', value: false),
-      Section2ValueTextModel(text: '3. อื่นๆ', value: false),
     ],
   );
   static S212 s212 = S212(
@@ -49,10 +48,11 @@ class Section2Model {
       Section2ValueTextModel(text: '2. ที่ทาม', value: false),
       Section2ValueTextModel(text: '3. ที่ดอน, โคก', value: false),
       Section2ValueTextModel(text: '4. แอ่งกระทะ', value: false),
-      Section2ValueTextModel(text: '5. ราบ ขั้นบันได', value: false),
+      Section2ValueTextModel(text: '5. ราบ', value: false),
     ],
   );
-  static S215 s215 = S215(
+
+  /* static S215 s215 = S215(
     question: '2.1.5 ปีที่ผ่านมาท่านได้ทำนาปรังหรือไม่',
     values: S213Model(
       value1: Section2ValueTextModel(text: '1. ไม่ได้ทำ', value: false),
@@ -63,25 +63,60 @@ class Section2Model {
         suffix: 'กิโลกรัม/ไร่',
       ),
     ),
-  );
+  );*/
   static String s22H = '2.2 ประเภทและวิธีการปลูก';
   static S221 s221 = S221(
     question: '2.2.1 ประเภทข้าวที่ปลูก',
-    values: [
-      Section2CheckVSModel(
+    datas: [
+      S221Model(
+        text: '1. ข้าวเหนียว',
         value: false,
-        text: '1. ข้าวเหนียวพันธุ์',
-        controller: TextEditingController(),
-        suffix: '',
+        values: [
+          S221DataModel(
+            text: 'พันธุ์กข.8',
+            value: false,
+          ),
+          S221DataModel(
+            text: 'พันธุ์หางยี 71',
+            value: false,
+          ),
+          S221DataModel(
+            text: 'พันธุ์เหนียวเขี้ยวงู',
+            value: false,
+          ),
+          S221DataModel(
+            text: 'พันธุ์ข้าวเหนียวดำ',
+            value: false,
+          ),
+        ],
       ),
-      Section2CheckVSModel(
+      S221Model(
+        text: '2. ข้าวเจ้า',
         value: false,
-        text: '2. ข้าวเจ้าพันธุ์',
+        values: [
+          S221DataModel(
+            text: 'พันธุ์ขาวดอกมะลิ 105',
+            value: false,
+          ),
+          S221DataModel(
+            text: 'พันธุ์กข.6',
+            value: false,
+          ),
+          S221DataModel(
+            text: 'พันธุ์กข.15',
+            value: false,
+          ),
+        ],
+      ),
+      S221Model(
+        text: '3. พันธุ์ผสมระหว่าง',
+        value: false,
         controller: TextEditingController(),
-        suffix: '',
+        values: [],
       ),
     ],
   );
+
   static S222 s222 = S222(
     question: '2.2.2 แหล่งที่มาของพันธุ์',
     values1: [
@@ -121,23 +156,26 @@ class Section2Model {
       ),
     ],
   );
+
   static S224 s224 = S224(
     question: '2.2.4 ท่านมีการเปลี่ยนพันธุ์ข้าวหรือไม่',
     values: [
       Section2CheckVSModel(
         value: false,
-        text: '1. เปลี่ยนพันธุ์ ทุกๆ',
+        text: '1. เปลี่ยนทุก',
         controller: TextEditingController(),
         suffix: 'ปี',
       ),
       Section2CheckVSModel(
         value: false,
-        text: '2. ไม่เปลี่ยนสายพันธุ์ เพราะ',
+        text: '2.  ไม่เปลี่ยน เพราะ',
         controller: TextEditingController(),
         suffix: '',
       ),
     ],
   );
+
+  /*
   static S225 s225 = S225(
     question: '2.2.5 ผลผลิตของข้าวเมื่อปีการผลิตที่แล้ว',
     values: [
@@ -147,9 +185,10 @@ class Section2Model {
         suffix: 'กิโลกรัม/ไร่',
       ),
     ],
-  );
+  );*/
   static S226 s226 = S226(
-    question: '2.2.6 ประเภทการใช้น้ำในแปลงนา',
+    // 225
+    question: '2.2.5 ประเภทการใช้น้ำในแปลงนา',
     question2: 'กรณี อาศัยระบบชลประทาน ชลประทาน',
     values1: [
       Section2ValueTextModel(text: '1. อาศัยน้ำฝน', value: false),
@@ -161,6 +200,7 @@ class Section2Model {
         value: false,
         text: '1. คลองชลประทาน',
         suffix: '',
+        controller: TextEditingController(),
       ),
       Section2CheckVSModel(
         value: false,
@@ -181,6 +221,7 @@ class Section2Model {
         value: false,
         text: '5. แม่น้ำลำคลอง',
         suffix: '',
+        controller: TextEditingController(),
       ),
       Section2CheckVSModel(
         value: false,
@@ -193,18 +234,62 @@ class Section2Model {
   static String s23H = '2.3 การเตรียมพื้นที่ก่อนการปลูกข้าว';
   static S231 s231 = S231(
     question: '2.3.1 ก่อนการปลูกข้าว ท่านได้มีการบำรุงดิน หรือไม่',
-    yearController: TextEditingController(),
-    detailController: TextEditingController(),
     values: [
-      Section2ValueTextModel(text: 'ไม่บำรุงดิน', value: false),
-      Section2ValueTextModel(
-          text: 'มีการบำรุงดิน (ปุ๋ยพืชสด,ปุ๋ยคอก,พืชตระกูลถั่ว(ถั่วพร้า),ปอเทือง)', value: false),
+      S221Model(
+        text: 'ไม่มีการบำรุงดิน',
+        value: false,
+        values: [],
+      ),
+      S221Model(
+        text: 'มีการบำรุงดิน (ปุ๋ยพืชสด,ปุ๋ยคอก,พืชตระกูลถั่ว(ถั่วพร้า),ปอเทือง)',
+        value: false,
+        values: [
+          S221DataModel(
+            text: 'ปุ๋ยพืชสด',
+            value: false,
+          ),
+          S221DataModel(
+            text: 'ปุ๋ยคอก',
+            value: false,
+          ),
+          S221DataModel(
+            text: 'พืชตระกูลถั่ว(ถั่วพร้า)',
+            value: false,
+          ),
+          S221DataModel(
+            text: 'ปอเทือง',
+            value: false,
+          ),
+        ],
+      ),
     ],
   );
+
+  static S214 s232True = S214(
+    question: '2.3.2 ประเภทการปลูกข้าว ',
+    values: [
+      Section2ValueTextModel(text: 'นาหว่าน', value: false),
+      Section2ValueTextModel(text: 'นาดำ', value: false),
+      Section2ValueTextModel(text: 'นาหยอด', value: false),
+    ],
+  );
+
   static S232 s232 = S232(
-    question: '2.3.2 ท่านเริ่มทำการปลูกข้าวช่วง',
-    startMonthController: TextEditingController(),
-    monthController: TextEditingController(),
+    question: '2.3.3 ท่านเริ่มทำการปลูกข้าวช่วง',
+    begins: [
+      Section2ValueTextModel(
+        value: false,
+        text: 'ต้น',
+      ),
+      Section2ValueTextModel(
+        value: false,
+        text: 'กลาง',
+      ),
+      Section2ValueTextModel(
+        value: false,
+        text: 'ปลาย',
+      ),
+    ],
   );
   static S23SoilPreparationSteps s23SoilPreparationSteps = S23SoilPreparationSteps(
     values: [],
@@ -215,13 +300,18 @@ class Section2Model {
   );
   static String s24H = '2.4 การบริหารจัดการแปลง';
   static S241 s241 = S241(
-    question: '2.4.1 ในแปลงของท่านพบว่า มีวัชพืช หรือไม่',
-    weedController: TextEditingController(),
-    percentController: TextEditingController(),
-    controlWeedController: TextEditingController(),
+    question: '2.4.1 วัชพืชที่พบ ',
     values: [
-      Section2ValueTextModel(text: 'ไม่พบวัชพืชในแปลง', value: false),
-      Section2ValueTextModel(text: 'พบวัชพืชในแปลง', value: false),
+      Section2ValueTextModel(text: 'หญ้าหวาย', value: false),
+      Section2ValueTextModel(text: 'ผักบุ้ง', value: false),
+      Section2ValueTextModel(text: 'หญ้าขาวนก', value: false),
+      Section2ValueTextModel(text: 'หญ้าแพรก', value: false),
+      Section2ValueTextModel(text: 'ต้นกระชับ', value: false),
+      Section2ValueTextModel(text: 'โสนหางไก่', value: false),
+      Section2ValueTextModel(text: 'หญ้ารังกา', value: false),
+      Section2ValueTextModel(text: 'ข้าวแดง', value: false),
+      Section2ValueTextModel(text: 'หญ้าตีนนก', value: false),
+      Section2ValueTextModel(text: 'ข้าวหาง', value: false),
     ],
   );
   static S242 s242 = S242(
@@ -234,6 +324,8 @@ class Section2Model {
           text: 'พบพันธุ์ข้าวปนในแปลง (ข้าวหาง,ข้าวดีด,ข้าวแดง ฯลฯ)', value: false),
     ],
   );
+
+  /*
   static S243 s243 = S243(
     question: '2.4.3 ท่านได้กำจัดพันธุ์ปนในแปลงท่านพบพันธุ์ข้าวหรือไม่',
     controller: TextEditingController(),
@@ -242,9 +334,34 @@ class Section2Model {
       Section2ValueTextModel(
           text: 'กำจัดพันธุ์ข้าวปนในแปลง ด้วยวิธี (อธิบายขั้นตอนการกำจัด) ', value: false),
     ],
+  );*/
+  static S221 s243 = S221(
+    question: '2.4.3 ท่านได้กำจัดพันธุ์ปนในแปลงท่านพบพันธุ์ข้าวหรือไม่',
+    datas: [
+      S221Model(
+        text: 'ไม่กำจัดพันธุ์ข้าวปนในแปลง',
+        value: false,
+        values: [],
+      ),
+      S221Model(
+        text: 'กำจัดพันธุ์ข้าวปนในแปลง',
+        value: false,
+        values: [
+          S221DataModel(
+            text: 'การกำจัดด้วยมือ',
+            value: false,
+          ),
+          S221DataModel(
+            text: 'การใช้สารเคมี',
+            value: false,
+          ),
+        ],
+      ),
+    ],
   );
-  static S244 s244 = S244(
-    question: '2.4.4 การปลูกซ่อมข้าวหรือไม่',
+
+  /*static S244 s244 = S244(
+    question: '2.4.4 ข้าวมีการเจริญเติบโตเต็มแปลงหรือไม่',
     values: [
       Section2CheckVSModel(
         value: false,
@@ -259,13 +376,40 @@ class Section2Model {
         suffix: '',
       ),
     ],
+  );*/
+  static S221 s244 = S221(
+    question: '2.4.4 ข้าวมีการเจริญเติบโตเต็มแปลงหรือไม่',
+    datas: [
+      S221Model(
+        text: 'ข้าวมีการเจริญเติบโตเต็มแปลง',
+        value: false,
+        values: [],
+      ),
+      S221Model(
+        text: 'ข้าวเจริญเติบโตไม่เต็มแปลง',
+        value: false,
+        values: [
+          S221DataModel(
+            text: 'มีการปลูกเพิ่ม',
+            value: false,
+          ),
+          S221DataModel(
+            text: 'ไม่มีการปลูกเพิ่ม',
+            value: false,
+          ),
+        ],
+      ),
+    ],
   );
+
+
+
   static S245 s245 = S245(
-    question: '2.4.5 การดูแลรักษาข้าว',
+    question: '2.4.6 การดูแลรักษาข้าว',
     s2451: S2451(
-      question: '2.4.5.1 การให้น้ำ',
+      question: '2.4.6.1 การให้น้ำ',
       s24511: S24511(
-        question: '2.4.5.1.1 ในการปลูกข้าวของท่าน ได้มีการให้น้ำหรือไม',
+        question: '2.4.6.1.1 ในการปลูกข้าวของท่าน ได้มีการให้น้ำหรือไม',
         values1: [
           Section2ValueTextModel(text: 'ให้น้ำ (กรอกรายละเอียดในตาราง กรณีให้น้ำ)', value: false),
           Section2ValueTextModel(text: 'ไม่ให้น้ำ สาเหตุเพราะ', value: false),
@@ -306,9 +450,9 @@ class Section2Model {
         ],
       ),
       s24512: S24512(
-        question: '2.4.5.2 การให้ปุ๋ย',
+        question: '2.4.6.2 การให้ปุ๋ย',
         s24521: S24521(
-          question: '2.4.5.2.2 ท่านปลูกข้าวโดยมีการใส่ปุ๋ยหลังจากปลูกแล้วหรือไม่',
+          question: '2.4.6.2.1 ท่านปลูกข้าวโดยมีการใส่ปุ๋ยหลังจากปลูกแล้วหรือไม่',
           values: [
             Section2CheckVSModel(
               value: false,
@@ -325,9 +469,9 @@ class Section2Model {
         ),
       ),
       s22453: S22453(
-        question: '2.4.5.3 การกำจัดวัชพืช',
+        question: '2.4.6.3 การกำจัดวัชพืช',
         values: S224531(
-          question: '2.4.5.3.1 ท่านได้มีการกำจัดวัชพืชหรือไม่',
+          question: '2.4.6.3.1 ท่านได้มีการกำจัดวัชพืชหรือไม่',
           values: [
             Section2CheckVSModel(
               value: false,
@@ -357,40 +501,61 @@ class Section2Model {
     question: 'กรณีกำจัดวัชพืช',
     values: [],
   );
+
+
+
+
+
   static S254532 s254532 = S254532(
     question: '2.4.5.3.2 ท่านได้มีการตัดใบข้าว หรือไม่',
     values: [
-      Section2CheckVSModel2(
+      Section2CheckVSModel(
         value: false,
-        text: 'ไม่มีการตัดใบข้าว เพราะ',
+        text: 'ตัดใบข้าวครั้งที่ 1 อายุ',
+        suffix: 'วัน',
         controller: TextEditingController(),
-        suffix: '',
+        values: [
+          Section2CheckVSModel(
+            value: false,
+            text: 'กำจัดวัชพืช',
+            suffix: '',
+          ),
+          Section2CheckVSModel(
+            value: false,
+            text: 'ให้ปศุสัตว์ ',
+            suffix: '',
+          ),
+          Section2CheckVSModel(
+            value: false,
+            text: 'อื่นๆ ',
+            suffix: '',
+            controller: TextEditingController(),
+          ),
+        ],
       ),
-      Section2CheckVSModel2(
+      Section2CheckVSModel(
         value: false,
-        text: 'ตัดใบข้าว จำนวน',
+        text: 'ตัดใบข้าวครั้งที่ 2 อายุ',
+        suffix: 'วัน',
         controller: TextEditingController(),
-        suffix: 'ครั้ง',
-        values: [/*
-          S2TVTVModel(
-            title: 'ครั้งที่ 1 ตัดช่วง',
-            controller1: TextEditingController(),
-            suffix1: 'เพราะ',
-            controller2: TextEditingController(),
+        values: [
+          Section2CheckVSModel(
+            value: false,
+            text: 'กำจัดวัชพืช',
+            suffix: '',
           ),
-          S2TVTVModel(
-            title: 'ครั้งที่ 2 ตัดช่วง',
-            controller1: TextEditingController(),
-            suffix1: 'เพราะ',
-            controller2: TextEditingController(),
+          Section2CheckVSModel(
+            value: false,
+            text: 'ให้ปศุสัตว์ ',
+            suffix: '',
           ),
-          S2TVTVModel(
-            title: 'ครั้งที่ 3 ตัดช่วง',
-            controller1: TextEditingController(),
-            suffix1: 'เพราะ',
-            controller2: TextEditingController(),
+          Section2CheckVSModel(
+            value: false,
+            text: 'อื่นๆ ',
+            suffix: '',
+            controller: TextEditingController(),
           ),
-        */],
+        ],
       ),
     ],
   );
@@ -495,7 +660,6 @@ class Section2Model {
         text: 'แรงงานจ้างทั้งหมด',
         suffix: '',
       ),
-
       Section2CheckVSModel(
         value: false,
         text: 'แรงงานภายในครัวเรือนทั้งหมด',
@@ -524,7 +688,6 @@ class Section2Model {
         text: 'เอกชน',
         suffix: '',
       ),
-
     ],
     values3: [
       Section2CheckVSModel(
@@ -683,7 +846,6 @@ class Section2Model {
       suffix: '',
     ),
   );
-
 }
 
 class S211 {
@@ -705,10 +867,10 @@ class S211 {
   factory S211.fromJson(Map<String, dynamic> json) {
     return S211(
       question: json['question'],
-      values: List<Section2ValueTextModel>.from(json['values'].map((x) => Section2ValueTextModel.fromJson(x))),
+      values: List<Section2ValueTextModel>.from(
+          json['values'].map((x) => Section2ValueTextModel.fromJson(x))),
     );
   }
-
 }
 
 class Section2ValueTextModel {
@@ -733,8 +895,6 @@ class Section2ValueTextModel {
       value: json['value'],
     );
   }
-
-
 }
 
 class S212 {
@@ -759,7 +919,6 @@ class S212 {
       values: List<Section2PVSModel>.from(json['values'].map((x) => Section2PVSModel.fromJson(x))),
     );
   }
-
 }
 
 class Section2PVSModel {
@@ -788,7 +947,6 @@ class Section2PVSModel {
       suffix: json['suffix'],
     );
   }
-
 }
 
 class Section2CheckVSModel {
@@ -796,12 +954,14 @@ class Section2CheckVSModel {
   String? text;
   TextEditingController? controller;
   String? suffix;
+  List<Section2CheckVSModel> values;
 
   Section2CheckVSModel({
     this.controller,
     this.text,
     this.value,
     this.suffix,
+    this.values = const [],
   });
 
   Map<String, dynamic> toJson() {
@@ -810,9 +970,9 @@ class Section2CheckVSModel {
       'value': value,
       'controller': controller?.text ?? '',
       'suffix': suffix,
+      'values': values.map((e) => e.toJson()).toList(),
     };
   }
-
 
   factory Section2CheckVSModel.fromJson(Map<String, dynamic> json) {
     return Section2CheckVSModel(
@@ -820,9 +980,9 @@ class Section2CheckVSModel {
       value: json['value'],
       controller: TextEditingController(text: json['controller']),
       suffix: json['suffix'],
+      values: List<Section2CheckVSModel>.from(json['values'].map((x) => Section2CheckVSModel.fromJson(x)))
     );
   }
-
 }
 
 class S213 {
@@ -847,8 +1007,6 @@ class S213 {
       values: S213Model.fromJson(json['values']),
     );
   }
-
-
 }
 
 class S213Model {
@@ -873,8 +1031,6 @@ class S213Model {
       value2: Section2CheckVSModel.fromJson(json['value2']),
     );
   }
-
-
 }
 
 class S214 {
@@ -896,11 +1052,10 @@ class S214 {
   factory S214.fromJson(Map<String, dynamic> json) {
     return S214(
       question: json['question'],
-      values: List<Section2ValueTextModel>.from(json['values'].map((x) => Section2ValueTextModel.fromJson(x))),
+      values: List<Section2ValueTextModel>.from(
+          json['values'].map((x) => Section2ValueTextModel.fromJson(x))),
     );
   }
-
-
 }
 
 class S215 {
@@ -925,32 +1080,90 @@ class S215 {
       values: S213Model.fromJson(json['values']),
     );
   }
-
 }
 
 class S221 {
   String question;
-  List<Section2CheckVSModel> values;
+  List<S221Model> datas;
 
   S221({
     required this.question,
-    required this.values,
+    required this.datas,
   });
 
   Map<String, dynamic> toJson() {
     return {
       'question': question,
-      'values': values.map((e) => e.toJson()).toList(),
+      'values': datas.map((e) => e.toJson()).toList(),
     };
   }
 
   factory S221.fromJson(Map<String, dynamic> json) {
     return S221(
       question: json['question'],
-      values: List<Section2CheckVSModel>.from(json['values'].map((x) => Section2CheckVSModel.fromJson(x))),
+      datas: List<S221Model>.from(json['values'].map((x) => S221Model.fromJson(x))),
     );
   }
+}
 
+class S221Model {
+  String? prefix;
+  String text;
+  bool value;
+  TextEditingController? controller;
+  List<S221DataModel> values;
+
+  S221Model({
+    this.prefix,
+    required this.text,
+    required this.value,
+    required this.values,
+    this.controller,
+  });
+
+  Map<String, dynamic> toJson() {
+    return {
+      'text': text,
+      'value': value,
+      'values': values.map((e) => e.toJson()).toList(),
+      'controller': controller?.text ?? '',
+      'prefix': prefix,
+    };
+  }
+
+  factory S221Model.fromJson(Map<String, dynamic> json) {
+    return S221Model(
+      text: json['text'],
+      value: json['value'],
+      values: List<S221DataModel>.from(json['values'].map((x) => S221DataModel.fromJson(x))),
+      controller: TextEditingController(text: json['controller']),
+      prefix: json['prefix'],
+    );
+  }
+}
+
+class S221DataModel {
+  String text;
+  bool value;
+
+  S221DataModel({
+    required this.text,
+    required this.value,
+  });
+
+  Map<String, dynamic> toJson() {
+    return {
+      'text': text,
+      'value': value,
+    };
+  }
+
+  factory S221DataModel.fromJson(Map<String, dynamic> json) {
+    return S221DataModel(
+      text: json['text'],
+      value: json['value'],
+    );
+  }
 }
 
 class S222 {
@@ -975,11 +1188,12 @@ class S222 {
   factory S222.fromJson(Map<String, dynamic> json) {
     return S222(
       question: json['question'],
-      values1: List<Section2ValueTextModel>.from(json['values1'].map((x) => Section2ValueTextModel.fromJson(x))),
-      values2: List<Section2CheckVSModel>.from(json['values2'].map((x) => Section2CheckVSModel.fromJson(x))),
+      values1: List<Section2ValueTextModel>.from(
+          json['values1'].map((x) => Section2ValueTextModel.fromJson(x))),
+      values2: List<Section2CheckVSModel>.from(
+          json['values2'].map((x) => Section2CheckVSModel.fromJson(x))),
     );
   }
-
 }
 
 class S223 {
@@ -1004,11 +1218,12 @@ class S223 {
   factory S223.fromJson(Map<String, dynamic> json) {
     return S223(
       question: json['question'],
-      values1: List<Section2ValueTextModel>.from(json['values1'].map((x) => Section2ValueTextModel.fromJson(x))),
-      values2: List<Section2CheckVSModel>.from(json['values2'].map((x) => Section2CheckVSModel.fromJson(x))),
+      values1: List<Section2ValueTextModel>.from(
+          json['values1'].map((x) => Section2ValueTextModel.fromJson(x))),
+      values2: List<Section2CheckVSModel>.from(
+          json['values2'].map((x) => Section2CheckVSModel.fromJson(x))),
     );
   }
-
 }
 
 class S224 {
@@ -1030,10 +1245,10 @@ class S224 {
   factory S224.fromJson(Map<String, dynamic> json) {
     return S224(
       question: json['question'],
-      values: List<Section2CheckVSModel>.from(json['values'].map((x) => Section2CheckVSModel.fromJson(x))),
+      values: List<Section2CheckVSModel>.from(
+          json['values'].map((x) => Section2CheckVSModel.fromJson(x))),
     );
   }
-
 }
 
 class S225 {
@@ -1058,7 +1273,6 @@ class S225 {
       values: List<Section2PVSModel>.from(json['values'].map((x) => Section2PVSModel.fromJson(x))),
     );
   }
-
 }
 
 class S226 {
@@ -1086,74 +1300,66 @@ class S226 {
   factory S226.fromJson(Map<String, dynamic> json) {
     return S226(
       question: json['question'],
-      values1: List<Section2ValueTextModel>.from(json['values1'].map((x) => Section2ValueTextModel.fromJson(x))),
+      values1: List<Section2ValueTextModel>.from(
+          json['values1'].map((x) => Section2ValueTextModel.fromJson(x))),
       question2: json['question2'],
-      values2: List<Section2CheckVSModel>.from(json['values2'].map((x) => Section2CheckVSModel.fromJson(x))),
+      values2: List<Section2CheckVSModel>.from(
+          json['values2'].map((x) => Section2CheckVSModel.fromJson(x))),
     );
   }
-
 }
 
 class S231 {
   String question;
-  List<Section2ValueTextModel> values;
-  TextEditingController? yearController;
-  TextEditingController? detailController;
+  List<S221Model> values;
 
   S231({
     required this.question,
     required this.values,
-    this.yearController,
-    this.detailController,
   });
 
   Map<String, dynamic> toJson() {
     return {
       'question': question,
       'values1': values.map((e) => e.toJson()).toList(),
-      'yearController': yearController?.text ?? '',
-      'detailController': detailController?.text ?? '',
     };
   }
 
   factory S231.fromJson(Map<String, dynamic> json) {
     return S231(
       question: json['question'],
-      values: json['values'] != null ? List<Section2ValueTextModel>.from(json['values'].map((x) => Section2ValueTextModel.fromJson(x))) : [],
-      yearController: TextEditingController(text: json['yearController']),
-      detailController: TextEditingController(text: json['detailController']),
+      values: List<S221Model>.from(json['values1'].map((x) => S221Model.fromJson(x))),
     );
   }
-
 }
 
 class S232 {
   String question;
-  TextEditingController? startMonthController;
-  TextEditingController? monthController;
+  List<Section2ValueTextModel> begins;
+  String? month;
 
   S232({
     required this.question,
-    this.startMonthController,
-    this.monthController,
+    required this.begins,
+    this.month,
   });
 
   Map<String, dynamic> toJson() {
     return {
       'question': question,
-      'startMonthController': startMonthController?.text ?? '',
-      'monthController': monthController?.text ?? '',
+      'begins': begins.map((e) => e.toJson()).toList(),
+      'month': month,
     };
   }
 
   factory S232.fromJson(Map<String, dynamic> json) {
     return S232(
       question: json['question'],
-      startMonthController: TextEditingController(text: json['startMonthController']),
-      monthController: TextEditingController(text: json['monthController']),
+      begins: List<Section2ValueTextModel>.from(
+          json['begins'].map((x) => Section2ValueTextModel.fromJson(x))),
+      month: json['month'],
     );
   }
-
 }
 
 class S23SoilPreparationSteps {
@@ -1171,10 +1377,10 @@ class S23SoilPreparationSteps {
 
   factory S23SoilPreparationSteps.fromJson(Map<String, dynamic> json) {
     return S23SoilPreparationSteps(
-      values: List<SoilPreparationStepsModel>.from(json['values'].map((x) => SoilPreparationStepsModel.fromJson(x))),
+      values: List<SoilPreparationStepsModel>.from(
+          json['values'].map((x) => SoilPreparationStepsModel.fromJson(x))),
     );
   }
-
 }
 
 class SoilPreparationStepsModel {
@@ -1219,7 +1425,6 @@ class SoilPreparationStepsModel {
       servicePriceController: json['service_fee'],
     );
   }
-
 }
 
 class HS23owToPlantInTheLastProductionYears {
@@ -1237,10 +1442,10 @@ class HS23owToPlantInTheLastProductionYears {
 
   factory HS23owToPlantInTheLastProductionYears.fromJson(Map<String, dynamic> json) {
     return HS23owToPlantInTheLastProductionYears(
-      values: List<HowToPlantInTheLastProductionYearsModel>.from(json['values'].map((x) => HowToPlantInTheLastProductionYearsModel.fromJson(x))),
+      values: List<HowToPlantInTheLastProductionYearsModel>.from(
+          json['values'].map((x) => HowToPlantInTheLastProductionYearsModel.fromJson(x))),
     );
   }
-
 }
 
 class HowToPlantInTheLastProductionYearsModel {
@@ -1281,44 +1486,31 @@ class HowToPlantInTheLastProductionYearsModel {
       problemAndObstacle: json['problem'],
     );
   }
-
 }
 
 class S241 {
   String question;
   List<Section2ValueTextModel> values;
-  TextEditingController? weedController;
-  TextEditingController? percentController;
-  TextEditingController? controlWeedController;
 
   S241({
     required this.question,
     required this.values,
-    this.weedController,
-    this.percentController,
-    this.controlWeedController,
   });
 
   Map<String, dynamic> toJson() {
     return {
       'question': question,
       'values': values.map((e) => e.toJson()).toList(),
-      'weedController': weedController?.text ?? '',
-      'percentController': percentController?.text ?? '',
-      'controlWeedController': controlWeedController?.text ?? '',
     };
   }
 
   factory S241.fromJson(Map<String, dynamic> json) {
     return S241(
       question: json['question'],
-      values: List<Section2ValueTextModel>.from(json['values'].map((x) => Section2ValueTextModel.fromJson(x))),
-      weedController: TextEditingController(text: json['weedController']),
-      percentController: TextEditingController(text: json['percentController']),
-      controlWeedController: TextEditingController(text: json['controlWeedController']),
+      values: List<Section2ValueTextModel>.from(
+          json['values'].map((x) => Section2ValueTextModel.fromJson(x))),
     );
   }
-
 }
 
 class S242 {
@@ -1346,12 +1538,12 @@ class S242 {
   factory S242.fromJson(Map<String, dynamic> json) {
     return S242(
       question: json['question'],
-      values: List<Section2ValueTextModel>.from(json['values'].map((x) => Section2ValueTextModel.fromJson(x))),
+      values: List<Section2ValueTextModel>.from(
+          json['values'].map((x) => Section2ValueTextModel.fromJson(x))),
       weedController: TextEditingController(text: json['weedController']),
       percentController: TextEditingController(text: json['percentController']),
     );
   }
-
 }
 
 class S243 {
@@ -1376,11 +1568,11 @@ class S243 {
   factory S243.fromJson(Map<String, dynamic> json) {
     return S243(
       question: json['question'],
-      values: List<Section2ValueTextModel>.from(json['values'].map((x) => Section2ValueTextModel.fromJson(x))),
+      values: List<Section2ValueTextModel>.from(
+          json['values'].map((x) => Section2ValueTextModel.fromJson(x))),
       controller: TextEditingController(text: json['weedController']),
     );
   }
-
 }
 
 class S244 {
@@ -1402,10 +1594,10 @@ class S244 {
   factory S244.fromJson(Map<String, dynamic> json) {
     return S244(
       question: json['question'],
-      values: List<Section2CheckVSModel>.from(json['values'].map((x) => Section2CheckVSModel.fromJson(x))),
+      values: List<Section2CheckVSModel>.from(
+          json['values'].map((x) => Section2CheckVSModel.fromJson(x))),
     );
   }
-
 }
 
 class S245 {
@@ -1430,7 +1622,6 @@ class S245 {
       s2451: S2451.fromJson(json['s2451']),
     );
   }
-
 }
 
 class S2451 {
@@ -1463,7 +1654,6 @@ class S2451 {
       s22453: S22453.fromJson(json['s22453']),
     );
   }
-
 }
 
 class S24511 {
@@ -1488,11 +1678,12 @@ class S24511 {
   factory S24511.fromJson(Map<String, dynamic> json) {
     return S24511(
       question: json['question'],
-      values1: List<Section2ValueTextModel>.from(json['values1'].map((x) => Section2ValueTextModel.fromJson(x))),
-      values2: List<Section2CheckVSModel>.from(json['values2'].map((x) => Section2CheckVSModel.fromJson(x))),
+      values1: List<Section2ValueTextModel>.from(
+          json['values1'].map((x) => Section2ValueTextModel.fromJson(x))),
+      values2: List<Section2CheckVSModel>.from(
+          json['values2'].map((x) => Section2CheckVSModel.fromJson(x))),
     );
   }
-
 }
 
 class CaseOfGivingWaters {
@@ -1514,10 +1705,10 @@ class CaseOfGivingWaters {
   factory CaseOfGivingWaters.fromJson(Map<String, dynamic> json) {
     return CaseOfGivingWaters(
       question: json['question'],
-      values: List<CaseOfGivingWatersModel>.from(json['values'].map((x) => CaseOfGivingWatersModel.fromJson(x))),
+      values: List<CaseOfGivingWatersModel>.from(
+          json['values'].map((x) => CaseOfGivingWatersModel.fromJson(x))),
     );
   }
-
 }
 
 class CaseOfGivingWatersModel {
@@ -1562,7 +1753,6 @@ class CaseOfGivingWatersModel {
       totalWater: json['enough'],
     );
   }
-
 }
 
 class S24512 {
@@ -1587,7 +1777,6 @@ class S24512 {
       s24521: S24521.fromJson(json['s24521']),
     );
   }
-
 }
 
 class S24521 {
@@ -1609,10 +1798,10 @@ class S24521 {
   factory S24521.fromJson(Map<String, dynamic> json) {
     return S24521(
       question: json['question'],
-      values: List<Section2CheckVSModel>.from(json['values'].map((x) => Section2CheckVSModel.fromJson(x))),
+      values: List<Section2CheckVSModel>.from(
+          json['values'].map((x) => Section2CheckVSModel.fromJson(x))),
     );
   }
-
 }
 
 class CaseOfApplyingFertilizers {
@@ -1634,10 +1823,10 @@ class CaseOfApplyingFertilizers {
   factory CaseOfApplyingFertilizers.fromJson(Map<String, dynamic> json) {
     return CaseOfApplyingFertilizers(
       question: json['question'],
-      values: List<CaseOfApplyingFertilizersModel>.from(json['values'].map((x) => CaseOfApplyingFertilizersModel.fromJson(x))),
+      values: List<CaseOfApplyingFertilizersModel>.from(
+          json['values'].map((x) => CaseOfApplyingFertilizersModel.fromJson(x))),
     );
   }
-
 }
 
 class CaseOfApplyingFertilizersModel {
@@ -1686,7 +1875,68 @@ class CaseOfApplyingFertilizersModel {
       fertilizerSource: json['fertilizer_source'],
     );
   }
+}
 
+
+class TimeToFertilizer {
+  String title;
+  bool value;
+
+  TimeToFertilizer({
+    required this.title,
+    required this.value,
+  });
+
+  Map<String, dynamic> toJson() {
+    return {
+      'title': title,
+      'value': value,
+    };
+  }
+
+  factory TimeToFertilizer.fromJson(Map<String, dynamic> json) {
+    return TimeToFertilizer(
+      title: json['title'],
+      value: json['value'],
+    );
+  }
+
+  static final datas = [
+    TimeToFertilizer(title: 'ต้นเดือน', value: false),
+    TimeToFertilizer(title: 'กลางเดือน', value: false),
+    TimeToFertilizer(title: 'ปลายเดือน', value: false),
+  ];
+}
+
+class DecisionToApplyFertilizer {
+  String title;
+  bool value;
+
+  DecisionToApplyFertilizer({
+    required this.title,
+    required this.value,
+  });
+
+  Map<String, dynamic> toJson() {
+    return {
+      'title': title,
+      'value': value,
+    };
+  }
+
+  factory DecisionToApplyFertilizer.fromJson(Map<String, dynamic> json) {
+    return DecisionToApplyFertilizer(
+      title: json['title'],
+      value: json['value'],
+    );
+  }
+
+  static final datas = [
+    DecisionToApplyFertilizer(title: 'น้ำ', value: false),
+    DecisionToApplyFertilizer(title: 'ความชื้น', value: false),
+    DecisionToApplyFertilizer(title: 'ฝน', value: false),
+    DecisionToApplyFertilizer(title: 'ความพร้อมของแรงงาน', value: false),
+  ];
 }
 
 class HowToUseFertilizer {
@@ -1787,10 +2037,12 @@ class S224531 {
       'values': values.map((e) => e.toJson()).toList(),
     };
   }
+
   factory S224531.fromJson(Map<String, dynamic> json) {
     return S224531(
       question: json['question'],
-      values: List<Section2CheckVSModel>.from(json['values'].map((x) => Section2CheckVSModel.fromJson(x))),
+      values: List<Section2CheckVSModel>.from(
+          json['values'].map((x) => Section2CheckVSModel.fromJson(x))),
     );
   }
 }
@@ -1810,10 +2062,12 @@ class CaseKillWeeds {
       'values': values.map((e) => e.toJson()).toList(),
     };
   }
+
   factory CaseKillWeeds.fromJson(Map<String, dynamic> json) {
     return CaseKillWeeds(
       question: json['question'],
-      values: List<CaseKillWeedsModel>.from(json['values'].map((x) => CaseKillWeedsModel.fromJson(x))),
+      values:
+          List<CaseKillWeedsModel>.from(json['values'].map((x) => CaseKillWeedsModel.fromJson(x))),
     );
   }
 }
@@ -1842,6 +2096,7 @@ class CaseKillWeedsModel {
       'brand': chemicalName,
     };
   }
+
   factory CaseKillWeedsModel.fromJson(Map<String, dynamic> json) {
     return CaseKillWeedsModel(
       reasonDecision: json['reason'],
@@ -1855,7 +2110,7 @@ class CaseKillWeedsModel {
 
 class S254532 {
   String question;
-  List<Section2CheckVSModel2> values;
+  List<Section2CheckVSModel>  values;
 
   S254532({
     required this.question,
@@ -1868,10 +2123,12 @@ class S254532 {
       'values': values.map((e) => e.toJson()).toList(),
     };
   }
+
   factory S254532.fromJson(Map<String, dynamic> json) {
     return S254532(
       question: json['question'],
-      values: List<Section2CheckVSModel2>.from(json['values'].map((x) => Section2CheckVSModel2.fromJson(x))),
+      values: List<Section2CheckVSModel>.from(
+          json['values'].map((x) => Section2CheckVSModel.fromJson(x))),
     );
   }
 }
@@ -1900,38 +2157,42 @@ class Section2CheckVSModel2 {
       'values': values?.map((e) => e.toJson()).toList(),
     };
   }
+
   factory Section2CheckVSModel2.fromJson(Map<String, dynamic> json) {
     return Section2CheckVSModel2(
       text: json['text'],
       value: json['value'],
       controller: TextEditingController(text: json['controller']),
       suffix: json['suffix'],
-      values: json['values'] != null ? List<S2TVTVModel>.from(json['values'].map((x) => S2TVTVModel.fromJson(x))) : [],
+      values: json['values'] != null
+          ? List<S2TVTVModel>.from(json['values'].map((x) => S2TVTVModel.fromJson(x)))
+          : [],
     );
   }
 }
 
 class S2TVTVModel {
   String title;
-  TextEditingController controller1;
+  TextEditingController? controller1;
   String suffix1;
-  TextEditingController controller2;
+  TextEditingController? controller2;
 
   S2TVTVModel({
     required this.title,
-    required this.controller1,
+     this.controller1,
     required this.suffix1,
-    required this.controller2,
+     this.controller2,
   });
 
   Map<String, dynamic> toJson() {
     return {
       'title': title,
-      'controller1': controller1.text,
+      'controller1': controller1?.text,
       'suffix1': suffix1,
-      'controller2': controller2.text,
+      'controller2': controller2?.text,
     };
   }
+
   factory S2TVTVModel.fromJson(Map<String, dynamic> json) {
     return S2TVTVModel(
       title: json['title'],
@@ -1947,7 +2208,6 @@ class S224541 {
   List<Section2CheckVSModel> values1;
   List<Section2CheckVSModel> values2;
 
-
   S224541({
     required this.question,
     required this.values1,
@@ -1961,19 +2221,22 @@ class S224541 {
       'values2': values2.map((e) => e.toJson()).toList(),
     };
   }
+
   factory S224541.fromJson(Map<String, dynamic> json) {
     return S224541(
       question: json['question'],
-      values1: List<Section2CheckVSModel>.from(json['values1'].map((x) => Section2CheckVSModel.fromJson(x))),
-      values2: List<Section2CheckVSModel>.from(json['values2'].map((x) => Section2CheckVSModel.fromJson(x))),
+      values1: List<Section2CheckVSModel>.from(
+          json['values1'].map((x) => Section2CheckVSModel.fromJson(x))),
+      values2: List<Section2CheckVSModel>.from(
+          json['values2'].map((x) => Section2CheckVSModel.fromJson(x))),
     );
   }
 }
+
 class S224542 {
   String question;
   List<Section2CheckVSModel> values1;
   List<Section2CheckVSModel> values2;
-
 
   S224542({
     required this.question,
@@ -1988,11 +2251,14 @@ class S224542 {
       'values2': values2.map((e) => e.toJson()).toList(),
     };
   }
+
   factory S224542.fromJson(Map<String, dynamic> json) {
     return S224542(
       question: json['question'],
-      values1: List<Section2CheckVSModel>.from(json['values1'].map((x) => Section2CheckVSModel.fromJson(x))),
-      values2: List<Section2CheckVSModel>.from(json['values2'].map((x) => Section2CheckVSModel.fromJson(x))),
+      values1: List<Section2CheckVSModel>.from(
+          json['values1'].map((x) => Section2CheckVSModel.fromJson(x))),
+      values2: List<Section2CheckVSModel>.from(
+          json['values2'].map((x) => Section2CheckVSModel.fromJson(x))),
     );
   }
 }
@@ -2012,14 +2278,15 @@ class S251 {
       'values': values.map((e) => e.toJson()).toList(),
     };
   }
+
   factory S251.fromJson(Map<String, dynamic> json) {
     return S251(
       question: json['question'],
-      values: List<Section2CheckVSModel>.from(json['values'].map((x) => Section2CheckVSModel.fromJson(x))),
+      values: List<Section2CheckVSModel>.from(
+          json['values'].map((x) => Section2CheckVSModel.fromJson(x))),
     );
   }
 }
-
 
 class S252 {
   String question;
@@ -2045,13 +2312,18 @@ class S252 {
       'values4': values4.map((e) => e.toJson()).toList(),
     };
   }
+
   factory S252.fromJson(Map<String, dynamic> json) {
     return S252(
       question: json['question'],
-      values1: List<Section2CheckVSModel>.from(json['values1'].map((x) => Section2CheckVSModel.fromJson(x))),
-      values2: List<Section2CheckVSModel>.from(json['values2'].map((x) => Section2CheckVSModel.fromJson(x))),
-      values3: List<Section2CheckVSModel>.from(json['values3'].map((x) => Section2CheckVSModel.fromJson(x))),
-      values4: List<Section2CheckVSModel>.from(json['values4'].map((x) => Section2CheckVSModel.fromJson(x))),
+      values1: List<Section2CheckVSModel>.from(
+          json['values1'].map((x) => Section2CheckVSModel.fromJson(x))),
+      values2: List<Section2CheckVSModel>.from(
+          json['values2'].map((x) => Section2CheckVSModel.fromJson(x))),
+      values3: List<Section2CheckVSModel>.from(
+          json['values3'].map((x) => Section2CheckVSModel.fromJson(x))),
+      values4: List<Section2CheckVSModel>.from(
+          json['values4'].map((x) => Section2CheckVSModel.fromJson(x))),
     );
   }
 }
@@ -2071,13 +2343,16 @@ class S253 {
       'values': values.map((e) => e.toJson()).toList(),
     };
   }
+
   factory S253.fromJson(Map<String, dynamic> json) {
     return S253(
       question: json['question'],
-      values: List<Section2CheckVSModel>.from(json['values'].map((x) => Section2CheckVSModel.fromJson(x))),
+      values: List<Section2CheckVSModel>.from(
+          json['values'].map((x) => Section2CheckVSModel.fromJson(x))),
     );
   }
 }
+
 class S254 {
   String question;
   List<Section2CheckVSModel> values;
@@ -2093,10 +2368,12 @@ class S254 {
       'values': values.map((e) => e.toJson()).toList(),
     };
   }
+
   factory S254.fromJson(Map<String, dynamic> json) {
     return S254(
       question: json['question'],
-      values: List<Section2CheckVSModel>.from(json['values'].map((x) => Section2CheckVSModel.fromJson(x))),
+      values: List<Section2CheckVSModel>.from(
+          json['values'].map((x) => Section2CheckVSModel.fromJson(x))),
     );
   }
 }
@@ -2125,10 +2402,12 @@ class S255 {
       'other': other?.text ?? '',
     };
   }
+
   factory S255.fromJson(Map<String, dynamic> json) {
     return S255(
       question: json['question'],
-      values: List<Section2CheckVSModel>.from(json['values'].map((x) => Section2CheckVSModel.fromJson(x))),
+      values: List<Section2CheckVSModel>.from(
+          json['values'].map((x) => Section2CheckVSModel.fromJson(x))),
       sunForDay: TextEditingController(text: json['sunForDay']),
       sunForCount: TextEditingController(text: json['sunForCount']),
       other: TextEditingController(text: json['other']),
@@ -2157,15 +2436,20 @@ class S256 {
       'values3': values3.map((e) => e.toJson()).toList(),
     };
   }
+
   factory S256.fromJson(Map<String, dynamic> json) {
     return S256(
       question: json['question'],
-      values1: List<Section2ValueTextModel>.from(json['values1'].map((x) => Section2ValueTextModel.fromJson(x))),
-      values2: List<Section2ValueTextModel>.from(json['values2'].map((x) => Section2ValueTextModel.fromJson(x))),
-      values3: List<Section2ValueTextModel>.from(json['values3'].map((x) => Section2ValueTextModel.fromJson(x))),
+      values1: List<Section2ValueTextModel>.from(
+          json['values1'].map((x) => Section2ValueTextModel.fromJson(x))),
+      values2: List<Section2ValueTextModel>.from(
+          json['values2'].map((x) => Section2ValueTextModel.fromJson(x))),
+      values3: List<Section2ValueTextModel>.from(
+          json['values3'].map((x) => Section2ValueTextModel.fromJson(x))),
     );
   }
 }
+
 class S260 {
   String question;
   Section2ValueTextModel values1;
@@ -2187,11 +2471,13 @@ class S260 {
       'values2': values2.toJson(),
     };
   }
+
   factory S260.fromJson(Map<String, dynamic> json) {
     return S260(
       question: json['question'],
       values1: Section2ValueTextModel.fromJson(json['values1']),
-      values1s: List<Section2ValueTextModel>.from(json['values1s'].map((x) => Section2ValueTextModel.fromJson(x))),
+      values1s: List<Section2ValueTextModel>.from(
+          json['values1s'].map((x) => Section2ValueTextModel.fromJson(x))),
       values2: Section2CheckVSModel.fromJson(json['values2']),
     );
   }

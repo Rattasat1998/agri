@@ -704,25 +704,23 @@ class _Section1PageState extends State<Section1Page> {
                         }
 
                         context.read<AgriInfoBloc>().add(AddSection1DataEvent(
-                          section1: Section1DataModel(
-                            selectedPoint1: state.selectedPoint1,
-                            selectedPoint2: state.selectedPoint2,
-                            selectedPoint3: state.selectedPoint3,
-                            selectedPoint4: state.selectedPoint4,
-                            selectedPoint5: state.selectedPoint5,
-                            selectedPointAdOn1: state.selectedPointAdOn1,
-                            selectedPointAdOn2: state.selectedPointAdOn2,
-                            selectedPointAdOn3: state.selectedPointAdOn3,
-                            selectedPointAdOn4: state.selectedPointAdOn4,
-                            selectedPointAdOn5: state.selectedPointAdOn5,
-                            selectedPointAdOn6: state.selectedPointAdOn6,
-                            selectedPointAdOn7: state.selectedPointAdOn7,
-                            selectedPointAdOn8: state.selectedPointAdOn8,
-                            selectedPointAdOn9: state.selectedPointAdOn9,
-                          )
-                        ));
+                                section1: Section1DataModel(
+                              selectedPoint1: state.selectedPoint1,
+                              selectedPoint2: state.selectedPoint2,
+                              selectedPoint3: state.selectedPoint3,
+                              selectedPoint4: state.selectedPoint4,
+                              selectedPoint5: state.selectedPoint5,
+                              selectedPointAdOn1: state.selectedPointAdOn1,
+                              selectedPointAdOn2: state.selectedPointAdOn2,
+                              selectedPointAdOn3: state.selectedPointAdOn3,
+                              selectedPointAdOn4: state.selectedPointAdOn4,
+                              selectedPointAdOn5: state.selectedPointAdOn5,
+                              selectedPointAdOn6: state.selectedPointAdOn6,
+                              selectedPointAdOn7: state.selectedPointAdOn7,
+                              selectedPointAdOn8: state.selectedPointAdOn8,
+                              selectedPointAdOn9: state.selectedPointAdOn9,
+                            )));
                         Navigator.pop(context);
-
 
 /*
                         if (_formKey.currentState!.validate()) {
@@ -870,7 +868,6 @@ class _Section1PageState extends State<Section1Page> {
                                   }
                                 },
                               ),
-
                             ],
                           ),
                         );
@@ -936,15 +933,13 @@ class _Section1PageState extends State<Section1Page> {
                                   value: e.value,
                                   onChanged: (value) {
                                     setState(() {
-                                        Section1Point1.section1Point2.model.forEach((element) {
-                                            element.value = false;
-                                            element.controller?.clear();
-
-                                        });
-                                        point2.value = value!;
+                                      Section1Point1.section1Point2.model.forEach((element) {
+                                        element.value = false;
+                                        element.controller?.clear();
+                                      });
+                                      point2.value = value!;
                                       //point2.value = value!;
                                       state.selectedPoint2 = Section1Point1.section1Point2;
-
                                     });
                                   },
                                 ),
@@ -1242,7 +1237,7 @@ class _Section1PageState extends State<Section1Page> {
 
                               columns: const [
                                 DataColumn(
-                                 // size: ColumnSize.S,
+                                  // size: ColumnSize.S,
                                   label: Text(''),
                                 ),
                                 DataColumn(
@@ -1584,7 +1579,9 @@ class _Section1PageState extends State<Section1Page> {
                                     dty: _dty,
                                     group: _group,
                                     role: _role,
-                                    remark: _remark.text.isEmpty ? TextEditingController(text: '-') : _remark,
+                                    remark: _remark.text.isEmpty
+                                        ? TextEditingController(text: '-')
+                                        : _remark,
                                   ),
                                 );
                                 setState(() {});
@@ -1615,6 +1612,8 @@ class _Section1PageState extends State<Section1Page> {
 
   Widget _buildPoint5Widget(BuildContext context, AgriInfoState state) {
     final point5 = Section1Point1.section1Point5;
+    print('point5: ${point5.wasListModel.length}');
+    print('point5: ${point5.wasListModel.map((e) => e.toJson()).toList()}');
     return Container(
       width: MediaQuery.of(context).size.width,
       margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
@@ -1659,20 +1658,23 @@ class _Section1PageState extends State<Section1Page> {
                       _landName.clear();
                       _landZCount.clear();
                       _landArea.clear();
-                      _landHolding.clear();
+                      //_landHolding.clear();
                       _landForUse.clear();
                       _landType.clear();
                       _landRemark.clear();
                       LandType.landTypeList.forEach((element) {
                         element.value = false;
                       });
+                      MainLandHoldingModel.landHoldingList.modelList.forEach((element) {
+                        element.value = false;
+                      });
+                      MainLandTypeModel.landTypeList.modelList.forEach((element) {
+                        element.value = false;
+                        element.another?.clear();
+                      });
                     });
 
-                    _addWas5List(
-                      context: context,
-                      point5: point5,
-                      state: state,
-                    );
+                    _addWas5List(context: context, point5: point5, state: state);
                     print('add was list');
                   },
                 ),
@@ -1694,7 +1696,7 @@ class _Section1PageState extends State<Section1Page> {
 
                             columns: const [
                               DataColumn(
-                               // size: ColumnSize.S,
+                                // size: ColumnSize.S,
                                 label: Text(''),
                               ),
                               DataColumn(
@@ -1773,12 +1775,26 @@ class _Section1PageState extends State<Section1Page> {
                                       color: Colors.black,
                                     ),
                                   ),
-                                  DataCell(CustomText(
-                                      text: was.landHolding, fontSize: 16, color: Colors.black)),
+                                  DataCell(
+                                    CustomText(
+                                      text: was.landHolding.map((e) => e.text).join(', '),
+                                      fontSize: 16,
+                                      color: Colors.black,
+                                    ),
+                                  ),
                                   DataCell(CustomText(
                                       text: was.landForUse, fontSize: 16, color: Colors.black)),
                                   DataCell(CustomText(
-                                      text: was.landType, fontSize: 16, color: Colors.black)),
+                                    text: was.landType.map((e) {
+                                      if (e.text.contains('อื่นๆ')) {
+                                        return e.another?.text ?? '';
+                                      } else {
+                                        return e.text;
+                                      }
+                                    }).join(', '),
+                                    fontSize: 16,
+                                    color: Colors.black,
+                                  )),
                                   DataCell(CustomText(
                                       text: was.landTypeList?.name ?? '',
                                       fontSize: 16,
@@ -1867,13 +1883,21 @@ class _Section1PageState extends State<Section1Page> {
                 ),
                 const SizedBox(height: 10),
                 _buildAdOn1(tractorHead, pointAdOn1),
+                const Divider(color: Colors.black),
                 _buildAdOn2(tractorHead2, pointAdOn2),
+                const Divider(color: Colors.black),
                 _buildAdOn3(tractorHead3, pointAdOn3),
+                const Divider(color: Colors.black),
                 _buildAdOn4(tractorHead4, pointAdOn4),
+                const Divider(color: Colors.black),
                 _buildAdOn5(tractorHead5, pointAdOn5),
+                const Divider(color: Colors.black),
                 _buildAdOn6(tractorHead6, pointAdOn6),
+                const Divider(color: Colors.black),
                 _buildAdOn7(tractorHead7, pointAdOn7),
+                const Divider(color: Colors.black),
                 _buildAdOn8(tractorHead8, pointAdOn8),
+                const Divider(color: Colors.black),
                 _buildAdOn9(tractorHead9, pointAdOn9),
               ],
             ),
@@ -1889,6 +1913,7 @@ class _Section1PageState extends State<Section1Page> {
     final inHome = ad.forUse.inHome;
     final forWorks = ad.forUse.forWorks.forWork;
     final adOn1ForUse3 = ad.adOn1ForUse3;
+    final seq = section1PointAdOn1.mainSequenceToUseModel;
 
     final forWorkList = ad.forUse.forWorks.forWorkList;
     return Column(
@@ -1928,76 +1953,55 @@ class _Section1PageState extends State<Section1Page> {
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
                   ),
-                  _tb4(ad),
+                  _tb4(ad, seq),
                   const SizedBox(height: 10),
-                  Column(
-                    children: [
-                      ...adOn1ForUse3.map(
-                        (e) {
-                          return Padding(
-                            padding: const EdgeInsets.only(bottom: 8.0),
-                            child: Row(
-                              children: [
-                                Expanded(
-                                  flex: 3,
-                                  child: _buildCheckRowTextWidget(
-                                    value: e.value,
-                                    text: e.text ?? '',
-                                    onChanged: (value) {
-                                      e.value = !e.value;
-                                      _formKeyA1.currentState?.validate();
+                  const CustomText(
+                    text: 'ปรับผานไถ ให้ใส่ค่าจำนวนผาน ',
+                    fontSize: 16,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 30.0),
+                    child: Column(
+                      children: [
+                        ...adOn1ForUse3.map(
+                          (e) {
+                            return Padding(
+                              padding: const EdgeInsets.only(bottom: 8.0),
+                              child: _buildCheckRowTextWidget(
+                                value: e.value,
+                                text: e.text ?? '',
+                                onChanged: (value) {
+                                  e.value = !e.value;
+                                  //_formKeyA1.currentState?.validate();
 
-                                      setState(() {});
-                                    },
-                                  ),
-                                ),
-                                const SizedBox(width: 10),
-                                Expanded(
-                                  flex: 3,
-                                  child: _buildTextFieldWidget(
-                                    enabled: e.value,
-                                    controller: e.count,
-                                    keyboardType: TextInputType.number,
-                                    validator: (value) {
-                                      if (e.value) {
-                                        if (value!.isEmpty) {
-                                          return 'กรุณาระบุ';
-                                        }
-                                      }
-                                      return null;
-                                    },
-                                  ),
-                                ),
-                                const SizedBox(width: 20),
-                                const CustomText(
-                                  text: 'จำนวนผาน',
-                                  fontSize: 16,
-                                  color: Colors.black,
-                                ),
-                              ],
-                            ),
-                          );
-                        },
-                      ).toList(),
-                      _buildCheckRowTextWidget(
-                        value: ad.landExpotion.value,
-                        text: ad.landExpotion.text ?? '',
-                        onChanged: (value) {
-                          setState(() {
-                            ad.landExpotion.value = value!;
-                          });
-                        },
-                      ),
-                      _buildCheckRowTextWidget(
-                        value: ad.rotaree.value,
-                        text: ad.rotaree.text ?? '',
-                        onChanged: (value) {
-                          setState(() {
-                            ad.rotaree.value = value!;
-                          });
-                        },
-                      ),
-                    ],
+                                  setState(() {});
+                                },
+                              ),
+                            );
+                          },
+                        ).toList(),
+                        /*_buildCheckRowTextWidget(
+                          value: ad.landExpotion.value,
+                          text: ad.landExpotion.text ?? '',
+                          onChanged: (value) {
+                            setState(() {
+                              ad.landExpotion.value = value!;
+                            });
+                          },
+                        ),
+                        _buildCheckRowTextWidget(
+                          value: ad.rotaree.value,
+                          text: ad.rotaree.text ?? '',
+                          onChanged: (value) {
+                            setState(() {
+                              ad.rotaree.value = value!;
+                            });
+                          },
+                        ),*/
+                      ],
+                    ),
                   )
                 ],
               ),
@@ -2013,6 +2017,7 @@ class _Section1PageState extends State<Section1Page> {
     AdOn2 ad = section1PointAdOn1.adOn2;
     final inHome = ad.forUse.inHome;
     final forWorks = ad.forUse.forWorks.forWork;
+    final seq = section1PointAdOn1.mainSequenceToUseModel;
 
     final forWorkList = ad.forUse.forWorks.forWorkList;
     return Column(
@@ -2052,7 +2057,7 @@ class _Section1PageState extends State<Section1Page> {
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
                   ),
-                  _tbt4(ad),
+                  _tbt4(ad, seq),
                   const SizedBox(height: 10),
                 ],
               ),
@@ -2068,7 +2073,7 @@ class _Section1PageState extends State<Section1Page> {
     final ad = section1PointAdOn1.adOn3;
     final inHome = ad.forUse.inHome;
     final forWorks = ad.forUse.forWorks.forWork;
-
+    final seq = section1PointAdOn1.mainSequenceToUseModel;
     final forWorkList = ad.forUse.forWorks.forWorkList;
     return Column(
       children: [
@@ -2107,7 +2112,7 @@ class _Section1PageState extends State<Section1Page> {
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
                   ),
-                  _tbt34(ad, _formKeyA3),
+                  _tbt34(ad, _formKeyA3, seq),
                   const SizedBox(height: 10),
                 ],
               ),
@@ -2123,7 +2128,7 @@ class _Section1PageState extends State<Section1Page> {
     final ad = section1PointAdOn1.adOn3;
     final inHome = ad.forUse.inHome;
     final forWorks = ad.forUse.forWorks.forWork;
-
+    final seq = section1PointAdOn1.mainSequenceToUseModel;
     final forWorkList = ad.forUse.forWorks.forWorkList;
     return Column(
       children: [
@@ -2162,7 +2167,7 @@ class _Section1PageState extends State<Section1Page> {
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
                   ),
-                  _tbt34(ad, _formKeyA4),
+                  _tbt34(ad, _formKeyA4, seq),
                   const SizedBox(height: 10),
                 ],
               ),
@@ -2178,7 +2183,7 @@ class _Section1PageState extends State<Section1Page> {
     final ad = section1PointAdOn1.adOn3;
     final inHome = ad.forUse.inHome;
     final forWorks = ad.forUse.forWorks.forWork;
-
+    final seq = section1PointAdOn1.mainSequenceToUseModel;
     final forWorkList = ad.forUse.forWorks.forWorkList;
     return Column(
       children: [
@@ -2217,7 +2222,7 @@ class _Section1PageState extends State<Section1Page> {
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
                   ),
-                  _tbt34(ad, _formKeyA5),
+                  _tbt34(ad, _formKeyA5, seq),
                   const SizedBox(height: 10),
                 ],
               ),
@@ -2233,7 +2238,7 @@ class _Section1PageState extends State<Section1Page> {
     final ad = section1PointAdOn1.adOn3;
     final inHome = ad.forUse.inHome;
     final forWorks = ad.forUse.forWorks.forWork;
-
+    final seq = section1PointAdOn1.mainSequenceToUseModel;
     final forWorkList = ad.forUse.forWorks.forWorkList;
     return Column(
       children: [
@@ -2272,7 +2277,7 @@ class _Section1PageState extends State<Section1Page> {
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
                   ),
-                  _tbt34(ad, _formKeyA6),
+                  _tbt34(ad, _formKeyA6, seq),
                   const SizedBox(height: 10),
                 ],
               ),
@@ -2288,7 +2293,7 @@ class _Section1PageState extends State<Section1Page> {
     final ad = section1PointAdOn1.adOn3;
     final inHome = ad.forUse.inHome;
     final forWorks = ad.forUse.forWorks.forWork;
-
+    final seq = section1PointAdOn1.mainSequenceToUseModel;
     final forWorkList = ad.forUse.forWorks.forWorkList;
     return Column(
       children: [
@@ -2327,7 +2332,7 @@ class _Section1PageState extends State<Section1Page> {
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
                   ),
-                  _tbt34(ad, _formKeyA7),
+                  _tbt34(ad, _formKeyA7, seq),
                   const SizedBox(height: 10),
                 ],
               ),
@@ -2343,7 +2348,7 @@ class _Section1PageState extends State<Section1Page> {
     final ad = section1PointAdOn1.adOn3;
     final inHome = ad.forUse.inHome;
     final forWorks = ad.forUse.forWorks.forWork;
-
+    final seq = section1PointAdOn1.mainSequenceToUseModel;
     final forWorkList = ad.forUse.forWorks.forWorkList;
     return Column(
       children: [
@@ -2382,7 +2387,7 @@ class _Section1PageState extends State<Section1Page> {
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
                   ),
-                  _tbt34(ad, _formKeyA8),
+                  _tbt34(ad, _formKeyA8, seq),
                   const SizedBox(height: 10),
                 ],
               ),
@@ -2398,7 +2403,7 @@ class _Section1PageState extends State<Section1Page> {
     final ad = section1PointAdOn1.adOn3;
     final inHome = ad.forUse.inHome;
     final forWorks = ad.forUse.forWorks.forWork;
-
+    final seq = section1PointAdOn1.mainSequenceToUseModel;
     final forWorkList = ad.forUse.forWorks.forWorkList;
     return Column(
       children: [
@@ -2437,7 +2442,7 @@ class _Section1PageState extends State<Section1Page> {
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
                   ),
-                  _tbt34(ad, _formKeyA9),
+                  _tbt34(ad, _formKeyA9, seq),
                   const SizedBox(height: 10),
                 ],
               ),
@@ -2448,16 +2453,99 @@ class _Section1PageState extends State<Section1Page> {
     );
   }
 
-  Widget _tb4(AdOn1 ad) {
+  Widget _tb4(AdOn1 ad, List<MainSequenceToUseModel> mainSequenceToUseModel) {
     List<bool> isValue = [
       ad.week!.value.text.isNotEmpty,
       ad.month!.value.text.isNotEmpty,
       ad.year!.value.text.isNotEmpty,
     ];
 
-    bool isAllTrue = isValue.any((element) => element == true);
+    return Column(
+      children: [
+        ...mainSequenceToUseModel.map((e) {
+          return Column(
+            children: [
+              Row(
+                children: [
+                  Checkbox(
+                    value: e.value,
+                    onChanged: (value) {
+                      e.value = value!;
+                      if (!e.value) {
+                        e.subs.forEach((element) {
+                          element.value = false;
+                        });
+                      }
+                      mainSequenceToUseModel.forEach((element) {
+                        if (element.text != e.text) {
+                          element.value = false;
+                          element.subs.forEach((element) {
+                            element.value = false;
+                          });
+                        }
+                      });
+                      setState(() {});
+                    },
+                  ),
+                  CustomText(text: e.text, fontSize: 16, color: Colors.black),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 30.0),
+                child: Column(
+                  children: [
+                    ...e.subs.map((sub) {
+                      return Row(
+                        children: [
+                          Checkbox(
+                            value: sub.value,
+                            onChanged: !e.value
+                                ? null
+                                : (value) {
+                                    sub.value = value!;
+                                    mainSequenceToUseModel.forEach((element) {
+                                      element.subs.forEach((element) {
+                                        if (element.text != sub.text) {
+                                          element.value = false;
+                                        }
+                                      });
+                                    });
+                                    setState(() {});
+                                  },
+                          ),
+                          const SizedBox(width: 10),
+                          CustomText(text: sub.text, fontSize: 16, color: Colors.black),
+                          const SizedBox(width: 10),
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.only(bottom: 8.0),
+                              child: _buildTextFieldWidget(
+                                enabled: e.value && sub.value,
+                                controller: sub.controller,
+                                keyboardType: TextInputType.number,
+                                validator: e.value && sub.value ? null : (value) => 'กรุณาระบุ',
+                                onChanged: (value) {
+                                  // _formKeyA1.currentState!.validate();
+                                  // setState(() {});
+                                },
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 10),
+                          CustomText(text: sub.suffix, fontSize: 16, color: Colors.black),
+                        ],
+                      );
+                    }).toList(),
+                  ],
+                ),
+              )
+            ],
+          );
+        }).toList(),
+      ],
+    );
 
-    return Row(
+    /*  return Row(
       children: [
         Expanded(
           child: Column(
@@ -2513,10 +2601,11 @@ class _Section1PageState extends State<Section1Page> {
           ),
         ),
       ],
-    );
+    );*/
   }
 
-  Widget _tbt4(AdOn2 ad) {
+  Widget _tbt4(AdOn2 ad, List<MainSequenceToUseModel> mainSequenceToUseModel) {
+/*
     List<bool> isValue = [
       ad.week!.value.text.isNotEmpty,
       ad.month!.value.text.isNotEmpty,
@@ -2524,8 +2613,93 @@ class _Section1PageState extends State<Section1Page> {
     ];
 
     bool isAllTrue = isValue.any((element) => element == true);
+*/
 
-    return Row(
+    return Column(
+      children: [
+        ...mainSequenceToUseModel.map((e) {
+          return Column(
+            children: [
+              Row(
+                children: [
+                  Checkbox(
+                    value: e.value,
+                    onChanged: (value) {
+                      e.value = value!;
+                      if (!e.value) {
+                        e.subs.forEach((element) {
+                          element.value = false;
+                        });
+                      }
+                      mainSequenceToUseModel.forEach((element) {
+                        if (element.text != e.text) {
+                          element.value = false;
+                          element.subs.forEach((element) {
+                            element.value = false;
+                          });
+                        }
+                      });
+                      setState(() {});
+                    },
+                  ),
+                  CustomText(text: e.text, fontSize: 16, color: Colors.black),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 30.0),
+                child: Column(
+                  children: [
+                    ...e.subs.map((sub) {
+                      return Row(
+                        children: [
+                          Checkbox(
+                            value: sub.value,
+                            onChanged: !e.value
+                                ? null
+                                : (value) {
+                                    sub.value = value!;
+                                    mainSequenceToUseModel.forEach((element) {
+                                      element.subs.forEach((element) {
+                                        if (element.text != sub.text) {
+                                          element.value = false;
+                                        }
+                                      });
+                                    });
+                                    setState(() {});
+                                  },
+                          ),
+                          const SizedBox(width: 10),
+                          CustomText(text: sub.text, fontSize: 16, color: Colors.black),
+                          const SizedBox(width: 10),
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.only(bottom: 8.0),
+                              child: _buildTextFieldWidget(
+                                enabled: e.value && sub.value,
+                                controller: sub.controller,
+                                keyboardType: TextInputType.number,
+                                validator: e.value && sub.value ? null : (value) => 'กรุณาระบุ',
+                                onChanged: (value) {
+                                  // _formKeyA1.currentState!.validate();
+                                  // setState(() {});
+                                },
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 10),
+                          CustomText(text: sub.suffix, fontSize: 16, color: Colors.black),
+                        ],
+                      );
+                    }).toList(),
+                  ],
+                ),
+              )
+            ],
+          );
+        }).toList(),
+      ],
+    );
+    /*return Row(
       children: [
         Expanded(
           child: Column(
@@ -2581,11 +2755,96 @@ class _Section1PageState extends State<Section1Page> {
           ),
         ),
       ],
-    );
+    );*/
   }
 
-  Widget _tbt34(AdOn3 ad,GlobalKey<FormState> _formKey) {
-    List<bool> isValue = [
+  Widget _tbt34(AdOn3 ad, GlobalKey<FormState> _formKey,
+      List<MainSequenceToUseModel> mainSequenceToUseModel) {
+    return Column(
+      children: [
+        ...mainSequenceToUseModel.map((e) {
+          return Column(
+            children: [
+              Row(
+                children: [
+                  Checkbox(
+                    value: e.value,
+                    onChanged: (value) {
+                      e.value = value!;
+                      if (!e.value) {
+                        e.subs.forEach((element) {
+                          element.value = false;
+                        });
+                      }
+                      mainSequenceToUseModel.forEach((element) {
+                        if (element.text != e.text) {
+                          element.value = false;
+                          element.subs.forEach((element) {
+                            element.value = false;
+                          });
+                        }
+                      });
+                      setState(() {});
+                    },
+                  ),
+                  CustomText(text: e.text, fontSize: 16, color: Colors.black),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 30.0),
+                child: Column(
+                  children: [
+                    ...e.subs.map((sub) {
+                      return Row(
+                        children: [
+                          Checkbox(
+                            value: sub.value,
+                            onChanged: !e.value
+                                ? null
+                                : (value) {
+                                    sub.value = value!;
+                                    mainSequenceToUseModel.forEach((element) {
+                                      element.subs.forEach((element) {
+                                        if (element.text != sub.text) {
+                                          element.value = false;
+                                        }
+                                      });
+                                    });
+                                    setState(() {});
+                                  },
+                          ),
+                          const SizedBox(width: 10),
+                          CustomText(text: sub.text, fontSize: 16, color: Colors.black),
+                          const SizedBox(width: 10),
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.only(bottom: 8.0),
+                              child: _buildTextFieldWidget(
+                                enabled: e.value && sub.value,
+                                controller: sub.controller,
+                                keyboardType: TextInputType.number,
+                                validator: e.value && sub.value ? null : (value) => 'กรุณาระบุ',
+                                onChanged: (value) {
+                                  // _formKeyA1.currentState!.validate();
+                                  // setState(() {});
+                                },
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 10),
+                          CustomText(text: sub.suffix, fontSize: 16, color: Colors.black),
+                        ],
+                      );
+                    }).toList(),
+                  ],
+                ),
+              )
+            ],
+          );
+        }).toList(),
+      ],
+    );
+    /*List<bool> isValue = [
       ad.week!.value.text.isNotEmpty,
       ad.month!.value.text.isNotEmpty,
       ad.year!.value.text.isNotEmpty,
@@ -2639,7 +2898,7 @@ class _Section1PageState extends State<Section1Page> {
               _buildTextFieldWidget(
                 controller: ad.year,
                 keyboardType: TextInputType.number,
-                validator:  isAllTrue ? null : (value) => 'กรุณาระบุ',
+                validator: isAllTrue ? null : (value) => 'กรุณาระบุ',
                 onChanged: (value) {
                   _formKeyA3.currentState?.validate();
                   setState(() {});
@@ -2649,7 +2908,7 @@ class _Section1PageState extends State<Section1Page> {
           ),
         ),
       ],
-    );
+    );*/
   }
 
   Widget _tbt44(AdOn3 ad) {
@@ -3215,7 +3474,8 @@ class _Section1PageState extends State<Section1Page> {
   final TextEditingController _landName = TextEditingController();
   final TextEditingController _landZCount = TextEditingController();
   final TextEditingController _landArea = TextEditingController();
-  final TextEditingController _landHolding = TextEditingController();
+
+  //final TextEditingController _landHolding = TextEditingController();
   final TextEditingController _landForUse = TextEditingController();
   final TextEditingController _landType = TextEditingController();
   final TextEditingController _landRemark = TextEditingController();
@@ -3318,7 +3578,7 @@ class _Section1PageState extends State<Section1Page> {
                               )),
                           const SizedBox(height: 10),
                           const CustomText(
-                            text: 'จำนวนที่ดิน (ไร่/งาน/ตารางวา)',
+                            text: 'จำนวนที่ดิน (ไร่)',
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
                             color: Colors.black,
@@ -3416,54 +3676,234 @@ class _Section1PageState extends State<Section1Page> {
                                 ),
                               )),
                           const SizedBox(height: 10),
-                          const CustomText(
-                            text: 'การถือครอง',
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              CustomText(
+                                text: MainLandHoldingModel.landHoldingList.title,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              ),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: MainLandHoldingModel.landHoldingList.modelList.map(
+                                  (e) {
+                                    final index =
+                                        MainLandHoldingModel.landHoldingList.modelList.indexOf(e);
+                                    final landHolding =
+                                        MainLandHoldingModel.landHoldingList.modelList[index];
+                                    return GestureDetector(
+                                      onTap: () {
+                                        setState(() {
+                                          landHolding.value = !e.value;
+                                          if (landHolding.value) {
+                                            MainLandHoldingModel.landHoldingList.modelList
+                                                .forEach((element) {
+                                              if (element != e) {
+                                                element.value = false;
+                                              }
+                                            });
+                                          } else {
+                                            MainLandHoldingModel.landHoldingList.modelList
+                                                .forEach((element) {
+                                              element.value = false;
+                                            });
+                                          }
+
+                                          s(() {});
+                                        });
+                                      },
+                                      child: Column(
+                                        children: [
+                                          Row(
+                                            crossAxisAlignment: CrossAxisAlignment.center,
+                                            children: [
+                                              Checkbox(
+                                                value: e.value,
+                                                onChanged: (value) {
+                                                  setState(() {
+                                                    landHolding.value = !e.value;
+                                                    if (landHolding.value) {
+                                                      MainLandHoldingModel.landHoldingList.modelList
+                                                          .forEach((element) {
+                                                        if (element != e) {
+                                                          element.value = false;
+                                                        }
+                                                      });
+                                                    } else {
+                                                      MainLandHoldingModel.landHoldingList.modelList
+                                                          .forEach((element) {
+                                                        element.value = false;
+                                                      });
+                                                    }
+                                                    s(() {});
+                                                  });
+                                                },
+                                              ),
+                                              Expanded(
+                                                child: CustomText(
+                                                  text: e.text,
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.normal,
+                                                  color: Colors.black,
+                                                  overflow: TextOverflow.visible,
+                                                  textAlign: TextAlign.start,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                ).toList(),
+                              ),
+                            ],
                           ),
-                          TextFormField(
-                              autovalidateMode: AutovalidateMode.onUserInteraction,
-                              controller: _landHolding,
-                              validator: (value) {
-                                if (value!.isEmpty) {
-                                  return 'กรุณาระบุ';
-                                }
-                                return null;
-                              },
-                              decoration: InputDecoration(
-                                hintText: 'ระบุ',
-                                contentPadding: const EdgeInsets.all(8),
-                                hintStyle: const TextStyle(fontSize: 16),
-                                border: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: ThemeConfig.primary,
-                                    width: 1,
-                                  ),
-                                ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: ThemeConfig.primary,
-                                    width: 1,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: ThemeConfig.primary,
-                                    width: 1,
-                                  ),
-                                ),
-                                errorStyle: const TextStyle(
-                                  color: Colors.red,
-                                ),
-                                errorBorder: const OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Colors.red,
-                                    width: 1,
-                                  ),
-                                ),
-                              )),
+                          const SizedBox(height: 10),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              CustomText(
+                                text: MainLandTypeModel.landTypeList.title,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              ),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: MainLandTypeModel.landTypeList.modelList.map(
+                                  (e) {
+                                    final index =
+                                        MainLandTypeModel.landTypeList.modelList.indexOf(e);
+                                    final landHolding =
+                                        MainLandTypeModel.landTypeList.modelList[index];
+                                    return GestureDetector(
+                                      onTap: () {
+                                        setState(() {
+                                          landHolding.value = !e.value;
+                                          if (landHolding.value) {
+                                            MainLandTypeModel.landTypeList.modelList
+                                                .forEach((element) {
+                                              if (element != e) {
+                                                element.value = false;
+                                              }
+                                            });
+                                          } else {
+                                            MainLandTypeModel.landTypeList.modelList
+                                                .forEach((element) {
+                                              element.value = false;
+                                            });
+                                          }
+
+                                          s(() {});
+                                        });
+                                      },
+                                      child: Column(
+                                        children: [
+                                          Row(
+                                            crossAxisAlignment: CrossAxisAlignment.center,
+                                            children: [
+                                              Checkbox(
+                                                value: e.value,
+                                                onChanged: (value) {
+                                                  setState(() {
+                                                    landHolding.value = !e.value;
+                                                    if (landHolding.value) {
+                                                      MainLandTypeModel.landTypeList.modelList
+                                                          .forEach((element) {
+                                                        if (element != e) {
+                                                          element.value = false;
+                                                        }
+                                                      });
+                                                    } else {
+                                                      MainLandTypeModel.landTypeList.modelList
+                                                          .forEach((element) {
+                                                        element.value = false;
+                                                      });
+                                                    }
+                                                    s(() {});
+                                                  });
+                                                },
+                                              ),
+                                              Expanded(
+                                                child: Row(
+                                                  children: [
+                                                    CustomText(
+                                                      text: e.text,
+                                                      fontSize: 16,
+                                                      fontWeight: FontWeight.normal,
+                                                      color: Colors.black,
+                                                      overflow: TextOverflow.visible,
+                                                      textAlign: TextAlign.start,
+                                                    ),
+                                                    const SizedBox(width: 10),
+                                                    if (e.isAnother)
+                                                      Expanded(
+                                                        child: TextFormField(
+                                                          autovalidateMode:
+                                                              AutovalidateMode.onUserInteraction,
+                                                          controller: e.another,
+                                                          enabled: e.value,
+                                                          validator: !e.value
+                                                              ? null
+                                                              : (value) {
+                                                                  if (value!.isEmpty) {
+                                                                    return 'กรุณาระบุ';
+                                                                  }
+                                                                  return null;
+                                                                },
+                                                          decoration: InputDecoration(
+                                                            hintText: 'ระบุ',
+                                                            contentPadding: const EdgeInsets.all(8),
+                                                            hintStyle:
+                                                                const TextStyle(fontSize: 16),
+                                                            border: OutlineInputBorder(
+                                                              borderSide: BorderSide(
+                                                                color: ThemeConfig.primary,
+                                                                width: 1,
+                                                              ),
+                                                            ),
+                                                            enabledBorder: OutlineInputBorder(
+                                                              borderSide: BorderSide(
+                                                                color: ThemeConfig.primary,
+                                                                width: 1,
+                                                              ),
+                                                              borderRadius:
+                                                                  BorderRadius.circular(8),
+                                                            ),
+                                                            focusedBorder: OutlineInputBorder(
+                                                              borderSide: BorderSide(
+                                                                color: ThemeConfig.primary,
+                                                                width: 1,
+                                                              ),
+                                                            ),
+                                                            errorStyle: const TextStyle(
+                                                              color: Colors.red,
+                                                            ),
+                                                            errorBorder: const OutlineInputBorder(
+                                                              borderSide: BorderSide(
+                                                                color: Colors.red,
+                                                                width: 1,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                ).toList(),
+                              ),
+                            ],
+                          ),
                           const SizedBox(height: 10),
                           const CustomText(
                             text: 'การใช้ประโยชน์',
@@ -3514,7 +3954,7 @@ class _Section1PageState extends State<Section1Page> {
                                 ),
                               )),
                           const SizedBox(height: 10),
-                          const CustomText(
+                          /* const CustomText(
                             text: 'ชนิดดิน',
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
@@ -3562,7 +4002,7 @@ class _Section1PageState extends State<Section1Page> {
                                   ),
                                 ),
                               )),
-                          const SizedBox(height: 10),
+                          const SizedBox(height: 10),*/
                           const CustomText(
                             text: 'ลักษณะพื้นที่',
                             fontSize: 16,
@@ -3706,27 +4146,71 @@ class _Section1PageState extends State<Section1Page> {
                                       return;
                                     }
 
+                                    if (MainLandHoldingModel.landHoldingList.modelList
+                                        .where((e) => e.value == true)
+                                        .isEmpty) {
+                                      Fluttertoast.showToast(
+                                        msg:
+                                            'กรุณาเลือก${MainLandHoldingModel.landHoldingList.title}',
+                                        gravity: ToastGravity.CENTER,
+                                        timeInSecForIosWeb: 2,
+                                      );
+                                      return;
+                                    }
+
+                                    if (MainLandTypeModel.landTypeList.modelList
+                                        .where((e) => e.value == true)
+                                        .isEmpty) {
+                                      Fluttertoast.showToast(
+                                        msg: 'กรุณาเลือกล${MainLandTypeModel.landTypeList.title}',
+                                        gravity: ToastGravity.CENTER,
+                                        timeInSecForIosWeb: 2,
+                                      );
+                                      return;
+                                    }
+
                                     if (_formKey5.currentState!.validate()) {
                                       LandType landType = LandType.landTypeList
                                           .firstWhere((element) => element.value);
+
+                                      List<LandHoldingModel> landHoldingList = MainLandHoldingModel
+                                          .landHoldingList.modelList
+                                          .where((element) => element.value)
+                                          .toList();
+                                      landHoldingG = landHoldingList;
+
+                                      List<LandTypeModel> landTypeList = MainLandTypeModel
+                                          .landTypeList.modelList
+                                          .where((element) => element.value)
+                                          .toList();
+                                      landTypeG = landTypeList;
+
+                                      // Before adding
+                                      debugPrint("Before Adding Model");
+                                      debugPrint("Land Name: ${_landName.text}");
+                                      debugPrint(
+                                          "Land Holdings: ${landHoldingG.map((e) => e.text).toList()}");
+                                      debugPrint(
+                                          "Land Types: ${landTypeG.map((e) => e.text).toList()}");
 
                                       point5.wasListModel.add(
                                         Section1Point5ListModel(
                                           landName: _landName.text,
                                           landZCount: _landZCount.text,
                                           landArea: _landArea.text,
-                                          landHolding: _landHolding.text,
+                                          landHolding: List<LandHoldingModel>.from(landHoldingG),
                                           landForUse: _landForUse.text,
-                                          landType: _landType.text,
+                                          landType: List<LandTypeModel>.from(landTypeG),
                                           landTypeList: landType,
-                                          landRemark: _landRemark.text.isEmpty ? '-' : _landRemark.text,
+                                          landRemark:
+                                              _landRemark.text.isEmpty ? '-' : _landRemark.text,
                                         ),
                                       );
                                       RiceFieldModel.riceFields.add(
                                         RiceFieldModel(
                                           riceFieldArea: double.parse(_landZCount.text ?? '0'),
                                           riceFieldName: _landName.text,
-                                          riceFieldNumber:  RiceFieldModel.riceFields.length + 1,
+                                          riceFieldNumber: RiceFieldModel.riceFields.length + 1,
                                         ),
                                       );
                                       setState(() {});

@@ -81,6 +81,7 @@ class Section1Point1 {
 
   static  Section1PointAdOn1 section1PointAdOn1 = Section1PointAdOn1(
     question: 'ข้อคำถามทรัพยากรเครื่องจักรกลในระดับครัวเรือน',
+    mainSequenceToUseModel: MainSequenceToUseModel.mainSequenceToUseModel,
     tractorModel: Section1PointAdOnModelList(
       id: 1,
       question: 'แทรกเตอร์',
@@ -138,29 +139,28 @@ class Section1Point1 {
       year: TextEditingController(),
       adOn1ForUse3: [
         AdOn1ForUse3(
-          text: 'ผานไถ',
+          text: 'ผานไถหัวหมู',
           value: false,
-          count: TextEditingController(),
         ),
         AdOn1ForUse3(
-          text: 'ผานไถ',
+          text: 'ผานไถจาน 3',
           value: false,
-          count: TextEditingController(),
         ),
         AdOn1ForUse3(
-          text: 'ผานไถ',
+          text: 'ผานไถจาน 5',
           value: false,
-          count: TextEditingController(),
         ),
         AdOn1ForUse3(
-          text: 'ผานไถ',
+          text: 'ผานไถจาน 7',
           value: false,
-          count: TextEditingController(),
         ),
         AdOn1ForUse3(
-          text: 'ผานไถ',
+          text: 'โรตารี่ หรือ จอบหมุน',
           value: false,
-          count: TextEditingController(),
+        ),
+        AdOn1ForUse3(
+          text: 'เครื่องหยอดเมล็ดข้าว',
+          value: false,
         ),
       ],
       landExpotion: AdOn1ForUse3(
@@ -178,6 +178,7 @@ class Section1Point1 {
 
   static  Section1PointAdOn2 section1PointAdOn2 = Section1PointAdOn2(
     question: 'ข้อคำถามทรัพยากรเครื่องจักรกลในระดับครัวเรือน',
+    mainSequenceToUseModel: MainSequenceToUseModel.mainSequenceToUseModel,
     tractorModel: Section1PointAdOnModelList(
       id: 2,
       question: 'เครื่องหยอดเมล็ดข้าว',
@@ -238,6 +239,7 @@ class Section1Point1 {
 
   static  Section1PointAdOn3 section1PointAdOn3 = Section1PointAdOn3(
     question: 'ข้อคำถามทรัพยากรเครื่องจักรกลในระดับครัวเรือน',
+    mainSequenceToUseModel: MainSequenceToUseModel.mainSequenceToUseModel,
     tractorModel: Section1PointAdOnModelList(
       id: 3,
       question: 'เครื่องหว่านเมล็ด',
@@ -297,6 +299,7 @@ class Section1Point1 {
 
   static  Section1PointAdOn3 section1PointAdOn4 = Section1PointAdOn3(
     question: 'ข้อคำถามทรัพยากรเครื่องจักรกลในระดับครัวเรือน',
+    mainSequenceToUseModel: MainSequenceToUseModel.mainSequenceToUseModel,
     tractorModel: Section1PointAdOnModelList(
       id: 3,
       question: 'รถเกี่ยวข้าว',
@@ -356,6 +359,7 @@ class Section1Point1 {
 
   static  Section1PointAdOn3 section1PointAdOn5 = Section1PointAdOn3(
     question: 'ข้อคำถามทรัพยากรเครื่องจักรกลในระดับครัวเรือน',
+    mainSequenceToUseModel: MainSequenceToUseModel.mainSequenceToUseModel,
     tractorModel: Section1PointAdOnModelList(
       id: 3,
       question: 'เครื่องหว่านปุ๋ย',
@@ -415,6 +419,7 @@ class Section1Point1 {
 
   static  Section1PointAdOn3 section1PointAdOn6 = Section1PointAdOn3(
     question: 'ข้อคำถามทรัพยากรเครื่องจักรกลในระดับครัวเรือน',
+    mainSequenceToUseModel: MainSequenceToUseModel.mainSequenceToUseModel,
     tractorModel: Section1PointAdOnModelList(
       id: 3,
       question: 'โดรน',
@@ -474,6 +479,7 @@ class Section1Point1 {
 
   static  Section1PointAdOn3 section1PointAdOn7 = Section1PointAdOn3(
     question: 'ข้อคำถามทรัพยากรเครื่องจักรกลในระดับครัวเรือน',
+    mainSequenceToUseModel: MainSequenceToUseModel.mainSequenceToUseModel,
     tractorModel: Section1PointAdOnModelList(
       id: 3,
       question: 'เครื่องตัดหญ้า',
@@ -533,6 +539,7 @@ class Section1Point1 {
 
   static  Section1PointAdOn3 section1PointAdOn8 = Section1PointAdOn3(
     question: 'ข้อคำถามทรัพยากรเครื่องจักรกลในระดับครัวเรือน',
+    mainSequenceToUseModel: MainSequenceToUseModel.mainSequenceToUseModel,
     tractorModel: Section1PointAdOnModelList(
       id: 3,
       question: 'รถไถนาเดินตาม',
@@ -592,6 +599,7 @@ class Section1Point1 {
 
   static  Section1PointAdOn3 section1PointAdOn9 = Section1PointAdOn3(
     question: 'ข้อคำถามทรัพยากรเครื่องจักรกลในระดับครัวเรือน',
+    mainSequenceToUseModel: MainSequenceToUseModel.mainSequenceToUseModel,
     tractorModel: Section1PointAdOnModelList(
       id: 3,
       question: 'เครื่องสูบน้ำ',
@@ -651,6 +659,83 @@ class Section1Point1 {
 
 
 }
+
+
+class MainSequenceToUseModel {
+
+  final String text;
+   bool value;
+  final List<SubSequenceToUseModel> subs;
+
+  MainSequenceToUseModel({
+    required this.text,
+    required this.value,
+     this.subs = const [],
+  });
+
+
+  static List<MainSequenceToUseModel> mainSequenceToUseModel = [
+    MainSequenceToUseModel(
+      text: 'ในฤกาลผลิตข้าว',
+      value: false,
+      subs: [
+        SubSequenceToUseModel(
+          text: 'เริ่มเพาะปลูก',
+          value: false,
+          controller: TextEditingController(),
+          suffix: 'วัน',
+        ),
+        SubSequenceToUseModel(
+          text: 'ดูแลแปลง',
+          value: false,
+          controller: TextEditingController(),
+          suffix: 'วัน',
+        ),
+        SubSequenceToUseModel(
+          text: 'เก็บเกี่ยว',
+          value: false,
+          controller: TextEditingController(),
+          suffix: 'วัน',
+        ),
+      ],
+    ),
+    MainSequenceToUseModel(
+      text: 'นอกฤดูการผลิตข้าว',
+      value: false,
+      subs: [
+        SubSequenceToUseModel(
+          text: 'ช่วงเดือน',
+          value: false,
+          controller: TextEditingController(),
+          suffix: '',
+        ),
+
+      ],
+    ),
+    MainSequenceToUseModel(
+      text: 'ตลอดทั้งปี',
+      value: false,
+
+    ),
+  ];
+
+
+}
+
+class SubSequenceToUseModel {
+  final String text;
+   bool value;
+  final TextEditingController controller;
+  final String suffix;
+
+  SubSequenceToUseModel({
+    required this.text,
+    required this.value,
+    required this.controller,
+    required this.suffix,
+  });
+}
+
 
 class Section1Point1Model {
   String question;
@@ -820,14 +905,16 @@ class Section1Point5 {
     );
   }
 }
+List<LandHoldingModel> landHoldingG = [];
+List<LandTypeModel> landTypeG = [];
 
 class Section1Point5ListModel {
   String landName;
   String landZCount;
   String landArea;
-  String landHolding;
+  List<LandHoldingModel> landHolding;
   String landForUse;
-  String landType;
+  List<LandTypeModel> landType;
   String landRemark;
   LandType? landTypeList;
 
@@ -847,9 +934,9 @@ class Section1Point5ListModel {
       'landName': landName,
       'landZCount': landZCount,
       'landArea': landArea,
-      'landHolding': landHolding,
+      'landHolding': landHolding.map((e) => e.toJson()).toList(),
       'landForUse': landForUse,
-      'landType': landType,
+      'landType': landType.map((e) => e.toJson()).toList(),
       'landRemark': landRemark,
       'landTypeList': landTypeList?.toJson(),
     };
@@ -867,6 +954,167 @@ class Section1Point5ListModel {
       landTypeList: LandType.fromJson(json['landTypeList']),
     );
   }
+}
+
+class MainLandHoldingModel {
+  final String title;
+  List<LandHoldingModel> modelList;
+
+  MainLandHoldingModel({
+    required this.title,
+    required this.modelList,
+  });
+
+  MainLandHoldingModel copyWith({
+    String? title,
+    List<LandHoldingModel>? modelList,
+  }) {
+    return MainLandHoldingModel(
+      title: title ?? this.title,
+      modelList: modelList ?? this.modelList,
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'title': title,
+      'model': modelList.map((e) => e.toJson()).toList(),
+    };
+  }
+
+
+
+   static MainLandHoldingModel landHoldingList = MainLandHoldingModel(
+    title: 'การถือครอง',
+    modelList: [
+      LandHoldingModel(
+        value: false,
+        text: 'โฉนดที่ดิน',
+      ),
+      LandHoldingModel(
+        value: false,
+        text: 'หนังสือรับรองการทำประโยชน์ (น.ส. 3, น.ส. 3 ก, น.ส. 3 ข)',
+      ),
+      LandHoldingModel(
+        value: false,
+        text: 'ใบจอง (น.ส. 2)',
+      ),
+      LandHoldingModel(
+        value: false,
+        text: 'ส.ป.ก. 4-01',
+      ),
+    ],
+  );
+}
+
+
+class MainLandTypeModel {
+  final String title;
+  List<LandTypeModel> modelList;
+
+  MainLandTypeModel({
+    required this.title,
+    required this.modelList,
+  });
+
+  MainLandTypeModel copyWith({
+    String? title,
+    List<LandTypeModel>? modelList,
+  }) {
+    return MainLandTypeModel(
+      title: title ?? this.title,
+      modelList: modelList ?? this.modelList,
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'title': title,
+      'model': modelList.map((e) => e.toJson()).toList(),
+    };
+  }
+
+
+  static MainLandTypeModel landTypeList = MainLandTypeModel(
+    title: 'ชนิดดิน',
+    modelList: [
+      LandTypeModel(
+        value: false,
+        text: 'ดินเหนียว',
+      ),
+      LandTypeModel(
+        value: false,
+        text: 'ดินทราย',
+      ),
+      LandTypeModel(
+        value: false,
+        text: 'ดินร่วน',
+      ),
+      LandTypeModel(
+        value: false,
+        text: ' อื่นๆ ระบุ',
+        isAnother: true,
+        another: TextEditingController(),
+      ),
+    ],
+  );
+
+
+
+}
+
+class LandTypeModel {
+   bool value;
+   String text;
+   bool isAnother;
+   TextEditingController? another;
+
+   LandTypeModel({
+    required this.value,
+    required this.text,
+     this.isAnother = false,
+      this.another,
+  });
+
+
+
+
+  Map<String, dynamic> toJson() {
+    return {
+      'value': value,
+      'text': text,
+      'isAnother': isAnother,
+      'another': another?.text,
+    };
+  }
+
+
+
+
+
+
+}
+class LandHoldingModel {
+   bool value;
+   String text;
+
+  LandHoldingModel({
+    required this.value,
+    required this.text,
+  });
+
+
+  Map<String, dynamic> toJson() {
+    return {
+      'value': value,
+      'text': text,
+    };
+  }
+
+
+
+
+
 }
 
 class LandType {
@@ -931,11 +1179,13 @@ class Section1PointAdOn1 {
   String question;
   Section1PointAdOnModelList tractorModel;
   AdOn1 adOn1;
+  List<MainSequenceToUseModel> mainSequenceToUseModel;
 
   Section1PointAdOn1({
     required this.question,
     required this.tractorModel,
     required this.adOn1,
+     this.mainSequenceToUseModel = const [],
   });
 
   Map<String, dynamic> toJson() {
@@ -943,6 +1193,7 @@ class Section1PointAdOn1 {
       'question': question,
       'tractorModel': tractorModel.toJson(),
       'adOn1': adOn1.toJson(),
+      // 'mainSequenceToUseModel': mainSequenceToUseModel?.toJson(),
     };
   }
 
@@ -1105,11 +1356,13 @@ class Section1PointAdOn2 {
   String question;
   Section1PointAdOnModelList tractorModel;
   AdOn2 adOn2;
+  List<MainSequenceToUseModel> mainSequenceToUseModel;
 
   Section1PointAdOn2({
     required this.question,
     required this.tractorModel,
     required this.adOn2,
+    this.mainSequenceToUseModel = const [],
   });
 
   Map<String, dynamic> toJson() {
@@ -1183,11 +1436,13 @@ class Section1PointAdOn3 {
   String question;
   Section1PointAdOnModelList tractorModel;
   AdOn3 adOn3;
+  List<MainSequenceToUseModel> mainSequenceToUseModel;
 
   Section1PointAdOn3({
     required this.question,
     required this.tractorModel,
     required this.adOn3,
+    this.mainSequenceToUseModel = const [],
   });
 
   Map<String, dynamic> toJson() {

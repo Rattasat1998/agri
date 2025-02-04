@@ -211,7 +211,7 @@ class _Section2PageState extends State<Section2Page> {
         Section2ValueTextModel(text: '5. ราบ ขั้นบันได', value: false),
       ],
     );
-    Section2Model.s215 = S215(
+   /* Section2Model.s215 = S215(
       question: '2.1.5 ปีที่ผ่านมาท่านได้ทำนาปรังหรือไม่',
       values: S213Model(
         value1: Section2ValueTextModel(text: '1. ไม่ได้ทำ', value: false),
@@ -222,21 +222,55 @@ class _Section2PageState extends State<Section2Page> {
           suffix: 'กิโลกรัม/ไร่',
         ),
       ),
-    );
+    );*/
     Section2Model.s221 = S221(
       question: '2.2.1 ประเภทข้าวที่ปลูก',
-      values: [
-        Section2CheckVSModel(
+      datas: [
+        S221Model(
+          text: '1. ข้าวเหนียว',
           value: false,
-          text: '1. ข้าวเหนียวพันธุ์',
-          controller: TextEditingController(),
-          suffix: '',
+          values: [
+            S221DataModel(
+              text: 'พันธุ์กข.8',
+              value: false,
+            ),
+            S221DataModel(
+              text: 'พันธุ์หางยี 71',
+              value: false,
+            ),
+            S221DataModel(
+              text: 'พันธุ์เหนียวเขี้ยวงู',
+              value: false,
+            ),
+            S221DataModel(
+              text: 'พันธุ์ข้าวเหนียวดำ',
+              value: false,
+            ),
+          ],
         ),
-        Section2CheckVSModel(
+        S221Model(
+          text: '2. ข้าวเจ้า',
           value: false,
-          text: '2. ข้าวเจ้าพันธุ์',
+          values: [
+            S221DataModel(
+              text: 'พันธุ์ขาวดอกมะลิ 105',
+              value: false,
+            ),
+            S221DataModel(
+              text: 'พันธุ์กข.6',
+              value: false,
+            ),
+            S221DataModel(
+              text: 'พันธุ์กข.15',
+              value: false,
+            ),
+          ],
+        ),
+        S221Model(
+          text: '3. พันธุ์ผสมระหว่าง',
+          value: false,
           controller: TextEditingController(),
-          suffix: '',
+          values: [],
         ),
       ],
     );
@@ -296,7 +330,7 @@ class _Section2PageState extends State<Section2Page> {
         ),
       ],
     );
-    Section2Model.s225 = S225(
+    /*Section2Model.s225 = S225(
       question: '2.2.5 ผลผลิตของข้าวเมื่อปีการผลิตที่แล้ว',
       values: [
         Section2PVSModel(
@@ -305,7 +339,7 @@ class _Section2PageState extends State<Section2Page> {
           suffix: 'กิโลกรัม/ไร่',
         ),
       ],
-    );
+    );*/
     Section2Model.s226 = S226(
       question: '2.2.6 ประเภทการใช้น้ำในแปลงนา',
       question2: 'กรณี อาศัยระบบชลประทาน ชลประทาน',
@@ -350,34 +384,81 @@ class _Section2PageState extends State<Section2Page> {
     );
     Section2Model.s231 = S231(
       question: '2.3.1 ก่อนการปลูกข้าว ท่านได้มีการบำรุงดิน หรือไม่',
-      yearController: TextEditingController(),
-      detailController: TextEditingController(),
       values: [
-        Section2ValueTextModel(text: 'ไม่บำรุงดิน', value: false),
-        Section2ValueTextModel(
-            text: 'มีการบำรุงดิน (ปุ๋ยพืชสด,ปุ๋ยคอก,พืชตระกูลถั่ว(ถั่วพร้า),ปอเทือง)', value: false),
+        S221Model(
+          text: 'ไม่มีการบำรุงดิน',
+          value: false,
+          values: [],
+        ),
+        S221Model(
+          text: 'มีการบำรุงดิน (ปุ๋ยพืชสด,ปุ๋ยคอก,พืชตระกูลถั่ว(ถั่วพร้า),ปอเทือง)',
+          value: false,
+          values: [
+            S221DataModel(
+              text: 'ปุ๋ยพืชสด',
+              value: false,
+            ),
+            S221DataModel(
+              text: 'ปุ๋ยคอก',
+              value: false,
+            ),
+            S221DataModel(
+              text: 'พืชตระกูลถั่ว(ถั่วพร้า)',
+              value: false,
+            ),
+            S221DataModel(
+              text: 'ปอเทือง',
+              value: false,
+            ),
+          ],
+        ),
       ],
     );
+    Section2Model.s232True = S214(
+      question: '2.3.2 ประเภทการปลูกข้าว ',
+      values: [
+        Section2ValueTextModel(text: 'นาหว่าน', value: false),
+        Section2ValueTextModel(text: 'นาดำ', value: false),
+        Section2ValueTextModel(text: 'นาหยอด', value: false),
+      ],
+    );
+
     Section2Model.s232 = S232(
-      question: '2.3.2 ท่านเริ่มทำการปลูกข้าวช่วง',
-      startMonthController: TextEditingController(),
-      monthController: TextEditingController(),
+      question: '2.3.3 ท่านเริ่มทำการปลูกข้าวช่วง',
+      begins: [
+        Section2ValueTextModel(
+          value: false,
+          text: 'ต้น',
+        ),
+        Section2ValueTextModel(
+          value: false,
+          text: 'กลาง',
+        ),
+        Section2ValueTextModel(
+          value: false,
+          text: 'ปลาย',
+        ),
+      ],
     );
     Section2Model.s23SoilPreparationSteps = S23SoilPreparationSteps(
       values: [],
     );
-    Section2Model.hS23owToPlantInTheLastProductionYears =
-        HS23owToPlantInTheLastProductionYears(
+    Section2Model.hS23owToPlantInTheLastProductionYears = HS23owToPlantInTheLastProductionYears(
           values: [],
         );
     Section2Model.s241 = S241(
-      question: '2.4.1 ในแปลงของท่านพบว่า มีวัชพืช หรือไม่',
-      weedController: TextEditingController(),
-      percentController: TextEditingController(),
-      controlWeedController: TextEditingController(),
+      question: '2.4.1 วัชพืชที่พบ ',
       values: [
-        Section2ValueTextModel(text: 'ไม่พบวัชพืชในแปลง', value: false),
-        Section2ValueTextModel(text: 'พบวัชพืชในแปลง', value: false),
+        Section2ValueTextModel(text: 'หญ้าหวาย', value: false),
+        Section2ValueTextModel(text: 'ผักบุ้ง', value: false),
+        Section2ValueTextModel(text: 'หญ้าขาวนก', value: false),
+        Section2ValueTextModel(text: 'หญ้าแพรก', value: false),
+        Section2ValueTextModel(text: 'ต้นกระชับ', value: false),
+        Section2ValueTextModel(text: 'โสนหางไก่', value: false),
+        Section2ValueTextModel(text: 'หญ้ารังกา', value: false),
+        Section2ValueTextModel(text: 'ข้าวแดง', value: false),
+        Section2ValueTextModel(text: 'หญ้าตีนนก', value: false),
+        Section2ValueTextModel(text: 'ข้าวหาง', value: false),
       ],
     );
     Section2Model.s242 = S242(
@@ -390,32 +471,56 @@ class _Section2PageState extends State<Section2Page> {
             text: 'พบพันธุ์ข้าวปนในแปลง (ข้าวหาง,ข้าวดีด,ข้าวแดง ฯลฯ)', value: false),
       ],
     );
-    Section2Model.s243 = S243(
+    Section2Model.s243 = S221(
       question: '2.4.3 ท่านได้กำจัดพันธุ์ปนในแปลงท่านพบพันธุ์ข้าวหรือไม่',
-      controller: TextEditingController(),
-      values: [
-        Section2ValueTextModel(text: 'ไม่กำจัดพันธุ์ข้าวปนในแปลง', value: false),
-        Section2ValueTextModel(
-            text: 'กำจัดพันธุ์ข้าวปนในแปลง ด้วยวิธี (อธิบายขั้นตอนการกำจัด) ', value: false),
-      ],
-    );
-    Section2Model.s244 = S244(
-      question: '2.4.4 การปลูกซ่อมข้าวหรือไม่',
-      values: [
-        Section2CheckVSModel(
+      datas: [
+        S221Model(
+          text: 'ไม่กำจัดพันธุ์ข้าวปนในแปลง',
           value: false,
-          text: 'ไม่ซ่อม เพราะ',
-          controller: TextEditingController(),
-          suffix: '',
+          values: [],
         ),
-        Section2CheckVSModel(
+        S221Model(
+          text: 'กำจัดพันธุ์ข้าวปนในแปลง',
           value: false,
-          text: 'ซ่อม เพราะ',
-          controller: TextEditingController(),
-          suffix: '',
+          values: [
+            S221DataModel(
+              text: 'การกำจัดด้วยมือ',
+              value: false,
+            ),
+            S221DataModel(
+              text: 'การใช้สารเคมี',
+              value: false,
+            ),
+          ],
         ),
       ],
     );
+
+    Section2Model.s244 = S221(
+      question: '2.4.4 ข้าวมีการเจริญเติบโตเต็มแปลงหรือไม่',
+      datas: [
+        S221Model(
+          text: 'ข้าวมีการเจริญเติบโตเต็มแปลง',
+          value: false,
+          values: [],
+        ),
+        S221Model(
+          text: 'ข้าวเจริญเติบโตไม่เต็มแปลง',
+          value: false,
+          values: [
+            S221DataModel(
+              text: 'มีการปลูกเพิ่ม',
+              value: false,
+            ),
+            S221DataModel(
+              text: 'ไม่มีการปลูกเพิ่ม',
+              value: false,
+            ),
+          ],
+        ),
+      ],
+    );
+
     Section2Model.s245 = S245(
       question: '2.4.5 การดูแลรักษาข้าว',
       s2451: S2451(
@@ -514,39 +619,55 @@ class _Section2PageState extends State<Section2Page> {
       values: [],
     );
     Section2Model.s254532 = S254532(
-      question: '2.5.3.2 ท่านได้มีการตัดใบข้าว หรือไม',
+      question: '2.4.5.3.2 ท่านได้มีการตัดใบข้าว หรือไม่',
       values: [
-        Section2CheckVSModel2(
+        Section2CheckVSModel(
           value: false,
-          text: 'ไม่มีการตัดใบข้าว เพราะ',
+          text: 'ตัดใบข้าวครั้งที่ 1 อายุ',
+          suffix: 'วัน',
           controller: TextEditingController(),
-          suffix: '',
+          values: [
+            Section2CheckVSModel(
+              value: false,
+              text: 'กำจัดวัชพืช',
+              suffix: '',
+            ),
+            Section2CheckVSModel(
+              value: false,
+              text: 'ให้ปศุสัตว์ ',
+              suffix: '',
+            ),
+            Section2CheckVSModel(
+              value: false,
+              text: 'อื่นๆ ',
+              suffix: '',
+              controller: TextEditingController(),
+            ),
+          ],
         ),
-        Section2CheckVSModel2(
+        Section2CheckVSModel(
           value: false,
-          text: 'ตัดใบข้าว จำนวน',
+          text: 'ตัดใบข้าวครั้งที่ 2 อายุ',
+          suffix: 'วัน',
           controller: TextEditingController(),
-          suffix: 'ครั้ง',
-          values: [/*
-          S2TVTVModel(
-            title: 'ครั้งที่ 1 ตัดช่วง',
-            controller1: TextEditingController(),
-            suffix1: 'เพราะ',
-            controller2: TextEditingController(),
-          ),
-          S2TVTVModel(
-            title: 'ครั้งที่ 2 ตัดช่วง',
-            controller1: TextEditingController(),
-            suffix1: 'เพราะ',
-            controller2: TextEditingController(),
-          ),
-          S2TVTVModel(
-            title: 'ครั้งที่ 3 ตัดช่วง',
-            controller1: TextEditingController(),
-            suffix1: 'เพราะ',
-            controller2: TextEditingController(),
-          ),
-        */],
+          values: [
+            Section2CheckVSModel(
+              value: false,
+              text: 'กำจัดวัชพืช',
+              suffix: '',
+            ),
+            Section2CheckVSModel(
+              value: false,
+              text: 'ให้ปศุสัตว์ ',
+              suffix: '',
+            ),
+            Section2CheckVSModel(
+              value: false,
+              text: 'อื่นๆ ',
+              suffix: '',
+              controller: TextEditingController(),
+            ),
+          ],
         ),
       ],
     );
