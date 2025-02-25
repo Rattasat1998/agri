@@ -20,13 +20,15 @@ class RiceFieldModel {
   String? s311;
   List<Map<String, dynamic>> s321;
   String s32;
-  List<Map<String, dynamic>> s33;
+  String s33;
+  List<Map<String, dynamic>> s331;
   String s41;
   String? s411;
   String s42;
   String? s421;
   String s43;
   String s44;
+  String s45;
   String s4511;
   String? s4512;
   List<Map<String, dynamic>>? s513;
@@ -68,13 +70,15 @@ class RiceFieldModel {
     this.s31 = '',
     this.s32 = '',
     this.s311,
-    this.s33 = const [],
+    this.s33 = '',
+    this.s331 = const [],
     this.s41 = '',
     this.s411,
     this.s42 = '',
     this.s421,
     this.s43 = '',
     this.s44 = '',
+    this.s45 = '',
     this.s4511 = '',
     this.s4512 = '',
     this.s513,
@@ -96,7 +100,7 @@ class RiceFieldModel {
     this.s551D,
     this.s56E = '',
     this.s561E,
-    this.s61E= '',
+    this.s61E = '',
   });
 
   Map<String, dynamic> toJson() {
@@ -138,7 +142,7 @@ class RiceFieldModel {
 
   Map<String, dynamic> part2333ToJson() {
     return {
-      'question_part_2_3_3': s33,
+      'question_part_2_3_4': s331,
     };
   }
 
@@ -150,14 +154,6 @@ class RiceFieldModel {
 
   Map<String, dynamic> part2ToJson() {
     return {
-      'question_part_2_4_5_2_2': s522,
-      'question_part_2_4_5_3_1_1': s45311,
-      'question_part_2_4_5_1_3': s513,
-      'question_part_2_3_3': s33,
-      'question_part_2_3_2_1': s321,
-
-
-
       'land_number': riceFieldNumber,
       'land_name': riceFieldName,
       'number_of_arear': riceFieldArea,
@@ -165,42 +161,54 @@ class RiceFieldModel {
       'question_part_2_1_2': s12,
       'question_part_2_1_3': s13,
       'question_part_2_1_4': s14,
-      'question_part_2_1_5': s15,
+      // 'question_part_2_1_5': s15, remove
       'question_part_2_2_1': s21,
       'question_part_2_2_2': s22,
       'question_part_2_2_3': s23,
       'question_part_2_2_4': s24,
-      'question_part_2_2_5': s25,
-      'question_part_2_2_6': s26,
-      'question_part_2_2_6_1' :s261,
+      'question_part_2_2_5': s261,
       'question_part_2_3_1': s31,
-      'question_part_2_3_1_1': s311,
       'question_part_2_3_2': s32,
+      'question_part_2_3_3': s33,
       'question_part_2_4_1': s41,
-      'question_part_2_4_1_1': s411,
       'question_part_2_4_2': s42,
-      'question_part_2_4_2_1': s421,
       'question_part_2_4_3': s43,
       'question_part_2_4_4': s44,
+      'question_part_2_4_5': s45, // new
       'question_part_2_4_5_1_1': s4511,
-      'question_part_2_4_5_1_2': s4512,
       'question_part_2_4_5_2_1': s4521,
       'question_part_2_4_5_3_1': s4531,
-      'question_part_2_4_5_3_2': s4532,
-      'question_part_2_4_5_4_1': s4541,
-      'question_part_2_4_5_4_1_1': s4541,
-      'question_part_2_4_5_4_2': s4542,
-      'question_part_2_4_5_4_2_1': s45421,
       'question_part_2_5_1': s51,
       'question_part_2_5_2': s52A,
-      'question_part_2_5_2_1': s521A,
+      'question_part_2_4_5_4_1': s4541,
       'question_part_2_5_3': s53B,
       'question_part_2_5_4': s54C,
       'question_part_2_5_5': s55D,
       'question_part_2_5_5_1': s551D,
+      'question_part_2_6_1': s61E,
+
+      //'question_part_2_4_5_4_1_1': s4541,
       'question_part_2_5_6': s56E,
       'question_part_2_5_6_1': s561E,
-      'question_part_2_6_1': s61E,
+      //'question_part_2_4_5_2_2': s522,
+      //'question_part_2_4_5_3_1_1': s45311, // กรณีกำจัดวัชพืช
+      //'question_part_2_4_5_1_3': s513, // กรณีให้น้ำ
+      // 'question_part_2_3_4': s331,
+      //'question_part_2_3_2_1': s321, // ขั้นตอนการเตรียมดิน
+
+
+      // 'question_part_2_3_1_1': s311, remove
+      // 'question_part_2_4_1_1': s411, remove
+      // 'question_part_2_4_2_1': s421,
+      // 'question_part_2_4_5_1_2': s4512, remove
+
+      // 'question_part_2_4_5_3_2': s4532, remove
+
+      // 'question_part_2_4_5_4_2': s4542, remove
+      // 'question_part_2_4_5_4_2_1': s45421, remove
+
+      //'question_part_2_5_2_1': s521A,
+
 
 
 

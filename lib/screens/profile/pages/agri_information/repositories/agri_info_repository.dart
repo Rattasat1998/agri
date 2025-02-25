@@ -1,7 +1,7 @@
 import 'dart:convert';
+
 import 'package:agri/screens/profile/pages/agri_information/models/staff_info_model.dart';
 import 'package:agri/utils/local_storage.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 
 class AgriInfoRepository {
@@ -17,7 +17,7 @@ class AgriInfoRepository {
     request.body = json.encode(question);
     request.headers.addAll(headers);
 
-    print('token: $token');
+    print('token: \n\n$token \n\n');
     print('question: ${request.url}');
 
     print(jsonEncode(question));
@@ -28,6 +28,7 @@ class AgriInfoRepository {
       print('status code: ${response.statusCode}');
       if (response.statusCode == 200) {
         final jsonBody = jsonDecode(await response.stream.bytesToString());
+        print('response: $jsonBody');
         // print('response: $jsonBody');
       } else {
         print(response.reasonPhrase);

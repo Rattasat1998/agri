@@ -16,15 +16,10 @@ import '../../../../widgets/back_button_widget.dart';
 import '../../../../widgets/custom_text.dart';
 import 'bloc/agri_info_bloc.dart';
 import 'info_image.dart';
-import 'models/Section2MapModel.dart';
 import 'models/local_ifo_model.dart';
 import 'models/map_data_model.dart';
-import 'models/rice_field_model.dart';
-import 'models/section_1_data_model.dart';
 import 'models/section_1_model.dart';
-import 'models/section_2_model.dart';
 import 'models/section_3_model.dart';
-import 'models/staff_info_model.dart';
 
 class AgriInformationPage extends StatefulWidget {
   const AgriInformationPage({super.key});
@@ -268,19 +263,59 @@ class _AgriInformationPageState extends State<AgriInformationPage> {
                       }
 
                       if (benefitsOfUse2.forWork.value) {
-                        benefitsOfUse = benefitsOfUse2.forWork.question;
+                        benefitsOfUse += benefitsOfUse2.forWork.question;
+                      }
+                      for (var item in benefitsOfUse2.forWorkList) {
+                        if (item.value) {
+                          benefitsOfUse += ', ${item.question}';
+                        }
+                      }
 
-                        for (var item in benefitsOfUse2.forWorkList) {
-                          if (item.value) {
-                            benefitsOfUse += ', ${item.question}';
+                      print('benefitsOfUse : $benefitsOfUse');
+
+                      String fou1 = '';
+                      String fou2 = '';
+                      String fou3 = '';
+                      String fou = '';
+
+                      final fouList = p161.mainSequenceToUseModel;
+                      if (fouList[0].value == true) {
+                        fou1 = "${fouList[0].text} : ";
+                        final items = fouList[0].subs;
+                        for (var item in items) {
+                          if (item.value == true) {
+                            fou1 += '\n${item.text} ${item.controller.text} ${item.suffix}';
+                          }
+                        }
+                      }
+                      if (fouList[1].value == true) {
+                        fou2 = "${fouList[1].text} : ";
+                        final items = fouList[1].subs;
+                        for (var item in items) {
+                          if (item.value == true) {
+                            fou2 += '\n${item.text} ${item.controller.text} ${item.suffix}';
+                          }
+                        }
+                      }
+                      if (fouList[2].value == true) {
+                        final items = fouList[2].subs;
+                        for (var item in items) {
+                          if (item.value == true) {
+                            fou3 = item.text;
                           }
                         }
                       }
 
-                      // print(p161.tractorModel.question);
-                      print('p161.adOn1.tractorCount?.text = ${p161.adOn1.tractorCount?.text}');
-                      print(
-                          'p161.adOn1.tractorCount?.text = ${p161.adOn1.tractorCount?.text.runtimeType}');
+                      fou = '$fou1 $fou2 $fou3';
+
+                      // ผ่านไถ
+                      String plows = '';
+                      for (var item in forUse3) {
+                        if (item.value) {
+                          plows += '${item.text}\n';
+                        }
+                      }
+
                       questionPart16.add(
                         QuestionPart16(
                           machineType: p161.tractorModel.question,
@@ -295,36 +330,11 @@ class _AgriInformationPageState extends State<AgriInformationPage> {
                                   .question
                               : '',
                           benefitsOfUse: benefitsOfUse,
-                          weekUse: p161.adOn1.week!.text.isEmpty
-                              ? null
-                              : int.parse(p161.adOn1.week?.text ?? '0'),
-                          monthUse: p161.adOn1.month!.text.isEmpty
-                              ? null
-                              : int.parse(p161.adOn1.month?.text ?? '0'),
-                          yearUse: p161.adOn1.year!.text.isEmpty
-                              ? null
-                              : int.parse(p161.adOn1.year?.text ?? '0'),
                           tractorHorsepower: p161.adOn1.tractorHourse!.text.isEmpty
                               ? null
                               : int.parse(p161.adOn1.tractorHourse?.text ?? '0'),
-                          plow1: forUse3[0].count?.text != ''
-                              ? int.parse(forUse3[0].count?.text ?? '0')
-                              : 0,
-                          plow2: forUse3[1].count?.text != ''
-                              ? int.parse(forUse3[1].count?.text ?? '0')
-                              : 0,
-                          plow3: forUse3[2].count?.text != ''
-                              ? int.parse(forUse3[2].count?.text ?? '0')
-                              : 0,
-                          plow4: forUse3[3].count?.text != ''
-                              ? int.parse(forUse3[3].count?.text ?? '0')
-                              : 0,
-                          plow5: forUse3[4].count?.text != ''
-                              ? int.parse(forUse3[4].count?.text ?? '0')
-                              : 0,
-                          plowBomb: p161.adOn1.landExpotion.value == true ? 1 : null,
-                          rotary: p161.adOn1.rotaree.value == true ? 1 : null,
-                          rowOfRice: null,
+                          frequencyOfUse: fou,
+                          plows: plows,
                         ),
                       );
                     }
@@ -339,14 +349,48 @@ class _AgriInformationPageState extends State<AgriInformationPage> {
                       }
 
                       if (benefitsOfUse2.forWork.value) {
-                        benefitsOfUse = benefitsOfUse2.forWork.question;
+                        benefitsOfUse += benefitsOfUse2.forWork.question;
+                      }
+                      for (var item in benefitsOfUse2.forWorkList) {
+                        if (item.value) {
+                          benefitsOfUse += ', ${item.question}';
+                        }
+                      }
 
-                        for (var item in benefitsOfUse2.forWorkList) {
-                          if (item.value) {
-                            benefitsOfUse += ', ${item.question}';
+                      String fou1 = '';
+                      String fou2 = '';
+                      String fou3 = '';
+                      String fou = '';
+
+                      final fouList = p162.mainSequenceToUseModel;
+                      if (fouList[0].value == true) {
+                        fou1 = "${fouList[0].text} : ";
+                        final items = fouList[0].subs;
+                        for (var item in items) {
+                          if (item.value == true) {
+                            fou1 += '\n${item.text} ${item.controller.text} ${item.suffix}';
                           }
                         }
                       }
+                      if (fouList[1].value == true) {
+                        fou2 = '${fouList[1].text} : ';
+                        final items = fouList[1].subs;
+                        for (var item in items) {
+                          if (item.value == true) {
+                            fou2 += '\n${item.text} ${item.controller.text} ${item.suffix}';
+                          }
+                        }
+                      }
+                      if (fouList[2].value == true) {
+                        final items = fouList[2].subs;
+                        for (var item in items) {
+                          if (item.value == true) {
+                            fou3 = item.text;
+                          }
+                        }
+                      }
+
+                      fou = '$fou1 $fou2 $fou3';
 
                       questionPart16.add(
                         QuestionPart16(
@@ -362,26 +406,9 @@ class _AgriInformationPageState extends State<AgriInformationPage> {
                                   .question
                               : '',
                           benefitsOfUse: benefitsOfUse,
-                          weekUse: p162.adOn2.week!.text.isEmpty
-                              ? null
-                              : int.parse(p162.adOn2.week?.text ?? '0'),
-                          monthUse: p162.adOn2.month!.text.isEmpty
-                              ? null
-                              : int.parse(p162.adOn2.month?.text ?? '0'),
-                          yearUse: p162.adOn2.year!.text.isEmpty
-                              ? null
-                              : int.parse(p162.adOn2.year?.text ?? '0'),
+                          frequencyOfUse: fou,
                           tractorHorsepower: null,
-                          plow1: null,
-                          plow2: null,
-                          plow3: null,
-                          plow4: null,
-                          plow5: null,
-                          plowBomb: null,
-                          rotary: null,
-                          rowOfRice: p162.adOn2.rowCount!.text.isEmpty
-                              ? null
-                              : int.parse(p162.adOn2.rowCount?.text ?? '0'),
+                          plows: null,
                         ),
                       );
                     }
@@ -419,14 +446,48 @@ class _AgriInformationPageState extends State<AgriInformationPage> {
                         benefitsOfUse = benefitsOfUse1.question;
                       }
                       if (benefitsOfUse2.forWork.value) {
-                        benefitsOfUse = benefitsOfUse2.forWork.question;
+                        benefitsOfUse += benefitsOfUse2.forWork.question;
+                      }
+                      for (var item in benefitsOfUse2.forWorkList) {
+                        if (item.value) {
+                          benefitsOfUse += ', ${item.question}';
+                        }
+                      }
 
-                        for (var item in benefitsOfUse2.forWorkList) {
-                          if (item.value) {
-                            benefitsOfUse += ', ${item.question}';
+                      String fou1 = '';
+                      String fou2 = '';
+                      String fou3 = '';
+                      String fou = '';
+
+                      final fouList = item.mainSequenceToUseModel;
+                      if (fouList[0].value == true) {
+                        final items = fouList[0].subs;
+                        for (var item in items) {
+                          if (item.value == true) {
+                            fou1 += '\n${item.text} ${item.controller.text} ${item.suffix}';
                           }
                         }
                       }
+                      if (fouList[1].value == true) {
+                        final items = fouList[1].subs;
+                        for (var item in items) {
+                          if (item.value == true) {
+                            fou2 += '\n${item.text} ${item.controller.text} ${item.suffix}';
+                          }
+                        }
+                      }
+                      if (fouList[2].value == true) {
+                        final items = fouList[2].subs;
+                        for (var item in items) {
+                          if (item.value == true) {
+                            fou3 = item.text;
+                          }
+                        }
+                      }
+
+                      fou = '$fou1 $fou2 $fou3';
+
+                      print('benefitsOfUse : $benefitsOfUse');
 
                       questionPart16.add(
                         QuestionPart16(
@@ -442,24 +503,9 @@ class _AgriInformationPageState extends State<AgriInformationPage> {
                                   .question
                               : '',
                           benefitsOfUse: benefitsOfUse,
-                          weekUse: item.adOn3.week!.text.isEmpty
-                              ? null
-                              : int.parse(item.adOn3.week?.text ?? '0'),
-                          monthUse: item.adOn3.month!.text.isEmpty
-                              ? null
-                              : int.parse(item.adOn3.month?.text ?? '0'),
-                          yearUse: item.adOn3.year!.text.isEmpty
-                              ? null
-                              : int.parse(item.adOn3.year?.text ?? '0'),
+                          frequencyOfUse: '',
                           tractorHorsepower: null,
-                          plow1: null,
-                          plow2: null,
-                          plow3: null,
-                          plow4: null,
-                          plow5: null,
-                          plowBomb: null,
-                          rotary: null,
-                          rowOfRice: null,
+                          plows: null,
                         ),
                       );
                     }
@@ -490,6 +536,13 @@ class _AgriInformationPageState extends State<AgriInformationPage> {
                       );
                     }
 
+                    /* print('\n ส่วนที่ 1');
+                    print(p11.toJson());
+                    print('\n ส่วนที่ 1_5');
+                    print(questionPart15.map((e) => e.toJson()).toList());
+                    print('\n ส่วนที่ 1 เพิ่มเติม');
+                    print(questionPart16.map((e) => e.toJson()).toList());*/
+
                     print(p11.controller?.text);
                     print(Section2DataModel.datas.length);
                     if (Section2DataModel.datas.isNotEmpty) {
@@ -503,46 +556,41 @@ class _AgriInformationPageState extends State<AgriInformationPage> {
                             questionPart212: item.s12,
                             questionPart213: item.s13,
                             questionPart214: item.s14,
-                            questionPart215: item.s15,
                             questionPart221: item.s21,
                             questionPart222: item.s22,
                             questionPart223: item.s23,
                             questionPart224: item.s24,
-                            questionPart225: item.s25,
-                            questionPart226: item.s26,
-                            questionPart2261: item.s261,
+                            questionPart225: item.s261,
                             questionPart231: item.s31,
-                            questionPart2311: item.s311,
                             questionPart232: item.s32,
+                            questionPart233: item.s33,
                             questionPart241: item.s41,
-                            questionPart2411: item.s411,
                             questionPart242: item.s42,
-                            questionPart2421: item.s421,
                             questionPart243: item.s43,
                             questionPart244: item.s44,
-                            questionPart24511: item.s4511,
-                            questionPart24512: item.s4512,
-                            questionPart24521: item.s4521,
-                            questionPart24531: item.s4531,
-                            questionPart24532: item.s4532,
-                            questionPart24541: item.s4541,
-                            questionPart245411: item.s45411,
-                            questionPart24542: item.s4542,
-                            questionPart245421: item.s45421,
+                            questionPart245: item.s45, // new
+                            questionPart24611: item.s4511,
+                            questionPart24621: item.s4521,
+                            questionPart24631: item.s4531,
                             questionPart251: item.s51,
                             questionPart252: item.s52A,
-                            questionPart2521: item.s521A,
+                            questionPart24641: item.s4541,
                             questionPart253: item.s53B,
                             questionPart254: item.s54C,
                             questionPart255: item.s55D,
                             questionPart2551: item.s551D,
                             questionPart256: item.s56E,
-                            questionPart2561: item.s561E,
                             questionPart261: item.s61E,
+                            questionPart2561: item.s561E,
+
+                            //questionPart2411: item.s411,
                           ),
                         );
                       }
                     }
+
+                    print('\n ส่วนที่ 2');
+                    //print(questionPart2.map((e) => jsonEncode(e.toJson())).toList());
 
                     List<QuestionPart3> questionPart3 = [];
 
@@ -578,7 +626,7 @@ class _AgriInformationPageState extends State<AgriInformationPage> {
                       respondentDistrict: state.staffData?.staffAmphur,
                       respondentProvice: state.staffData?.staffProvince,
                       respondentZipcode: state.staffData?.staffZipcode,
-                      interviewerId: 1,
+                      interviewerId: state.staffData?.selectedStaff?.interviewerId,
                       dateStart: state.staffData?.interviewDate,
                       dateStop: DateTime.now(),
                       questionPart11: p11.controller?.text ?? '',
@@ -594,12 +642,13 @@ class _AgriInformationPageState extends State<AgriInformationPage> {
                       questionPart43: Section3Model.part4[2].text,
                       questionPart2321:
                           Section2DataModel.datas.map((element) => element.s321).toList()[0],
-                      questionPart233:
-                          Section2DataModel.datas.map((element) => element.s33).toList()[0],
+                      questionPart234:
+                          Section2DataModel.datas.map((element) => element.s331).toList()[0],
                       questionPart24513: s513,
                       questionPart24522: s522,
                       questionPart245311: s311,
                     );
+
                     EasyLoading.show(status: 'กำลังบันทึกข้อมูล');
                     await AgriInfoRepository().addQuestionNew(mapData.toJson()).whenComplete(() {
                       EasyLoading.dismiss();
@@ -619,64 +668,11 @@ class _AgriInformationPageState extends State<AgriInformationPage> {
                                   color: Colors.green,
                                 ),
                                 onPressed: () async {
-                                  /* state.selectedRiceField = null;
-                                  state.staffData = null;
-                                  _clearSection1();
-                                  _clearSection2();
-                                  state.statusPending[0] = false;
-                                  state.statusPending[1] = false;
-                                  state.isSection2Pending = false;
-                                  state.isSection3Pending = false;
-                                  Section2DataModel.datas.clear();
-                                  Section3Model.data3.clear();
-                                  Section3Model.part4 = [
-                                    TextEditingController(),
-                                    TextEditingController(),
-                                    TextEditingController(),
-                                  ];
-                                  RiceFieldModel.riceFields.clear();*/
                                   final userId = await LocalStorage.getToken();
 
                                   print('userId: ${state.staffData?.toJson()}');
 
                                   try {
-                                    /* final section2 = Section2MapModel(
-                      selectedRiceField: state.selectedRiceField!,
-                      s211: Section2Model.s211,
-                      s212: Section2Model.s212,
-                      s213: Section2Model.s213,
-                      s214: Section2Model.s214,
-                      s215: Section2Model.s215,
-                      s221: Section2Model.s221,
-                      s222: Section2Model.s222,
-                      s223: Section2Model.s223,
-                      s224: Section2Model.s224,
-                      s225: Section2Model.s225,
-                      s226: Section2Model.s226,
-                      s231: Section2Model.s231,
-                      s232: Section2Model.s232,
-                      s23SoilPreparationSteps: Section2Model.s23SoilPreparationSteps,
-                      hS23owToPlantInTheLastProductionYears: Section2Model.hS23owToPlantInTheLastProductionYears,
-                      s241: Section2Model.s241,
-                      s242: Section2Model.s242,
-                      s243: Section2Model.s243,
-                      s244: Section2Model.s244,
-                      s245: Section2Model.s245,
-                      caseOfGivingWaters: Section2Model.caseOfGivingWaters,
-                      caseOfApplyingFertilizers: Section2Model.caseOfApplyingFertilizers,
-                      caseKillWeeds: Section2Model.caseKillWeeds,
-                      s254532: Section2Model.s254532,
-                      s224541: Section2Model.s224541,
-                      s224542: Section2Model.s224542,
-                      s251: Section2Model.s251,
-                      s252: Section2Model.s252,
-                      s253: Section2Model.s253,
-                      s254: Section2Model.s254,
-                      s255: Section2Model.s255,
-                      s256: Section2Model.s256,
-                      s260: Section2Model.s260,
-
-                    );*/
                                     final data = LocalInfoModel(
                                       userId: userId.toString(),
                                       interviewers: state.staffData!,
@@ -721,7 +717,7 @@ class _AgriInformationPageState extends State<AgriInformationPage> {
                                   }
                                   setState(() {});
                                   Navigator.pop(context);
-                                  Navigator.pop(context);
+                                  //Navigator.pop(context);
                                 },
                               )
                             ],
@@ -827,5 +823,4 @@ class _AgriInformationPageState extends State<AgriInformationPage> {
       ),
     );
   }
-
 }

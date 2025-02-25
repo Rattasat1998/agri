@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:agri/screens/profile/pages/agri_information/models/rice_field_model.dart';
 import 'package:agri/screens/profile/pages/agri_information/models/section_2_data_model.dart';
 import 'package:agri/screens/profile/pages/agri_information/models/section_2_model.dart';
@@ -82,6 +84,7 @@ class _Section2PageState extends State<Section2Page> {
                         ),
                         child: Column(
                           children: Section2DataModel.datas.map((riceField) {
+                            print(jsonEncode(riceField.part2ToJson()));
                             return Section2RiceFieldPlotHomeWidget(
                               selectedRiceField: riceField,
                               iconSuffix: ImageProviders.section3Head,
@@ -672,39 +675,81 @@ class _Section2PageState extends State<Section2Page> {
       ],
     );
     Section2Model.s224541 = S224541(
-      question: '2.4.5.4 โรคและแมลง',
+      question: '2.4.6.4 โรคและแมลง',
       values1: [
         Section2CheckVSModel(
           value: false,
-          text: 'ไม่พบ',
+          text: 'โรคข้าว',
           suffix: '',
+          values: [
+            Section2CheckVSModel(
+              value: false,
+              text: 'โรคขอบใบแห้ง',
+              suffix: '',
+            ),
+            Section2CheckVSModel(
+              value: false,
+              text: 'โรคใบจุดสีน้ำตาล ',
+              suffix: '',
+            ),
+            Section2CheckVSModel(
+              value: false,
+              text: 'โรคใบสีส้ม ',
+              suffix: '',
+              controller: TextEditingController(),
+            ),
+          ],
         ),
         Section2CheckVSModel(
           value: false,
-          text: 'พบโรคข้าว',
+          text: 'แมลง',
           suffix: '',
+          values: [
+            Section2CheckVSModel(
+              value: false,
+              text: 'ด้วงดำ',
+              suffix: '',
+            ),
+            Section2CheckVSModel(
+              value: false,
+              text: 'หนอนกอข้าว',
+              suffix: '',
+            ),
+            Section2CheckVSModel(
+              value: false,
+              text: 'เพลี้ยไฟ',
+              suffix: '',
+              controller: TextEditingController(),
+            ),
+            Section2CheckVSModel(
+              value: false,
+              text: 'แมลงนูน',
+              suffix: '',
+              controller: TextEditingController(),
+            ),
+            Section2CheckVSModel(
+              value: false,
+              text: 'ตั๊กแตน',
+              suffix: '',
+              controller: TextEditingController(),
+            ),
+            Section2CheckVSModel(
+              value: false,
+              text: 'แมลงกระชอน',
+              suffix: '',
+              controller: TextEditingController(),
+            ),
+            Section2CheckVSModel(
+              value: false,
+              text: 'หอยเชอรี่',
+              suffix: '',
+              controller: TextEditingController(),
+            ),
+          ],
         ),
+
       ],
-      values2: [
-        Section2CheckVSModel(
-          value: false,
-          text: '1. ',
-          suffix: '',
-          controller: TextEditingController(),
-        ),
-        Section2CheckVSModel(
-          value: false,
-          text: '2. ',
-          suffix: '',
-          controller: TextEditingController(),
-        ),
-        Section2CheckVSModel(
-          value: false,
-          text: 'ท่านมีวิธีการแก้ไขโรคที่พบอย่างไร (อธิบายทีละโรค)',
-          suffix: '',
-          controller: TextEditingController(),
-        ),
-      ],
+      values2: [],
     );
     Section2Model.s224542 = S224542(
       question: '2.4.5.4.2 ในแปลงนี้ตรวจพบ แมลงศัตรูข้าวหรือไม่',

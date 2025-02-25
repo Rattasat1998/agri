@@ -81,7 +81,50 @@ class Section1Point1 {
 
   static  Section1PointAdOn1 section1PointAdOn1 = Section1PointAdOn1(
     question: 'ข้อคำถามทรัพยากรเครื่องจักรกลในระดับครัวเรือน',
-    mainSequenceToUseModel: MainSequenceToUseModel.mainSequenceToUseModel,
+    mainSequenceToUseModel: [
+      MainSequenceToUseModel(
+        text: 'ในฤกาลผลิตข้าว',
+        value: false,
+        subs: [
+          SubSequenceToUseModel(
+            text: 'เริ่มเพาะปลูก',
+            value: false,
+            controller: TextEditingController(),
+            suffix: 'วัน',
+          ),
+          SubSequenceToUseModel(
+            text: 'ดูแลแปลง',
+            value: false,
+            controller: TextEditingController(),
+            suffix: 'วัน',
+          ),
+          SubSequenceToUseModel(
+            text: 'เก็บเกี่ยว',
+            value: false,
+            controller: TextEditingController(),
+            suffix: 'วัน',
+          ),
+        ],
+      ),
+      MainSequenceToUseModel(
+        text: 'นอกฤดูการผลิตข้าว',
+        value: false,
+        subs: [
+          SubSequenceToUseModel(
+            text: 'ช่วงเดือน',
+            value: false,
+            controller: TextEditingController(),
+            suffix: '',
+          ),
+
+        ],
+      ),
+      MainSequenceToUseModel(
+        text: 'ตลอดทั้งปี',
+        value: false,
+
+      ),
+    ],
     tractorModel: Section1PointAdOnModelList(
       id: 1,
       question: 'แทรกเตอร์',
@@ -178,7 +221,50 @@ class Section1Point1 {
 
   static  Section1PointAdOn2 section1PointAdOn2 = Section1PointAdOn2(
     question: 'ข้อคำถามทรัพยากรเครื่องจักรกลในระดับครัวเรือน',
-    mainSequenceToUseModel: MainSequenceToUseModel.mainSequenceToUseModel,
+    mainSequenceToUseModel: [
+      MainSequenceToUseModel(
+        text: 'ในฤกาลผลิตข้าว',
+        value: false,
+        subs: [
+          SubSequenceToUseModel(
+            text: 'เริ่มเพาะปลูก',
+            value: false,
+            controller: TextEditingController(),
+            suffix: 'วัน',
+          ),
+          SubSequenceToUseModel(
+            text: 'ดูแลแปลง',
+            value: false,
+            controller: TextEditingController(),
+            suffix: 'วัน',
+          ),
+          SubSequenceToUseModel(
+            text: 'เก็บเกี่ยว',
+            value: false,
+            controller: TextEditingController(),
+            suffix: 'วัน',
+          ),
+        ],
+      ),
+      MainSequenceToUseModel(
+        text: 'นอกฤดูการผลิตข้าว',
+        value: false,
+        subs: [
+          SubSequenceToUseModel(
+            text: 'ช่วงเดือน',
+            value: false,
+            controller: TextEditingController(),
+            suffix: '',
+          ),
+
+        ],
+      ),
+      MainSequenceToUseModel(
+        text: 'ตลอดทั้งปี',
+        value: false,
+
+      ),
+    ],
     tractorModel: Section1PointAdOnModelList(
       id: 2,
       question: 'เครื่องหยอดเมล็ดข้าว',
@@ -239,7 +325,50 @@ class Section1Point1 {
 
   static  Section1PointAdOn3 section1PointAdOn3 = Section1PointAdOn3(
     question: 'ข้อคำถามทรัพยากรเครื่องจักรกลในระดับครัวเรือน',
-    mainSequenceToUseModel: MainSequenceToUseModel.mainSequenceToUseModel,
+    mainSequenceToUseModel: [
+      MainSequenceToUseModel(
+        text: 'ในฤกาลผลิตข้าว',
+        value: false,
+        subs: [
+          SubSequenceToUseModel(
+            text: 'เริ่มเพาะปลูก',
+            value: false,
+            controller: TextEditingController(),
+            suffix: 'วัน',
+          ),
+          SubSequenceToUseModel(
+            text: 'ดูแลแปลง',
+            value: false,
+            controller: TextEditingController(),
+            suffix: 'วัน',
+          ),
+          SubSequenceToUseModel(
+            text: 'เก็บเกี่ยว',
+            value: false,
+            controller: TextEditingController(),
+            suffix: 'วัน',
+          ),
+        ],
+      ),
+      MainSequenceToUseModel(
+        text: 'นอกฤดูการผลิตข้าว',
+        value: false,
+        subs: [
+          SubSequenceToUseModel(
+            text: 'ช่วงเดือน',
+            value: false,
+            controller: TextEditingController(),
+            suffix: '',
+          ),
+
+        ],
+      ),
+      MainSequenceToUseModel(
+        text: 'ตลอดทั้งปี',
+        value: false,
+
+      ),
+    ],
     tractorModel: Section1PointAdOnModelList(
       id: 3,
       question: 'เครื่องหว่านเมล็ด',
@@ -299,7 +428,50 @@ class Section1Point1 {
 
   static  Section1PointAdOn3 section1PointAdOn4 = Section1PointAdOn3(
     question: 'ข้อคำถามทรัพยากรเครื่องจักรกลในระดับครัวเรือน',
-    mainSequenceToUseModel: MainSequenceToUseModel.mainSequenceToUseModel,
+    mainSequenceToUseModel:  [
+      MainSequenceToUseModel(
+        text: 'ในฤกาลผลิตข้าว',
+        value: false,
+        subs: [
+          SubSequenceToUseModel(
+            text: 'เริ่มเพาะปลูก',
+            value: false,
+            controller: TextEditingController(),
+            suffix: 'วัน',
+          ),
+          SubSequenceToUseModel(
+            text: 'ดูแลแปลง',
+            value: false,
+            controller: TextEditingController(),
+            suffix: 'วัน',
+          ),
+          SubSequenceToUseModel(
+            text: 'เก็บเกี่ยว',
+            value: false,
+            controller: TextEditingController(),
+            suffix: 'วัน',
+          ),
+        ],
+      ),
+      MainSequenceToUseModel(
+        text: 'นอกฤดูการผลิตข้าว',
+        value: false,
+        subs: [
+          SubSequenceToUseModel(
+            text: 'ช่วงเดือน',
+            value: false,
+            controller: TextEditingController(),
+            suffix: '',
+          ),
+
+        ],
+      ),
+      MainSequenceToUseModel(
+        text: 'ตลอดทั้งปี',
+        value: false,
+
+      ),
+    ],
     tractorModel: Section1PointAdOnModelList(
       id: 3,
       question: 'รถเกี่ยวข้าว',
@@ -359,7 +531,50 @@ class Section1Point1 {
 
   static  Section1PointAdOn3 section1PointAdOn5 = Section1PointAdOn3(
     question: 'ข้อคำถามทรัพยากรเครื่องจักรกลในระดับครัวเรือน',
-    mainSequenceToUseModel: MainSequenceToUseModel.mainSequenceToUseModel,
+    mainSequenceToUseModel:  [
+      MainSequenceToUseModel(
+        text: 'ในฤกาลผลิตข้าว',
+        value: false,
+        subs: [
+          SubSequenceToUseModel(
+            text: 'เริ่มเพาะปลูก',
+            value: false,
+            controller: TextEditingController(),
+            suffix: 'วัน',
+          ),
+          SubSequenceToUseModel(
+            text: 'ดูแลแปลง',
+            value: false,
+            controller: TextEditingController(),
+            suffix: 'วัน',
+          ),
+          SubSequenceToUseModel(
+            text: 'เก็บเกี่ยว',
+            value: false,
+            controller: TextEditingController(),
+            suffix: 'วัน',
+          ),
+        ],
+      ),
+      MainSequenceToUseModel(
+        text: 'นอกฤดูการผลิตข้าว',
+        value: false,
+        subs: [
+          SubSequenceToUseModel(
+            text: 'ช่วงเดือน',
+            value: false,
+            controller: TextEditingController(),
+            suffix: '',
+          ),
+
+        ],
+      ),
+      MainSequenceToUseModel(
+        text: 'ตลอดทั้งปี',
+        value: false,
+
+      ),
+    ],
     tractorModel: Section1PointAdOnModelList(
       id: 3,
       question: 'เครื่องหว่านปุ๋ย',
@@ -419,7 +634,50 @@ class Section1Point1 {
 
   static  Section1PointAdOn3 section1PointAdOn6 = Section1PointAdOn3(
     question: 'ข้อคำถามทรัพยากรเครื่องจักรกลในระดับครัวเรือน',
-    mainSequenceToUseModel: MainSequenceToUseModel.mainSequenceToUseModel,
+    mainSequenceToUseModel:  [
+      MainSequenceToUseModel(
+        text: 'ในฤกาลผลิตข้าว',
+        value: false,
+        subs: [
+          SubSequenceToUseModel(
+            text: 'เริ่มเพาะปลูก',
+            value: false,
+            controller: TextEditingController(),
+            suffix: 'วัน',
+          ),
+          SubSequenceToUseModel(
+            text: 'ดูแลแปลง',
+            value: false,
+            controller: TextEditingController(),
+            suffix: 'วัน',
+          ),
+          SubSequenceToUseModel(
+            text: 'เก็บเกี่ยว',
+            value: false,
+            controller: TextEditingController(),
+            suffix: 'วัน',
+          ),
+        ],
+      ),
+      MainSequenceToUseModel(
+        text: 'นอกฤดูการผลิตข้าว',
+        value: false,
+        subs: [
+          SubSequenceToUseModel(
+            text: 'ช่วงเดือน',
+            value: false,
+            controller: TextEditingController(),
+            suffix: '',
+          ),
+
+        ],
+      ),
+      MainSequenceToUseModel(
+        text: 'ตลอดทั้งปี',
+        value: false,
+
+      ),
+    ],
     tractorModel: Section1PointAdOnModelList(
       id: 3,
       question: 'โดรน',
@@ -479,7 +737,50 @@ class Section1Point1 {
 
   static  Section1PointAdOn3 section1PointAdOn7 = Section1PointAdOn3(
     question: 'ข้อคำถามทรัพยากรเครื่องจักรกลในระดับครัวเรือน',
-    mainSequenceToUseModel: MainSequenceToUseModel.mainSequenceToUseModel,
+    mainSequenceToUseModel:  [
+      MainSequenceToUseModel(
+        text: 'ในฤกาลผลิตข้าว',
+        value: false,
+        subs: [
+          SubSequenceToUseModel(
+            text: 'เริ่มเพาะปลูก',
+            value: false,
+            controller: TextEditingController(),
+            suffix: 'วัน',
+          ),
+          SubSequenceToUseModel(
+            text: 'ดูแลแปลง',
+            value: false,
+            controller: TextEditingController(),
+            suffix: 'วัน',
+          ),
+          SubSequenceToUseModel(
+            text: 'เก็บเกี่ยว',
+            value: false,
+            controller: TextEditingController(),
+            suffix: 'วัน',
+          ),
+        ],
+      ),
+      MainSequenceToUseModel(
+        text: 'นอกฤดูการผลิตข้าว',
+        value: false,
+        subs: [
+          SubSequenceToUseModel(
+            text: 'ช่วงเดือน',
+            value: false,
+            controller: TextEditingController(),
+            suffix: '',
+          ),
+
+        ],
+      ),
+      MainSequenceToUseModel(
+        text: 'ตลอดทั้งปี',
+        value: false,
+
+      ),
+    ],
     tractorModel: Section1PointAdOnModelList(
       id: 3,
       question: 'เครื่องตัดหญ้า',
@@ -539,7 +840,50 @@ class Section1Point1 {
 
   static  Section1PointAdOn3 section1PointAdOn8 = Section1PointAdOn3(
     question: 'ข้อคำถามทรัพยากรเครื่องจักรกลในระดับครัวเรือน',
-    mainSequenceToUseModel: MainSequenceToUseModel.mainSequenceToUseModel,
+    mainSequenceToUseModel:  [
+      MainSequenceToUseModel(
+        text: 'ในฤกาลผลิตข้าว',
+        value: false,
+        subs: [
+          SubSequenceToUseModel(
+            text: 'เริ่มเพาะปลูก',
+            value: false,
+            controller: TextEditingController(),
+            suffix: 'วัน',
+          ),
+          SubSequenceToUseModel(
+            text: 'ดูแลแปลง',
+            value: false,
+            controller: TextEditingController(),
+            suffix: 'วัน',
+          ),
+          SubSequenceToUseModel(
+            text: 'เก็บเกี่ยว',
+            value: false,
+            controller: TextEditingController(),
+            suffix: 'วัน',
+          ),
+        ],
+      ),
+      MainSequenceToUseModel(
+        text: 'นอกฤดูการผลิตข้าว',
+        value: false,
+        subs: [
+          SubSequenceToUseModel(
+            text: 'ช่วงเดือน',
+            value: false,
+            controller: TextEditingController(),
+            suffix: '',
+          ),
+
+        ],
+      ),
+      MainSequenceToUseModel(
+        text: 'ตลอดทั้งปี',
+        value: false,
+
+      ),
+    ],
     tractorModel: Section1PointAdOnModelList(
       id: 3,
       question: 'รถไถนาเดินตาม',
@@ -599,7 +943,50 @@ class Section1Point1 {
 
   static  Section1PointAdOn3 section1PointAdOn9 = Section1PointAdOn3(
     question: 'ข้อคำถามทรัพยากรเครื่องจักรกลในระดับครัวเรือน',
-    mainSequenceToUseModel: MainSequenceToUseModel.mainSequenceToUseModel,
+    mainSequenceToUseModel:  [
+      MainSequenceToUseModel(
+        text: 'ในฤกาลผลิตข้าว',
+        value: false,
+        subs: [
+          SubSequenceToUseModel(
+            text: 'เริ่มเพาะปลูก',
+            value: false,
+            controller: TextEditingController(),
+            suffix: 'วัน',
+          ),
+          SubSequenceToUseModel(
+            text: 'ดูแลแปลง',
+            value: false,
+            controller: TextEditingController(),
+            suffix: 'วัน',
+          ),
+          SubSequenceToUseModel(
+            text: 'เก็บเกี่ยว',
+            value: false,
+            controller: TextEditingController(),
+            suffix: 'วัน',
+          ),
+        ],
+      ),
+      MainSequenceToUseModel(
+        text: 'นอกฤดูการผลิตข้าว',
+        value: false,
+        subs: [
+          SubSequenceToUseModel(
+            text: 'ช่วงเดือน',
+            value: false,
+            controller: TextEditingController(),
+            suffix: '',
+          ),
+
+        ],
+      ),
+      MainSequenceToUseModel(
+        text: 'ตลอดทั้งปี',
+        value: false,
+
+      ),
+    ],
     tractorModel: Section1PointAdOnModelList(
       id: 3,
       question: 'เครื่องสูบน้ำ',
@@ -674,50 +1061,15 @@ class MainSequenceToUseModel {
   });
 
 
-  static List<MainSequenceToUseModel> mainSequenceToUseModel = [
-    MainSequenceToUseModel(
-      text: 'ในฤกาลผลิตข้าว',
-      value: false,
-      subs: [
-        SubSequenceToUseModel(
-          text: 'เริ่มเพาะปลูก',
-          value: false,
-          controller: TextEditingController(),
-          suffix: 'วัน',
-        ),
-        SubSequenceToUseModel(
-          text: 'ดูแลแปลง',
-          value: false,
-          controller: TextEditingController(),
-          suffix: 'วัน',
-        ),
-        SubSequenceToUseModel(
-          text: 'เก็บเกี่ยว',
-          value: false,
-          controller: TextEditingController(),
-          suffix: 'วัน',
-        ),
-      ],
-    ),
-    MainSequenceToUseModel(
-      text: 'นอกฤดูการผลิตข้าว',
-      value: false,
-      subs: [
-        SubSequenceToUseModel(
-          text: 'ช่วงเดือน',
-          value: false,
-          controller: TextEditingController(),
-          suffix: '',
-        ),
+  Map<String, dynamic> toJson() {
+    return {
+      'text': text,
+      'value': value,
+      'subs': subs.map((e) => e.toJson()).toList(),
+    };
+  }
 
-      ],
-    ),
-    MainSequenceToUseModel(
-      text: 'ตลอดทั้งปี',
-      value: false,
 
-    ),
-  ];
 
 
 }
@@ -734,7 +1086,20 @@ class SubSequenceToUseModel {
     required this.controller,
     required this.suffix,
   });
+
+  Map <String, dynamic> toJson() {
+    return {
+      'text': text,
+      'value': value,
+      'controller': controller.text,
+      'suffix': suffix,
+    };
+  }
+
 }
+
+
+
 
 
 class Section1Point1Model {
@@ -1193,7 +1558,7 @@ class Section1PointAdOn1 {
       'question': question,
       'tractorModel': tractorModel.toJson(),
       'adOn1': adOn1.toJson(),
-      // 'mainSequenceToUseModel': mainSequenceToUseModel?.toJson(),
+      'mainSequenceToUseModel': mainSequenceToUseModel.map((e) => e.toJson()).toList(),
     };
   }
 
@@ -1370,6 +1735,7 @@ class Section1PointAdOn2 {
       'question': question,
       'tractorModel': tractorModel.toJson(),
       'adOn1': adOn2.toJson(),
+      'mainSequenceToUseModel': mainSequenceToUseModel.map((e) => e.toJson()).toList(),
     };
   }
 
@@ -1450,6 +1816,7 @@ class Section1PointAdOn3 {
       'question': question,
       'tractorModel': tractorModel.toJson(),
       'adOn1': adOn3.toJson(),
+      'mainSequenceToUseModel': mainSequenceToUseModel.map((e) => e.toJson()).toList(),
     };
   }
 

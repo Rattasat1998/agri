@@ -405,9 +405,9 @@ class Section2Model {
 
 
   static S245 s245 = S245(
-    question: '2.4.6 การดูแลรักษาข้าว',
+    question: '2.4.5 การดูแลรักษาข้าว',
     s2451: S2451(
-      question: '2.4.6.1 การให้น้ำ',
+      question: '2.4.5.1.1 การให้น้ำ',
       s24511: S24511(
         question: '2.4.6.1.1 ในการปลูกข้าวของท่าน ได้มีการให้น้ำหรือไม',
         values1: [
@@ -450,9 +450,9 @@ class Section2Model {
         ],
       ),
       s24512: S24512(
-        question: '2.4.6.2 การให้ปุ๋ย',
+        question: '2.4.5.2.1 การให้ปุ๋ย',
         s24521: S24521(
-          question: '2.4.6.2.1 ท่านปลูกข้าวโดยมีการใส่ปุ๋ยหลังจากปลูกแล้วหรือไม่',
+          question: '2.4.5.2.1 ท่านปลูกข้าวโดยมีการใส่ปุ๋ยหลังจากปลูกแล้วหรือไม่',
           values: [
             Section2CheckVSModel(
               value: false,
@@ -489,6 +489,9 @@ class Section2Model {
       ),
     ),
   );
+
+
+
   static CaseOfGivingWaters caseOfGivingWaters = CaseOfGivingWaters(
     question: 'กรณีให้น้ำ',
     values: [],
@@ -507,7 +510,7 @@ class Section2Model {
 
 
   static S254532 s254532 = S254532(
-    question: '2.4.5.3.2 ท่านได้มีการตัดใบข้าว หรือไม่',
+    question: '2.4.5.3.1 ท่านได้มีการตัดใบข้าว หรือไม่',
     values: [
       Section2CheckVSModel(
         value: false,
@@ -560,42 +563,84 @@ class Section2Model {
     ],
   );
   static S224541 s224541 = S224541(
-    question: '2.4.5.4 โรคและแมลง',
+    question: '2.4.6.4 โรคและแมลง',
     values1: [
       Section2CheckVSModel(
         value: false,
-        text: 'ไม่พบ',
+        text: 'โรคข้าว',
         suffix: '',
+        values: [
+          Section2CheckVSModel(
+            value: false,
+            text: 'โรคขอบใบแห้ง',
+            suffix: '',
+          ),
+          Section2CheckVSModel(
+            value: false,
+            text: 'โรคใบจุดสีน้ำตาล ',
+            suffix: '',
+          ),
+          Section2CheckVSModel(
+            value: false,
+            text: 'โรคใบสีส้ม ',
+            suffix: '',
+            controller: TextEditingController(),
+          ),
+        ],
       ),
       Section2CheckVSModel(
         value: false,
-        text: 'พบโรคข้าว',
+        text: 'แมลง',
         suffix: '',
+        values: [
+          Section2CheckVSModel(
+            value: false,
+            text: 'ด้วงดำ',
+            suffix: '',
+          ),
+          Section2CheckVSModel(
+            value: false,
+            text: 'หนอนกอข้าว',
+            suffix: '',
+          ),
+          Section2CheckVSModel(
+            value: false,
+            text: 'เพลี้ยไฟ',
+            suffix: '',
+            controller: TextEditingController(),
+          ),
+          Section2CheckVSModel(
+            value: false,
+            text: 'แมลงนูน',
+            suffix: '',
+            controller: TextEditingController(),
+          ),
+          Section2CheckVSModel(
+            value: false,
+            text: 'ตั๊กแตน',
+            suffix: '',
+            controller: TextEditingController(),
+          ),
+          Section2CheckVSModel(
+            value: false,
+            text: 'แมลงกระชอน',
+            suffix: '',
+            controller: TextEditingController(),
+          ),
+          Section2CheckVSModel(
+            value: false,
+            text: 'หอยเชอรี่',
+            suffix: '',
+            controller: TextEditingController(),
+          ),
+        ],
       ),
+
     ],
-    values2: [
-      Section2CheckVSModel(
-        value: false,
-        text: '1. ',
-        suffix: '',
-        controller: TextEditingController(),
-      ),
-      Section2CheckVSModel(
-        value: false,
-        text: '2. ',
-        suffix: '',
-        controller: TextEditingController(),
-      ),
-      Section2CheckVSModel(
-        value: false,
-        text: 'ท่านมีวิธีการแก้ไขโรคที่พบอย่างไร (อธิบายทีละโรค)',
-        suffix: '',
-        controller: TextEditingController(),
-      ),
-    ],
+    values2: [],
   );
   static S224542 s224542 = S224542(
-    question: '2.4.5.4.2 ในแปลงนี้ตรวจพบ แมลงศัตรูข้าวหรือไม่',
+    question: '2.4.6.4.2 ในแปลงนี้ตรวจพบ แมลงศัตรูข้าวหรือไม่',
     values1: [
       Section2CheckVSModel(
         value: false,
@@ -654,61 +699,73 @@ class Section2Model {
         value: false,
         text: 'ใช้แรงงานคน',
         suffix: '',
+        values: [
+          Section2CheckVSModel(
+            value: false,
+            text: 'แรงงานจ้างทั้งหมด',
+            suffix: '',
+          ),
+          Section2CheckVSModel(
+            value: false,
+            text: 'แรงงานภายในครัวเรือนทั้งหมด',
+            suffix: '',
+          ),
+          Section2CheckVSModel(
+            value: false,
+            text: 'แรงงานภายในครัวเรือนและจ้าง',
+            suffix: '',
+          ),
+        ],
       ),
-      Section2CheckVSModel(
-        value: false,
-        text: 'แรงงานจ้างทั้งหมด',
-        suffix: '',
-      ),
-      Section2CheckVSModel(
-        value: false,
-        text: 'แรงงานภายในครัวเรือนทั้งหมด',
-        suffix: '',
-      ),
-      Section2CheckVSModel(
-        value: false,
-        text: 'แรงงานภายในครัวเรือนและจ้าง',
-        suffix: '',
-      ),
-      Section2CheckVSModel(
-        value: false,
-        text: 'ใช้รถเกี่ยว',
-        suffix: '',
-      ),
+
     ],
     values2: [
       Section2CheckVSModel(
         value: false,
-        text: 'กลุ่มเกษตรกร',
+        text: 'ใช้รถเกี่ยว',
         suffix: '',
-        controller: TextEditingController(),
-      ),
-      Section2CheckVSModel(
-        value: false,
-        text: 'เอกชน',
-        suffix: '',
+        values: [
+          Section2CheckVSModel(
+            value: false,
+            text: 'รถภายในกลุ่มนาแปลงใหญ่ กลุ่ม',
+            suffix: '',
+            controller: TextEditingController(),
+          ),
+          Section2CheckVSModel(
+            value: false,
+            text: ' เอกชน',
+            suffix: '',
+            values: [
+              Section2CheckVSModel(
+                value: false,
+                text: 'ในพื้นที่',
+                suffix: '',
+              ),
+              Section2CheckVSModel(
+                value: false,
+                text: 'นอกพื้นที่',
+                suffix: '',
+              ),
+            ],
+          ),
+        ],
       ),
     ],
     values3: [
       Section2CheckVSModel(
         value: false,
-        text: 'อัตราค่าให้บริหาร',
-        controller: TextEditingController(),
+        text: 'ค่าบริการ',
         suffix: 'บาท/ไร่',
-      ),
-    ],
-    values4: [
-      Section2CheckVSModel(
-        value: false,
-        text: 'ทันทีหลังจากการเก็บเกี่ยว',
-        suffix: '',
+        controller: TextEditingController(),
       ),
       Section2CheckVSModel(
         value: false,
-        text: 'หลังเสร็จสิ้นฤดูการเก็บเกี่ยว',
-        suffix: '',
+        text: 'ค่าบริการ',
+        suffix: 'บาท/ตัน',
+        controller: TextEditingController(),
       ),
     ],
+    values4: [],
   );
   static S253 s253 = S253(
     question: '2.5.3 ท่านตัดสินใจเกี่ยวข้าวในวันดังกล่าว เพราะสาเหตุอะไร',

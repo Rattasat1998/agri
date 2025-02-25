@@ -22,7 +22,7 @@ class MapDataModel {
     required this.questionPart2,
     required this.questionPart3,
     required this.questionPart2321,
-    required this.questionPart233,
+    required this.questionPart234,
     required this.questionPart24513,
     required this.questionPart24522,
     required this.questionPart245311,
@@ -49,13 +49,13 @@ class MapDataModel {
   final List<QuestionPart16> questionPart16;
   final List<QuestionPart2> questionPart2;
   final List<QuestionPart3> questionPart3;
-  final List<Map<String ,dynamic>> questionPart2321;
-  final List<Map<String ,dynamic>> questionPart233;
-  final List<Map<String ,dynamic>> questionPart24513;
-  final List<Map<String ,dynamic>> questionPart24522;
-  final List<Map<String ,dynamic>> questionPart245311;
+  final List<Map<String, dynamic>> questionPart2321;
+  final List<Map<String, dynamic>> questionPart234;
+  final List<Map<String, dynamic>> questionPart24513;
+  final List<Map<String, dynamic>> questionPart24522;
+  final List<Map<String, dynamic>> questionPart245311;
 
- /* factory MapDataModel.fromJson(Map<String, dynamic> json){
+  /* factory MapDataModel.fromJson(Map<String, dynamic> json){
     return MapDataModel(
       respondentName: json["respondent_name"],
       respondentAdress: json["respondent_adress"],
@@ -86,34 +86,33 @@ class MapDataModel {
   }*/
 
   Map<String, dynamic> toJson() => {
-    "respondent_name": respondentName,
-    "respondent_adress": respondentAdress,
-    "respondent_tel": respondentTel,
-    "respondent_subdistrict": respondentSubdistrict,
-    "respondent_district": respondentDistrict,
-    "respondent_provice": respondentProvice,
-    "respondent_zipcode": respondentZipcode,
-    "interviewer_id": interviewerId,
-    "date_start": dateStart?.toIso8601String(),
-    "date_stop": dateStop?.toIso8601String(),
-    "question_part_1_1": questionPart11,
-    "question_part_1_2": questionPart12,
-    "question_part_1_3": questionPart13,
-    "question_part_4_1": questionPart41,
-    "question_part_4_2": questionPart42,
-    "question_part_4_3": questionPart43,
-    "question_part_1_4": questionPart14.map((x) => x.toJson()).toList(),
-    "question_part_1_5": questionPart15.map((x) => x.toJson()).toList(),
-    "question_part_1_6": questionPart16.map((x) => x.toJson()).toList(),
-    "question_part_2": questionPart2.map((x) => x.toJson()).toList(),
-    "question_part_3": questionPart3.map((x) => x.toJson()).toList(),
-    "question_part_2_3_2_1": questionPart2321,
-    "question_part_2_3_3": questionPart233,
-    "question_part_2_4_5_1_3": questionPart24513,
-    "question_part_2_4_5_2_2": questionPart24522,
-    "question_part_2_4_5_3_1_1": questionPart245311,
-  };
-
+        "respondent_name": respondentName,
+        "respondent_adress": respondentAdress,
+        "respondent_tel": respondentTel,
+        "respondent_subdistrict": respondentSubdistrict,
+        "respondent_district": respondentDistrict,
+        "respondent_provice": respondentProvice,
+        "respondent_zipcode": respondentZipcode,
+        "interviewer_id": interviewerId,
+        "date_start": dateStart?.toIso8601String(),
+        "date_stop": dateStop?.toIso8601String(),
+        "question_part_1_1": questionPart11,
+        "question_part_1_2": questionPart12,
+        "question_part_1_3": questionPart13,
+        "question_part_4_1": questionPart41,
+        "question_part_4_2": questionPart42,
+        "question_part_4_3": questionPart43,
+        "question_part_1_4": questionPart14.map((x) => x.toJson()).toList(),
+        "question_part_1_5": questionPart15.map((x) => x.toJson()).toList(),
+        "question_part_1_6": questionPart16.map((x) => x.toJson()).toList(),
+        "question_part_2": questionPart2.map((x) => x.toJson()).toList(),
+        "question_part_3": questionPart3.map((x) => x.toJson()).toList(),
+        "question_part_2_3_2_1": questionPart2321,
+        "question_part_2_3_4": questionPart234,
+        "question_part_2_4_5_1_3": questionPart24513,
+        "question_part_2_4_5_2_2": questionPart24522,
+        "question_part_2_4_5_3_1_1": questionPart245311,
+      };
 }
 
 class QuestionPart14 {
@@ -129,7 +128,7 @@ class QuestionPart14 {
   final String? role;
   final String? note;
 
-  factory QuestionPart14.fromJson(Map<String, dynamic> json){
+  factory QuestionPart14.fromJson(Map<String, dynamic> json) {
     return QuestionPart14(
       lastYear: json["last_year"],
       groupName: json["group_name"],
@@ -139,12 +138,11 @@ class QuestionPart14 {
   }
 
   Map<String, dynamic> toJson() => {
-    "last_year": lastYear,
-    "group_name": groupName,
-    "role": role,
-    "note": note,
-  };
-
+        "last_year": lastYear,
+        "group_name": groupName,
+        "role": role,
+        "note": note,
+      };
 }
 
 class QuestionPart15 {
@@ -168,7 +166,7 @@ class QuestionPart15 {
   final String? areaCharactor;
   final String? note;
 
-  factory QuestionPart15.fromJson(Map<String, dynamic> json){
+  factory QuestionPart15.fromJson(Map<String, dynamic> json) {
     return QuestionPart15(
       landName: json["land_name"],
       numberOfAreas: json["number_of_areas"],
@@ -182,16 +180,15 @@ class QuestionPart15 {
   }
 
   Map<String, dynamic> toJson() => {
-    "land_name": landName,
-    "number_of_areas": numberOfAreas,
-    "address": address,
-    "holding": holding,
-    "utilization": utilization,
-    "soil_type": soilType,
-    "area_charactor": areaCharactor,
-    "note": note,
-  };
-
+        "land_name": landName,
+        "number_of_areas": numberOfAreas,
+        "address": address,
+        "holding": holding,
+        "utilization": utilization,
+        "soil_type": soilType,
+        "area_charactor": areaCharactor,
+        "note": note,
+      };
 }
 
 class QuestionPart16 {
@@ -201,18 +198,10 @@ class QuestionPart16 {
     required this.lastYear,
     required this.status,
     required this.benefitsOfUse,
-    required this.weekUse,
-    required this.monthUse,
-    required this.yearUse,
     required this.tractorHorsepower,
-    required this.plow1,
-    required this.plow2,
-    required this.plow3,
-    required this.plow4,
-    required this.plow5,
-    required this.plowBomb,
-    required this.rotary,
-    required this.rowOfRice,
+    required this.frequencyOfUse,
+
+    required this.plows,
   });
 
   final String? machineType;
@@ -220,65 +209,45 @@ class QuestionPart16 {
   final String? lastYear;
   final String? status;
   final String? benefitsOfUse;
-  final int? weekUse;
-  final int? monthUse;
-  final int? yearUse;
   final int? tractorHorsepower;
-  final int? plow1;
-  final int? plow2;
-  final int? plow3;
-  final int? plow4;
-  final int? plow5;
-  final int? plowBomb;
-  final int? rotary;
-  final int? rowOfRice;
-
-  factory QuestionPart16.fromJson(Map<String, dynamic> json){
+  final String? frequencyOfUse;
+  final String? plows;
+  factory QuestionPart16.fromJson(Map<String, dynamic> json) {
     return QuestionPart16(
       machineType: json["machine_type"],
       numberOfMachines: json["number_of_machines"],
       lastYear: json["last_year"],
       status: json["status"],
       benefitsOfUse: json["benefits_of_use"],
-      weekUse: json["week_use"],
-      monthUse: json["month_use"],
-      yearUse: json["year_use"],
       tractorHorsepower: json["tractor_horsepower"],
-      plow1: json["plow_1"],
-      plow2: json["plow_2"],
-      plow3: json["plow_3"],
-      plow4: json["plow_4"],
-      plow5: json["plow_5"],
-      plowBomb: json["plow_bomb"],
-      rotary: json["rotary"],
-      rowOfRice: json["row_of_rice"],
+      frequencyOfUse: json["frequency_of_use"],
+      plows: json["plows"],
     );
   }
 
   Map<String, dynamic> toJson() => {
-    "machine_type": machineType,
-    "number_of_machines": numberOfMachines,
-    "last_year": lastYear,
-    "status": status,
-    "benefits_of_use": benefitsOfUse,
-    "week_use": weekUse,
-    "month_use": monthUse,
-    "year_use": yearUse,
-    "tractor_horsepower": tractorHorsepower,
-    "plow_1": plow1,
-    "plow_2": plow2,
-    "plow_3": plow3,
-    "plow_4": plow4,
-    "plow_5": plow5,
-    "plow_bomb": plowBomb,
-    "rotary": rotary,
-    "row_of_rice": rowOfRice,
-  };
-
+        "machine_type": machineType,
+        "number_of_machines": numberOfMachines,
+        "last_year": lastYear,
+        "status": status,
+        "benefits_of_use": benefitsOfUse,
+        "tractor_horsepower": tractorHorsepower,
+        "frequency_of_use": frequencyOfUse,
+        "plows": plows,
+      };
 }
 
 class QuestionPart2 {
   QuestionPart2({
+    required this.questionPart233,
+    //required this.questionPart234,
+    required this.questionPart245,
+    required this.questionPart24611,
+    required this.questionPart24621,
+    //required this.questionPart246211,
+    //required this.questionPart246212,
+    required this.questionPart24631,
+    required this.questionPart24641,
     required this.landNumber,
     required this.landName,
     required this.numberOfArear,
@@ -286,35 +255,23 @@ class QuestionPart2 {
     required this.questionPart212,
     required this.questionPart213,
     required this.questionPart214,
-    required this.questionPart215,
     required this.questionPart221,
     required this.questionPart222,
     required this.questionPart223,
     required this.questionPart224,
     required this.questionPart225,
-    required this.questionPart226,
-    required this.questionPart2261,
+    //required this.questionPart2261,
     required this.questionPart231,
-    required this.questionPart2311,
+    //required this.questionPart2311,
     required this.questionPart232,
     required this.questionPart241,
-    required this.questionPart2411,
+    //required this.questionPart2411,
     required this.questionPart242,
-    required this.questionPart2421,
+    // required this.questionPart2421,
     required this.questionPart243,
     required this.questionPart244,
-    required this.questionPart24511,
-    required this.questionPart24512,
-    required this.questionPart24521,
-    required this.questionPart24531,
-    required this.questionPart24532,
-    required this.questionPart24541,
-    required this.questionPart245411,
-    required this.questionPart24542,
-    required this.questionPart245421,
     required this.questionPart251,
     required this.questionPart252,
-    required this.questionPart2521,
     required this.questionPart253,
     required this.questionPart254,
     required this.questionPart255,
@@ -327,145 +284,87 @@ class QuestionPart2 {
   final int? landNumber;
   final String? landName;
   final double? numberOfArear;
-  final String? questionPart211;
-  final String? questionPart212;
-  final String? questionPart213;
-  final String? questionPart214;
-  final String? questionPart215;
-  final String? questionPart221;
-  final String? questionPart222;
-  final String? questionPart223;
-  final String? questionPart224;
-  final String? questionPart225;
-  final String? questionPart226;
-  final dynamic questionPart2261;
-  final String? questionPart231;
-  final String? questionPart2311;
-  final String? questionPart232;
-  final String? questionPart241;
-  final String? questionPart2411;
-  final String? questionPart242;
-  final dynamic questionPart2421;
-  final String? questionPart243;
-  final String? questionPart244;
-  final String? questionPart24511;
-  final String? questionPart24512;
-  final String? questionPart24521;
-  final String? questionPart24531;
-  final String? questionPart24532;
-  final String? questionPart24541;
-  final dynamic questionPart245411;
-  final String? questionPart24542;
-  final String? questionPart245421;
-  final String? questionPart251;
-  final String? questionPart252;
-  final String? questionPart2521;
-  final String? questionPart253;
-  final String? questionPart254;
-  final String? questionPart255;
-  final String? questionPart2551;
-  final String? questionPart256;
-  final String? questionPart2561;
-  final String? questionPart261;
+  final String? questionPart211; //
+  final String? questionPart212; //
+  final String? questionPart213; //
+  final String? questionPart214; //
+  final String? questionPart221; //
+  final String? questionPart222; //
+  final String? questionPart223; //
+  final String? questionPart224; //
+  final String? questionPart225; //
+  final String? questionPart231; //
+  //final String? questionPart2311;
+  final String? questionPart232; //
+  final String? questionPart233; //
+  final String? questionPart241; //
+ // final String? questionPart2411;
+  final String? questionPart242; //
+  final String? questionPart243; //
+  final String? questionPart244; //
+  final String? questionPart245; //
+  final String? questionPart24611; //
+  final String? questionPart24621; //
+  final String? questionPart24631; // ใบข้าว
+  final String? questionPart24641; //
+  final String? questionPart251; //
+  final String? questionPart252; //
+  final String? questionPart253; //
+  final String? questionPart254; //
+  final String? questionPart255; //
+  final String? questionPart2551; //
+  final String? questionPart256; //
+  final String? questionPart2561; //
+  final String? questionPart261; //
+  //final dynamic questionPart234; /// วิธีปลูกในปีการผลิตที่ผ่านมา
+  //final dynamic questionPart2261; /// ขั้นตอนการเตรียมดิน
+  //final dynamic questionPart2421;  /// กรณีให้น้ำ
+  //final dynamic questionPart246211; /// การให้ปุ๋ย
+  //final dynamic questionPart246212; /// กรณีกำจัดวัชพืช
 
-  factory QuestionPart2.fromJson(Map<String, dynamic> json){
-    return QuestionPart2(
-      landNumber: json["land_number"],
-      landName: json["land_name"],
-      numberOfArear: json["number_of_arear"],
-      questionPart211: json["question_part_2_1_1"],
-      questionPart212: json["question_part_2_1_2"],
-      questionPart213: json["question_part_2_1_3"],
-      questionPart214: json["question_part_2_1_4"],
-      questionPart215: json["question_part_2_1_5"],
-      questionPart221: json["question_part_2_2_1"],
-      questionPart222: json["question_part_2_2_2"],
-      questionPart223: json["question_part_2_2_3"],
-      questionPart224: json["question_part_2_2_4"],
-      questionPart225: json["question_part_2_2_5"],
-      questionPart226: json["question_part_2_2_6"],
-      questionPart2261: json["question_part_2_2_6_1"],
-      questionPart231: json["question_part_2_3_1"],
-      questionPart2311: json["question_part_2_3_1_1"],
-      questionPart232: json["question_part_2_3_2"],
-      questionPart241: json["question_part_2_4_1"],
-      questionPart2411: json["question_part_2_4_1_1"],
-      questionPart242: json["question_part_2_4_2"],
-      questionPart2421: json["question_part_2_4_2_1"],
-      questionPart243: json["question_part_2_4_3"],
-      questionPart244: json["question_part_2_4_4"],
-      questionPart24511: json["question_part_2_4_5_1_1"],
-      questionPart24512: json["question_part_2_4_5_1_2"],
-      questionPart24521: json["question_part_2_4_5_2_1"],
-      questionPart24531: json["question_part_2_4_5_3_1"],
-      questionPart24532: json["question_part_2_4_5_3_2"],
-      questionPart24541: json["question_part_2_4_5_4_1"],
-      questionPart245411: json["question_part_2_4_5_4_1_1"],
-      questionPart24542: json["question_part_2_4_5_4_2"],
-      questionPart245421: json["question_part_2_4_5_4_2_1"],
-      questionPart251: json["question_part_2_5_1"],
-      questionPart252: json["question_part_2_5_2"],
-      questionPart2521: json["question_part_2_5_2_1"],
-      questionPart253: json["question_part_2_5_3"],
-      questionPart254: json["question_part_2_5_4"],
-      questionPart255: json["question_part_2_5_5"],
-      questionPart2551: json["question_part_2_5_5_1"],
-      questionPart256: json["question_part_2_5_6"],
-      questionPart2561: json["question_part_2_5_6_1"],
-      questionPart261: json["question_part_2_6_1"],
-    );
-  }
 
   Map<String, dynamic> toJson() => {
-    "land_number": landNumber,
-    "land_name": landName,
-    "number_of_arear": numberOfArear,
-    "question_part_2_1_1": questionPart211,
-    "question_part_2_1_2": questionPart212,
-    "question_part_2_1_3": questionPart213,
-    "question_part_2_1_4": questionPart214,
-    "question_part_2_1_5": questionPart215,
-    "question_part_2_2_1": questionPart221,
-    "question_part_2_2_2": questionPart222,
-    "question_part_2_2_3": questionPart223,
-    "question_part_2_2_4": questionPart224,
-    "question_part_2_2_5": questionPart225,
-    "question_part_2_2_6": questionPart226,
-    "question_part_2_2_6_1": questionPart2261,
-    "question_part_2_3_1": questionPart231,
-    "question_part_2_3_1_1": questionPart2311,
-    "question_part_2_3_2": questionPart232,
-    "question_part_2_4_1": questionPart241,
-    "question_part_2_4_1_1": questionPart2411,
-    "question_part_2_4_2": questionPart242,
-    "question_part_2_4_2_1": questionPart2421,
-    "question_part_2_4_3": questionPart243,
-    "question_part_2_4_4": questionPart244,
-    "question_part_2_4_5_1_1": questionPart24511,
-    "question_part_2_4_5_1_2": questionPart24512,
-    "question_part_2_4_5_2_1": questionPart24521,
-    "question_part_2_4_5_3_1": questionPart24531,
-    "question_part_2_4_5_3_2": questionPart24532,
-    "question_part_2_4_5_4_1": questionPart24541,
-    "question_part_2_4_5_4_1_1": questionPart245411,
-    "question_part_2_4_5_4_2": questionPart24542,
-    "question_part_2_4_5_4_2_1": questionPart245421,
-    "question_part_2_5_1": questionPart251,
-    "question_part_2_5_2": questionPart252,
-    "question_part_2_5_2_1": questionPart2521,
-    "question_part_2_5_3": questionPart253,
-    "question_part_2_5_4": questionPart254,
-    "question_part_2_5_5": questionPart255,
-    "question_part_2_5_5_1": questionPart2551,
-    "question_part_2_5_6": questionPart256,
-    "question_part_2_5_6_1": questionPart2561,
-    "question_part_2_6_1": questionPart261,
-  };
-
+        "land_number": landNumber, //
+        "land_name": landName, //
+        "number_of_arear": numberOfArear, //
+        "question_part_2_1_1": questionPart211, //
+        "question_part_2_1_2": questionPart212, //
+        "question_part_2_1_3": questionPart213, //
+        "question_part_2_1_4": questionPart214, //
+        "question_part_2_2_1": questionPart221, //
+        "question_part_2_2_2": questionPart222, //
+        "question_part_2_2_3": questionPart223, //
+        "question_part_2_2_4": questionPart224, //
+        "question_part_2_2_5": questionPart225, //
+        "question_part_2_3_1": questionPart231,
+        "question_part_2_3_2": questionPart232,
+        "question_part_2_3_3": questionPart233,
+        "question_part_2_4_1": questionPart241,
+        "question_part_2_4_2": questionPart242,
+        "question_part_2_4_3": questionPart243,
+        "question_part_2_4_4": questionPart244,
+        "question_part_2_4_5": questionPart245,
+        "question_part_2_4_5_1_1": questionPart24611,
+        "question_part_2_4_5_2_1": questionPart24621,
+        "question_part_2_4_5_3_1": questionPart24631,
+        "question_part_2_4_5_4_1": questionPart24641,
+        "question_part_2_5_1": questionPart251,
+        "question_part_2_5_2": questionPart252,
+        "question_part_2_5_3": questionPart253,
+        "question_part_2_5_4": questionPart254,
+        "question_part_2_5_5": questionPart255,
+        "question_part_2_5_5_1": questionPart2551,
+        "question_part_2_6_1": questionPart261,
+        "question_part_2_5_6": questionPart256,
+        "question_part_2_5_6_1": questionPart2561,
+      };
 }
 
-class QuestionPart2321 {
-  QuestionPart2321({
+
+
+// ขั้นตอนการเตรียมดิน question_part_2.3.3.1
+class QuestionPart2261 {
+  QuestionPart2261({
     required this.howTo,
     required this.range,
     required this.month,
@@ -483,8 +382,8 @@ class QuestionPart2321 {
   final String? source;
   final int? serviceFee;
 
-  factory QuestionPart2321.fromJson(Map<String, dynamic> json){
-    return QuestionPart2321(
+  factory QuestionPart2261.fromJson(Map<String, dynamic> json) {
+    return QuestionPart2261(
       howTo: json["how_to"],
       range: json["range"],
       month: json["month"],
@@ -496,19 +395,19 @@ class QuestionPart2321 {
   }
 
   Map<String, dynamic> toJson() => {
-    "how_to": howTo,
-    "range": range,
-    "month": month,
-    "number_of_times": numberOfTimes,
-    "machine": machine,
-    "source": source,
-    "service_fee": serviceFee,
-  };
-
+        "how_to": howTo,
+        "range": range,
+        "month": month,
+        "number_of_times": numberOfTimes,
+        "machine": machine,
+        "source": source,
+        "service_fee": serviceFee,
+      };
 }
 
-class QuestionPart233 {
-  QuestionPart233({
+// วิธีปลูกในปีการผลิตที่ผ่านมา question_part_2_3_4_1
+class QuestionPart234 {
+  QuestionPart234({
     required this.howTo,
     required this.range,
     required this.month,
@@ -524,8 +423,8 @@ class QuestionPart233 {
   final String? source;
   final String? problem;
 
-  factory QuestionPart233.fromJson(Map<String, dynamic> json){
-    return QuestionPart233(
+  factory QuestionPart234.fromJson(Map<String, dynamic> json) {
+    return QuestionPart234(
       howTo: json["how_to"],
       range: json["range"],
       month: json["month"],
@@ -536,18 +435,18 @@ class QuestionPart233 {
   }
 
   Map<String, dynamic> toJson() => {
-    "how_to": howTo,
-    "range": range,
-    "month": month,
-    "causa": causa,
-    "source": source,
-    "problem": problem,
-  };
-
+        "how_to": howTo,
+        "range": range,
+        "month": month,
+        "causa": causa,
+        "source": source,
+        "problem": problem,
+      };
 }
 
-class QuestionPart24513 {
-  QuestionPart24513({
+// กรณีให้น้ำ question_part_2_4_2_6_1_1
+class QuestionPart2421 {
+  QuestionPart2421({
     required this.dateRange,
     required this.decision,
     required this.waterSource,
@@ -565,8 +464,8 @@ class QuestionPart24513 {
   final String? decisionStop;
   final String? enough;
 
-  factory QuestionPart24513.fromJson(Map<String, dynamic> json){
-    return QuestionPart24513(
+  factory QuestionPart2421.fromJson(Map<String, dynamic> json) {
+    return QuestionPart2421(
       dateRange: json["date_range"],
       decision: json["decision"],
       waterSource: json["water_source"],
@@ -578,19 +477,19 @@ class QuestionPart24513 {
   }
 
   Map<String, dynamic> toJson() => {
-    "date_range": dateRange,
-    "decision": decision,
-    "water_source": waterSource,
-    "how_to_give_water": howToGiveWater,
-    "amount": amount,
-    "decision_stop": decisionStop,
-    "enough": enough,
-  };
-
+        "date_range": dateRange,
+        "decision": decision,
+        "water_source": waterSource,
+        "how_to_give_water": howToGiveWater,
+        "amount": amount,
+        "decision_stop": decisionStop,
+        "enough": enough,
+      };
 }
 
-class QuestionPart24522 {
-  QuestionPart24522({
+// การให้ปุ๋ย question_part_2_4_6_2_1
+class QuestionPart246211 {
+  QuestionPart246211({
     required this.dateRange,
     required this.factor,
     required this.ageRice,
@@ -610,8 +509,8 @@ class QuestionPart24522 {
   final String? howTo;
   final String? fertilizerSource;
 
-  factory QuestionPart24522.fromJson(Map<String, dynamic> json){
-    return QuestionPart24522(
+  factory QuestionPart246211.fromJson(Map<String, dynamic> json) {
+    return QuestionPart246211(
       dateRange: json["date_range"],
       factor: json["factor"],
       ageRice: json["age_rice"],
@@ -624,18 +523,18 @@ class QuestionPart24522 {
   }
 
   Map<String, dynamic> toJson() => {
-    "date_range": dateRange,
-    "factor": factor,
-    "age_rice": ageRice,
-    "fertilizer_type": fertilizerType,
-    "fertilizer_formula": fertilizerFormula,
-    "amouht": amouht,
-    "how_to": howTo,
-    "fertilizer_source": fertilizerSource,
-  };
-
+        "date_range": dateRange,
+        "factor": factor,
+        "age_rice": ageRice,
+        "fertilizer_type": fertilizerType,
+        "fertilizer_formula": fertilizerFormula,
+        "amouht": amouht,
+        "how_to": howTo,
+        "fertilizer_source": fertilizerSource,
+      };
 }
 
+// กรณีกำจัดวัชพืช question_part_2_4_5_3_1_1
 class QuestionPart245311 {
   QuestionPart245311({
     required this.reason,
@@ -651,7 +550,7 @@ class QuestionPart245311 {
   final String? toolSource;
   final String? brand;
 
-  factory QuestionPart245311.fromJson(Map<String, dynamic> json){
+  factory QuestionPart245311.fromJson(Map<String, dynamic> json) {
     return QuestionPart245311(
       reason: json["reason"],
       objective: json["objective"],
@@ -662,13 +561,12 @@ class QuestionPart245311 {
   }
 
   Map<String, dynamic> toJson() => {
-    "reason": reason,
-    "objective": objective,
-    "how_to": howTo,
-    "tool_source": toolSource,
-    "brand": brand,
-  };
-
+        "reason": reason,
+        "objective": objective,
+        "how_to": howTo,
+        "tool_source": toolSource,
+        "brand": brand,
+      };
 }
 
 class QuestionPart3 {
@@ -688,7 +586,7 @@ class QuestionPart3 {
   final int? serviceFee;
   final String? decisionReusons;
 
-  factory QuestionPart3.fromJson(Map<String, dynamic> json){
+  factory QuestionPart3.fromJson(Map<String, dynamic> json) {
     return QuestionPart3(
       process: json["process"],
       typeMachine: json["type_machine"],
@@ -700,12 +598,11 @@ class QuestionPart3 {
   }
 
   Map<String, dynamic> toJson() => {
-    "process": process,
-    "type_machine": typeMachine,
-    "prossessor": prossessor,
-    "prossessor_1": prossessor1,
-    "service_fee": serviceFee,
-    "decision_reusons": decisionReusons,
-  };
-
+        "process": process,
+        "type_machine": typeMachine,
+        "prossessor": prossessor,
+        "prossessor_1": prossessor1,
+        "service_fee": serviceFee,
+        "decision_reusons": decisionReusons,
+      };
 }

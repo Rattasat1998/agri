@@ -1,12 +1,14 @@
+import 'dart:convert';
+
 import 'package:agri/screens/profile/pages/agri_information/info_image.dart';
 import 'package:agri/utils/themes.dart';
 import 'package:agri/widgets/back_button_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+
 import '../../../../../widgets/custom_text.dart';
 import '../bloc/agri_info_bloc.dart';
 import '../models/rice_field_model.dart';
@@ -170,11 +172,15 @@ class _Section1PageState extends State<Section1Page> {
                           print('point4: ${state.selectedPoint4?.toJson()}');
                           print('point5: ${state.selectedPoint5?.toJson()}');
                         }
+
+                        /// adon1
+                        // TODO 1. ตรวจสอบว่ามีการเลือก tractorModel หรือไม่
                         final Section1PointAdOn1 adOn1 = Section1Point1.section1PointAdOn1;
                         if (adOn1.tractorModel.value) {
                           String msg = 'กรุณาเลือกการใช้ประโยชน์';
                           bool tractorStatus =
                               adOn1.adOn1.tractorStatus.map((e) => e.value).contains(true);
+
                           bool tractorType = adOn1.adOn1.forUse.inHome.value;
                           bool tractorType2 = adOn1.adOn1.forUse.forWorks.forWork.value;
                           bool tractorType3 = adOn1.adOn1.forUse.forWorks.forWorkList
@@ -205,6 +211,44 @@ class _Section1PageState extends State<Section1Page> {
                               fontSize: 16.0,
                             );
                             return;
+                          }
+
+                          final seq = adOn1.mainSequenceToUseModel;
+                          if (seq.where((e) => e.value == true).isEmpty) {
+                            Fluttertoast.showToast(
+                              msg: 'กรุณาเลือกความถี่ในการใช้งาน',
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.CENTER,
+                              timeInSecForIosWeb: 2,
+                              backgroundColor: Colors.red,
+                              textColor: Colors.white,
+                              fontSize: 16.0,
+                            );
+                            return;
+                          }
+                          if (seq.where((e) => e.value == true).isNotEmpty) {
+                            final subSeq = adOn1.mainSequenceToUseModel.map((e) => e.subs).toList();
+
+                            for (var i = 0; i < subSeq.length; i++) {
+                              final sub = subSeq[i];
+                              for (var j = 0; j < sub.length; j++) {
+                                final element = sub[j];
+                                if (element.value) {
+                                  if (element.value && element.controller.text.isEmpty) {
+                                    Fluttertoast.showToast(
+                                      msg: 'กรุณากรอกข้อมูลให้ครบถ้วนในหัวข้อความถี่การใช้งาน',
+                                      toastLength: Toast.LENGTH_SHORT,
+                                      gravity: ToastGravity.CENTER,
+                                      timeInSecForIosWeb: 2,
+                                      backgroundColor: Colors.red,
+                                      textColor: Colors.white,
+                                      fontSize: 16.0,
+                                    );
+                                    return;
+                                  }
+                                }
+                              }
+                            }
                           }
 
                           if (_formKeyA1.currentState!.validate()) {
@@ -267,6 +311,44 @@ class _Section1PageState extends State<Section1Page> {
                             return;
                           }
 
+                          final seq = adOn2.mainSequenceToUseModel;
+                          if (seq.where((e) => e.value == true).isEmpty) {
+                            Fluttertoast.showToast(
+                              msg: 'กรุณาเลือกความถี่ในการใช้งาน',
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.CENTER,
+                              timeInSecForIosWeb: 2,
+                              backgroundColor: Colors.red,
+                              textColor: Colors.white,
+                              fontSize: 16.0,
+                            );
+                            return;
+                          }
+                          if (seq.where((e) => e.value == true).isNotEmpty) {
+                            final subSeq = adOn1.mainSequenceToUseModel.map((e) => e.subs).toList();
+
+                            for (var i = 0; i < subSeq.length; i++) {
+                              final sub = subSeq[i];
+                              for (var j = 0; j < sub.length; j++) {
+                                final element = sub[j];
+                                if (element.value) {
+                                  if (element.value && element.controller.text.isEmpty) {
+                                    Fluttertoast.showToast(
+                                      msg: 'กรุณากรอกข้อมูลให้ครบถ้วนในหัวข้อความถี่การใช้งาน',
+                                      toastLength: Toast.LENGTH_SHORT,
+                                      gravity: ToastGravity.CENTER,
+                                      timeInSecForIosWeb: 2,
+                                      backgroundColor: Colors.red,
+                                      textColor: Colors.white,
+                                      fontSize: 16.0,
+                                    );
+                                    return;
+                                  }
+                                }
+                              }
+                            }
+                          }
+
                           if (_formKeyA2.currentState!.validate()) {
                             state.selectedPointAdOn2 = adOn2;
                           } else {
@@ -324,6 +406,44 @@ class _Section1PageState extends State<Section1Page> {
                               fontSize: 16.0,
                             );
                             return;
+                          }
+
+                          final seq = adOn3.mainSequenceToUseModel;
+                          if (seq.where((e) => e.value == true).isEmpty) {
+                            Fluttertoast.showToast(
+                              msg: 'กรุณาเลือกความถี่ในการใช้งาน',
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.CENTER,
+                              timeInSecForIosWeb: 2,
+                              backgroundColor: Colors.red,
+                              textColor: Colors.white,
+                              fontSize: 16.0,
+                            );
+                            return;
+                          }
+                          if (seq.where((e) => e.value == true).isNotEmpty) {
+                            final subSeq = adOn1.mainSequenceToUseModel.map((e) => e.subs).toList();
+
+                            for (var i = 0; i < subSeq.length; i++) {
+                              final sub = subSeq[i];
+                              for (var j = 0; j < sub.length; j++) {
+                                final element = sub[j];
+                                if (element.value) {
+                                  if (element.value && element.controller.text.isEmpty) {
+                                    Fluttertoast.showToast(
+                                      msg: 'กรุณากรอกข้อมูลให้ครบถ้วนในหัวข้อความถี่การใช้งาน',
+                                      toastLength: Toast.LENGTH_SHORT,
+                                      gravity: ToastGravity.CENTER,
+                                      timeInSecForIosWeb: 2,
+                                      backgroundColor: Colors.red,
+                                      textColor: Colors.white,
+                                      fontSize: 16.0,
+                                    );
+                                    return;
+                                  }
+                                }
+                              }
+                            }
                           }
 
                           if (_formKeyA3.currentState!.validate()) {
@@ -385,6 +505,44 @@ class _Section1PageState extends State<Section1Page> {
                             return;
                           }
 
+                          final seq = adOn4.mainSequenceToUseModel;
+                          if (seq.where((e) => e.value == true).isEmpty) {
+                            Fluttertoast.showToast(
+                              msg: 'กรุณาเลือกความถี่ในการใช้งาน',
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.CENTER,
+                              timeInSecForIosWeb: 2,
+                              backgroundColor: Colors.red,
+                              textColor: Colors.white,
+                              fontSize: 16.0,
+                            );
+                            return;
+                          }
+                          if (seq.where((e) => e.value == true).isNotEmpty) {
+                            final subSeq = adOn1.mainSequenceToUseModel.map((e) => e.subs).toList();
+
+                            for (var i = 0; i < subSeq.length; i++) {
+                              final sub = subSeq[i];
+                              for (var j = 0; j < sub.length; j++) {
+                                final element = sub[j];
+                                if (element.value) {
+                                  if (element.value && element.controller.text.isEmpty) {
+                                    Fluttertoast.showToast(
+                                      msg: 'กรุณากรอกข้อมูลให้ครบถ้วนในหัวข้อความถี่การใช้งาน',
+                                      toastLength: Toast.LENGTH_SHORT,
+                                      gravity: ToastGravity.CENTER,
+                                      timeInSecForIosWeb: 2,
+                                      backgroundColor: Colors.red,
+                                      textColor: Colors.white,
+                                      fontSize: 16.0,
+                                    );
+                                    return;
+                                  }
+                                }
+                              }
+                            }
+                          }
+
                           if (_formKeyA4.currentState!.validate()) {
                             state.selectedPointAdOn4 = adOn4;
                           } else {
@@ -444,6 +602,44 @@ class _Section1PageState extends State<Section1Page> {
                             return;
                           }
 
+                          final seq = adOn5.mainSequenceToUseModel;
+                          if (seq.where((e) => e.value == true).isEmpty) {
+                            Fluttertoast.showToast(
+                              msg: 'กรุณาเลือกความถี่ในการใช้งาน',
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.CENTER,
+                              timeInSecForIosWeb: 2,
+                              backgroundColor: Colors.red,
+                              textColor: Colors.white,
+                              fontSize: 16.0,
+                            );
+                            return;
+                          }
+                          if (seq.where((e) => e.value == true).isNotEmpty) {
+                            final subSeq = adOn1.mainSequenceToUseModel.map((e) => e.subs).toList();
+
+                            for (var i = 0; i < subSeq.length; i++) {
+                              final sub = subSeq[i];
+                              for (var j = 0; j < sub.length; j++) {
+                                final element = sub[j];
+                                if (element.value) {
+                                  if (element.value && element.controller.text.isEmpty) {
+                                    Fluttertoast.showToast(
+                                      msg: 'กรุณากรอกข้อมูลให้ครบถ้วนในหัวข้อความถี่การใช้งาน',
+                                      toastLength: Toast.LENGTH_SHORT,
+                                      gravity: ToastGravity.CENTER,
+                                      timeInSecForIosWeb: 2,
+                                      backgroundColor: Colors.red,
+                                      textColor: Colors.white,
+                                      fontSize: 16.0,
+                                    );
+                                    return;
+                                  }
+                                }
+                              }
+                            }
+                          }
+
                           if (_formKeyA5.currentState!.validate()) {
                             state.selectedPointAdOn5 = adOn5;
                           } else {
@@ -501,6 +697,44 @@ class _Section1PageState extends State<Section1Page> {
                               fontSize: 16.0,
                             );
                             return;
+                          }
+
+                          final seq = adOn6.mainSequenceToUseModel;
+                          if (seq.where((e) => e.value == true).isEmpty) {
+                            Fluttertoast.showToast(
+                              msg: 'กรุณาเลือกความถี่ในการใช้งาน',
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.CENTER,
+                              timeInSecForIosWeb: 2,
+                              backgroundColor: Colors.red,
+                              textColor: Colors.white,
+                              fontSize: 16.0,
+                            );
+                            return;
+                          }
+                          if (seq.where((e) => e.value == true).isNotEmpty) {
+                            final subSeq = adOn1.mainSequenceToUseModel.map((e) => e.subs).toList();
+
+                            for (var i = 0; i < subSeq.length; i++) {
+                              final sub = subSeq[i];
+                              for (var j = 0; j < sub.length; j++) {
+                                final element = sub[j];
+                                if (element.value) {
+                                  if (element.value && element.controller.text.isEmpty) {
+                                    Fluttertoast.showToast(
+                                      msg: 'กรุณากรอกข้อมูลให้ครบถ้วนในหัวข้อความถี่การใช้งาน',
+                                      toastLength: Toast.LENGTH_SHORT,
+                                      gravity: ToastGravity.CENTER,
+                                      timeInSecForIosWeb: 2,
+                                      backgroundColor: Colors.red,
+                                      textColor: Colors.white,
+                                      fontSize: 16.0,
+                                    );
+                                    return;
+                                  }
+                                }
+                              }
+                            }
                           }
 
                           if (_formKeyA6.currentState!.validate()) {
@@ -563,6 +797,44 @@ class _Section1PageState extends State<Section1Page> {
                             return;
                           }
 
+                          final seq = adOn7.mainSequenceToUseModel;
+                          if (seq.where((e) => e.value == true).isEmpty) {
+                            Fluttertoast.showToast(
+                              msg: 'กรุณาเลือกความถี่ในการใช้งาน',
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.CENTER,
+                              timeInSecForIosWeb: 2,
+                              backgroundColor: Colors.red,
+                              textColor: Colors.white,
+                              fontSize: 16.0,
+                            );
+                            return;
+                          }
+                          if (seq.where((e) => e.value == true).isNotEmpty) {
+                            final subSeq = adOn1.mainSequenceToUseModel.map((e) => e.subs).toList();
+
+                            for (var i = 0; i < subSeq.length; i++) {
+                              final sub = subSeq[i];
+                              for (var j = 0; j < sub.length; j++) {
+                                final element = sub[j];
+                                if (element.value) {
+                                  if (element.value && element.controller.text.isEmpty) {
+                                    Fluttertoast.showToast(
+                                      msg: 'กรุณากรอกข้อมูลให้ครบถ้วนในหัวข้อความถี่การใช้งาน',
+                                      toastLength: Toast.LENGTH_SHORT,
+                                      gravity: ToastGravity.CENTER,
+                                      timeInSecForIosWeb: 2,
+                                      backgroundColor: Colors.red,
+                                      textColor: Colors.white,
+                                      fontSize: 16.0,
+                                    );
+                                    return;
+                                  }
+                                }
+                              }
+                            }
+                          }
+
                           if (_formKeyA7.currentState!.validate()) {
                             state.selectedPointAdOn7 = adOn7;
                           } else {
@@ -620,6 +892,44 @@ class _Section1PageState extends State<Section1Page> {
                               fontSize: 16.0,
                             );
                             return;
+                          }
+
+                          final seq = adOn8.mainSequenceToUseModel;
+                          if (seq.where((e) => e.value == true).isEmpty) {
+                            Fluttertoast.showToast(
+                              msg: 'กรุณาเลือกความถี่ในการใช้งาน',
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.CENTER,
+                              timeInSecForIosWeb: 2,
+                              backgroundColor: Colors.red,
+                              textColor: Colors.white,
+                              fontSize: 16.0,
+                            );
+                            return;
+                          }
+                          if (seq.where((e) => e.value == true).isNotEmpty) {
+                            final subSeq = adOn1.mainSequenceToUseModel.map((e) => e.subs).toList();
+
+                            for (var i = 0; i < subSeq.length; i++) {
+                              final sub = subSeq[i];
+                              for (var j = 0; j < sub.length; j++) {
+                                final element = sub[j];
+                                if (element.value) {
+                                  if (element.value && element.controller.text.isEmpty) {
+                                    Fluttertoast.showToast(
+                                      msg: 'กรุณากรอกข้อมูลให้ครบถ้วนในหัวข้อความถี่การใช้งาน',
+                                      toastLength: Toast.LENGTH_SHORT,
+                                      gravity: ToastGravity.CENTER,
+                                      timeInSecForIosWeb: 2,
+                                      backgroundColor: Colors.red,
+                                      textColor: Colors.white,
+                                      fontSize: 16.0,
+                                    );
+                                    return;
+                                  }
+                                }
+                              }
+                            }
                           }
 
                           if (_formKeyA8.currentState!.validate()) {
@@ -681,6 +991,44 @@ class _Section1PageState extends State<Section1Page> {
                             return;
                           }
 
+                          final seq = adOn9.mainSequenceToUseModel;
+                          if (seq.where((e) => e.value == true).isEmpty) {
+                            Fluttertoast.showToast(
+                              msg: 'กรุณาเลือกความถี่ในการใช้งาน',
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.CENTER,
+                              timeInSecForIosWeb: 2,
+                              backgroundColor: Colors.red,
+                              textColor: Colors.white,
+                              fontSize: 16.0,
+                            );
+                            return;
+                          }
+                          if (seq.where((e) => e.value == true).isNotEmpty) {
+                            final subSeq = adOn1.mainSequenceToUseModel.map((e) => e.subs).toList();
+
+                            for (var i = 0; i < subSeq.length; i++) {
+                              final sub = subSeq[i];
+                              for (var j = 0; j < sub.length; j++) {
+                                final element = sub[j];
+                                if (element.value) {
+                                  if (element.value && element.controller.text.isEmpty) {
+                                    Fluttertoast.showToast(
+                                      msg: 'กรุณากรอกข้อมูลให้ครบถ้วนในหัวข้อความถี่การใช้งาน',
+                                      toastLength: Toast.LENGTH_SHORT,
+                                      gravity: ToastGravity.CENTER,
+                                      timeInSecForIosWeb: 2,
+                                      backgroundColor: Colors.red,
+                                      textColor: Colors.white,
+                                      fontSize: 16.0,
+                                    );
+                                    return;
+                                  }
+                                }
+                              }
+                            }
+                          }
+
                           if (_formKeyA9.currentState!.validate()) {
                             state.selectedPointAdOn9 = adOn9;
                           } else {
@@ -703,23 +1051,26 @@ class _Section1PageState extends State<Section1Page> {
                           print('\nadOn9: ${state.selectedPointAdOn9?.toJson()}');
                         }
 
-                        context.read<AgriInfoBloc>().add(AddSection1DataEvent(
-                                section1: Section1DataModel(
-                              selectedPoint1: state.selectedPoint1,
-                              selectedPoint2: state.selectedPoint2,
-                              selectedPoint3: state.selectedPoint3,
-                              selectedPoint4: state.selectedPoint4,
-                              selectedPoint5: state.selectedPoint5,
-                              selectedPointAdOn1: state.selectedPointAdOn1,
-                              selectedPointAdOn2: state.selectedPointAdOn2,
-                              selectedPointAdOn3: state.selectedPointAdOn3,
-                              selectedPointAdOn4: state.selectedPointAdOn4,
-                              selectedPointAdOn5: state.selectedPointAdOn5,
-                              selectedPointAdOn6: state.selectedPointAdOn6,
-                              selectedPointAdOn7: state.selectedPointAdOn7,
-                              selectedPointAdOn8: state.selectedPointAdOn8,
-                              selectedPointAdOn9: state.selectedPointAdOn9,
-                            )));
+                        Section1DataModel section1 = Section1DataModel(
+                          selectedPoint1: state.selectedPoint1,
+                          selectedPoint2: state.selectedPoint2,
+                          selectedPoint3: state.selectedPoint3,
+                          selectedPoint4: state.selectedPoint4,
+                          selectedPoint5: state.selectedPoint5,
+                          selectedPointAdOn1: state.selectedPointAdOn1,
+                          selectedPointAdOn2: state.selectedPointAdOn2,
+                          selectedPointAdOn3: state.selectedPointAdOn3,
+                          selectedPointAdOn4: state.selectedPointAdOn4,
+                          selectedPointAdOn5: state.selectedPointAdOn5,
+                          selectedPointAdOn6: state.selectedPointAdOn6,
+                          selectedPointAdOn7: state.selectedPointAdOn7,
+                          selectedPointAdOn8: state.selectedPointAdOn8,
+                          selectedPointAdOn9: state.selectedPointAdOn9,
+                        );
+
+                        print(jsonEncode(section1.toJson()));
+
+                        context.read<AgriInfoBloc>().add(AddSection1DataEvent(section1: section1));
                         Navigator.pop(context);
 
 /*
@@ -2454,12 +2805,6 @@ class _Section1PageState extends State<Section1Page> {
   }
 
   Widget _tb4(AdOn1 ad, List<MainSequenceToUseModel> mainSequenceToUseModel) {
-    List<bool> isValue = [
-      ad.week!.value.text.isNotEmpty,
-      ad.month!.value.text.isNotEmpty,
-      ad.year!.value.text.isNotEmpty,
-    ];
-
     return Column(
       children: [
         ...mainSequenceToUseModel.map((e) {
@@ -2474,16 +2819,10 @@ class _Section1PageState extends State<Section1Page> {
                       if (!e.value) {
                         e.subs.forEach((element) {
                           element.value = false;
+                          element.controller.clear();
                         });
                       }
-                      mainSequenceToUseModel.forEach((element) {
-                        if (element.text != e.text) {
-                          element.value = false;
-                          element.subs.forEach((element) {
-                            element.value = false;
-                          });
-                        }
-                      });
+
                       setState(() {});
                     },
                   ),
@@ -2503,13 +2842,10 @@ class _Section1PageState extends State<Section1Page> {
                                 ? null
                                 : (value) {
                                     sub.value = value!;
-                                    mainSequenceToUseModel.forEach((element) {
-                                      element.subs.forEach((element) {
-                                        if (element.text != sub.text) {
-                                          element.value = false;
-                                        }
-                                      });
-                                    });
+                                    if (!sub.value) {
+                                      sub.controller.clear();
+                                    }
+                                    _formKeyA1.currentState?.validate();
                                     setState(() {});
                                   },
                           ),
@@ -2520,14 +2856,18 @@ class _Section1PageState extends State<Section1Page> {
                             child: Padding(
                               padding: const EdgeInsets.only(bottom: 8.0),
                               child: _buildTextFieldWidget(
-                                enabled: e.value && sub.value,
+                                enabled: sub.value,
                                 controller: sub.controller,
                                 keyboardType: TextInputType.number,
-                                validator: e.value && sub.value ? null : (value) => 'กรุณาระบุ',
-                                onChanged: (value) {
-                                  // _formKeyA1.currentState!.validate();
-                                  // setState(() {});
+                                validator: (value) {
+                                  if (!e.value)
+                                    return null; // If parent is unchecked, skip validation
+                                  if (sub.value && (value == null || value.isEmpty)) {
+                                    return 'กรุณาระบุ'; // ✅ Show error only when sub checkbox is checked
+                                  }
+                                  return null; // No error
                                 },
+                                onChanged: (value) {},
                               ),
                             ),
                           ),
@@ -2605,16 +2945,6 @@ class _Section1PageState extends State<Section1Page> {
   }
 
   Widget _tbt4(AdOn2 ad, List<MainSequenceToUseModel> mainSequenceToUseModel) {
-/*
-    List<bool> isValue = [
-      ad.week!.value.text.isNotEmpty,
-      ad.month!.value.text.isNotEmpty,
-      ad.year!.value.text.isNotEmpty,
-    ];
-
-    bool isAllTrue = isValue.any((element) => element == true);
-*/
-
     return Column(
       children: [
         ...mainSequenceToUseModel.map((e) {
@@ -2626,19 +2956,14 @@ class _Section1PageState extends State<Section1Page> {
                     value: e.value,
                     onChanged: (value) {
                       e.value = value!;
+
                       if (!e.value) {
                         e.subs.forEach((element) {
                           element.value = false;
+                          element.controller.clear();
                         });
                       }
-                      mainSequenceToUseModel.forEach((element) {
-                        if (element.text != e.text) {
-                          element.value = false;
-                          element.subs.forEach((element) {
-                            element.value = false;
-                          });
-                        }
-                      });
+
                       setState(() {});
                     },
                   ),
@@ -2658,13 +2983,7 @@ class _Section1PageState extends State<Section1Page> {
                                 ? null
                                 : (value) {
                                     sub.value = value!;
-                                    mainSequenceToUseModel.forEach((element) {
-                                      element.subs.forEach((element) {
-                                        if (element.text != sub.text) {
-                                          element.value = false;
-                                        }
-                                      });
-                                    });
+                                    _formKeyA2.currentState?.validate();
                                     setState(() {});
                                   },
                           ),
@@ -2675,10 +2994,17 @@ class _Section1PageState extends State<Section1Page> {
                             child: Padding(
                               padding: const EdgeInsets.only(bottom: 8.0),
                               child: _buildTextFieldWidget(
-                                enabled: e.value && sub.value,
+                                enabled: sub.value,
                                 controller: sub.controller,
-                                keyboardType: TextInputType.number,
-                                validator: e.value && sub.value ? null : (value) => 'กรุณาระบุ',
+                                keyboardType: TextInputType.text,
+                                validator: (value) {
+                                  if (!e.value)
+                                    return null; // If parent is unchecked, skip validation
+                                  if (sub.value && (value == null || value.isEmpty)) {
+                                    return 'กรุณาระบุ'; // ✅ Show error only when sub checkbox is checked
+                                  }
+                                  return null; // No error
+                                },
                                 onChanged: (value) {
                                   // _formKeyA1.currentState!.validate();
                                   // setState(() {});
@@ -2823,7 +3149,11 @@ class _Section1PageState extends State<Section1Page> {
                                 enabled: e.value && sub.value,
                                 controller: sub.controller,
                                 keyboardType: TextInputType.number,
-                                validator: e.value && sub.value ? null : (value) => 'กรุณาระบุ',
+                                validator: !e.value
+                                    ? null
+                                    : sub.value
+                                        ? null
+                                        : (value) => 'กรุณาระบุ',
                                 onChanged: (value) {
                                   // _formKeyA1.currentState!.validate();
                                   // setState(() {});

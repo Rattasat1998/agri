@@ -150,7 +150,7 @@ class AgriInfoBloc extends Bloc<AgriInfoEvent, AgriInfoState> {
     List<bool> statusPending = List.from(state.statusPending);
     statusPending[1] = true;
 
-    print(event.section1.toJson());
+    print(jsonEncode(event.section1.toJson()));
 
     try {
       emit(state.copyWith(
