@@ -148,9 +148,12 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
         visible: !isLogin,
         child: Container(
             margin: const EdgeInsets.only(left: 0),
-            child: Image.asset(
-              ImageProviders.logo2,
-              width: 70,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(80),
+              child: Image.asset(
+                ImageProviders.logo,
+                width: 70,
+              ),
             )),
       ),
       toolbarHeight: 90,

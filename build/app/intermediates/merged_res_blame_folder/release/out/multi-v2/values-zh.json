@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.agri.app-mergeReleaseResources-41:/values-zh/values-zh.xml",
+            "outputFile": "com.agri.app-mergeReleaseResources-38:/values-zh/values-zh.xml",
             "map": [
                 {
                     "source": "/Users/developer/.gradle/caches/transforms-3/74c5e00200c3d5f75d4a26f3d20dc9d3/transformed/jetified-ucrop-2.2.8/res/values-zh/values-zh.xml",

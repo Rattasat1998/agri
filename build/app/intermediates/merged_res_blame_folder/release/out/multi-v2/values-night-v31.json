@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.agri.app-mergeReleaseResources-41:/values-night-v31/values-night-v31.xml",
+            "outputFile": "com.agri.app-mergeReleaseResources-38:/values-night-v31/values-night-v31.xml",
             "map": [
                 {
                     "source": "/Users/developer/Workspace/imove-project/kun/agri/android/app/src/main/res/values-night-v31/styles.xml",

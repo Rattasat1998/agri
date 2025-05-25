@@ -1,4 +1,5 @@
 class ImageProviders {
+  static String logo = 'assets/logo/logo-android.png';
   static String logo1 = 'assets/logo/logo1.png';
   static String logo2 = 'assets/logo/logo2.png';
   static String document = 'assets/icons/document.png';

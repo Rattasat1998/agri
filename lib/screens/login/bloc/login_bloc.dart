@@ -50,6 +50,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       emit(state.copyWith(isSubmitting: true));
       // Simulate a network request for a login
       final response = await _loginRepository.login(state.phoneNumber, state.password);
+      print(response);
       if (response['result']) {
         final token = response['data']['token'];
 
@@ -64,7 +65,20 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         context.read<AuthBloc>().add(AuthLoginEvent());
         Navigator.pushNamedAndRemoveUntil(context, AppRoutes.homeScreen, (route) => false);
       } else {
-        if (response['data']['restore_token'].toString().isNotEmpty) {
+
+        if(response['result'] == false && response['data'] == null) {
+          emit(
+            state.copyWith(
+              isSubmitting: false,
+              isFailure: true,
+              errorMessage: response['message'],
+            ),
+          );
+          EasyLoading.showError(response['message'] ?? '');
+        }
+
+
+        if (response['data']['restore_token'].toString().isNotEmpty || response['data']['restore_token'] != null || response['data']  != null) {
           print('restore_token');
           emit(
             state.copyWith(
@@ -121,21 +135,10 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
                   ],
                 );
               });
-
-
-
-
           return;
         }
 
-        emit(
-          state.copyWith(
-            isSubmitting: false,
-            isFailure: true,
-            errorMessage: response['message'],
-          ),
-        );
-        EasyLoading.showError(response['message'] ?? '');
+
       }
     } catch (e) {
       print(e);

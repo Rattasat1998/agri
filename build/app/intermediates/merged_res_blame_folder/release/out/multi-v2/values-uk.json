@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.agri.app-mergeReleaseResources-41:/values-uk/values-uk.xml",
+            "outputFile": "com.agri.app-mergeReleaseResources-38:/values-uk/values-uk.xml",
             "map": [
                 {
                     "source": "/Users/developer/.gradle/caches/transforms-3/cace34fd55611e5e01a680882ae9663e/transformed/appcompat-1.6.1/res/values-uk/values-uk.xml",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "/Users/developer/.gradle/caches/transforms-3/cce1ba943b8441fd02286eea0579bdd5/transformed/core-1.13.1/res/values-uk/values-uk.xml",
+                    "source": "/Users/developer/.gradle/caches/transforms-3/4b92544d0249f0b3f3043d7256944654/transformed/core-1.10.1/res/values-uk/values-uk.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",

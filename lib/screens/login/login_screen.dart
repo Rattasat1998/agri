@@ -59,8 +59,13 @@ class _LoginScreenState extends State<LoginScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      Image.asset(ImageProviders.logo2),
-                      Image.asset(ImageProviders.logo1),
+                      Image.asset(
+                        ImageProviders.logo,
+                        width: 300,
+                        height: 300,
+                        fit: BoxFit.cover,
+                      ),
+                      // Image.asset(ImageProviders.logo1),
                     ],
                   ),
                   Padding(
@@ -122,7 +127,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                   },
                             child: state.isSubmitting
                                 ? const CupertinoActivityIndicator(color: Colors.black)
-                                : const CustomText(text: 'เข้าสู่ระบบ', color: Colors.white, fontSize: 16),
+                                : const CustomText(
+                                    text: 'เข้าสู่ระบบ', color: Colors.white, fontSize: 16),
                           ),
                           const SizedBox(height: 30),
                           Row(
@@ -148,12 +154,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                 onTap: () {
                                   Navigator.pushNamed(context, AppRoutes.forgetPasswordPage);
                                 },
-                               child: const CustomText(
-                                 text: 'ลืมรหัสผ่าน',
-                                 color: Colors.black,
-                                 fontSize: 16,
-                               ),
-                             ),
+                                child: const CustomText(
+                                  text: 'ลืมรหัสผ่าน',
+                                  color: Colors.black,
+                                  fontSize: 16,
+                                ),
+                              ),
                             ],
                           ),
                         ],

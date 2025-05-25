@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.agri.app-mergeReleaseResources-41:/values-v18/values-v18.xml",
+            "outputFile": "com.agri.app-mergeReleaseResources-38:/values-v18/values-v18.xml",
             "map": [
                 {
                     "source": "/Users/developer/.gradle/caches/transforms-3/cace34fd55611e5e01a680882ae9663e/transformed/appcompat-1.6.1/res/values-v18/values-v18.xml",

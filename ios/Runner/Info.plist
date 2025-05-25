@@ -34,9 +34,17 @@
 		<key>NSCameraUsageDescription</key>
 		<string>อนุญาติให้ THAITRACTORBOOKING เข้าถึงกล้องถ่ายรูปของคุณเพื่อถ่ายรูปเพื่อนำไปใช้เป็นภาพโปรไฟล์</string>
 		<key>NSLocationWhenInUseUsageDescription</key>
-		<string>อนุญาติให้ THAITRACTORBOOKING เข้าถึงตำแหน่งปัจจุบันของคุณ</string>
+		<string>อนุญาติให้ THAITRACTORBOOKING เข้าถึงตำแหน่งปัจจุบันของคุณเพื่อแสดงข้อมูลรถไถใกล้คุณและแสดงระยะทางจากตำแหน่งของคุณเพื่อความสะดวกในการจองบริการ</string>
 		<key>NSPhotoLibraryUsageDescription</key>
-		<string>อนุญาติให้ THAITRACTORBOOKING เข้าถึงรูปภาพของคุณเพื่อนำไปใช้เป็นภาพโปรไฟล์</string>
+        <string>อนุญาติให้ THAITRACTORBOOKING เข้าถึงรูปภาพของคุณเพื่อให้คุณสามารถเลือกรูปมาใช้เป็นภาพโปรไฟล์ผู้ใช้งานในระบบ</string>
+        <key>NSLocationAlwaysUsageDescription</key>
+        <string>อนุญาติให้ THAITRACTORBOOKING ใช้ตำแหน่งของคุณเพื่อค้นหาผู้ให้บริการรถไถหรือแปลงเกษตรใกล้เคียง และแสดงระยะทางจากตำแหน่งของคุณเพื่อความสะดวกในการจองบริการ</string>
+        <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+        <string>อนุญาติให้ THAITRACTORBOOKING ใช้ตำแหน่งของคุณเพื่อค้นหาผู้ให้บริการรถไถหรือแปลงเกษตรใกล้เคียง และแสดงระยะทางจากตำแหน่งของคุณเพื่อความสะดวกในการจองบริการ</string>
+        <key>NSCameraUsageDescription</key>
+        <string>อนุญาติให้ THAITRACTORBOOKING ใช้กล้องเพื่อให้คุณสามารถถ่ายรูปสินค้าและอัปโหลดเข้าสู่ระบบ</string>
+        <key>NSMicrophoneUsageDescription</key>
+        <string>อนุญาติให้ THAITRACTORBOOKING เข้าถึงการแจ้งเตือนด้วยเสียง</string>
 		<key>UIApplicationSupportsIndirectInputEvents</key>
 		<true/>
 		<key>UIBackgroundModes</key>
