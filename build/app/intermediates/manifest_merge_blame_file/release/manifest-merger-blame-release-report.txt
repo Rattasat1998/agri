@@ -1,8 +1,8 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 3    package="com.agri.app"
-4    android:versionCode="10"
-5    android:versionName="1.0.0" >
+4    android:versionCode="12"
+5    android:versionName="1.0.1" >
 6
 7    <uses-sdk
 8        android:minSdkVersion="21"
@@ -52,9 +52,7 @@
 26    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 26-->/Users/developer/Workspace/imove-project/kun/agri/android/app/src/main/AndroidManifest.xml:22:5-81
 26-->/Users/developer/Workspace/imove-project/kun/agri/android/app/src/main/AndroidManifest.xml:22:22-78
-27    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
-27-->/Users/developer/Workspace/imove-project/kun/agri/android/app/src/main/AndroidManifest.xml:23:5-85
-27-->/Users/developer/Workspace/imove-project/kun/agri/android/app/src/main/AndroidManifest.xml:23:22-82
+27    <!-- <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" /> -->
 28
 29    <queries>
 29-->/Users/developer/Workspace/imove-project/kun/agri/android/app/src/main/AndroidManifest.xml:25:5-40:15
@@ -205,7 +203,7 @@
 112-->/Users/developer/Workspace/imove-project/kun/agri/android/app/src/main/AndroidManifest.xml:82:9-84:71
 113            android:name="com.google.android.geo.API_KEY"
 113-->/Users/developer/Workspace/imove-project/kun/agri/android/app/src/main/AndroidManifest.xml:83:13-58
-114            android:value="AIzaSyDsk_2-kzw3hwmjw-qJLr6tX3MsYDHTrSs" />
+114            android:value="AIzaSyArH8FDXOeJnIHoUu0bszjPP7_x1G3u8WQ" />
 114-->/Users/developer/Workspace/imove-project/kun/agri/android/app/src/main/AndroidManifest.xml:84:13-68
 115
 116        <!--

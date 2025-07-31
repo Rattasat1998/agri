@@ -264,10 +264,6 @@ uses-permission#android.permission.ACCESS_COARSE_LOCATION
 ADDED from /Users/developer/Workspace/imove-project/kun/agri/android/app/src/main/AndroidManifest.xml:22:5-81
 	android:name
 		ADDED from /Users/developer/Workspace/imove-project/kun/agri/android/app/src/main/AndroidManifest.xml:22:22-78
-uses-permission#android.permission.ACCESS_BACKGROUND_LOCATION
-ADDED from /Users/developer/Workspace/imove-project/kun/agri/android/app/src/main/AndroidManifest.xml:23:5-85
-	android:name
-		ADDED from /Users/developer/Workspace/imove-project/kun/agri/android/app/src/main/AndroidManifest.xml:23:22-82
 queries
 ADDED from /Users/developer/Workspace/imove-project/kun/agri/android/app/src/main/AndroidManifest.xml:25:5-40:15
 MERGED from [com.google.android.gms:play-services-maps:18.2.0] /Users/developer/.gradle/caches/transforms-3/281b29283825a4d3b8601fc83b5af6c7/transformed/jetified-play-services-maps-18.2.0/AndroidManifest.xml:30:5-34:15

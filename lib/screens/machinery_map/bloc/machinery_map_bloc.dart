@@ -29,7 +29,7 @@ class MachineryMapBloc extends Bloc<MachineryMapEvent, MachineryMapState> {
     try {
       emit(MachineryMapLoading());
       final MachineryMapModel machineryMap = await _machineryMapRepository.getMachineryMap();
-      Position position = await locationPermissionStatus();
+      // Position position = await locationPermissionStatus();
       const lat = 16.0409525;
       const lng = 103.6683498;
       final List<MachineList> machineListMap = machineryMap.data!.machineListMaps;
@@ -97,10 +97,10 @@ class MachineryMapBloc extends Bloc<MachineryMapEvent, MachineryMapState> {
                           numberFields: machine.numberFields!,
                           onPressed: () {
                             context.read<MachineryBloc>().add(
-                              MachineryGetMachineryByIdEvent(
-                                id: machine.machineId.toString(),
-                              ),
-                            );
+                                  MachineryGetMachineryByIdEvent(
+                                    id: machine.machineId.toString(),
+                                  ),
+                                );
                             Navigator.pushNamed(
                               context,
                               AppRoutes.machineryDetailPage,
@@ -123,28 +123,43 @@ class MachineryMapBloc extends Bloc<MachineryMapEvent, MachineryMapState> {
     return markers;
   }
 
+  // final permissionLocation = Permission.location;
 
-  final permissionLocation = Permission.location;
   Future<Position> locationPermissionStatus() async {
-    // Request location permission
-    final status = await permissionLocation.request();
-    await [Permission.locationAlways, Permission.locationWhenInUse].request();
+    // _determinePosition();
+    // ขอ permission ทั้ง 3 แบบ (ขึ้นอยู่กับ platform)
+    final permissions = await [
+      Permission.location,
+      Permission.locationWhenInUse,
+      Permission.locationAlways,
+    ].request();
+
+    // ตรวจ status หลักจาก Permission.location
+    final status = permissions[Permission.location];
+    // ตรวจ status หลักจาก Permission.locationWhenInUse
+    // final statusWhenInUse = permissions[Permission.locationWhenInUse];
+    print('Location permission status: $status');
+
     if (status == PermissionStatus.granted) {
-      // Get the current location
+      // ได้สิทธิ์ → เรียกตำแหน่งได้เลย
       final position = await Geolocator.getCurrentPosition();
       print('Latitude: ${position.latitude}, Longitude: ${position.longitude}');
       return position;
+    } else if (status == PermissionStatus.permanentlyDenied) {
+      // ผู้ใช้เลือก "Don't ask again" → แนะนำให้เปิดผ่าน Settings
+      print('Permission permanently denied. Suggest going to settings.');
+      openAppSettings(); // เปิดการตั้งค่าให้ผู้ใช้
+      return Future.error('Location permission permanently denied.');
+    } else if (status == PermissionStatus.denied) {
+      // ยังไม่ได้ให้สิทธิ์
+      print('Location permission denied by user.');
+      return Future.error('Location permission denied.');
     } else {
-      // If the user denied the permission
-
-      // Permission denied
-      print('Location permission denied.');
-      Position position = await _determinePosition();
-      return position;
-      //  return Future.error('Location permission denied.');
+      // อื่น ๆ เช่น restricted (iOS)
+      print('Location permission status is $status which is not handled.');
+      return Future.error('Unhandled permission status: $status');
     }
   }
-
 
   Future<Position> _determinePosition() async {
     bool serviceEnabled;

@@ -43,6 +43,8 @@
         <string>อนุญาติให้ THAITRACTORBOOKING ใช้ตำแหน่งของคุณเพื่อค้นหาผู้ให้บริการรถไถหรือแปลงเกษตรใกล้เคียง และแสดงระยะทางจากตำแหน่งของคุณเพื่อความสะดวกในการจองบริการ</string>
         <key>NSCameraUsageDescription</key>
         <string>อนุญาติให้ THAITRACTORBOOKING ใช้กล้องเพื่อให้คุณสามารถถ่ายรูปสินค้าและอัปโหลดเข้าสู่ระบบ</string>
+        <key>NSLocationUsageDescription</key>
+        <string>อนุญาติให้ THAITRACTORBOOKING เข้าถึงตำแหน่งของคุณเพื่อค้นหาผู้ให้บริการรถไถหรือแปลงเกษตรใกล้เคียง และแสดงระยะทางจากตำแหน่งของคุณเพื่อความสะดวกในการจองบริการ</string>
         <key>NSMicrophoneUsageDescription</key>
         <string>อนุญาติให้ THAITRACTORBOOKING เข้าถึงการแจ้งเตือนด้วยเสียง</string>
 		<key>UIApplicationSupportsIndirectInputEvents</key>
